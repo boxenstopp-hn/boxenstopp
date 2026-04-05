@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boxenstopp Nordheim | Kfz-Meisterbetrieb</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root {
+--primary-red: #cc0000;
+--dark-grey: #1a1a1a;
+--light-bg: #f4f7f9;
+--text-color: #333;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light-bg); color: var(--text-color); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* HEADER & LOGO */
+.top-nav { background: #fff; padding: 20px 0; border-bottom: 1px solid #ddd; }
+.flex-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+
+.logo-box { text-decoration: none; display: flex; flex-direction: column; }
+.logo-main { font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; line-height: 1; }
+.black { color: var(--dark-grey); }
+.red { color: var(--primary-red); }
+.logo-sub { font-size: 0.9rem; color: #666; text-transform: uppercase; margin-top: 5px; }
+
+/* SUCHE */
+.search-area { flex: 1; margin: 0 40px; position: relative; max-width: 400px; }
+.search-area input { width: 100%; padding: 12px 20px; border: 2px solid #ddd; border-radius: 50px; outline: none; }
+.search-area button { position: absolute; right: 5px; top: 5px; bottom: 5px; background: var(--primary-red); color: white; border: none; padding: 0 20px; border-radius: 50px; cursor: pointer; }
+
+/* NAVIGATION */
+nav { background: var(--dark-grey); color: white; position: sticky; top: 0; z-index: 1000; }
+.main-nav { list-style: none; display: flex; margin: 0; padding: 0; justify-content: center; }
+.main-nav li a { color: white; text-decoration: none; padding: 20px; display: block; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+.main-nav li a:hover { background: var(--primary-red); }
+
+/* SEKTIONEN */
+.section { padding: 60px 0; border-bottom: 1px solid #eee; }
+.section-title { border-left: 6px solid var(--primary-red); padding-left: 15px; margin-bottom: 30px; text-transform: uppercase; }
+
+/* ÜBER UNS & PORSCHE */
+.intro-flex { display: flex; gap: 40px; align-items: flex-start; }
+.intro-text { flex: 2; }
+.porsche-quote { flex: 1; background: white; padding: 25px; border-radius: 10px; border-left: 4px solid var(--primary-red); font-style: italic; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+/* DIENSTLEISTUNGEN KACHELN */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.service-item {
+background: white; padding: 25px; border-radius: 10px; border: 1px solid #ddd;
+text-align: center; position: relative; transition: 0.3s; z-index: 1;
+}
+.service-item i { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px; }
+.service-item h3 { margin: 10px 0; font-size: 1.1rem; }
+
+/* Das Aufplopp-Fenster Fix (Z-Index und Positionierung) */
+.service-item .details {
+display: none; position: absolute; bottom: 105%; left: 0; width: 100%;
+background: var(--dark-grey); color: white; padding: 18px; border-radius: 10px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.3); font-size: 0.9rem; z-index: 999;
+box-sizing: border-box; text-align: left;
+}
+/* Kleiner Pfeil nach unten am Fenster */
+.service-item .details::after {
+content: ''; position: absolute; top: 100%; left: 50%; margin-left: -10px;
+border-width: 10px; border-style: solid; border-color: var(--dark-grey) transparent transparent transparent;
+}
+
+.service-item:hover { border-color: var(--primary-red); transform: translateY(-5px); z-index: 50; }
+.service-item:hover .details { display: block; }
+
+/* KONTAKT & MAP */
+.contact-flex { display: flex; gap: 30px; flex-wrap: wrap; }
+.map-box { flex: 2; min-width: 300px; height: 400px; background: #ddd; border-radius: 10px; overflow: hidden; }
+.contact-info { flex: 1; min-width: 250px; background: white; padding: 30px; border-radius: 10px; }
+.btn-mail { display: inline-block; background: var(--primary-red); color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
+
+/* RECHTLICHES */
+.legal-area { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; font-size: 0.85rem; }
+.legal-box { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+
+footer { background: var(--dark-grey); color: #888; padding: 30px 0; text-align: center; }
+
+@media (max-width: 768px) { .intro-flex, .contact-flex, .legal-area { flex-direction: column; grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="top-nav">
+<div class="container flex-header">
+<a href="#" class="logo-box">
+<div class="logo-main"><span class="black">BOXEN</span><span class="red">STOPP</span></div>
+<div class="logo-sub">Reifen / Felgen / KFZ Service</div>
+</a>
+
+<div class="search-area">
+<input type="text" placeholder="Service suchen...">
+<button><i class="fas fa-search"></i></button>
+</div>
+
+<div style="text-align: right;">
+<strong><i class="fas fa-phone-alt"></i> 07133 / 922 05 52</strong><br>
+<small>Schafhohle 2<br>74226 Nordheim</small>
+</div>
+</div>
+</header>
+
+<nav>
+<div class="container">
+<ul class="main-nav">
+<li><a href="#">Übersicht</a></li>
+<li><a href="#uber-uns">Über Uns</a></li>
+<li><a href="#werkstatt">Werkstatt-Service</a></li>
+<li><a href="#anfahrt">Anfahrt</a></li>
+<li><a href="#impressum">Rechtliches</a></li>
+</ul>
+</div>
+</nav>
+
+<main class="container">
+
+<section id="uber-uns" class="section">
+<h2 class="section-title">Über Uns</h2>
+<div class="intro-flex">
+<div class="intro-text">
+<p style="font-size: 1.2rem; font-weight: 500;">Seit 2008 bieten wir Ihnen professionelle Arbeit an Ihrem Fahrzeug mit Leidenschaft und Erfahrung. Wir stehen für Qualität und ehrliches Handwerk.</p>
+<p>Als inhabergeführter Meisterbetrieb legen wir Wert auf Transparenz und eine persönliche Beratung, damit Sie immer sicher auf der Straße unterwegs sind.</p>
+</div>
+<div class="porsche-quote">
+"Am Anfang schaute ich mich um, konnte aber den Wagen, von dem ich träumte, nicht finden. Also beschloss ich, ihn mir selbst zu bauen."
+<br><strong>– Ferdinand Porsche</strong>
+</div>
+</div>
+</section>
+
+<section id="werkstatt" class="section">
+<h2 class="section-title">Werkstatt-Service</h2>
+<div class="services-grid">
+
+<div class="service-item">
+<div class="details">Vollständige Durchsicht nach Herstellervorgaben. Wir prüfen alle sicherheitsrelevanten Bauteile und sorgen für den Erhalt Ihrer Fahrzeuggarantie inklusive digitalem Serviceheft-Eintrag.</div>
+<i class="fas fa-clipboard-check"></i>
+<h3>Inspektion & Wartung</h3>
+</div>
+
+<div class="service-item">
+<div class="details">Professionelle Montage, präzises Auswuchten und Reifenwechsel. Wir beraten Sie beim Kauf neuer Reifen/Felgen und bieten auf Wunsch eine fachgerechte Einlagerung an.</div>
+<i class="fas fa-compact-disc"></i>
+<h3>Reifenservice</h3>
+</div>
+
+<div class="service-item">
+<div class="details">Batterietest mit Protokoll. Wir tauschen Ihre alte Batterie gegen hochwertige Marken-Akkus und übernehmen das notwendige Anlernen im Fahrzeug-Energiemanagement.</div>
+<i class="fas fa-car-battery"></i>
+<h3>Batterieservice</h3>
+</div>
+
+<div class="service-item">
+<div class="details">Wartung und Befüllung von Klimaanlagen mit R134a oder dem neuen Kältemittel R1234yf. Inklusive Dichtigkeitsprüfung und Desinfektion für frische, gesunde Luft im Innenraum.</div>
+<i class="fas fa-snowflake"></i>
+<h3>Klimaservice</h3>
+</div>
+
+<div class="service-item">
+<div class="details">Wir finden den Fehler! Mit modernsten Diagnose-Systemen lesen wir Fehlerspeicher aus, prüfen die Bordelektronik und beheben Störungen effizient und zielgenau.</div>
+<i class="fas fa-microchip"></i>
+<h3>Fehlerdiagnose</h3>
+</div>
+
+<div class="service-item">
+<div class="details">Vorbeugende Reinigung und kompletter Öltausch des Automatikgetriebes. Dies verhindert Schaltruckeln, senkt den Kraftstoffverbrauch und schützt vor teuren Getriebeschäden.</div>
+<i class="fas fa-oil-can"></i>
+<h3>Getriebeölspülung</h3>
+</div>
+
+<div class="service-item">
+<div class="details">Ob Bremsen, Fahrwerk, Auspuff oder Motorinstandsetzung – wir führen Reparaturen an allen Marken fachgerecht durch. Wir verwenden ausschließlich Ersatzteile in Erstausrüsterqualität.</div>
+<i class="fas fa-tools"></i>
+<h3>Reparaturen aller Art</h3>
+</div>
+
+<div class="service-item">
+<div class="details">Präzise computergestützte Vermessung der Achsgeometrie. Wir stellen die Spur perfekt ein, um ungleichmäßigen Reifenverschleiß zu stoppen und die Fahrsicherheit zu erhöhen.</div>
+<i class="fas fa-align-center"></i>
+<h3>Achsvermessung</h3>
+</div>
+
+</div>
+</section>
+
+<section id="anfahrt" class="section">
+<h2 class="section-title">Anfahrt & Kontakt</h2>
+<div class="contact-flex">
+<div class="map-box">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2613.627773229672!2d9.1130635!3d49.112773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797825a0753051d%3A0xc3042b322a45050!2sSchafhohle%202%2C%2074226%20Nordheim!5e0!3m2!1sde!2sde!4v1715421234567!5m2!1sde!2sde" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+<div class="contact-info" id="kontakt">
+<h3>Boxenstopp Nordheim</h3>
+<p>Schafhohle 2<br>74226 Nordheim</p>
+<p><strong>Tel:</strong> 07133 / 922 05 52</p>
+<a href="mailto:info@boxenstopp-nordheim.de" class="btn-mail">Jetzt E-Mail schreiben</a>
+</div>
+</div>
+</section>
+
+<section id="impressum" class="section">
+<h2 class="section-title">Impressum & Datenschutz</h2>
+<div class="legal-area">
+<div class="legal-box">
+<h3>Impressum</h3>
+<p>Boxenstopp Nordheim<br>Inhaber: Ercan Kücükcetin<br>Schafhohle 2 74226 Nordheim</p>
+<p>Handwerkskammer Heilbronn<br>Betriebsnummer: [Deine Nummer]</p>
+</div>
+<div class="legal-box">
+<h3>Datenschutz</h3>
+<p>Wir erheben Daten nur bei direktem Kontakt (E-Mail). Diese werden streng vertraulich behandelt und nicht an Dritte weitergegeben. Sie haben jederzeit Recht auf Auskunft und Löschung.</p>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 Boxenstopp Nordheim</p>
+</footer>
+
+</body>
+</html>
