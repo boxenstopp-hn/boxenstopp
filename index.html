@@ -9,11 +9,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
 :root {
-    --primary-red: #cc0000;
-    --dark-grey: #1a1a1a;
-    --light-bg: #f4f7f9;
-    --text-color: #333;
-    --whatsapp-green: #25d366;
+   --primary-red: #cc0000;
+   --dark-grey: #1a1a1a;
+   --light-bg: #f4f7f9;
+   --text-color: #333;
+   --whatsapp-green: #25d366;
 }
 
 html { scroll-behavior: smooth; }
@@ -24,27 +24,27 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color:
 .top-nav { background: #fff; padding: 15px 0; border-bottom: 1px solid #ddd; }
 .flex-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
 
-.logo-text { 
-    text-decoration: none; 
-    font-size: 2.5rem; 
-    font-weight: 900; 
-    font-style: italic; 
-    text-transform: uppercase; 
-    letter-spacing: -1px;
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
+.logo-text {
+   text-decoration: none;
+   font-size: 2.5rem;
+   font-weight: 900;
+   font-style: italic;
+   text-transform: uppercase;
+   letter-spacing: -1px;
+   display: flex;
+   flex-direction: column;
+   line-height: 1;
 }
 .logo-main { display: flex; align-items: center; }
 .logo-boxen { color: #000000; } /* Schwarz wie gewünscht */
 .logo-stopp { color: var(--primary-red); }
-.logo-sub { 
-    font-size: 1rem; 
-    font-weight: 600; 
-    font-style: normal; 
-    color: #666; 
-    letter-spacing: 1px;
-    margin-top: 5px;
+.logo-sub {
+   font-size: 1rem;
+   font-weight: 600;
+   font-style: normal;
+   color: #666;
+   letter-spacing: 1px;
+   margin-top: 5px;
 }
 
 .header-info { text-align: right; font-size: 1rem; min-width: 220px; line-height: 1.5; }
@@ -58,14 +58,48 @@ nav { background: var(--dark-grey); color: white; position: sticky; top: 0; z-in
 
 /* WHATSAPP FLOAT */
 .wa-float {
-    position: fixed; bottom: 30px; right: 30px;
-    background: var(--whatsapp-green); color: white;
-    width: 60px; height: 60px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-    z-index: 10001; transition: 0.3s;
+   position: fixed; bottom: 30px; right: 30px;
+   background: var(--whatsapp-green); color: white;
+   width: 60px; height: 60px; border-radius: 50%;
+   display: flex; align-items: center; justify-content: center;
+   font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+   z-index: 10001; transition: 0.3s;
 }
 .wa-float:hover { transform: scale(1.1); color: white; }
+
+/* COOKIE BANNER */
+#cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(26, 26, 26, 0.95);
+    color: white;
+    padding: 20px 0;
+    z-index: 20000;
+    display: none; /* Wird per JS eingeblendet */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+.cookie-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.cookie-text { font-size: 0.9rem; flex: 1; min-width: 280px; }
+.cookie-btn {
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.cookie-btn:hover { background: #b30000; }
 
 /* SEKTIONEN */
 .section { padding: 60px 0; border-bottom: 1px solid #eee; }
@@ -77,8 +111,8 @@ nav { background: var(--dark-grey); color: white; position: sticky; top: 0; z-in
 /* LEISTUNGEN KACHELN */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
 .service-item {
-    background: white; padding: 35px 25px; border-radius: 12px; border: 1px solid #eee;
-    text-align: center; position: relative; transition: all 0.3s ease;
+   background: white; padding: 35px 25px; border-radius: 12px; border: 1px solid #eee;
+   text-align: center; position: relative; transition: all 0.3s ease;
 }
 .service-item i { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px; display: block; }
 .service-item h3 { margin: 15px 0; font-size: 1.25rem; color: var(--dark-grey); text-transform: uppercase; border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; }
@@ -97,42 +131,51 @@ footer { background: var(--dark-grey); color: #777; padding: 40px 0; text-align:
 .legal-box { background: #fff; padding: 35px; border-radius: 12px; border: 1px solid #eee; margin-top: 30px; text-align: left; }
 
 @media (max-width: 768px) {
-    .flex-header { justify-content: center; text-align: center; flex-direction: column; }
-    .header-info { text-align: center; width: 100%; margin-top: 15px; }
-    .logo-text { font-size: 2rem; align-items: center; }
+   .flex-header { justify-content: center; text-align: center; flex-direction: column; }
+   .header-info { text-align: center; width: 100%; margin-top: 15px; }
+   .logo-text { font-size: 2rem; align-items: center; }
 }
 </style>
 </head>
 <body>
 
+<div id="cookie-banner">
+    <div class="container cookie-content">
+        <div class="cookie-text">
+            Wir verwenden Cookies, um Ihnen das beste Erlebnis auf unserer Website zu bieten. Durch die weitere Nutzung der Website stimmen Sie der Verwendung von Cookies zu.
+        </div>
+        <button class="cookie-btn" onclick="acceptCookies()">Akzeptieren</button>
+    </div>
+</div>
+
 <a href="https://wa.me/4916092784497" class="wa-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
+   <i class="fab fa-whatsapp"></i>
 </a>
 
 <header class="top-nav">
 <div class="container flex-header">
-    <a href="#" class="logo-text">
-        <div class="logo-main">
-            <span class="logo-boxen">Boxen</span><span class="logo-stopp">stopp</span>
-        </div>
-        <div class="logo-sub">Reifen / Felgen / KFZ Service</div>
-    </a>
-    <div class="header-info">
-        <i class="fas fa-phone-alt"></i> <a href="tel:071339220552">07133 / 922 0552</a><br>
-        <i class="fas fa-map-marker-alt" style="color:var(--primary-red);"></i> Schafhohle 2 74226 Nordheim<br>
-        <small><i class="fas fa-clock"></i> Mo-Fr: 09:00 - 18:00 Uhr</small>
-    </div>
+   <a href="#" class="logo-text">
+       <div class="logo-main">
+           <span class="logo-boxen">Boxen</span><span class="logo-stopp">stopp</span>
+       </div>
+       <div class="logo-sub">Reifen / Felgen / KFZ Service</div>
+   </a>
+   <div class="header-info">
+       <i class="fas fa-phone-alt"></i> <a href="tel:071339220552">07133 / 922 0552</a><br>
+       <i class="fas fa-map-marker-alt" style="color:var(--primary-red);"></i> Schafhohle 2 74226 Nordheim<br>
+       <small><i class="fas fa-clock"></i> Mo-Fr: 09:00 - 18:00 Uhr</small>
+   </div>
 </div>
 </header>
 
 <nav>
 <div class="container">
 <ul class="main-nav">
-    <li><a href="#">Startseite</a></li>
-    <li><a href="#uber-uns">Über Uns</a></li>
-    <li><a href="#service">Leistungen</a></li>
-    <li><a href="#anfahrt">Anfahrt</a></li>
-    <li><a href="#impressum">Impressum</a></li>
+   <li><a href="#">Startseite</a></li>
+   <li><a href="#uber-uns">Über Uns</a></li>
+   <li><a href="#service">Leistungen</a></li>
+   <li><a href="#anfahrt">Anfahrt</a></li>
+   <li><a href="#impressum">Impressum</a></li>
 </ul>
 </div>
 </nav>
@@ -140,122 +183,136 @@ footer { background: var(--dark-grey); color: #777; padding: 40px 0; text-align:
 <main class="container">
 
 <section id="uber-uns" class="section">
-    <h2 class="section-title">Willkommen beim Boxenstopp</h2>
-    <div class="intro-text">
-        <p><strong>Seit 2008</strong> bieten wir Ihnen in Nordheim erstklassigen Service für Ihr Fahrzeug. Mit Leidenschaft, Erfahrung und modernster Technik kümmern wir uns um die Anliegen unserer Kunden.</p>
-        <p>Als spezialisierter KFZ-Servicebetrieb stehen wir für absolute Zuverlässigkeit, ehrliches Handwerk und transparente Beratung. Wir sorgen dafür, dass Sie stets sicher und sorgenfrei unterwegs sind.</p>
-    </div>
+   <h2 class="section-title">Willkommen beim Boxenstopp</h2>
+   <div class="intro-text">
+       <p><strong>Seit 2008</strong> bieten wir Ihnen in Nordheim erstklassigen Service für Ihr Fahrzeug. Mit Leidenschaft, Erfahrung und modernster Technik kümmern wir uns um die Anliegen unserer Kunden.</p>
+       <p>Als spezialisierter KFZ-Servicebetrieb stehen wir für absolute Zuverlässigkeit, ehrliches Handwerk und transparente Beratung. Wir sorgen dafür, dass Sie stets sicher und sorgenfrei unterwegs sind.</p>
+   </div>
 </section>
 
 <section id="service" class="section">
-    <h2 class="section-title">Unsere Leistungen</h2>
-    <div class="services-grid">
+   <h2 class="section-title">Unsere Leistungen</h2>
+   <div class="services-grid">
 
-        <div class="service-item">
-            <i class="fas fa-clipboard-check"></i>
-            <h3>Inspektion & Wartung</h3>
-            <p>Umfassende Durchsicht nach Herstellervorgaben für alle Marken. Inklusive Ölwechsel, Filtertausch und Eintrag in Ihr Serviceheft zur Werterhaltung Ihres Fahrzeugs.</p>
-        </div>
+       <div class="service-item">
+           <i class="fas fa-clipboard-check"></i>
+           <h3>Inspektion & Wartung</h3>
+           <p>Umfassende Durchsicht nach Herstellervorgaben für alle Marken. Inklusive Ölwechsel, Filtertausch und Eintrag in Ihr Serviceheft zur Werterhaltung Ihres Fahrzeugs.</p>
+       </div>
 
-        <div class="service-item">
-            <i class="fas fa-compact-disc"></i>
-            <h3>Reifen & Felgen</h3>
-            <p>Fachgerechte Reifenmontage, präzises Auswuchten und Räderwechsel. Auf Wunsch bieten wir Ihnen die bequeme Saisoneinlagerung Ihrer Räder bei uns vor Ort an.</p>
-        </div>
+       <div class="service-item">
+           <i class="fas fa-compact-disc"></i>
+           <h3>Reifen & Felgen</h3>
+           <p>Fachgerechte Reifenmontage, präzises Auswuchten und Räderwechsel. Auf Wunsch bieten wir Ihnen die bequeme Saisoneinlagerung Ihrer Räder bei uns vor Ort an.</p>
+       </div>
 
-        <div class="service-item">
-            <i class="fas fa-search"></i>
-            <h3>TÜV-Vorbereitung</h3>
-            <p>Wir bereiten Ihr Fahrzeug optimal auf die Hauptuntersuchung (HU/AU) vor. Sollten Mängel vorliegen, beseitigen wir diese fachgerecht für eine problemlose Abnahme.</p>
-        </div>
+       <div class="service-item">
+           <i class="fas fa-search"></i>
+           <h3>TÜV-Vorbereitung</h3>
+           <p>Wir bereiten Ihr Fahrzeug optimal auf die Hauptuntersuchung (HU/AU) vor. Sollten Mängel vorliegen, beseitigen wir diese fachgerecht für eine problemlose Abnahme.</p>
+       </div>
 
-        <div class="service-item">
-            <i class="fas fa-snowflake"></i>
-            <h3>Klimaservice</h3>
-            <p>Professionelle Wartung und Befüllung von Klimaanlagen. Wir unterstützen sowohl das bewährte Kältemittel <strong>R134a</strong> als auch das moderne <strong>R1234yf</strong>.</p>
-        </div>
+       <div class="service-item">
+           <i class="fas fa-snowflake"></i>
+           <h3>Klimaservice</h3>
+           <p>Professionelle Wartung und Befüllung von Klimaanlagen. Wir unterstützen sowohl das bewährte Kältemittel <strong>R134a</strong> als auch das moderne <strong>R1234yf</strong>.</p>
+       </div>
 
-        <div class="service-item">
-            <i class="fas fa-microchip"></i>
-            <h3>Fehlerdiagnose</h3>
-            <p>Mit modernster Computer-Diagnose lesen wir den Fehlerspeicher aus und analysieren die Bordelektronik, um technische Probleme schnell und präzise zu lösen.</p>
-        </div>
+       <div class="service-item">
+           <i class="fas fa-microchip"></i>
+           <h3>Fehlerdiagnose</h3>
+           <p>Mit modernster Computer-Diagnose lesen wir den Fehlerspeicher aus und analysieren die Bordelektronik, um technische Probleme schnell und präzise zu lösen.</p>
+       </div>
 
-        <div class="service-item">
-            <i class="fas fa-oil-can"></i>
-            <h3>Getriebeölspülung</h3>
-            <p>Effektive Reinigung und kompletter Austausch des Öls in Automatikgetrieben. Verbessert die Schaltvorgänge deutlich und beugt teuren Defekten vor.</p>
-        </div>
+       <div class="service-item">
+           <i class="fas fa-oil-can"></i>
+           <h3>Getriebeölspülung</h3>
+           <p>Effektive Reinigung und kompletter Austausch des Öls in Automatikgetrieben. Verbessert die Schaltvorgänge deutlich und beugt teuren Defekten vor.</p>
+       </div>
 
-        <div class="service-item">
-            <i class="fas fa-align-center"></i>
-            <h3>Achsvermessung</h3>
-            <p>Exakte Vermessung der Achsgeometrie mittels modernster Technik. Wir stellen die Spur perfekt ein, um Fahrstabilität zu erhöhen und Reifenverschleiß zu senken.</p>
-        </div>
+       <div class="service-item">
+           <i class="fas fa-align-center"></i>
+           <h3>Achsvermessung</h3>
+           <p>Exakte Vermessung der Achsgeometrie mittels modernster Technik. Wir stellen die Spur perfekt ein, um Fahrstabilität zu erhöhen und Reifenverschleiß zu senken.</p>
+       </div>
 
-        <div class="service-item">
-            <i class="fas fa-filter"></i>
-            <h3>DPF-Reinigung</h3>
-            <p>Spezialreinigung von Dieselpartikelfiltern (DPF) zur Entfernung von Ruß- und Ascheablagerungen. Eine kostengünstige Alternative zum teuren Neukauf.</p>
-        </div>
+       <div class="service-item">
+           <i class="fas fa-filter"></i>
+           <h3>DPF-Reinigung</h3>
+           <p>Spezialreinigung von Dieselpartikelfiltern (DPF) zur Entfernung von Ruß- und Ascheablagerungen. Eine kostengünstige Alternative zum teuren Neukauf.</p>
+       </div>
 
-        <div class="service-item">
-            <i class="fas fa-tools"></i>
-            <h3>KFZ-Reparaturen</h3>
-            <p>Allgemeine Instandsetzungsarbeiten an Motor, Fahrwerk oder Auspuff für alle Fahrzeugmarken. Wir verbauen ausschließlich Ersatzteile in Erstausrüsterqualität.</p>
-        </div>
+       <div class="service-item">
+           <i class="fas fa-tools"></i>
+           <h3>KFZ-Reparaturen</h3>
+           <p>Allgemeine Instandsetzungsarbeiten an Motor, Fahrwerk oder Auspuff für alle Fahrzeugmarken. Wir verbauen ausschließlich Ersatzteile in Erstausrüsterqualität.</p>
+       </div>
 
-    </div>
+   </div>
 </section>
 
 <section id="anfahrt" class="section">
-    <h2 class="section-title">Anfahrt & Kontakt</h2>
-    <div class="contact-flex">
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2618.337583685368!2d9.123512876882255!3d49.10018598370932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47982ca0684f09d5%3A0xf6398f5a6b0c608!2sSchafhohle%202%2C%2074226%20Nordheim!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-        </div>
-        <div class="contact-info">
-            <h3>So erreichen Sie uns</h3>
-            <p><strong>Boxenstopp Nordheim</strong><br>Schafhohle 2<br>74226 Nordheim</p>
-            <p><strong>Öffnungszeiten:</strong><br>Montag bis Freitag: 09:00 - 18:00 Uhr<br>Samstag: Nach Vereinbarung</p>
-            <p><strong>Telefon:</strong><br><a href="tel:071339220552" style="color:var(--primary-red); text-decoration:none; font-weight:bold;">07133 / 922 0552</a></p>
-            <a href="mailto:info@boxenstopp-hn.de" class="btn-mail">E-Mail schreiben</a>
-        </div>
-    </div>
+   <h2 class="section-title">Anfahrt & Kontakt</h2>
+   <div class="contact-flex">
+       <div class="map-container">
+           <iframe
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2618.337583685368!2d9.123512876882255!3d49.10018598370932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47982ca0684f09d5%3A0xf6398f5a6b0c608!2sSchafhohle%202%2C%2074226%20Nordheim!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
+               width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+           </iframe>
+       </div>
+       <div class="contact-info">
+           <h3>So erreichen Sie uns</h3>
+           <p><strong>Boxenstopp Nordheim</strong><br>Schafhohle 2<br>74226 Nordheim</p>
+           <p><strong>Öffnungszeiten:</strong><br>Montag bis Freitag: 09:00 - 18:00 Uhr<br>Samstag: Nach Vereinbarung</p>
+           <p><strong>Telefon:</strong><br><a href="tel:071339220552" style="color:var(--primary-red); text-decoration:none; font-weight:bold;">07133 / 922 0552</a></p>
+           <a href="mailto:info@boxenstopp-hn.de" class="btn-mail">E-Mail schreiben</a>
+       </div>
+   </div>
 </section>
 
 <section id="impressum" class="section">
-    <div class="legal-box">
-        <h2 style="margin-top:0;">Impressum</h2>
-        <p><strong>Angaben gemäß § 5 DDG:</strong><br>
-        Boxenstopp Nordheim<br>
-        Ercan Kücükcetin<br>
-        Schafhohle 2 74226 Nordheim</p>
+   <div class="legal-box">
+       <h2 style="margin-top:0;">Impressum</h2>
+       <p><strong>Angaben gemäß § 5 DDG:</strong><br>
+       Boxenstopp Nordheim<br>
+       Ercan Kücükcetin<br>
+       Schafhohle 2 74226 Nordheim</p>
 
-        <p><strong>Kontakt:</strong><br>
-        Telefon: 07133 / 922 0552<br>
-        E-Mail: info@boxenstopp-hn.de</p>
+       <p><strong>Kontakt:</strong><br>
+       Telefon: 07133 / 922 0552<br>
+       E-Mail: info@boxenstopp-hn.de</p>
 
-        <p><strong>Umsatzsteuer-ID:</strong><br>
-        USt-IdNr. gemäß § 27 a UStG: DE239643088</p>
+       <p><strong>Umsatzsteuer-ID:</strong><br>
+       USt-IdNr. gemäß § 27 a UStG: DE239643088</p>
 
-        <hr style="margin:25px 0; border:0; border-top:1px solid #eee;">
-        
-        <h3>Datenschutz</h3>
-        <p>Wir nehmen den Schutz Ihrer Daten ernst. Auf dieser Webseite werden keine Tracking-Cookies verwendet. Die Google Maps Karte dient der Standortanzeige; dabei wird technisch bedingt Ihre IP-Adresse an Google übertragen.</p>
-    </div>
+       <hr style="margin:25px 0; border:0; border-top:1px solid #eee;">
+
+       <h3>Datenschutz</h3>
+       <p>Wir nehmen den Schutz Ihrer Daten ernst. Auf dieser Webseite werden keine Tracking-Cookies verwendet. Die Google Maps Karte dient der Standortanzeige; dabei wird technisch bedingt Ihre IP-Adresse an Google übertragen.</p>
+   </div>
 </section>
 
 </main>
 
 <footer>
-    <div class="container">
-        <p>© 2026 Boxenstopp Nordheim | Schafhohle 2 74226 Nordheim</p>
-    </div>
+   <div class="container">
+       <p>© 2026 Boxenstopp Nordheim | Schafhohle 2 74226 Nordheim</p>
+   </div>
 </footer>
+
+<script>
+    // Cookie Banner Logik
+    window.onload = function() {
+        if (!localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+    };
+
+    function acceptCookies() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
