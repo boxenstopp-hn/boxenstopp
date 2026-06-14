@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Boxenstopp Nordheim | Getriebeölspülung, DPF-Reinigung & Klimaservice Heilbronn</title>
+<title>Boxenstopp Nordheim | Getriebeölspülung, DPF-Reinigung, Klimaservice & Reifenservice Heilbronn</title>
 
-<meta name="description" content="Boxenstopp Nordheim bei Heilbronn: Getriebeölspülung, DPF-Reinigung, Klimaservice R134a/R1234yf, Fehlerdiagnose und Reifenservice. Erfahrung seit 2008.">
-<meta name="keywords" content="Getriebeölspülung Heilbronn, DPF Reinigung Heilbronn, Klimaservice Heilbronn, Fehlerdiagnose Heilbronn, Werkstatt Nordheim, Boxenstopp Nordheim">
+<meta name="description" content="Boxenstopp Nordheim bei Heilbronn: Getriebeölspülung, DPF-Reinigung, Klimaservice R134a/R1234yf, Achsvermessung, Diagnose, Reifenservice, Ölwechsel und Ozonbehandlung. Erfahrung seit 2008.">
+<meta name="keywords" content="Getriebeölspülung Heilbronn, DPF Reinigung Heilbronn, Klimaservice Heilbronn, Achsvermessung Heilbronn, Reifenservice Heilbronn, Ölwechsel Heilbronn, Diagnose Heilbronn, Ozonbehandlung Heilbronn, Werkstatt Nordheim, Boxenstopp Nordheim">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -71,11 +71,23 @@ body {
   align-items: center;
   gap: 15px;
   white-space: nowrap;
+  flex-wrap: wrap;
 }
 
 .logo-sub span {
   color: var(--primary-red);
   font-weight: 900;
+}
+
+.header-contact {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.header-contact a {
+  color: var(--primary-red);
+  text-decoration: none;
 }
 
 nav {
@@ -125,7 +137,7 @@ nav {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
@@ -145,7 +157,7 @@ nav {
 }
 
 .service-card i {
-  font-size: 3.5rem;
+  font-size: 3.3rem;
   color: var(--primary-red);
   margin-bottom: 20px;
 }
@@ -154,7 +166,7 @@ nav {
   text-transform: uppercase;
   font-weight: 800;
   margin-bottom: 15px;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
 }
 
 .service-card p {
@@ -175,6 +187,15 @@ nav {
 
 .service-btn:hover {
   background: #990000;
+}
+
+.info-highlight {
+  background: #fff;
+  border-left: 6px solid var(--primary-red);
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 40px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .reviews-section {
@@ -227,6 +248,29 @@ nav {
   padding: 40px;
   border-radius: 20px;
   border: 1px solid #eee;
+}
+
+.contact-btn {
+  display: block;
+  color: #fff !important;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.contact-btn.mail {
+  background: var(--dark-grey);
+}
+
+.contact-btn.whatsapp {
+  background: var(--whatsapp-green);
+}
+
+.contact-btn.phone {
+  background: var(--primary-red);
 }
 
 .wa-float {
@@ -306,6 +350,26 @@ footer {
   margin: 20px auto 0 auto;
   line-height: 1.6;
 }
+
+@media (max-width: 700px) {
+  .nav-list li a {
+    padding: 14px 14px;
+    font-size: 0.78rem;
+  }
+
+  .section {
+    padding: 55px 0;
+  }
+
+  .service-card {
+    padding: 32px 22px;
+  }
+
+  .header-contact {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
 </style>
 </head>
 
@@ -318,7 +382,7 @@ footer {
   </div>
 </div>
 
-<a href="https://wa.me/4971339220552" class="wa-float" target="_blank">
+<a href="https://wa.me/4971339220552" class="wa-float" target="_blank" aria-label="WhatsApp schreiben">
   <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -330,10 +394,10 @@ footer {
       GETRIEBEÖLSPÜLUNG <span>|</span> DPF-REINIGUNG <span>|</span> KLIMASERVICE <span>|</span> DIAGNOSE
     </div>
 
-    <div style="margin-top: 30px; font-weight: 700; font-size: 1.1rem;">
+    <div class="header-contact">
       <i class="fas fa-map-marker-alt" style="color:var(--primary-red)"></i>
       Schafhohle 2, 74226 Nordheim |
-      <a href="tel:071339220552" style="color:var(--primary-red); text-decoration:none;">07133 / 922 0552</a>
+      <a href="tel:071339220552">07133 / 922 0552</a>
     </div>
   </div>
 </header>
@@ -341,7 +405,7 @@ footer {
 <nav>
   <ul class="nav-list">
     <li><a href="#leistungen">Leistungen</a></li>
-    <li><a href="#über-uns">Über uns</a></li>
+    <li><a href="#ueber-uns">Über uns</a></li>
     <li><a href="#bewertungen">Rezensionen</a></li>
     <li><a href="#kontakt">Anfahrt</a></li>
     <li><a href="#rechtliches">Impressum</a></li>
@@ -350,14 +414,18 @@ footer {
 
 <main class="container">
 
-<section id="über-uns" class="section">
+<section id="ueber-uns" class="section">
   <h2 class="section-title">Über uns</h2>
   <div style="font-size: 1.2rem; max-width: 900px;">
     <p><strong>Boxenstopp Nordheim – spezialisiert auf Service, Diagnose und moderne Fahrzeugtechnik.</strong></p>
     <p>
       Seit 2008 stehen wir in Nordheim bei Heilbronn für ehrlichen Service, moderne Technik und persönliche Betreuung.
       Unser Schwerpunkt liegt auf Arbeiten, bei denen Erfahrung, saubere Diagnose und professionelle Geräte entscheidend sind:
-      Getriebeölspülung, DPF-Reinigung, Klimaservice und Fehlerdiagnose.
+      Getriebeölspülung, DPF-Reinigung, Klimaservice, Achsvermessung, Reifenservice, Fehlerspeicherdiagnose und Fahrzeugwartung.
+    </p>
+    <p>
+      Sie suchen eine zuverlässige Anlaufstelle im Raum Heilbronn, Nordheim, Lauffen, Brackenheim, Leingarten oder Umgebung?
+      Dann sind Sie bei Boxenstopp Nordheim richtig.
     </p>
   </div>
 </section>
@@ -377,36 +445,61 @@ footer {
     <div class="service-card">
       <i class="fas fa-filter"></i>
       <h3>DPF-Reinigung</h3>
-      <p>Gründliche Reinigung von Dieselpartikelfiltern als Alternative zum teuren Austausch. Ideal bei DPF-Warnleuchte oder Leistungsverlust.</p>
+      <p>Reinigung von Dieselpartikelfiltern als Alternative zum teuren Austausch. Ideal bei DPF-Warnleuchte, Notlauf oder Leistungsverlust.</p>
       <a class="service-btn" href="dpf-reinigung-heilbronn.html">Mehr erfahren</a>
     </div>
 
     <div class="service-card">
       <i class="fas fa-snowflake"></i>
       <h3>Klimaservice</h3>
-      <p>Wartung und Befüllung für R134a und R1234yf. Kältemittelservice, Funktionsprüfung und Klimaanlagen-Check.</p>
-      <a class="service-btn" href="#">Seite folgt</a>
-    </div>
-
-    <div class="service-card">
-      <i class="fas fa-microchip"></i>
-      <h3>Fehlerdiagnose</h3>
-      <p>Fehlersuche mit moderner Diagnosetechnik. Für Motorkontrollleuchte, DPF-Probleme, Klimafehler und elektronische Störungen.</p>
-      <a class="service-btn" href="#">Seite folgt</a>
-    </div>
-
-    <div class="service-card">
-      <i class="fas fa-compact-disc"></i>
-      <h3>Reifen & Felgen</h3>
-      <p>Reifenmontage, Wuchten, Räderwechsel und Felgenservice für Fahrzeuge im Raum Nordheim und Heilbronn.</p>
+      <p>Klimaservice für R134a und R1234yf. Wartung, Vakuum, Lecktest und Neubefüllung inklusive bis 200 g Kältemittel.</p>
+      <a class="service-btn" href="klimaservice-heilbronn.html">Mehr erfahren</a>
     </div>
 
     <div class="service-card">
       <i class="fas fa-align-center"></i>
-      <h3>3D Achsvermessung</h3>
-      <p>Präzise Achsvermessung mit moderner 3D-Technik für sauberes Fahrverhalten und gleichmäßigen Reifenverschleiß.</p>
+      <h3>Achsvermessung</h3>
+      <p>3D-Achsvermessung und Spureinstellung bei schiefem Lenkrad, einseitigem Reifenverschleiß oder wenn das Fahrzeug zur Seite zieht.</p>
+      <a class="service-btn" href="achsvermessung-heilbronn.html">Mehr erfahren</a>
     </div>
 
+    <div class="service-card">
+      <i class="fas fa-microchip"></i>
+      <h3>Diagnose</h3>
+      <p>Fehlerspeicher auslesen und OBD-Diagnose bei Motorkontrollleuchte, Warnleuchten, Fehlermeldungen oder Leistungsverlust.</p>
+      <a class="service-btn" href="diagnose-fehlerspeicher-heilbronn.html">Mehr erfahren</a>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-compact-disc"></i>
+      <h3>Reifenservice</h3>
+      <p>Räder umstecken, Reifenmontage, Auswuchten, Allwetterreifen, Ganzjahresreifen und RDKS-Sensoren verbauen und einlernen.</p>
+      <a class="service-btn" href="reifenservice-heilbronn.html">Mehr erfahren</a>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-tools"></i>
+      <h3>Inspektion & Ölwechsel</h3>
+      <p>Ölwechsel, kleiner Service und große Inspektion mit passenden Filtern. Angebot nach Fahrzeugschein und Kilometerstand.</p>
+      <a class="service-btn" href="inspektion-oelwechsel-heilbronn.html">Mehr erfahren</a>
+    </div>
+
+    <div class="service-card">
+      <i class="fas fa-wind"></i>
+      <h3>Ozonbehandlung</h3>
+      <p>Ozonbehandlung und Geruchsentfernung bei Rauchgeruch, Tiergeruch, muffiger Klimaanlage oder unangenehmen Gerüchen im Innenraum.</p>
+      <a class="service-btn" href="ozonbehandlung-heilbronn.html">Mehr erfahren</a>
+    </div>
+
+  </div>
+
+  <div class="info-highlight">
+    <h3 style="margin-top:0; color:var(--primary-red); text-transform:uppercase;">TÜV-Mängelbericht erhalten?</h3>
+    <p>
+      Sie waren bereits bei der HU/AU und haben einen Mängelbericht bekommen?
+      Schicken Sie uns den Bericht gerne per WhatsApp oder E-Mail.
+      Wir prüfen die aufgeführten Punkte und melden uns mit dem weiteren Vorgehen.
+    </p>
   </div>
 </section>
 
@@ -448,16 +541,31 @@ footer {
       <p><strong>Boxenstopp Nordheim</strong><br>Schafhohle 2<br>74226 Nordheim</p>
 
       <p>
-        Telefon:
+        Telefon / WhatsApp:<br>
         <a href="tel:071339220552" style="color:var(--primary-red); font-weight:bold; font-size:1.3rem; text-decoration:none;">
           07133 / 922 0552
         </a>
       </p>
 
+      <p>
+        E-Mail:<br>
+        <a href="mailto:info@boxenstopp-hn.de" style="color:var(--primary-red); font-weight:bold; text-decoration:none;">
+          info@boxenstopp-hn.de
+        </a>
+      </p>
+
       <p><strong>Öffnungszeiten:</strong><br>Montag - Freitag: 09:00 - 18:00 Uhr</p>
 
-      <a href="mailto:info@boxenstopp-hn.de" style="display:block; background:var(--dark-grey); color:#fff; text-align:center; padding:15px; border-radius:10px; text-decoration:none; font-weight:bold; margin-top:20px;">
-        E-Mail senden
+      <a class="contact-btn whatsapp" href="https://wa.me/4971339220552" target="_blank">
+        Per WhatsApp anfragen
+      </a>
+
+      <a class="contact-btn mail" href="mailto:info@boxenstopp-hn.de">
+        Per E-Mail anfragen
+      </a>
+
+      <a class="contact-btn phone" href="tel:071339220552">
+        Anrufen: 07133 9220552
       </a>
     </div>
   </div>
@@ -536,13 +644,15 @@ footer {
 
 <footer>
   <div class="container">
-    <p>© 2026 Boxenstopp Nordheim | Spezialist für Getriebeölspülung, DPF-Reinigung, Klimaservice und Diagnose im Raum Heilbronn</p>
+    <p>© 2026 Boxenstopp Nordheim | Spezialist für Getriebeölspülung, DPF-Reinigung, Klimaservice, Achsvermessung, Diagnose und Reifenservice im Raum Heilbronn</p>
     <div class="seo-footer">
       <strong>Servicegebiet:</strong>
       Nordheim, Heilbronn, Lauffen am Neckar, Brackenheim, Leingarten, Schwaigern, Talheim, Flein, Neckarsulm und Umgebung.
       <br>
       <strong>Leistungen:</strong>
-      Getriebeölspülung Heilbronn, DPF Reinigung Heilbronn, Klimaservice R134a und R1234yf, Fehlerdiagnose, Reifenservice und Achsvermessung.
+      Getriebeölspülung Heilbronn, DPF Reinigung Heilbronn, Klimaservice R134a und R1234yf, Achsvermessung Heilbronn,
+      Spureinstellung Heilbronn, Fehlerdiagnose Heilbronn, Fehlerspeicher auslesen Heilbronn, Reifenservice Heilbronn,
+      Räder umstecken Heilbronn, Reifenmontage Heilbronn, Inspektion Heilbronn, Ölwechsel Heilbronn und Ozonbehandlung Heilbronn.
     </div>
   </div>
 </footer>
