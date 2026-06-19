@@ -3,11 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Reifenservice Heilbronn | Räder umstecken, Reifenmontage & Allwetterreifen | Boxenstopp Nordheim</title>
-
-<meta name="description" content="Reifenservice im Raum Heilbronn. Räder umstecken ab 35 Euro, Reifenmontage ab 70 Euro für 4 Reifen, Auswuchten, Allwetterreifen, Ganzjahresreifen und RDKS Sensoren bei Boxenstopp Nordheim.">
-
+<title>Reifenservice Heilbronn | Reifenwechsel, Räder umstecken & RDKS | Boxenstopp Nordheim</title>
+<meta name="description" content="Reifenservice im Raum Heilbronn: Räder umstecken ab 35 €, Reifenmontage ab 70 € für 4 Reifen, Auswuchten, Ganzjahresreifen, Allwetterreifen und RDKS-Sensoren bei Boxenstopp Nordheim.">
 <style>
 body{
 font-family:Arial,sans-serif;
@@ -16,14 +13,12 @@ background:#fff;
 color:#333;
 line-height:1.7;
 }
-
 header{
 background:#fff;
 padding:50px 20px;
 text-align:center;
 border-bottom:5px solid #cc0000;
 }
-
 .logo{
 font-size:52px;
 font-weight:900;
@@ -32,35 +27,29 @@ text-transform:uppercase;
 letter-spacing:-2px;
 color:#333;
 }
-
 .logo span{
 color:#cc0000;
 }
-
 header p{
 font-size:18px;
 font-weight:600;
 color:#444;
 }
-
 .hero{
 padding:70px 20px;
 background:#f5f5f5;
 text-align:center;
 }
-
 .hero h1{
 font-size:42px;
 margin-bottom:20px;
 color:#333;
 }
-
 .hero p{
-max-width:900px;
+max-width:950px;
 margin:auto;
 font-size:20px;
 }
-
 .btn{
 display:inline-block;
 margin:10px;
@@ -74,29 +63,29 @@ min-width:210px;
 text-align:center;
 box-sizing:border-box;
 }
-
 .btn.dark{
 background:#222;
 color:#fff !important;
 }
-
 .btn.whatsapp{
 background:#25d366;
 color:#fff !important;
 }
-
 .section{
 max-width:1100px;
 margin:auto;
 padding:60px 20px;
 }
-
 .section h2{
 font-size:34px;
 margin-bottom:20px;
 color:#cc0000;
 }
-
+.section h3{
+font-size:24px;
+margin-top:10px;
+color:#333;
+}
 .box{
 background:#f8f8f8;
 padding:25px;
@@ -104,7 +93,11 @@ border-radius:12px;
 margin-bottom:20px;
 border-left:5px solid #cc0000;
 }
-
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 .price-box{
 background:#f8f8f8;
 padding:25px;
@@ -112,30 +105,39 @@ border-radius:12px;
 margin-bottom:20px;
 border-left:5px solid #cc0000;
 }
-
 .price{
 font-size:30px;
 font-weight:bold;
 color:#cc0000;
 margin-top:10px;
 }
-
+.highlight{
+background:#fff4f4;
+padding:25px;
+border-radius:12px;
+border:1px solid #ffd0d0;
+margin-top:25px;
+}
+.service-links a{
+display:inline-block;
+margin:8px 10px 8px 0;
+color:#cc0000;
+font-weight:bold;
+text-decoration:none;
+}
 .contact-box{
 background:#f5f5f5;
 text-align:center;
 padding:60px 20px;
 border-top:4px solid #cc0000;
 }
-
 .contact-box a{
 color:#cc0000;
 font-weight:bold;
 }
-
 .contact-box .btn{
 color:#fff !important;
 }
-
 footer{
 background:#222;
 color:#aaa;
@@ -143,20 +145,16 @@ text-align:center;
 padding:40px;
 margin-top:0;
 }
-
 @media(max-width:700px){
 .logo{
 font-size:40px;
 }
-
 .hero h1{
 font-size:32px;
 }
-
 .hero p{
 font-size:18px;
 }
-
 .btn{
 display:block;
 width:100%;
@@ -165,92 +163,183 @@ margin:10px auto;
 }
 }
 </style>
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"AutoRepair",
+"name":"Boxenstopp Nordheim",
+"description":"Reifenservice im Raum Heilbronn: Räder umstecken, Reifenmontage, Auswuchten, Ganzjahresreifen, Allwetterreifen und RDKS-Sensoren.",
+"url":"https://boxenstopp-hn.de/reifenservice-heilbronn.html",
+"telephone":"+4971339220552",
+"email":"info@boxenstopp-hn.de",
+"areaServed":[
+"Heilbronn",
+"Nordheim",
+"Lauffen am Neckar",
+"Brackenheim",
+"Leingarten",
+"Schwaigern",
+"Neckarsulm",
+"Talheim",
+"Flein",
+"Böckingen",
+"Frankenbach"
+],
+"makesOffer":[
+{
+"@type":"Offer",
+"name":"Räder umstecken",
+"priceSpecification":{
+"@type":"PriceSpecification",
+"price":"35",
+"priceCurrency":"EUR"
+}
+},
+{
+"@type":"Offer",
+"name":"Reifenmontage für 4 Reifen",
+"priceSpecification":{
+"@type":"PriceSpecification",
+"price":"70",
+"priceCurrency":"EUR"
+}
+}
+]
+}
+</script>
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{
+"@type":"Question",
+"name":"Was kostet Räder umstecken?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Räder umstecken kostet bei Boxenstopp Nordheim ab 35 Euro für 4 Räder, wenn die Reifen bereits auf Felgen montiert sind."
+}
+},
+{
+"@type":"Question",
+"name":"Was kostet Reifenmontage?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Reifenmontage kostet ab 70 Euro für 4 Reifen inklusive Montage und Auswuchten. Je nach Größe, Reifenart, Runflat, SUV, Transporter, Ventilen, RDKS oder zusätzlichem Aufwand kann der Preis abweichen."
+}
+},
+{
+"@type":"Question",
+"name":"Muss man Ganzjahresreifen trotzdem umstecken?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Ja, bei vielen Fahrzeugen ist das sinnvoll. Wenn vorne und hinten die gleiche Reifengröße und Felgengröße montiert ist, können Ganzjahresreifen regelmäßig achsweise getauscht werden, damit sie gleichmäßiger abfahren."
+}
+},
+{
+"@type":"Question",
+"name":"Können RDKS-Sensoren verbaut und eingelernt werden?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Ja, RDKS-Sensoren können bei Boxenstopp Nordheim verbaut und je nach Fahrzeug eingelernt werden."
+}
+}
+]
+}
+</script>
 </head>
-
 <body>
-
 <header>
 <div class="logo">BOXEN<span>STOPP</span></div>
-<p>DPF-Reinigung | Klimaservice | Getriebeölspülung | Diagnose</p>
+<p>DPF-Reinigung | Klimaservice | Getriebeölspülung | Diagnose | Achsvermessung</p>
 </header>
-
 <section class="hero">
-<h1>Reifenservice Heilbronn</h1>
-
+<h1>Reifenservice Heilbronn – Reifenwechsel, Räder umstecken & RDKS</h1>
 <p>
-Sommerreifen, Winterreifen, Allwetterreifen, Räder umstecken oder Reifenmontage?
+Sommerreifen, Winterreifen, Ganzjahresreifen, Allwetterreifen, Räder umstecken oder Reifenmontage?
 Bei Boxenstopp Nordheim bieten wir Reifenservice, Räderwechsel, Auswuchten und RDKS-Service
-für Fahrzeuge im Raum Heilbronn, Nordheim, Lauffen, Brackenheim, Leingarten und Umgebung an.
+für Fahrzeuge im Raum Heilbronn, Nordheim, Lauffen am Neckar, Brackenheim, Leingarten, Schwaigern und Umgebung an.
 </p>
-
 <a class="btn whatsapp" href="https://wa.me/4971339220552" target="_blank">Per WhatsApp anfragen</a>
 <a class="btn dark" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
 <a class="btn" href="tel:071339220552">Anrufen: 07133 9220552</a>
 </section>
-
 <section class="section">
-
-<h2>Räder umstecken und Reifenmontage</h2>
-
+<h2>Reifenservice im Raum Heilbronn</h2>
 <div class="box">
-Ob saisonaler Räderwechsel, neue Reifen aufziehen oder Kompletträder montieren:
-Wir kümmern uns um den Reifenservice rund um Sommerreifen, Winterreifen, Ganzjahresreifen und Allwetterreifen.
+Ob saisonaler Räderwechsel, neue Reifen aufziehen, Reifen auswuchten oder RDKS-Sensoren einlernen:
+Bei Boxenstopp Nordheim bekommen Sie Reifenservice für Sommerreifen, Winterreifen, Ganzjahresreifen und Allwetterreifen.
 </div>
-
 <p>
 Wenn die Räder bereits fertig auf Felgen montiert sind, spricht man meist vom Räder umstecken.
-Wenn neue Reifen auf vorhandene Felgen montiert werden, gehört dazu in der Regel Montage und Auswuchten.
+Wenn neue Reifen auf vorhandene Felgen montiert werden, gehört dazu in der Regel die Montage mit Auswuchten.
 </p>
-
+<div class="highlight">
+<strong>Typische Suchanfragen unserer Kunden:</strong><br>
+Reifenservice Heilbronn, Reifenwechsel Heilbronn, Reifenmontage Heilbronn, Räder umstecken Heilbronn,
+Winterreifen wechseln Heilbronn, Sommerreifen wechseln Heilbronn, Reifen auswuchten Heilbronn, RDKS Sensoren Heilbronn.
+</div>
 </section>
-
 <section class="section">
-
 <h2>Unsere Reifenservice-Preise</h2>
-
 <div class="price-box">
 <strong>Räder umstecken</strong><br>
 4 Räder am Fahrzeug wechseln, wenn die Reifen bereits auf Felgen montiert sind.
 <div class="price">ab 35 €</div>
 </div>
-
 <div class="price-box">
 <strong>Reifenmontage</strong><br>
 4 Reifen auf Felgen montieren und auswuchten.
 <div class="price">ab 70 €</div>
 </div>
-
 <div class="box">
 <strong>Hinweis:</strong><br>
 Sondergrößen, Runflat-Reifen, SUV, Transporter, RDKS-Sensoren, Ventile oder zusätzlicher Aufwand
 werden je nach Fahrzeug und Aufwand separat berechnet.
 </div>
-
 </section>
-
 <section class="section">
-
+<h2>Räder umstecken oder Reifenmontage – was ist der Unterschied?</h2>
+<div class="grid">
+<div class="box">
+<h3>Räder umstecken</h3>
+Beim Räder umstecken sind Reifen und Felgen bereits als Kompletträder montiert.
+Es werden also zum Beispiel Winterräder gegen Sommerräder getauscht.
+</div>
+<div class="box">
+<h3>Reifenmontage</h3>
+Bei der Reifenmontage werden neue Reifen auf vorhandene Felgen montiert.
+Danach werden die Räder in der Regel ausgewuchtet.
+</div>
+<div class="box">
+<h3>Auswuchten</h3>
+Wenn das Lenkrad vibriert oder neue Reifen montiert wurden, ist Auswuchten wichtig.
+So läuft das Rad ruhiger und gleichmäßiger.
+</div>
+<div class="box">
+<h3>RDKS-Service</h3>
+Bei Fahrzeugen mit Reifendruckkontrollsystem können Sensoren geprüft, ersetzt, verbaut und je nach Fahrzeug eingelernt werden.
+</div>
+</div>
+</section>
+<section class="section">
 <h2>Allwetterreifen und Ganzjahresreifen richtig nutzen</h2>
-
 <div class="box">
 Viele Kunden wechseln heute von Sommer- und Winterreifen auf Allwetterreifen oder Ganzjahresreifen.
 Wichtig ist aber: Auch Ganzjahresreifen sollten regelmäßig kontrolliert und bei passenden Fahrzeugen
 von vorne nach hinten umgesetzt werden.
 </div>
-
 <p>
 Bei vielen Fahrzeugen nutzt sich die Vorderachse stärker ab, weil dort Lenkung, Bremskräfte und oft auch der Antrieb wirken.
 Wenn vorne und hinten die gleiche Reifengröße und Felgengröße montiert ist, kann ein regelmäßiges Umstecken
 von Vorderachse auf Hinterachse helfen, den Reifenverschleiß gleichmäßiger zu verteilen.
 </p>
-
 <div class="box">
 <strong>Wichtig:</strong><br>
 Das Umstecken von vorne nach hinten ist nicht bei jedem Fahrzeug möglich.
 Bei Mischbereifung, zum Beispiel wenn hinten breitere Reifen oder Felgen montiert sind als vorne,
 dürfen die Räder nicht einfach achsweise getauscht werden.
 </div>
-
 <ul>
 <li>Ganzjahresreifen regelmäßig prüfen lassen</li>
 <li>Profiltiefe und Reifenbild kontrollieren</li>
@@ -258,54 +347,63 @@ dürfen die Räder nicht einfach achsweise getauscht werden.
 <li>gleichmäßigerer Verschleiß bei Allwetterreifen</li>
 <li>nicht geeignet bei Mischbereifung vorne/hinten</li>
 </ul>
-
 </section>
-
 <section class="section">
-
 <h2>RDKS Sensoren verbauen und einlernen</h2>
-
 <div class="box">
 Bei Fahrzeugen mit Reifendruckkontrollsystem können wir RDKS-Sensoren verbauen und je nach Fahrzeug einlernen.
 Das ist zum Beispiel wichtig, wenn neue Felgen, neue Kompletträder oder defekte Sensoren vorhanden sind.
 </div>
-
-<ul>
-<li>RDKS-Sensoren prüfen</li>
-<li>RDKS-Sensoren ersetzen</li>
-<li>RDKS-Sensoren verbauen</li>
-<li>RDKS je nach Fahrzeug einlernen</li>
-<li>Hilfe bei Reifendruck-Warnmeldung</li>
-</ul>
-
+<div class="grid">
+<div class="box">
+<h3>RDKS prüfen</h3>
+Wenn eine Reifendruck-Warnmeldung erscheint, kann ein defekter oder nicht erkannter Sensor die Ursache sein.
+</div>
+<div class="box">
+<h3>Sensoren ersetzen</h3>
+Defekte oder leere RDKS-Sensoren können ersetzt werden.
+</div>
+<div class="box">
+<h3>Sensoren verbauen</h3>
+Bei neuen Felgen oder Kompletträdern können passende Sensoren verbaut werden.
+</div>
+<div class="box">
+<h3>Je nach Fahrzeug einlernen</h3>
+Viele Fahrzeuge müssen die neuen Sensoren erkennen oder angelernt bekommen.
+</div>
+</div>
 </section>
-
 <section class="section">
-
 <h2>Wann ist Reifenservice sinnvoll?</h2>
-
 <ul>
 <li>Wechsel von Sommerreifen auf Winterreifen</li>
 <li>Wechsel von Winterreifen auf Sommerreifen</li>
-<li>Allwetterreifen / Ganzjahresreifen regelmäßig kontrollieren</li>
+<li>Allwetterreifen oder Ganzjahresreifen regelmäßig kontrollieren</li>
 <li>Ganzjahresreifen von vorne nach hinten umstecken</li>
 <li>neue Reifen auf vorhandene Felgen montieren</li>
 <li>Lenkrad vibriert durch Unwucht</li>
 <li>Reifen sind einseitig abgefahren</li>
 <li>Reifendruckkontrollsystem zeigt Fehler</li>
 <li>neue Kompletträder sollen montiert werden</li>
+<li>Ventile oder RDKS-Sensoren sollen erneuert werden</li>
 </ul>
-
 </section>
-
 <section class="section">
-
-<h2>Reifenservice im Raum Heilbronn</h2>
-
+<h2>Reifenbild prüfen: einseitiger Verschleiß, Sägezahn oder Vibrationen</h2>
+<div class="box">
+Wenn Reifen innen oder außen stark abgefahren sind, kann neben dem Reifenservice auch eine Achsvermessung sinnvoll sein.
+Einseitiger Reifenverschleiß, schiefes Lenkrad oder ein Fahrzeug, das zur Seite zieht, können auf eine verstellte Spur hinweisen.
+</div>
+<p>
+Wenn das Lenkrad bei bestimmten Geschwindigkeiten vibriert, kann eine Unwucht der Räder die Ursache sein.
+In diesem Fall hilft oft das Auswuchten der Räder.
+</p>
+</section>
+<section class="section">
+<h2>Reifenservice für Heilbronn, Nordheim und Umgebung</h2>
 <p>
 Boxenstopp Nordheim befindet sich in der Nähe von Heilbronn und ist gut erreichbar aus:
 </p>
-
 <ul>
 <li>Heilbronn</li>
 <li>Nordheim</li>
@@ -316,82 +414,86 @@ Boxenstopp Nordheim befindet sich in der Nähe von Heilbronn und ist gut erreich
 <li>Neckarsulm</li>
 <li>Talheim</li>
 <li>Flein</li>
+<li>Böckingen</li>
+<li>Frankenbach</li>
 </ul>
-
 <p>
-Wenn Sie nach <strong>Reifenservice Heilbronn</strong>,
-<strong>Reifenwechsel Heilbronn</strong>,
-<strong>Reifenmontage Heilbronn</strong>,
-<strong>Räder umstecken Heilbronn</strong>,
-<strong>Allwetterreifen Heilbronn</strong>,
-<strong>Ganzjahresreifen Heilbronn</strong> oder
-<strong>RDKS Sensoren Heilbronn</strong> suchen, sind Sie bei uns richtig.
+Wenn Sie nach <strong>Reifenservice Heilbronn</strong>, <strong>Reifenwechsel Heilbronn</strong>,
+<strong>Reifenmontage Heilbronn</strong>, <strong>Räder umstecken Heilbronn</strong>,
+<strong>Sommerreifen wechseln Heilbronn</strong>, <strong>Winterreifen wechseln Heilbronn</strong>,
+<strong>Allwetterreifen Heilbronn</strong>, <strong>Ganzjahresreifen Heilbronn</strong> oder
+<strong>RDKS Sensoren Heilbronn</strong> suchen, sind Sie bei Boxenstopp Nordheim richtig.
 </p>
-
 </section>
-
 <section class="section">
-
-<h2>Häufige Fragen</h2>
-
+<h2>Weitere Leistungen bei Boxenstopp Nordheim</h2>
+<p>
+Je nach Fahrzeugzustand und Reifenbild können auch unsere weiteren Leistungen sinnvoll sein:
+</p>
+<div class="service-links">
+<a href="achsvermessung-heilbronn.html">Achsvermessung Heilbronn</a>
+<a href="diagnose-heilbronn.html">Fehlerdiagnose Heilbronn</a>
+<a href="klimaservice-heilbronn.html">Klimaservice Heilbronn</a>
+<a href="getriebespuelung-heilbronn.html">Getriebeölspülung Heilbronn</a>
+<a href="dpf-reinigung-heilbronn.html">DPF-Reinigung Heilbronn</a>
+<a href="inspektion-oelwechsel-heilbronn.html">Inspektion & Ölwechsel Heilbronn</a>
+<a href="ozonbehandlung-heilbronn.html">Ozonbehandlung Heilbronn</a>
+</div>
+</section>
+<section class="section">
+<h2>Häufige Fragen zum Reifenservice</h2>
 <div class="box">
 <strong>Was kostet Räder umstecken?</strong><br>
 Räder umstecken kostet bei uns ab 35 € für 4 Räder, wenn die Reifen bereits auf Felgen montiert sind.
 </div>
-
 <div class="box">
 <strong>Was kostet Reifenmontage?</strong><br>
 Reifenmontage kostet bei uns ab 70 € für 4 Reifen inklusive Montage und Auswuchten.
 Je nach Größe, Reifenart und Aufwand kann der Preis abweichen.
 </div>
-
+<div class="box">
+<strong>Was ist der Unterschied zwischen Reifenwechsel und Räder umstecken?</strong><br>
+Umgangssprachlich sagt man oft Reifenwechsel. Technisch ist Räder umstecken gemeint, wenn Reifen und Felgen bereits als Kompletträder montiert sind.
+</div>
 <div class="box">
 <strong>Muss man Allwetterreifen trotzdem umstecken?</strong><br>
 Ja, bei vielen Fahrzeugen ist das sinnvoll. Wenn vorne und hinten die gleiche Reifengröße montiert ist,
 können Ganzjahresreifen regelmäßig von vorne nach hinten getauscht werden, damit sie gleichmäßiger abfahren.
 </div>
-
 <div class="box">
 <strong>Geht das Umstecken bei jedem Fahrzeug?</strong><br>
 Nein. Bei Mischbereifung, zum Beispiel wenn hinten breitere Reifen oder Felgen montiert sind als vorne,
 ist ein einfaches Tauschen von vorne nach hinten nicht möglich.
 </div>
-
 <div class="box">
 <strong>Können RDKS-Sensoren eingebaut werden?</strong><br>
 Ja, wir können RDKS-Sensoren verbauen und je nach Fahrzeug einlernen.
 </div>
-
+<div class="box">
+<strong>Warum vibriert mein Lenkrad nach dem Reifenwechsel?</strong><br>
+Eine häufige Ursache ist Unwucht an den Rädern. In diesem Fall sollten die Räder geprüft und ausgewuchtet werden.
+</div>
 <div class="box">
 <strong>Brauche ich einen Termin?</strong><br>
 Für Reifenservice ist ein Termin sinnvoll, besonders zur Saison beim Wechsel von Sommer- und Winterreifen.
 </div>
-
 </section>
-
 <section class="contact-box">
-
-<h2>Jetzt Reifenservice anfragen</h2>
-
+<h2>Jetzt Reifenservice in Nordheim bei Heilbronn anfragen</h2>
 <p>
 Schicken Sie uns gerne Ihre Reifengröße oder Fahrzeugdaten oder melden Sie sich direkt per WhatsApp, E-Mail oder Telefon.
 </p>
-
 <p>
 <strong>Boxenstopp Nordheim</strong><br>
 Telefon / WhatsApp: <a href="tel:071339220552">07133 9220552</a><br>
 E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
 </p>
-
 <a class="btn whatsapp" href="https://wa.me/4971339220552" target="_blank">Per WhatsApp anfragen</a>
 <a class="btn dark" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
 <a class="btn" href="tel:071339220552">Anrufen: 07133 9220552</a>
-
 </section>
-
 <footer>
-© Boxenstopp Nordheim | Reifenservice Heilbronn
+© Boxenstopp Nordheim | Reifenservice Heilbronn | Reifenwechsel Heilbronn
 </footer>
-
 </body>
 </html>
