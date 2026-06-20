@@ -68,6 +68,11 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .faq summary{font-weight:900;cursor:pointer;color:#222}
 .map-box{background:#fff;border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.08);overflow:hidden;border-top:5px solid #cc0000}
 .map-box iframe{width:100%;height:360px;border:0;display:block}
+.map-placeholder{min-height:360px;padding:35px 25px;display:flex;align-items:center;justify-content:center;text-align:center;background:#f7f7f7;color:#333}
+.map-placeholder-inner{max-width:520px}
+.map-placeholder h3{margin-bottom:12px}
+.map-placeholder p{margin:0 0 18px}
+.map-placeholder button{border:0;background:#cc0000;color:#fff;padding:13px 18px;border-radius:8px;font-weight:900;cursor:pointer}
 .contact-list p{margin:8px 0;font-weight:800}
 .contact-list a{color:#cc0000;font-weight:900}
 .cta{background:#222;color:#fff;text-align:center;padding:70px 20px}
@@ -75,6 +80,15 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .cta p{font-size:18px;max-width:800px;margin:0 auto 24px}
 footer{background:#111;color:#ccc;text-align:center;padding:30px 20px;font-size:14px}
 footer a{color:#fff}
+.cookie-banner{position:fixed;left:0;right:0;bottom:0;background:#111;color:#fff;padding:18px 20px;z-index:9999;box-shadow:0 -6px 20px rgba(0,0,0,.25);display:none}
+.cookie-inner{max-width:1120px;margin:auto;display:flex;gap:18px;align-items:center;justify-content:space-between}
+.cookie-text{font-size:14px;line-height:1.5}
+.cookie-text a{color:#fff;text-decoration:underline;font-weight:900}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-actions button{border:0;border-radius:8px;padding:11px 15px;font-weight:900;cursor:pointer}
+.cookie-accept{background:#25d366;color:#fff}
+.cookie-decline{background:#444;color:#fff}
+.cookie-settings{background:#cc0000;color:#fff}
 @media(max-width:950px){
 .hero-grid,.grid-3,.grid-2,.service-links,.cluster-links{grid-template-columns:1fr}
 h1{font-size:34px}
@@ -84,6 +98,9 @@ h2{font-size:28px}
 .hero{padding:54px 18px}
 .btn{width:100%}
 .top-contact a{width:100%}
+.cookie-inner{display:block}
+.cookie-actions{margin-top:14px}
+.cookie-actions button{width:100%}
 }
 </style>
 
@@ -434,7 +451,16 @@ E-Mail oder Telefon.
 </div>
 
 <div class="map-box">
-<iframe src="https://www.google.com/maps?q=Boxenstopp%20Nordheim%20bei%20Heilbronn&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div id="google-map-container" class="map-placeholder">
+<div class="map-placeholder-inner">
+<h3>Google Maps anzeigen</h3>
+<p>
+Zum Schutz Ihrer Daten wird Google Maps erst geladen, wenn Sie zustimmen.
+Dabei können Daten an Google übertragen werden.
+</p>
+<button type="button" onclick="acceptCookiesAndLoadMap()">Google Maps laden</button>
+</div>
+</div>
 </div>
 
 </div>
@@ -551,6 +577,65 @@ E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
 <a href="datenschutz.html">Datenschutz</a>
 </p>
 </footer>
+
+<div id="cookie-banner" class="cookie-banner">
+<div class="cookie-inner">
+<div class="cookie-text">
+<strong>Datenschutzhinweis:</strong>
+Wir verwenden notwendige Funktionen für den Betrieb dieser Webseite. Externe Inhalte wie Google Maps werden erst nach Ihrer Zustimmung geladen.
+Weitere Informationen finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a> und im <a href="impressum.html">Impressum</a>.
+</div>
+<div class="cookie-actions">
+<button class="cookie-accept" type="button" onclick="acceptCookies()">Akzeptieren</button>
+<button class="cookie-decline" type="button" onclick="declineCookies()">Ablehnen</button>
+</div>
+</div>
+</div>
+
+<script>
+function loadGoogleMap(){
+var mapContainer=document.getElementById("google-map-container");
+if(!mapContainer){return;}
+mapContainer.innerHTML='<iframe src="https://www.google.com/maps?q=Boxenstopp%20Nordheim%20bei%20Heilbronn&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+}
+
+function acceptCookies(){
+localStorage.setItem("boxenstopp_cookie_choice","accepted");
+var banner=document.getElementById("cookie-banner");
+if(banner){banner.style.display="none";}
+loadGoogleMap();
+}
+
+function declineCookies(){
+localStorage.setItem("boxenstopp_cookie_choice","declined");
+var banner=document.getElementById("cookie-banner");
+if(banner){banner.style.display="none";}
+}
+
+function acceptCookiesAndLoadMap(){
+acceptCookies();
+}
+
+window.addEventListener("load",function(){
+var choice=localStorage.getItem("boxenstopp_cookie_choice");
+var banner=document.getElementById("cookie-banner");
+
+if(choice==="accepted"){
+if(banner){banner.style.display="none";}
+loadGoogleMap();
+return;
+}
+
+if(choice==="declined"){
+if(banner){banner.style.display="none";}
+return;
+}
+
+if(banner){
+banner.style.display="block";
+}
+});
+</script>
 
 </body>
 </html>
