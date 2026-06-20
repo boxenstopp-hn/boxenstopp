@@ -23,6 +23,11 @@ header{background:#fff;padding:45px 20px 35px;text-align:center;border-bottom:5p
 .logo{font-size:52px;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-2px;color:#333}
 .logo span{color:#cc0000}
 header p{font-size:18px;font-weight:600;color:#444;margin:8px 0 0}
+.top-contact{margin-top:18px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.top-contact a{display:inline-block;padding:10px 16px;border-radius:8px;font-weight:900;color:#fff}
+.top-contact .whatsapp{background:#25d366}
+.top-contact .mail{background:#cc0000}
+.top-contact .phone{background:#333}
 .top-nav{margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 .top-nav a{background:#f4f4f4;color:#333;padding:10px 16px;border-radius:8px;font-weight:800;border:1px solid #ddd}
 .top-nav a:hover{background:#cc0000;color:#fff}
@@ -60,6 +65,10 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .tag{background:#fff;border:1px solid #ddd;border-left:5px solid #cc0000;padding:10px 14px;border-radius:8px;font-weight:800}
 .faq details{background:#fff;margin-bottom:12px;padding:18px 20px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
 .faq summary{font-weight:900;cursor:pointer;color:#222}
+.map-box{background:#fff;border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.08);overflow:hidden;border-top:5px solid #cc0000}
+.map-box iframe{width:100%;height:360px;border:0;display:block}
+.contact-list p{margin:8px 0;font-weight:800}
+.contact-list a{color:#cc0000;font-weight:900}
 .cta{background:#222;color:#fff;text-align:center;padding:70px 20px}
 .cta h2{color:#fff}
 .cta p{font-size:18px;max-width:760px;margin:0 auto 24px}
@@ -73,6 +82,7 @@ h2{font-size:28px}
 .section{padding:48px 18px}
 .hero{padding:54px 18px}
 .btn{width:100%}
+.top-contact a{width:100%}
 }
 </style>
 
@@ -95,7 +105,13 @@ h2{font-size:28px}
 
 <header>
 <div class="logo">Boxen<span>stopp</span></div>
-<p>Inspektion · Ölwechsel · Wartung · Heilbronn & Umgebung</p>
+<p>Inspektion · Ölwechsel · Wartung · Heilbronn & Umgebung · Seit 2008 für Sie im Einsatz</p>
+
+<div class="top-contact">
+<a class="whatsapp" href="https://wa.me/4971339220552">WhatsApp: 07133 9220552</a>
+<a class="mail" href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
+<a class="phone" href="tel:+4971339220552">Telefon: 07133 9220552</a>
+</div>
 
 <nav class="top-nav">
 <a href="index.html">Startseite</a>
@@ -285,6 +301,34 @@ Hinweis: Die Möglichkeit zum digitalen Serviceeintrag hängt vom Hersteller, Fa
 </section>
 
 <section class="section">
+<div class="container grid-2">
+
+<div>
+<h2>Über Boxenstopp Nordheim</h2>
+
+<p>
+Boxenstopp ist seit 2008 für Sie im Einsatz und steht für klare, direkte und verständliche Kommunikation rund ums Fahrzeug.
+Bei Inspektion und Ölwechsel geht es darum, Fahrzeugdaten, Öl-Freigabe, Filter und Wartungsumfang sauber zu prüfen und dem Kunden eine passende Einschätzung zu geben.
+</p>
+
+<p>
+Kunden aus Heilbronn, Nordheim und Umgebung können einfach per WhatsApp, E-Mail oder Telefon anfragen.
+Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand, Serviceanzeige und die Info, ob Ölwechsel oder Inspektion gewünscht ist.
+</p>
+</div>
+
+<div class="box contact-list">
+<h3>Kontakt</h3>
+<p>WhatsApp: <a href="https://wa.me/4971339220552">07133 9220552</a></p>
+<p>Telefon: <a href="tel:+4971339220552">07133 9220552</a></p>
+<p>E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a></p>
+<p>Standort: Nordheim bei Heilbronn</p>
+</div>
+
+</div>
+</section>
+
+<section class="section alt">
 <div class="container">
 
 <h2>Ablauf bei Inspektion und Ölwechsel</h2>
@@ -447,6 +491,31 @@ Neben Inspektion und Ölwechsel bietet Boxenstopp weitere Leistungen rund um DPF
 </div>
 </section>
 
+<section class="section alt">
+<div class="container grid-2">
+
+<div>
+<h2>Standort und Kontakt</h2>
+
+<p>
+Boxenstopp befindet sich in Nordheim bei Heilbronn. Für eine schnelle Anfrage zu Inspektion oder Ölwechsel nutzen Sie am besten WhatsApp, E-Mail oder Telefon.
+</p>
+
+<div class="box contact-list">
+<h3>Boxenstopp Nordheim</h3>
+<p>WhatsApp: <a href="https://wa.me/4971339220552">07133 9220552</a></p>
+<p>Telefon: <a href="tel:+4971339220552">07133 9220552</a></p>
+<p>E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a></p>
+</div>
+</div>
+
+<div class="map-box">
+<iframe src="https://www.google.com/maps?q=Boxenstopp%20Nordheim%20bei%20Heilbronn&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+</div>
+</section>
+
 <section class="cta">
 <div class="container">
 <h2>Inspektion oder Ölwechsel anfragen</h2>
@@ -465,7 +534,13 @@ Wir prüfen Öl, Filter und Serviceumfang und melden uns mit einer Einschätzung
 </section>
 
 <footer>
-<p><strong>Boxenstopp Nordheim</strong> · Inspektion und Ölwechsel im Raum Heilbronn</p>
+<p><strong>Boxenstopp Nordheim</strong> · Inspektion und Ölwechsel im Raum Heilbronn · Seit 2008 für Sie im Einsatz</p>
+
+<p>
+WhatsApp / Telefon: <a href="tel:+4971339220552">07133 9220552</a> ·
+E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
+</p>
+
 <p>
 <a href="index.html">Startseite</a> ·
 <a href="dpf-reinigung-heilbronn.html">DPF Reinigung</a> ·
