@@ -37,7 +37,7 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .highlight{color:#cc0000}
 .lead{font-size:20px;font-weight:600;color:#444;margin-bottom:24px}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
-.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center}
+.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center;border:none;cursor:pointer}
 .btn-whatsapp{background:#25d366;color:#fff}
 .btn-mail{background:#cc0000;color:#fff}
 .btn-phone{background:#333;color:#fff}
@@ -77,8 +77,22 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .cta p{font-size:18px;max-width:760px;margin:0 auto 24px}
 footer{background:#111;color:#ccc;text-align:center;padding:30px 20px;font-size:14px}
 footer a{color:#fff}
+
+/* Formular-Styles */
+.form-group{margin-bottom:16px;text-align:left}
+.form-group label{display:block;font-weight:800;margin-bottom:6px;font-size:14px;color:#222}
+.form-group input[type="text"],.form-group input[type="email"],.form-group input[type="tel"],.form-group select,.form-group textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-family:Arial,sans-serif;font-size:15px;background:#fdfdfd}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#cc0000;background:#fff}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.file-upload-box{border:2px dashed #cc0000;background:#fff8f8;padding:16px;border-radius:8px;text-align:center;cursor:pointer;transition: background 0.2s}
+.file-upload-box.has-file{border-color: #25d366; background: #f0fff4}
+.file-upload-box input[type="file"]{display:none}
+.file-upload-box span{font-weight:800;color:#cc0000;font-size:14px;display:block}
+.file-upload-box.has-file span{color: #25d366}
+.file-upload-box p{margin:4px 0 0;font-size:12px;color:#666}
+
 @media(max-width:850px){
-.hero-grid,.grid-3,.grid-2,.service-links,.cluster-links{grid-template-columns:1fr}
+.hero-grid,.grid-3,.grid-2,.service-links,.cluster-links,.form-row-2{grid-template-columns:1fr}
 h1{font-size:34px}
 h2{font-size:28px}
 .logo{font-size:42px}
@@ -157,7 +171,7 @@ des Partikelfilters eine wirtschaftliche Alternative zum teuren Austausch.
 
 <div class="btn-row">
 <a class="btn btn-whatsapp" href="https://wa.me/4971339220552">Per WhatsApp anfragen</a>
-<a class="btn btn-mail" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
+<a class="btn btn-mail" href="#angebot-anfordern">Direkt online anfragen</a>
 <a class="btn btn-phone" href="tel:+4971339220552">Anrufen</a>
 </div>
 </div>
@@ -202,6 +216,171 @@ Wichtig: Eine DPF Reinigung ersetzt keine saubere Fehlerdiagnose. Wenn die Ursac
 </div>
 </section>
 
+<section class="section alt" id="angebot-anfordern">
+<div class="container" style="max-width: 680px;">
+
+<h2>Unverbindliches Angebot anfordern</h2>
+<p style="margin-bottom: 24px;">Füllen Sie einfach Ihre Daten aus. Sie erhalten zeitnah Ihr individuelles Angebot für Ihre DPF Reinigung per E-Mail.</p>
+
+<div class="box">
+<form onsubmit="sendToWhatsApp(event)" id="dpfForm">
+    
+    <h3>1. Ihre Kontaktdaten</h3>
+    <div class="form-group">
+        <label for="name">Vollständiger Name *</label>
+        <input type="text" id="name" required placeholder="Vor- und Nachname">
+    </div>
+    
+    <div class="form-group">
+        <label for="address">Anschrift (Straße, PLZ, Ort) *</label>
+        <input type="text" id="address" required placeholder="Für die Angebotserstellung notwendig">
+    </div>
+    
+    <div class="form-row-2">
+        <div class="form-group">
+            <label for="email">E-Mail-Adresse *</label>
+            <input type="email" id="email" required placeholder="ihre@mail.de">
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefonnummer *</label>
+            <input type="tel" id="phone" required placeholder="Für eventuelle Rückfragen">
+        </div>
+    </div>
+
+    <h3 style="margin-top: 24px;">2. Fahrzeugdaten</h3>
+    
+    <div class="form-group">
+        <label>Fahrzeugschein hochladen (Schnellster Weg)</label>
+        <div class="file-upload-box" id="uploadBox" onclick="document.getElementById('fahrzeugschein').click()">
+            <input type="file" id="fahrzeugschein" accept="image/*,.pdf" onchange="fileSelected(this)">
+            <span id="uploadText">📷 Foto / PDF vom Fahrzeugschein auswählen</span>
+            <p id="uploadSubtext">Am Smartphone einfach direkt Foto machen</p>
+        </div>
+    </div>
+    
+    <div id="manualVehicleData">
+        <p style="text-align: center; font-weight: bold; margin: 15px 0; color: #666;" id="orLabel">- ODER manuell eintragen -</p>
+
+        <div class="form-row-2">
+            <div class="form-group">
+                <label for="hsn_tsn">Schlüsselnummer (HSN/TSN) <span class="req-star">*</span></label>
+                <input type="text" id="hsn_tsn" required placeholder="z.B. 0588 / AHM">
+            </div>
+            <div class="form-group">
+                <label for="vin">Fahrgestellnummer (FIN) <span class="req-star">*</span></label>
+                <input type="text" id="vin" required placeholder="17-stellig (Wichtig für Zuordnung!)">
+            </div>
+        </div>
+
+        <div class="form-row-2">
+            <div class="form-group">
+                <label for="baujahr">Erstzulassung / Baujahr</label>
+                <input type="text" id="baujahr" placeholder="z.B. 06/2015">
+            </div>
+            <div class="form-group">
+                <label for="km">Aktueller Kilometerstand *</label>
+                <input type="text" id="km" required placeholder="z.B. 182.000 km">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-top: 15px;">
+        <label for="filter_status">Zustand des Filters / Anlieferung</label>
+        <select id="filter_status">
+            <option value="eingebaut">Filter ist noch im Fahrzeug verbaut (Komplettservice)</option>
+            <option value="ausgebaut">Filter ist bereits ausgebaut (Nur Reinigung anfragen)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="problem">Fehlercodes / Problembeschreibungen</label>
+        <textarea id="problem" rows="3" placeholder="z.B. DPF-Leuchte brennt, Fehlercode P2002 gespeichert, Auto im Notlauf, etc."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;">Anfrage über WhatsApp senden</button>
+</form>
+</div>
+
+</div>
+</section>
+
+<script>
+var istDateiAusgewaehlt = false;
+var dateiName = "";
+
+function fileSelected(input) {
+    var box = document.getElementById('uploadBox');
+    var text = document.getElementById('uploadText');
+    var subtext = document.getElementById('uploadSubtext');
+    var hsn = document.getElementById('hsn_tsn');
+    var vin = document.getElementById('vin');
+    var stars = document.querySelectorAll('.req-star');
+
+    if (input.files && input.files[0]) {
+        istDateiAusgewaehlt = true;
+        dateiName = input.files[0].name;
+        box.classList.add('has-file');
+        text.innerText = "✓ Fahrzeugschein erfolgreich ausgewählt!";
+        subtext.innerText = "Datei: " + dateiName;
+        
+        hsn.required = false;
+        vin.required = false;
+        stars.forEach(function(star) { star.style.display = 'none'; });
+    } else {
+        istDateiAusgewaehlt = false;
+        dateiName = "";
+        box.classList.remove('has-file');
+        text.innerText = "📷 Foto / PDF vom Fahrzeugschein auswählen";
+        subtext.innerText = "Am Smartphone einfach direkt Foto machen";
+        
+        hsn.required = true;
+        vin.required = true;
+        stars.forEach(function(star) { star.style.display = 'inline'; });
+    }
+}
+
+function sendToWhatsApp(event) {
+    event.preventDefault();
+    
+    var name = document.getElementById('name').value;
+    var address = document.getElementById('address').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var hsn_tsn = document.getElementById('hsn_tsn').value || 'Wird per Foto nachgereicht';
+    var vin = document.getElementById('vin').value || 'Wird per Foto nachgereicht';
+    var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+    var km = document.getElementById('km').value;
+    var statusSelect = document.getElementById('filter_status');
+    var statusText = statusSelect.options[statusSelect.selectedIndex].text;
+    var problem = document.getElementById('problem').value || 'Keine Angaben gemacht';
+    
+    var hinweisFoto = istDateiAusgewaehlt 
+        ? "⚠️ *WICHTIG:* Bitte jetzt noch das ausgewählte Foto (" + dateiName + ") aus deiner Galerie hier im Chat anhängen!\n\n" 
+        : "";
+
+    var text = hinweisFoto +
+               "*Neue DPF-Reinigung Anfrage von der Website*\n\n" +
+               "*1. KONTAKT-DATEN:*\n" +
+               "👤 Name: " + name + "\n" +
+               "📍 Anschrift: " + address + "\n" +
+               "✉️ E-Mail: " + email + "\n" +
+               "📞 Telefon: " + phone + "\n\n" +
+               "*2. FAHRZEUG-DATEN:*\n" +
+               "🔢 HSN/TSN: " + hsn_tsn + "\n" +
+               "🆔 FIN (Fahrgestellnr.): " + vin + "\n" +
+               "📅 Baujahr/EZ: " + baujahr + "\n" +
+               "🚗 KM-Stand: " + km + "\n" +
+               "⚙️ Filter-Zustand: " + statusText + "\n\n" +
+               "*3. FEHLER / BESCHREIBUNG:*\n" +
+               "💬 " + problem;
+               
+    var encodedText = encodeURIComponent(text);
+    var whatsappUrl = "https://wa.me/4971339220552?text=" + encodedText;
+    
+    window.open(whatsappUrl, '_blank');
+}
+</script>
+
 <section class="section alt">
 <div class="container">
 
@@ -214,7 +393,7 @@ Hier finden Sie die wichtigsten Hilfeseiten zum DPF-Cluster von Boxenstopp Nordh
 </p>
 
 <div class="cluster-links">
-<a href="motorkontrollleuchte-heilbronn.html">Motorkontrollleuchte leuchtet<span>Wenn die MKL aktiv ist und zusätzlich DPF, AGR, Turbo oder Abgasfehler gespeichert sind.</span></a>
+<a href="motorkontrollleuchte-heilbronn.html">Motorkontrollleuchte leuchtet<span>Wenn die MKL active ist und zusätzlich DPF, AGR, Turbo oder Abgasfehler gespeichert sind.</span></a>
 <a href="fehlercode-p2002-heilbronn.html">Fehlercode P2002<span>DPF-Wirkungsgrad zu gering, häufig im Zusammenhang mit Beladung oder Regeneration.</span></a>
 <a href="p242f-fehlercode-heilbronn.html">Fehlercode P242F<span>Hinweis auf starke Asche- oder Rußbeladung des Dieselpartikelfilters.</span></a>
 <a href="dpf-voll-heilbronn.html">DPF voll<span>Wenn der Dieselpartikelfilter zugesetzt ist und das Fahrzeug schlecht läuft.</span></a>
@@ -229,7 +408,7 @@ Hier finden Sie die wichtigsten Hilfeseiten zum DPF-Cluster von Boxenstopp Nordh
 <a href="abgastemperatursensor-defekt-heilbronn.html">Abgastemperatursensor defekt<span>Temperaturwerte sind wichtig für die Regeneration und Abgasdiagnose.</span></a>
 <a href="agr-ventil-reinigen-heilbronn.html">AGR Ventil reinigen<span>AGR-Verschmutzung kann Rußbildung und DPF-Beladung beeinflussen.</span></a>
 <a href="agr-ventil-defekt-heilbronn.html">AGR Ventil defekt<span>Ein defektes AGR-System kann Motorlauf, Abgaswerte und DPF belasten.</span></a>
-<a href="turbo-ohne-leistung-heilbronn.html">Turbo ohne Leistung<span>Leistungsverlust kann mit Ladedruck, Abgasgegendruck oder DPF zusammenhängen.</span></a>
+<a href="turbo-ohne-leistung-heilbronn.html">Turbo ohne Leistung<span>Leistungsverlust kann mit Ladedruck, Abgasgegegndruck oder DPF zusammenhängen.</span></a>
 <a href="turbolader-defekt-symptome-heilbronn.html">Turbolader defekt Symptome<span>Typische Hinweise auf Turbo-, Ladedruck- oder Abgasprobleme.</span></a>
 </div>
 
@@ -322,7 +501,7 @@ Brackenheim, Bad Rappenau und Umgebung.
 <h2>DPF Reinigung für viele Fahrzeugmarken und Motoren</h2>
 
 <p>
-Wir bearbeiten Anfragen zur DPF Reinigung für viele gängige Diesel-Fahrzeuge. Wichtig sind nicht nur Marke und Modell,
+Wir bearbeiten Anfragen zur DPF Reinigung für many gängige Diesel-Fahrzeuge. Wichtig sind nicht nur Marke und Modell,
 sondern auch Motor, Kilometerstand, Fehlercode und Zustand des Filters.
 </p>
 
@@ -502,7 +681,7 @@ Wir prüfen den Fall und melden uns mit einer Einschätzung zur DPF Reinigung.
 
 <div class="btn-row" style="justify-content:center">
 <a class="btn btn-whatsapp" href="https://wa.me/4971339220552">Per WhatsApp anfragen</a>
-<a class="btn btn-mail" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
+<a class="btn btn-mail" href="#angebot-anfordern">Direkt online anfragen</a>
 <a class="btn btn-phone" href="tel:+4971339220552">Anrufen</a>
 </div>
 
