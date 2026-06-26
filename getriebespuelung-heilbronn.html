@@ -220,7 +220,11 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, repariert ab
 <p style="margin-bottom: 24px;">Füllen Sie einfach Ihre Daten aus. Sie erhalten zeitnah Ihr individuelles Angebot für Ihre Getriebespülung per E-Mail.</p>
 
 <div class="box">
-<form action="send_getriebe_request.php" method="POST" enctype="multipart/form-data" id="getriebeForm">
+<form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" id="getriebeForm">
+
+    <input type="hidden" name="access_key" value="24838c11-59f5-41c1-af24-6cbd255eaa14">
+    <input type="hidden" name="subject" value="Neue Anfrage: Getriebespülung - Boxenstopp Nordheim">
+    <input type="hidden" name="redirect" value="https://www.boxenstopp-hn.de/index.html?status=success">
     
     <h3>1. Ihre Kontaktdaten</h3>
     <div class="form-group">
@@ -520,7 +524,7 @@ Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand und eine 
 </div>
 </section>
 
-<section class="section alt">
+<section class="steps-section alt" style="padding:64px 20px;">
 <div class="container">
 
 <h2>Ablauf der Getriebespülung bei Boxenstopp</h2>
