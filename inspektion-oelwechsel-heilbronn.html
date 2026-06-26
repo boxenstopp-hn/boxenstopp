@@ -33,14 +33,14 @@ header p{font-size:18px;font-weight:600;color:#444;margin:8px 0 0}
 .top-nav a:hover{background:#cc0000;color:#fff}
 .hero{padding:70px 20px;background:linear-gradient(135deg,#f7f7f7,#ffffff)}
 .container{max-width:1120px;margin:auto}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start}
 h1{font-size:44px;line-height:1.15;margin:0 0 20px;color:#1f1f1f}
 h2{font-size:32px;line-height:1.25;margin:0 0 20px;color:#1f1f1f}
 h3{font-size:22px;margin:0 0 10px;color:#222}
 .highlight{color:#cc0000}
 .lead{font-size:20px;font-weight:600;color:#444;margin-bottom:24px}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
-.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center}
+.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center;border:none;cursor:pointer;width:100%}
 .btn-whatsapp{background:#25d366;color:#fff}
 .btn-mail{background:#cc0000;color:#fff}
 .btn-phone{background:#333;color:#fff}
@@ -74,6 +74,21 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .cta p{font-size:18px;max-width:760px;margin:0 auto 24px}
 footer{background:#111;color:#ccc;text-align:center;padding:30px 20px;font-size:14px}
 footer a{color:#fff}
+
+/* Formular-Styling */
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:700;margin-bottom:6px;font-size:14px}
+.form-group input[type="text"],.form-group input[type="tel"],.form-group input[type="email"],.form-group textarea,.form-group select{width:100%;padding:11px;border:1px solid #ccc;border-radius:6px;font-size:15px;font-family:inherit}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#cc0000;outline:none}
+.form-group .required-star{color:#cc0000}
+.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 15px}
+.checkbox-item{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;cursor:pointer}
+.checkbox-item input{width:18px;height:18px;cursor:pointer}
+.file-upload-box{border:2px dashed #bbb;padding:14px;text-align:center;border-radius:8px;background:#f9f9f9;cursor:pointer;position:relative;margin-top:5px}
+.file-upload-box input[type="file"]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.file-upload-text{font-weight:700;color:#555;font-size:14px}
+.file-success-text{color:#25d366;font-weight:800;display:none;font-size:14px}
+
 @media(max-width:850px){
 .hero-grid,.grid-3,.grid-2,.service-links{grid-template-columns:1fr}
 h1{font-size:34px}
@@ -135,14 +150,88 @@ Boxenstopp Nordheim bietet Inspektion, Ölwechsel und Filterwechsel im Raum Heil
 </p>
 
 <p>
-Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Für ein passendes Angebot benötigen wir am besten den Fahrzeugschein,
-Kilometerstand und die Information, welche Wartung oder Serviceanzeige angezeigt wird.
+Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Nutzen Sie unser Formular für eine schnelle und unverbindliche WhatsApp-Anfrage.
 </p>
 
-<div class="btn-row">
-<a class="btn btn-whatsapp" href="https://wa.me/4971339220552">Per WhatsApp anfragen</a>
-<a class="btn btn-mail" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
-<a class="btn btn-phone" href="tel:+4971339220552">Anrufen</a>
+<div class="box" style="margin-top:20px; border-top:5px solid #25d366;">
+<h3 style="margin-bottom:15px; color:#222">⚡ Schnellanfrage via WhatsApp</h3>
+<form id="serviceForm" onsubmit="sendToWhatsApp(event)">
+<div class="grid-2" style="gap:0 16px">
+<div class="form-group">
+<label>Name, Vorname <span class="required-star">*</span></label>
+<input type="text" id="name" required placeholder="z. B. Max Mustermann">
+</div>
+<div class="form-group">
+<label>Wohnort / Anschrift <span class="required-star">*</span></label>
+<input type="text" id="address" required placeholder="z. B. Heilbronn">
+</div>
+</div>
+
+<div class="grid-2" style="gap:0 16px">
+<div class="form-group">
+<label>E-Mail-Adresse <span class="required-star">*</span></label>
+<input type="email" id="email" required placeholder="name@beispiel.de">
+</div>
+<div class="form-group">
+<label>Telefonnummer / Mobil <span class="required-star">*</span></label>
+<input type="tel" id="phone" required placeholder="für eventuelle Rückfragen">
+</div>
+</div>
+
+<hr style="border:0; border-top:1px solid #eee; margin:10px 0 15px">
+
+<div class="form-group">
+<label>Gewünschter Service-Umfang <span class="required-star">*</span></label>
+<select id="service_type" required>
+<option value="Inspektion inkl. Ölwechsel">Große Inspektion (inkl. Ölwechsel)</option>
+<option value="Reiner Ölwechsel">Nur reiner Ölwechsel (inkl. Ölfilter)</option>
+<option value="Kleine Inspektion">Kleine Inspektion / Jahresservice</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Zusätzliche Filter / Teile wechseln? (Optional)</label>
+<div class="checkbox-grid">
+<label class="checkbox-item"><input type="checkbox" id="filter_luft" value="Luftfilter"> Luftfilter</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_innen" value="Innenraumfilter"> Innenraumfilter</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_kraftstoff" value="Kraftstofffilter"> Kraftstofffilter</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_kerzen" value="Zündkerzen / Glühkerzen"> Zünd-/Glühkerzen</label>
+</div>
+</div>
+
+<div class="grid-2" style="gap:0 16px">
+<div class="form-group">
+<label>HSN / TSN (Schlüsselnummer) <span class="required-star" id="hsn_star">*</span></label>
+<input type="text" id="hsn_tsn" required placeholder="z. B. 0588 / AHI">
+</div>
+<div class="form-group">
+<label>FIN (Fahrgestellnummer) <span class="required-star" id="fin_star">*</span></label>
+<input type="text" id="fin" required placeholder="17-stellig (WBA...)">
+</div>
+</div>
+
+<div class="grid-2" style="gap:0 16px">
+<div class="form-group">
+<label>Aktueller Kilometerstand <span class="required-star">*</span></label>
+<input type="text" id="km" required placeholder="z. B. 125.000 km">
+</div>
+<div class="form-group">
+<label>Serviceanzeige / Meldung im Cockpit</label>
+<input type="text" id="service_msg" placeholder="z. B. Service A fällig / Ölwechsel jetzt">
+</div>
+</div>
+
+<div class="form-group">
+<label>Fahrzeugschein hochladen (Empfohlen – spart Tipparbeit)</label>
+<div class="file-upload-box">
+<span class="file-upload-text" id="uploadText">📸 Foto / PDF vom Fahrzeugschein auswählen</span>
+<span class="file-success-text" id="successText">✅ Fahrzeugschein ausgewählt! Bitte unten absenden.</span>
+<input type="file" id="file_schein" accept="image/*,application/pdf" onchange="handleFileChange()">
+</div>
+</div>
+
+<button type="submit" class="btn btn-whatsapp" style="margin-top:10px">Anfrage über WhatsApp senden</button>
+</form>
 </div>
 </div>
 
@@ -270,7 +359,7 @@ Lauffen am Neckar, Brackenheim, Bad Rappenau und Umgebung.
 <h2>Digitales Serviceheft und Serviceanzeige</h2>
 
 <p>
-Bei vielen Fahrzeugen kann der Service digital dokumentiert werden. Je nach Marke und System ist ein Eintrag im digitalen Serviceheft möglich.
+Bei vielen Fahrzeugen kann the Service digital dokumentiert werden. Je nach Marke und System ist ein Eintrag im digitalen Serviceheft möglich.
 Bitte geben Sie bei der Anfrage Fahrzeugmodell, Baujahr und Fahrzeugschein-Daten an.
 </p>
 
@@ -558,6 +647,80 @@ E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
 <a href="datenschutz.html">Datenschutz</a>
 </p>
 </footer>
+
+<script>
+function handleFileChange() {
+    var fileInput = document.getElementById('file_schein');
+    var uploadText = document.getElementById('uploadText');
+    var successText = document.getElementById('successText');
+    var hsnInput = document.getElementById('hsn_tsn');
+    var finInput = document.getElementById('fin');
+    var hsnStar = document.getElementById('hsn_star');
+    var finStar = document.getElementById('fin_star');
+
+    if (fileInput.files.length > 0) {
+        uploadText.style.display = 'none';
+        successText.style.display = 'block';
+        
+        hsnInput.removeAttribute('required');
+        finInput.removeAttribute('required');
+        hsnStar.style.display = 'none';
+        finStar.style.display = 'none';
+    } else {
+        uploadText.style.display = 'block';
+        successText.style.display = 'none';
+        
+        hsnInput.setAttribute('required', '');
+        finInput.setAttribute('required', '');
+        hsnStar.style.display = 'inline';
+        finStar.style.display = 'inline';
+    }
+}
+
+function sendToWhatsApp(event) {
+    event.preventDefault();
+
+    var name = document.getElementById('name').value;
+    var address = document.getElementById('address').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var serviceType = document.getElementById('service_type').value;
+    var hsnTsn = document.getElementById('hsn_tsn').value;
+    var fin = document.getElementById('fin').value;
+    var km = document.getElementById('km').value;
+    var serviceMsg = document.getElementById('service_msg').value;
+    var fileInput = document.getElementById('file_schein');
+
+    // Checkboxen für Filter auswerten
+    var filters = [];
+    if(document.getElementById('filter_luft').checked) filters.push("Luftfilter");
+    if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter");
+    if(document.getElementById('filter_kraftstoff').checked) filters.push("Kraftstofffilter");
+    if(document.getElementById('filter_kerzen').checked) filters.push("Zünd-/Glühkerzen");
+    
+    var filterText = filters.length > 0 ? filters.join(", ") : "Keine Zusatzfilter gewählt (nur Standardumfang)";
+
+    var text = "";
+    if (fileInput.files.length > 0) {
+        text += "⚠️ HINWEIS: Bitte hänge jetzt noch das FOTO des Fahrzeugscheins hier an den Chat an!\n\n";
+    }
+
+    text += "Hallo Boxenstopp Nordheim,\nich interessiere mich für einen Service-Termin:\n\n";
+    text += "🔧 Gewünscht: " + serviceType + "\n";
+    text += "📦 Zusätzliche Teile: " + filterText + "\n\n";
+    text += "👤 Name: " + name + "\n";
+    text += "📍 Wohnort: " + address + "\n";
+    text += "📧 E-Mail: " + email + "\n";
+    text += "📞 Tel: " + phone + "\n\n";
+    text += "🚗 HSN/TSN: " + (hsnTsn ? hsnTsn : "Siehe Foto/Anhang") + "\n";
+    text += "🆔 FIN: " + (fin ? fin : "Siehe Foto/Anhang") + "\n";
+    text += "📈 KM-Stand: " + km + "\n";
+    text += "🖥️ Serviceanzeige: " + (serviceMsg ? serviceMsg : "Keine Angabe") + "\n";
+
+    var url = "https://wa.me/4971339220552?text=" + encodeURIComponent(text);
+    window.open(url, '_blank');
+}
+</script>
 
 </body>
 </html>
