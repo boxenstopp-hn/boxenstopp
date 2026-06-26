@@ -220,31 +220,27 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, repariert ab
 <p style="margin-bottom: 24px;">Füllen Sie einfach Ihre Daten aus. Sie erhalten zeitnah Ihr individuelles Angebot für Ihre Getriebespülung per E-Mail.</p>
 
 <div class="box">
-<form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" id="getriebeForm">
-
-    <input type="hidden" name="access_key" value="cd43224a-ab22-43ad-b66f-f1f762395f59">
-    <input type="hidden" name="subject" value="Neue Anfrage: Getriebespuelung - Boxenstopp Nordheim">
-    <input type="hidden" name="redirect" value="https://www.boxenstopp-hn.de/index.html?status=success">
+<form onsubmit="sendToWhatsApp(event)" id="getriebeForm">
     
     <h3>1. Ihre Kontaktdaten</h3>
     <div class="form-group">
         <label for="name">Vollständiger Name *</label>
-        <input type="text" id="name" name="name" required placeholder="Vor- und Nachname">
+        <input type="text" id="name" required placeholder="Vor- und Nachname">
     </div>
     
     <div class="form-group">
         <label for="address">Anschrift (Straße, PLZ, Ort) *</label>
-        <input type="text" id="address" name="address" required placeholder="Für die Angebotserstellung notwendig">
+        <input type="text" id="address" required placeholder="Für die Angebotserstellung notwendig">
     </div>
     
     <div class="form-row-2">
         <div class="form-group">
             <label for="email">E-Mail-Adresse *</label>
-            <input type="email" id="email" name="email" required placeholder="ihre@mail.de">
+            <input type="email" id="email" required placeholder="ihre@mail.de">
         </div>
         <div class="form-group">
             <label for="phone">Telefonnummer *</label>
-            <input type="tel" id="phone" name="phone" required placeholder="Für eventuelle Rückfragen">
+            <input type="tel" id="phone" required placeholder="Für eventuelle Rückfragen">
         </div>
     </div>
 
@@ -253,7 +249,7 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, repariert ab
     <div class="form-group">
         <label>Fahrzeugschein hochladen (Schnellster Weg)</label>
         <div class="file-upload-box" id="uploadBox" onclick="document.getElementById('fahrzeugschein').click()">
-            <input type="file" id="fahrzeugschein" name="fahrzeugschein" accept="image/*,.pdf" onchange="fileSelected(this)">
+            <input type="file" id="fahrzeugschein" accept="image/*,.pdf" onchange="fileSelected(this)">
             <span id="uploadText">📷 Foto / PDF vom Fahrzeugschein auswählen</span>
             <p id="uploadSubtext">Am Smartphone einfach direkt Foto machen</p>
         </div>
@@ -265,29 +261,29 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, repariert ab
         <div class="form-row-2">
             <div class="form-group">
                 <label for="hsn_tsn">Schlüsselnummer (HSN/TSN) <span class="req-star">*</span></label>
-                <input type="text" id="hsn_tsn" name="hsn_tsn" required placeholder="z.B. 0588 / AHM">
+                <input type="text" id="hsn_tsn" required placeholder="z.B. 0588 / AHM">
             </div>
             <div class="form-group">
                 <label for="vin">Fahrgestellnummer (FIN) <span class="req-star">*</span></label>
-                <input type="text" id="vin" name="vin" required placeholder="17-stellig (Wichtig bei Automaten!)">
+                <input type="text" id="vin" required placeholder="17-stellig (Wichtig bei Automaten!)">
             </div>
         </div>
 
         <div class="form-row-2">
             <div class="form-group">
                 <label for="baujahr">Erstzulassung / Baujahr</label>
-                <input type="text" id="baujahr" name="baujahr" placeholder="z.B. 06/2017">
+                <input type="text" id="baujahr" placeholder="z.B. 06/2017">
             </div>
             <div class="form-group">
                 <label for="km">Aktueller Kilometerstand *</label>
-                <input type="text" id="km" name="km" required placeholder="z.B. 145.000 km">
+                <input type="text" id="km" required placeholder="z.B. 145.000 km">
             </div>
         </div>
     </div>
 
     <div class="form-group" style="margin-top: 15px;">
         <label for="getriebe">Verbautes Getriebe (Falls bekannt)</label>
-        <select id="getriebe" name="getriebe">
+        <select id="getriebe">
             <option value="nicht_bekannt">Ich weiß es nicht / Bitte anhand Fahrzeugdaten prüfen</option>
             <option value="dsg">DSG / Doppelkupplung</option>
             <option value="mercedes_7g">Mercedes 7G-Tronic</option>
@@ -300,10 +296,10 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, repariert ab
 
     <div class="form-group">
         <label for="problem">Aktuelles Schaltverhalten / Problembeschreibungen</label>
-        <textarea id="problem" name="problem" rows="3" placeholder="z.B. Ruckeln beim Kaltstart, harter Gangwechsel von 2 in 3, rein vorsorglich etc."></textarea>
+        <textarea id="problem" rows="3" placeholder="z.B. Ruckeln beim Kaltstart, harter Gangwechsel von 2 in 3, rein vorsorglich etc."></textarea>
     </div>
 
-    <button type="submit" class="btn btn-mail" style="width: 100%; margin-top: 10px; font-size: 18px;">Jetzt Getriebe-Angebot anfordern</button>
+    <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;">Anfrage über WhatsApp senden</button>
 </form>
 </div>
 
@@ -311,6 +307,9 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, repariert ab
 </section>
 
 <script>
+var istDateiAusgewaehlt = false;
+var dateiName = "";
+
 function fileSelected(input) {
     var box = document.getElementById('uploadBox');
     var text = document.getElementById('uploadText');
@@ -320,14 +319,18 @@ function fileSelected(input) {
     var stars = document.querySelectorAll('.req-star');
 
     if (input.files && input.files[0]) {
+        istDateiAusgewaehlt = true;
+        dateiName = input.files[0].name;
         box.classList.add('has-file');
         text.innerText = "✓ Fahrzeugschein erfolgreich ausgewählt!";
-        subtext.innerText = "Datei: " + input.files[0].name;
+        subtext.innerText = "Datei: " + dateiName;
         
         hsn.required = false;
         vin.required = false;
         stars.forEach(function(star) { star.style.display = 'none'; });
     } else {
+        istDateiAusgewaehlt = false;
+        dateiName = "";
         box.classList.remove('has-file');
         text.innerText = "📷 Foto / PDF vom Fahrzeugschein auswählen";
         subtext.innerText = "Am Smartphone einfach direkt Foto machen";
@@ -336,6 +339,47 @@ function fileSelected(input) {
         vin.required = true;
         stars.forEach(function(star) { star.style.display = 'inline'; });
     }
+}
+
+function sendToWhatsApp(event) {
+    event.preventDefault();
+    
+    var name = document.getElementById('name').value;
+    var address = document.getElementById('address').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var hsn_tsn = document.getElementById('hsn_tsn').value || 'Wird per Foto nachgereicht';
+    var vin = document.getElementById('vin').value || 'Wird per Foto nachgereicht';
+    var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+    var km = document.getElementById('km').value;
+    var getriebeSelect = document.getElementById('getriebe');
+    var getriebeText = getriebeSelect.options[getriebeSelect.selectedIndex].text;
+    var problem = document.getElementById('problem').value || 'Keine Probleme beschrieben';
+    
+    var hinweisFoto = istDateiAusgewaehlt 
+        ? "⚠️ *WICHTIG:* Bitte jetzt noch das ausgewählte Foto (" + dateiName + ") aus deiner Galerie hier im Chat anhängen!\n\n" 
+        : "";
+
+    var text = hinweisFoto +
+               "*Neue Getriebe-Anfrage von der Website*\n\n" +
+               "*1. KONTAKT-DATEN:*\n" +
+               "👤 Name: " + name + "\n" +
+               "📍 Anschrift: " + address + "\n" +
+               "✉️ E-Mail: " + email + "\n" +
+               "📞 Telefon: " + phone + "\n\n" +
+               "*2. FAHRZEUG-DATEN:*\n" +
+               "🔢 HSN/TSN: " + hsn_tsn + "\n" +
+               "🆔 FIN (Fahrgestellnr.): " + vin + "\n" +
+               "📅 Baujahr/EZ: " + baujahr + "\n" +
+               "🚗 KM-Stand: " + km + "\n" +
+               "⚙️ Getriebe: " + getriebeText + "\n\n" +
+               "*3. PROBLEM / BESCHREIBUNG:*\n" +
+               "💬 " + problem;
+               
+    var encodedText = encodeURIComponent(text);
+    var whatsappUrl = "https://wa.me/4971339220552?text=" + encodedText;
+    
+    window.open(whatsappUrl, '_blank');
 }
 </script>
 
@@ -610,7 +654,7 @@ Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand und eine 
 
 <p>
 Boxenstopp Nordheim ist Ihr Ansprechpartner für Getriebespülung im Raum Heilbronn.
-Viele Kunden kommen aus Nordheim, Heilbronn, Böckingen, Leingarten, Schwaigern,
+Many Kunden kommen aus Nordheim, Heilbronn, Böckingen, Leingarten, Schwaigern,
 Lauffen am Neckar, Brackenheim, Bad Rappenau, Eppingen und der Umgebung.
 </p>
 
