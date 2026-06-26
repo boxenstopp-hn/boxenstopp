@@ -81,9 +81,9 @@ footer a{color:#fff}
 .form-group input[type="text"],.form-group input[type="tel"],.form-group input[type="email"],.form-group textarea,.form-group select{width:100%;padding:11px;border:1px solid #ccc;border-radius:6px;font-size:15px;font-family:inherit}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#cc0000;outline:none}
 .form-group .required-star{color:#cc0000}
-.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 15px}
-.checkbox-item{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;cursor:pointer}
-.checkbox-item input{width:18px;height:18px;cursor:pointer}
+.checkbox-list{display:flex;flex-direction:column;gap:8px;margin:8px 0 15px}
+.checkbox-item{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;cursor:pointer}
+.checkbox-item input{width:18px;height:18px;cursor:pointer;flex-shrink:0}
 .file-upload-box{border:2px dashed #bbb;padding:14px;text-align:center;border-radius:8px;background:#f9f9f9;cursor:pointer;position:relative;margin-top:5px}
 .file-upload-box input[type="file"]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer}
 .file-upload-text{font-weight:700;color:#555;font-size:14px}
@@ -183,19 +183,21 @@ Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Nutzen Sie unser
 <div class="form-group">
 <label>Gewünschter Service-Umfang <span class="required-star">*</span></label>
 <select id="service_type" required>
-<option value="Inspektion inkl. Ölwechsel">Große Inspektion (inkl. Ölwechsel)</option>
-<option value="Reiner Ölwechsel">Nur reiner Ölwechsel (inkl. Ölfilter)</option>
-<option value="Kleine Inspektion">Kleine Inspektion / Jahresservice</option>
+<option value="Ölwechsel (inkl. Ölfilter)">Reiner Ölwechsel (inkl. Ölfilter)</option>
+<option value="Inspektion (inkl. Öl & Ölfilter)">Inspektion (inkl. Öl & Ölfilter) + Zusatzoptionen unten</option>
 </select>
 </div>
 
 <div class="form-group">
-<label>Zusätzliche Filter / Teile wechseln? (Optional)</label>
-<div class="checkbox-grid">
+<label>Zusätzliche Filter / Optionen anfragen? (Optional)</label>
+<div class="checkbox-list">
 <label class="checkbox-item"><input type="checkbox" id="filter_luft" value="Luftfilter"> Luftfilter</label>
-<label class="checkbox-item"><input type="checkbox" id="filter_innen" value="Innenraumfilter"> Innenraumfilter</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_innen" value="Innenraumfilter (+ Klimaservice empfohlen)"> Innenraumfilter (Klimaservice empfohlen)</label>
 <label class="checkbox-item"><input type="checkbox" id="filter_kraftstoff" value="Kraftstofffilter"> Kraftstofffilter</label>
-<label class="checkbox-item"><input type="checkbox" id="filter_kerzen" value="Zündkerzen / Glühkerzen"> Zünd-/Glühkerzen</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_z_kerzen" value="Zündkerzen (Benziner)"> Zündkerzen (Benziner)</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_g_kerzen" value="Glühkerzen (Diesel)"> Glühkerzen (Diesel)</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_bremsfluessig" value="Bremsflüssigkeit"> Bremsflüssigkeit</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_riemen" value="Zahnriemen / Steuerkette prüfen"> Zahnriemen / Steuerkette (Prüfung/Anfrage)</label>
 </div>
 </div>
 
@@ -359,7 +361,7 @@ Lauffen am Neckar, Brackenheim, Bad Rappenau und Umgebung.
 <h2>Digitales Serviceheft und Serviceanzeige</h2>
 
 <p>
-Bei vielen Fahrzeugen kann the Service digital dokumentiert werden. Je nach Marke und System ist ein Eintrag im digitalen Serviceheft möglich.
+Bei vielen Fahrzeugen kann der Service digital dokumentiert werden. Je nach Marke und System ist ein Eintrag im digitalen Serviceheft möglich.
 Bitte geben Sie bei der Anfrage Fahrzeugmodell, Baujahr und Fahrzeugschein-Daten an.
 </p>
 
@@ -541,7 +543,7 @@ fragen Sie einfach per WhatsApp, E-Mail oder Telefon an.
 
 <details>
 <summary>Könnt ihr digitales Serviceheft eintragen?</summary>
-<p>Bei vielen Fahrzeugen von Audi, VW, Seat, Skoda und Mercedes ist ein digitaler Serviceeintrag möglich. Das hängt aber vom Fahrzeug und Hersteller-System ab.</p>
+<p>Bei vielen Fahrzeugen von Audi, VW, Seat, Skoda and Mercedes ist ein digitaler Serviceeintrag möglich. Das hängt aber vom Fahrzeug und Hersteller-System ab.</p>
 </details>
 
 <details>
@@ -691,14 +693,17 @@ function sendToWhatsApp(event) {
     var serviceMsg = document.getElementById('service_msg').value;
     var fileInput = document.getElementById('file_schein');
 
-    // Checkboxen für Filter auswerten
+    // Checkboxen für Filter und Zusatzoptionen auswerten
     var filters = [];
     if(document.getElementById('filter_luft').checked) filters.push("Luftfilter");
-    if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter");
+    if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter (+ Klimaservice)");
     if(document.getElementById('filter_kraftstoff').checked) filters.push("Kraftstofffilter");
-    if(document.getElementById('filter_kerzen').checked) filters.push("Zünd-/Glühkerzen");
+    if(document.getElementById('filter_z_kerzen').checked) filters.push("Zündkerzen (Benziner)");
+    if(document.getElementById('filter_g_kerzen').checked) filters.push("Glühkerzen (Diesel)");
+    if(document.getElementById('filter_bremsfluessig').checked) filters.push("Bremsflüssigkeit");
+    if(document.getElementById('filter_riemen').checked) filters.push("Zahnriemen/Steuerkette (Prüfung)");
     
-    var filterText = filters.length > 0 ? filters.join(", ") : "Keine Zusatzfilter gewählt (nur Standardumfang)";
+    var filterText = filters.length > 0 ? filters.join(", ") : "Keine Zusatzoptionen gewählt";
 
     var text = "";
     if (fileInput.files.length > 0) {
@@ -707,7 +712,7 @@ function sendToWhatsApp(event) {
 
     text += "Hallo Boxenstopp Nordheim,\nich interessiere mich für einen Service-Termin:\n\n";
     text += "🔧 Gewünscht: " + serviceType + "\n";
-    text += "📦 Zusätzliche Teile: " + filterText + "\n\n";
+    text += "📦 Zusatzoptionen: " + filterText + "\n\n";
     text += "👤 Name: " + name + "\n";
     text += "📍 Wohnort: " + address + "\n";
     text += "📧 E-Mail: " + email + "\n";
