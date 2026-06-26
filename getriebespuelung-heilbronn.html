@@ -40,7 +40,7 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .highlight{color:#cc0000}
 .lead{font-size:20px;font-weight:600;color:#444;margin-bottom:24px}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
-.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center}
+.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center;border:none;cursor:pointer}
 .btn-whatsapp{background:#25d366;color:#fff}
 .btn-mail{background:#cc0000;color:#fff}
 .btn-phone{background:#333;color:#fff}
@@ -74,8 +74,22 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .cta p{font-size:18px;max-width:760px;margin:0 auto 24px}
 footer{background:#111;color:#ccc;text-align:center;padding:30px 20px;font-size:14px}
 footer a{color:#fff}
+
+/* Formular-Styles */
+.form-group{margin-bottom:16px;text-align:left}
+.form-group label{display:block;font-weight:800;margin-bottom:6px;font-size:14px;color:#222}
+.form-group input[type="text"],.form-group input[type="email"],.form-group input[type="tel"],.form-group select,.form-group textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-family:Arial,sans-serif;font-size:15px;background:#fdfdfd}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#cc0000;background:#fff}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.file-upload-box{border:2px dashed #cc0000;background:#fff8f8;padding:16px;border-radius:8px;text-align:center;cursor:pointer;transition: background 0.2s}
+.file-upload-box.has-file{border-color: #25d366; background: #f0fff4}
+.file-upload-box input[type="file"]{display:none}
+.file-upload-box span{font-weight:800;color:#cc0000;font-size:14px;display:block}
+.file-upload-box.has-file span{color: #25d366}
+.file-upload-box p{margin:4px 0 0;font-size:12px;color:#666}
+
 @media(max-width:850px){
-.hero-grid,.grid-3,.grid-2,.service-links{grid-template-columns:1fr}
+.hero-grid,.grid-3,.grid-2,.service-links,.form-row-2{grid-template-columns:1fr}
 h1{font-size:34px}
 h2{font-size:28px}
 .logo{font-size:42px}
@@ -155,7 +169,7 @@ kann helfen, das Getriebeöl gründlicher zu erneuern als ein einfacher Ölwechs
 
 <div class="btn-row">
 <a class="btn btn-whatsapp" href="https://wa.me/4971339220552">Per WhatsApp anfragen</a>
-<a class="btn btn-mail" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
+<a class="btn btn-mail" href="#angebot-anfordern">Direkt online anfragen</a>
 <a class="btn btn-phone" href="tel:+4971339220552">Anrufen</a>
 </div>
 </div>
@@ -199,7 +213,129 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, repariert ab
 </div>
 </section>
 
-<section class="section alt">
+<section class="section alt" id="angebot-anfordern">
+<div class="container" style="max-width: 680px;">
+
+<h2>Unverbindliches Angebot anfordern</h2>
+<p style="margin-bottom: 24px;">Füllen Sie einfach Ihre Daten aus. Sie erhalten zeitnah Ihr individuelles Angebot für Ihre Getriebespülung per E-Mail.</p>
+
+<div class="box">
+<form action="send_getriebe_request.php" method="POST" enctype="multipart/form-data" id="getriebeForm">
+    
+    <h3>1. Ihre Kontaktdaten</h3>
+    <div class="form-group">
+        <label for="name">Vollständiger Name *</label>
+        <input type="text" id="name" name="name" required placeholder="Vor- und Nachname">
+    </div>
+    
+    <div class="form-group">
+        <label for="address">Anschrift (Straße, PLZ, Ort) *</label>
+        <input type="text" id="address" name="address" required placeholder="Für die Angebotserstellung notwendig">
+    </div>
+    
+    <div class="form-row-2">
+        <div class="form-group">
+            <label for="email">E-Mail-Adresse *</label>
+            <input type="email" id="email" name="email" required placeholder="ihre@mail.de">
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefonnummer *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Für eventuelle Rückfragen">
+        </div>
+    </div>
+
+    <h3 style="margin-top: 24px;">2. Fahrzeugdaten</h3>
+    
+    <div class="form-group">
+        <label>Fahrzeugschein hochladen (Schnellster Weg)</label>
+        <div class="file-upload-box" id="uploadBox" onclick="document.getElementById('fahrzeugschein').click()">
+            <input type="file" id="fahrzeugschein" name="fahrzeugschein" accept="image/*,.pdf" onchange="fileSelected(this)">
+            <span id="uploadText">📷 Foto / PDF vom Fahrzeugschein auswählen</span>
+            <p id="uploadSubtext">Am Smartphone einfach direkt Foto machen</p>
+        </div>
+    </div>
+    
+    <div id="manualVehicleData">
+        <p style="text-align: center; font-weight: bold; margin: 15px 0; color: #666;" id="orLabel">- ODER manuell eintragen -</p>
+
+        <div class="form-row-2">
+            <div class="form-group">
+                <label for="hsn_tsn">Schlüsselnummer (HSN/TSN) <span class="req-star">*</span></label>
+                <input type="text" id="hsn_tsn" name="hsn_tsn" required placeholder="z.B. 0588 / AHM">
+            </div>
+            <div class="form-group">
+                <label for="vin">Fahrgestellnummer (FIN) <span class="req-star">*</span></label>
+                <input type="text" id="vin" name="vin" required placeholder="17-stellig (Wichtig bei Automaten!)">
+            </div>
+        </div>
+
+        <div class="form-row-2">
+            <div class="form-group">
+                <label for="baujahr">Erstzulassung / Baujahr</label>
+                <input type="text" id="baujahr" name="baujahr" placeholder="z.B. 06/2017">
+            </div>
+            <div class="form-group">
+                <label for="km">Aktueller Kilometerstand *</label>
+                <input type="text" id="km" name="km" required placeholder="z.B. 145.000 km">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-top: 15px;">
+        <label for="getriebe">Verbautes Getriebe (Falls bekannt)</label>
+        <select id="getriebe" name="getriebe">
+            <option value="nicht_bekannt">Ich weiß es nicht / Bitte anhand Fahrzeugdaten prüfen</option>
+            <option value="dsg">DSG / Doppelkupplung</option>
+            <option value="mercedes_7g">Mercedes 7G-Tronic</option>
+            <option value="mercedes_9g">Mercedes 9G-Tronic</option>
+            <option value="zf_6hp">ZF 6HP (6-Gang)</option>
+            <option value="zf_8hp">ZF 8HP (8-Gang)</option>
+            <option value="andere">Anderes Wandler- oder CVT-Getriebe</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="problem">Aktuelles Schaltverhalten / Problembeschreibungen</label>
+        <textarea id="problem" name="problem" rows="3" placeholder="z.B. Ruckeln beim Kaltstart, harter Gangwechsel von 2 in 3, rein vorsorglich etc."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-mail" style="width: 100%; margin-top: 10px; font-size: 18px;">Jetzt Getriebe-Angebot anfordern</button>
+</form>
+</div>
+
+</div>
+</section>
+
+<script>
+function fileSelected(input) {
+    var box = document.getElementById('uploadBox');
+    var text = document.getElementById('uploadText');
+    var subtext = document.getElementById('uploadSubtext');
+    var hsn = document.getElementById('hsn_tsn');
+    var vin = document.getElementById('vin');
+    var stars = document.querySelectorAll('.req-star');
+
+    if (input.files && input.files[0]) {
+        box.classList.add('has-file');
+        text.innerText = "✓ Fahrzeugschein erfolgreich ausgewählt!";
+        subtext.innerText = "Datei: " + input.files[0].name;
+        
+        hsn.required = false;
+        vin.required = false;
+        stars.forEach(function(star) { star.style.display = 'none'; });
+    } else {
+        box.classList.remove('has-file');
+        text.innerText = "📷 Foto / PDF vom Fahrzeugschein auswählen";
+        subtext.innerText = "Am Smartphone einfach direkt Foto machen";
+        
+        hsn.required = true;
+        vin.required = true;
+        stars.forEach(function(star) { star.style.display = 'inline'; });
+    }
+}
+</script>
+
+<section class="section">
 <div class="container">
 
 <h2>Wann ist eine Getriebespülung sinnvoll?</h2>
@@ -241,7 +377,7 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, repariert ab
 </div>
 </section>
 
-<section class="section">
+<section class="section alt">
 <div class="container grid-2">
 
 <div>
@@ -279,7 +415,7 @@ Lauffen am Neckar, Brackenheim, Bad Rappenau und Umgebung.
 </div>
 </section>
 
-<section class="section alt">
+<section class="section">
 <div class="container">
 
 <h2>Getriebespülung für Automatik, DSG und Wandlergetriebe</h2>
@@ -310,7 +446,7 @@ Ob eine Spülung möglich und sinnvoll ist, hängt vom genauen Fahrzeug, Getrieb
 </div>
 </section>
 
-<section class="section">
+<section class="section alt">
 <div class="container">
 
 <h2>Getriebespülung für viele Fahrzeugmarken und Getriebearten</h2>
@@ -374,7 +510,7 @@ Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand und eine 
 </div>
 
 <div class="box contact-list">
-<h3>Kontakt</h3>
+<h3>Contact</h3>
 <p>WhatsApp: <a href="https://wa.me/4971339220552">07133 9220552</a></p>
 <p>Telefon: <a href="tel:+4971339220552">07133 9220552</a></p>
 <p>E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a></p>
@@ -603,7 +739,7 @@ Wir prüfen den Fall und melden uns mit einem passenden Angebot.
 
 <div class="btn-row" style="justify-content:center">
 <a class="btn btn-whatsapp" href="https://wa.me/4971339220552">Per WhatsApp anfragen</a>
-<a class="btn btn-mail" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
+<a class="btn btn-mail" href="#angebot-anfordern">Direkt online anfragen</a>
 <a class="btn btn-phone" href="tel:+4971339220552">Anrufen</a>
 </div>
 </div>
