@@ -33,7 +33,8 @@ header p{font-size:18px;font-weight:600;color:#444;margin:8px 0 0}
 .top-nav a:hover{background:#cc0000;color:#fff}
 .hero{padding:70px 20px;background:linear-gradient(135deg,#f7f7f7,#ffffff)}
 .container{max-width:1120px;margin:auto}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px 36px;align-items:start}
+.hero-form-wide{grid-column:1/-1;max-width:980px;margin:0 auto;width:100%}
 h1{font-size:44px;line-height:1.15;margin:0 0 20px;color:#1f1f1f}
 h2{font-size:32px;line-height:1.25;margin:0 0 20px;color:#1f1f1f}
 h3{font-size:22px;margin:0 0 10px;color:#222}
@@ -81,8 +82,8 @@ footer a{color:#fff}
 .form-group input[type="text"],.form-group input[type="tel"],.form-group input[type="email"],.form-group textarea,.form-group select{width:100%;padding:11px;border:1px solid #ccc;border-radius:6px;font-size:15px;font-family:inherit}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#cc0000;outline:none}
 .form-group .required-star{color:#cc0000}
-.checkbox-list{display:flex;flex-direction:column;gap:8px;margin:8px 0 15px}
-.checkbox-item{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;cursor:pointer}
+.checkbox-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:8px 0 15px}
+.checkbox-item{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;cursor:pointer;background:#f9f9f9;border:1px solid #e3e3e3;border-radius:8px;padding:10px 12px}
 .checkbox-item input{width:18px;height:18px;cursor:pointer;flex-shrink:0}
 .file-upload-box{border:2px dashed #bbb;padding:14px;text-align:center;border-radius:8px;background:#f9f9f9;cursor:pointer;position:relative;margin-top:5px}
 .file-upload-box input[type="file"]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer}
@@ -90,7 +91,7 @@ footer a{color:#fff}
 .file-success-text{color:#25d366;font-weight:800;display:none;font-size:14px}
 
 @media(max-width:850px){
-.hero-grid,.grid-3,.grid-2,.service-links{grid-template-columns:1fr}
+.hero-grid,.grid-3,.grid-2,.service-links,.checkbox-list{grid-template-columns:1fr}
 h1{font-size:34px}
 h2{font-size:28px}
 .logo{font-size:42px}
@@ -153,7 +154,24 @@ Boxenstopp Nordheim bietet Inspektion, Ölwechsel und Filterwechsel im Raum Heil
 Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Nutzen Sie unser Formular für eine schnelle und unverbindliche WhatsApp-Anfrage.
 </p>
 
-<div class="box" style="margin-top:20px; border-top:5px solid #25d366;">
+
+</div>
+
+<div class="box">
+<h3>Typische Leistungen</h3>
+<ul>
+<li>Ölwechsel mit passendem Motoröl</li>
+<li>Ölfilter wechseln</li>
+<li>Innenraumfilter wechseln</li>
+<li>Luftfilter wechseln</li>
+<li>Kraftstofffilter je nach Fahrzeug</li>
+<li>Serviceanzeige zurücksetzen</li>
+<li>Wartung nach Fahrzeugdaten</li>
+<li>Digitales Serviceheft bei vielen Marken</li>
+</ul>
+</div>
+
+<div class="box hero-form-wide" style="border-top:5px solid #25d366;">
 <h3 style="margin-bottom:15px; color:#222">⚡ Schnellanfrage via WhatsApp</h3>
 <form id="serviceForm" onsubmit="sendToWhatsApp(event)">
 <div class="grid-2" style="gap:0 16px">
@@ -192,7 +210,8 @@ Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Nutzen Sie unser
 <label>Zusätzliche Filter / Optionen anfragen? (Optional)</label>
 <div class="checkbox-list">
 <label class="checkbox-item"><input type="checkbox" id="filter_luft" value="Luftfilter"> Luftfilter</label>
-<label class="checkbox-item"><input type="checkbox" id="filter_innen" value="Innenraumfilter (+ Klimaservice empfohlen)"> Innenraumfilter (Klimaservice empfohlen)</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_innen" value="Innenraumfilter"> Innenraumfilter</label>
+<label class="checkbox-item"><input type="checkbox" id="filter_klima" value="Klimaservice (empfohlen zusammen mit Innenraumfilter)"> Klimaservice (empfohlen zusammen mit Innenraumfilter)</label>
 <label class="checkbox-item"><input type="checkbox" id="filter_kraftstoff" value="Kraftstofffilter"> Kraftstofffilter</label>
 <label class="checkbox-item"><input type="checkbox" id="filter_z_kerzen" value="Zündkerzen (Benziner)"> Zündkerzen (Benziner)</label>
 <label class="checkbox-item"><input type="checkbox" id="filter_g_kerzen" value="Glühkerzen (Diesel)"> Glühkerzen (Diesel)</label>
@@ -234,21 +253,6 @@ Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Nutzen Sie unser
 
 <button type="submit" class="btn btn-whatsapp" style="margin-top:10px">Anfrage über WhatsApp senden</button>
 </form>
-</div>
-</div>
-
-<div class="box">
-<h3>Typische Leistungen</h3>
-<ul>
-<li>Ölwechsel mit passendem Motoröl</li>
-<li>Ölfilter wechseln</li>
-<li>Innenraumfilter wechseln</li>
-<li>Luftfilter wechseln</li>
-<li>Kraftstofffilter je nach Fahrzeug</li>
-<li>Serviceanzeige zurücksetzen</li>
-<li>Wartung nach Fahrzeugdaten</li>
-<li>Digitales Serviceheft bei vielen Marken</li>
-</ul>
 </div>
 
 </div>
@@ -543,7 +547,7 @@ fragen Sie einfach per WhatsApp, E-Mail oder Telefon an.
 
 <details>
 <summary>Könnt ihr digitales Serviceheft eintragen?</summary>
-<p>Bei vielen Fahrzeugen von Audi, VW, Seat, Skoda and Mercedes ist ein digitaler Serviceeintrag möglich. Das hängt aber vom Fahrzeug und Hersteller-System ab.</p>
+<p>Bei vielen Fahrzeugen von Audi, VW, Seat, Skoda und Mercedes ist ein digitaler Serviceeintrag möglich. Das hängt aber vom Fahrzeug und Hersteller-System ab.</p>
 </details>
 
 <details>
@@ -682,21 +686,27 @@ function handleFileChange() {
 function sendToWhatsApp(event) {
     event.preventDefault();
 
-    var name = document.getElementById('name').value;
-    var address = document.getElementById('address').value;
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
+    var name = document.getElementById('name').value.trim();
+    var address = document.getElementById('address').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
     var serviceType = document.getElementById('service_type').value;
-    var hsnTsn = document.getElementById('hsn_tsn').value;
-    var fin = document.getElementById('fin').value;
-    var km = document.getElementById('km').value;
-    var serviceMsg = document.getElementById('service_msg').value;
+    var hsnTsn = document.getElementById('hsn_tsn').value.trim();
+    var fin = document.getElementById('fin').value.trim();
+    var km = document.getElementById('km').value.trim();
+    var serviceMsg = document.getElementById('service_msg').value.trim();
     var fileInput = document.getElementById('file_schein');
+
+    if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
+        alert('Bitte HSN/TSN und FIN eintragen oder ein Foto/PDF vom Fahrzeugschein auswählen.');
+        return;
+    }
 
     // Checkboxen für Filter und Zusatzoptionen auswerten
     var filters = [];
     if(document.getElementById('filter_luft').checked) filters.push("Luftfilter");
-    if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter (+ Klimaservice)");
+    if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter");
+    if(document.getElementById('filter_klima').checked) filters.push("Klimaservice (empfohlen zusammen mit Innenraumfilter)");
     if(document.getElementById('filter_kraftstoff').checked) filters.push("Kraftstofffilter");
     if(document.getElementById('filter_z_kerzen').checked) filters.push("Zündkerzen (Benziner)");
     if(document.getElementById('filter_g_kerzen').checked) filters.push("Glühkerzen (Diesel)");
@@ -723,7 +733,7 @@ function sendToWhatsApp(event) {
     text += "🖥️ Serviceanzeige: " + (serviceMsg ? serviceMsg : "Keine Angabe") + "\n";
 
     var url = "https://wa.me/4971339220552?text=" + encodeURIComponent(text);
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener');
 }
 </script>
 
