@@ -1,45 +1,86 @@
-```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Spur einstellen Heilbronn | 3D-Achsvermessung | Boxenstopp Nordheim</title>
+<title>Spur einstellen Heilbronn | Achsgeometrie & Sturz | Boxenstopp Nordheim</title>
 
-<meta name="description" content="Spur einstellen im Raum Heilbronn. 3D-Achsvermessung bei schiefem Lenkrad, einseitigem Reifenverschleiß oder wenn das Auto zur Seite zieht. Boxenstopp Nordheim.">
+<meta name="description" content="Spur einstellen im Raum Heilbronn und Nordheim. Professionelle Korrektur der Achsgeometrie bei schiefem Lenkrad, einseitigem Reifenverschleiß oder nach Bordsteinkontakt.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.boxenstopp-hn.de/spur-einstellen-heilbronn.html">
+
+<meta property="og:title" content="Spur einstellen Heilbronn | Boxenstopp Nordheim">
+<meta property="og:description" content="Zieht Ihr Auto nach links oder rechts? Steht das Lenkrad schief? Bei Boxenstopp Nordheim im Raum Heilbronn stellen wir Spur und Sturz Ihres Fahrzeugs mittels moderner 3D-Technik perfekt ein.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.boxenstopp-hn.de/spur-einstellen-heilbronn.html">
 
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#fff;color:#333;line-height:1.7;}
-header{background:#fff;padding:50px 20px;text-align:center;border-bottom:5px solid #cc0000;}
-.logo{font-size:52px;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-2px;color:#333;}
-.logo span{color:#cc0000;}
-header p{font-size:18px;font-weight:600;color:#444;}
-nav{background:#222;padding:14px 20px;text-align:center;}
-nav a{color:#fff;text-decoration:none;font-weight:bold;margin:0 12px;font-size:15px;}
-.hero{background:#f5f5f5;padding:70px 20px;text-align:center;}
-.hero h1{font-size:42px;margin:0 0 20px;color:#222;}
-.hero p{max-width:900px;margin:0 auto;font-size:20px;}
-.buttons{margin-top:30px;}
-.btn{display:inline-block;padding:15px 24px;margin:8px;border-radius:6px;font-weight:bold;text-decoration:none;}
-.btn-whatsapp{background:#25D366;color:#fff;}
-.btn-mail{background:#cc0000;color:#fff;}
-.btn-call{background:#333;color:#fff;}
-section{max-width:1100px;margin:auto;padding:60px 20px;}
-h2{font-size:32px;color:#222;margin-bottom:20px;}
-h3{font-size:23px;color:#cc0000;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
-.card{background:#f7f7f7;padding:25px;border-left:5px solid #cc0000;border-radius:8px;}
-ul{padding-left:22px;}
-.cta{background:#222;color:#fff;text-align:center;padding:70px 20px;}
-.cta h2{color:#fff;}
-.cta p{max-width:850px;margin:0 auto 25px;font-size:19px;}
-footer{background:#111;color:#ccc;text-align:center;padding:35px 20px;font-size:14px;}
-footer a{color:#fff;text-decoration:none;}
-@media(max-width:700px){
-.logo{font-size:38px;}
-.hero h1{font-size:32px;}
-nav a{display:block;margin:8px 0;}
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#333;line-height:1.7}
+a{text-decoration:none}
+header{background:#fff;padding:45px 20px 35px;text-align:center;border-bottom:5px solid #cc0000}
+.logo{font-size:52px;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-2px;color:#333}
+.logo span{color:#cc0000}
+header p{font-size:18px;font-weight:600;color:#444;margin:8px 0 0}
+.top-contact{margin-top:18px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.top-contact a{display:inline-block;padding:10px 16px;border-radius:8px;font-weight:900;color:#fff}
+.top-contact .whatsapp{background:#25d366}
+.top-contact .mail{background:#cc0000}
+.top-contact .phone{background:#333}
+.top-nav{margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.top-nav a{background:#f4f4f4;color:#333;padding:10px 16px;border-radius:8px;font-weight:800;border:1px solid #ddd}
+.top-nav a:hover{background:#cc0000;color:#fff}
+.hero{padding:70px 20px;background:linear-gradient(135deg,#f7f7f7,#ffffff)}
+.container{max-width:1120px;margin:auto}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center}
+h1{font-size:44px;line-height:1.15;margin:0 0 20px;color:#1f1f1f}
+h2{font-size:32px;line-height:1.25;margin:0 0 20px;color:#1f1f1f}
+h3{font-size:22px;margin:0 0 10px;color:#222}
+.highlight{color:#cc0000}
+.lead{font-size:20px;font-weight:600;color:#444;margin-bottom:24px}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center;border:none;cursor:pointer}
+.btn-whatsapp{background:#25d366;color:#fff}
+.btn-mail{background:#cc0000;color:#fff}
+.btn-phone{background:#333;color:#fff}
+.box{background:#fff;padding:28px;border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.08);border-top:5px solid #cc0000}
+.box ul{margin:0;padding-left:20px}
+.section{padding:64px 20px}
+.section.alt{background:#f7f7f7}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:#fff;padding:26px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06);border-left:5px solid #cc0000}
+.card p{margin-bottom:0}
+.notice{background:#fff4f4;border-left:6px solid #cc0000;padding:22px;border-radius:10px;font-weight:700;margin-top:24px}
+.steps{counter-reset:step}
+.step{position:relative;padding-left:58px;margin-bottom:24px}
+.step:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:40px;height:40px;background:#cc0000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
+.service-links{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.service-links a{background:#fff;padding:22px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06);border-left:5px solid #cc0000;color:#333;font-weight:900}
+.service-links a span{display:block;font-weight:400;font-size:15px;color:#555;margin-top:6px}
+.service-links a:hover{background:#cc0000;color:#fff}
+.service-links a:hover span{color:#fff}
+.tag-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.tag{background:#fff;border:1px solid #ddd;border-left:5px solid #cc0000;padding:10px 14px;border-radius:8px;font-weight:800}
+.faq details{background:#fff;margin-bottom:12px;padding:18px 20px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.faq summary{font-weight:900;cursor:pointer;color:#222}
+.contact-list p{margin:8px 0;font-weight:800}
+.contact-list a{color:#cc0000;font-weight:900}
+.cta{background:#222;color:#fff;text-align:center;padding:70px 20px}
+.cta h2{color:#fff}
+.cta p{font-size:18px;max-width:760px;margin:0 auto 24px}
+footer{background:#111;color:#ccc;text-align:center;padding:30px 20px;font-size:14px}
+footer a{color:#fff}
+@media(max-width:850px){
+.hero-grid,.grid-3,.grid-2,.service-links{grid-template-columns:1fr}
+h1{font-size:34px}
+h2{font-size:28px}
+.logo{font-size:42px}
+.section{padding:48px 18px}
+.hero{padding:54px 18px}
+.btn{width:100%}
+.top-contact a{width:100%}
 }
 </style>
 
@@ -49,182 +90,346 @@ nav a{display:block;margin:8px 0;}
 "@type":"AutoRepair",
 "name":"Boxenstopp Nordheim",
 "url":"https://www.boxenstopp-hn.de/spur-einstellen-heilbronn.html",
-"description":"Spur einstellen und 3D-Achsvermessung im Raum Heilbronn.",
-"areaServed":["Heilbronn","Nordheim","Leingarten","Schwaigern","Böckingen","Neckarsulm","Lauffen am Neckar"],
-"address":{
-"@type":"PostalAddress",
-"addressLocality":"Nordheim",
-"addressRegion":"Baden-Württemberg",
-"addressCountry":"DE"
-}
+"telephone":"+4971339220552",
+"email":"info@boxenstopp-hn.de",
+"areaServed":["Nordheim","Heilbronn","Leingarten","Schwaigern","Böckingen","Neckarsulm","Lauffen am Neckar","Brackenheim","Bad Rappenau","Eppingen"],
+"description":"Professionelles Spur einstellen und Justierung der Achsgeometrie im Raum Heilbronn. Beseitigung von Schiflenkung und einseitigem Reifenverschleiß.",
+"serviceType":"Spur einstellen, Sturz einstellen, Achsgeometrie korrigieren, 3D Achsvermessung"
 }
 </script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{"@type":"Question","name":"Wie merke ich, dass die Spur verstellt ist?","acceptedAnswer":{"@type":"Answer","text":"Typische Anzeichen sind ein schief stehendes Lenkrad bei Geradeausfahrt, ein unruhiges Fahrverhalten in Spurrillen, ein permanentes Driften des Fahrzeugs zu einer Seite oder Reifen, die sich ungleichmäßig (z. B. nur an der Innenkante) abnutzen."}},
+{"@type":"Question","name":"Was passiert, wenn ich die Spur nicht einstellen lasse?","acceptedAnswer":{"@type":"Answer","text":"Neben dem extrem schnellen Verschleiß Ihrer Reifen leidet vor allem die Fahrsicherheit. Der Bremsweg kann sich verlängern, Fahrassistenzsysteme (wie ESP) erhalten fehlerhafte Daten über den Lenkwinkel, und der Kraftstoffverbrauch steigt durch den erhöhten Rollwiderstand."}},
+{"@type":"Question","name":"Wie lange dauert das Einstellen von Spur und Sturz?","acceptedAnswer":{"@type":"Answer","text":"Eine reine Vermessung mit anschließender Justierung der Spurstangen an der Vorderachse dauert in der Regel etwa 45 bis 60 Minuten. Wenn auch die Hinterachse oder der Sturz eingestellt werden müssen und Schrauben festsitzen, kann es etwas länger dauern."}},
+{"@type":"Question","name":"Muss man nach einem Bordsteinkontakt die Spur prüfen?","acceptedAnswer":{"@type":"Answer","text":"Ja, das wird dringend empfohlen. Schon ein unsanftes Auffahren auf eine Bordsteinkante beim Parken oder das Überfahren eines tiefen Schlaglochs reicht aus, um die empfindliche Fahrwerksmechanik millimeterweit zu verstellen."}},
+{"@type":"Question","name":"Können Spur und Sturz bei jedem Auto eingestellt werden?","acceptedAnswer":{"@type":"Answer","text":"Die Spur lässt sich an fast allen Fahrzeugen über die Spurstangenköpfe justieren. Der Sturz ist bauartbedingt nicht bei jedem Fahrzeugmodell an Vorder- oder Hinterachse einstellbar. Wenn Bauteile ausgeschlagen sind, müssen diese vor dem Einstellen ersetzt werden."}}
+]
+}
+</script>
+
 </head>
 
 <body>
 
 <header>
 <div class="logo">Boxen<span>stopp</span></div>
-<p>Ihre freie Werkstatt in Nordheim bei Heilbronn</p>
+<p>Professionelles Spur & Sturz einstellen · 3D-Achsgeometrie-Korrektur · Heilbronn & Umgebung</p>
+
+<div class="top-contact">
+<a class="whatsapp" href="https://wa.me/4971339220552">WhatsApp: 07133 9220552</a>
+<a class="mail" href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
+<a class="phone" href="tel:+4971339220552">Telefon: 07133 9220552</a>
+</div>
+
+<nav class="top-nav">
+<a href="index.html">Startseite</a>
+<a href="dpf-reinigung-heilbronn.html">DPF Reinigung</a>
+<a href="getriebespuelung-heilbronn.html">Getriebespülung</a>
+<a href="klimaservice-heilbronn.html">Klimaservice</a>
+<a href="achsvermessung-heilbronn.html">Achsvermessung</a>
+<a href="diagnose-fehlerspeicher-heilbronn.html">Diagnose</a>
+</nav>
 </header>
 
-<nav>
-<a href="index.html">Startseite</a>
-<a href="achsvermessung-heilbronn.html">Achsvermessung</a>
-<a href="lenkrad-steht-schief-heilbronn.html">Lenkrad schief</a>
-<a href="auto-zieht-nach-rechts-heilbronn.html">Auto zieht zur Seite</a>
-<a href="reifenservice-heilbronn.html">Reifenservice</a>
-</nav>
+<section class="hero">
+<div class="container hero-grid">
 
-<div class="hero">
-<h1>Spur einstellen im Raum Heilbronn</h1>
-<p>
-Ihr Auto zieht zur Seite, das Lenkrad steht schief oder die Reifen fahren sich einseitig ab?
-Boxenstopp Nordheim hilft mit moderner 3D-Achsvermessung und Spureinstellung im Raum Heilbronn.
+<div>
+<h1>Spur einstellen in <span class="highlight">Heilbronn</span> – Präziser Geradeauslauf</h1>
+
+<p class="lead">
+Steht Ihr Lenkrad schief oder zieht Ihr Fahrzeug eigenständig zur Seite? Boxenstopp Nordheim korrigiert die Spur- und Sturzwerte Ihres Autos im Raum Heilbronn exakt nach Herstellervorgaben.
 </p>
 
-<div class="buttons">
-<a class="btn btn-whatsapp" href="#kontakt">Per WhatsApp anfragen</a>
-<a class="btn btn-mail" href="#kontakt">Per E-Mail anfragen</a>
-<a class="btn btn-call" href="#kontakt">Anrufen</a>
-</div>
-</div>
-
-<section>
-<h2>Wann sollte man die Spur einstellen lassen?</h2>
 <p>
-Die Spur sollte geprüft werden, wenn das Fahrzeug nicht sauber geradeaus läuft,
-das Lenkrad beim Geradeausfahren schief steht oder sich die Reifen innen oder außen
-auffällig abnutzen. Auch nach Bordsteinkontakt, Schlagloch, Fahrwerksarbeiten oder
-Tieferlegung ist eine Achsvermessung sinnvoll.
+Schon kleinste Abweichungen in der Achsgeometrie sorgen dafür, dass die Reifen nicht mehr perfekt parallel in Fahrtrichtung rollen. Die Folge: Die Reifen „radieren“ über den Asphalt. Das führt zu vorzeitigem Verschleiß, verschlechtert das Handling in Notsituationen und erhöht den Kraftstoffverbrauch. Mit unserer modernen 3D-Messtechnik bringen wir Ihre Achsen wieder millimetergenau in Position.
 </p>
-</section>
 
-<section>
-<h2>Typische Anzeichen für eine verstellte Spur</h2>
-
-<div class="grid">
-<div class="card">
-<h3>Lenkrad steht schief</h3>
-<p>Beim Geradeausfahren ist das Lenkrad nicht mittig.</p>
-</div>
-
-<div class="card">
-<h3>Auto zieht zur Seite</h3>
-<p>Das Fahrzeug läuft nach rechts oder links, obwohl Sie geradeaus fahren.</p>
-</div>
-
-<div class="card">
-<h3>Einseitiger Reifenverschleiß</h3>
-<p>Die Reifen nutzen sich innen oder außen stärker ab.</p>
-</div>
-
-<div class="card">
-<h3>Unruhiges Fahrverhalten</h3>
-<p>Das Auto fühlt sich schwammig, instabil oder unpräzise an.</p>
+<div class="btn-row">
+<a class="btn btn-whatsapp" href="https://wa.me/4971339220552">Per WhatsApp anfragen</a>
+<a class="btn btn-mail" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
+<a class="btn btn-phone" href="tel:+4971339220552">Anrufen</a>
 </div>
 </div>
-</section>
 
-<section>
-<h2>Häufige Ursachen</h2>
-
+<div class="box">
+<h3>Unser Einstell-Service</h3>
 <ul>
-<li>Bordstein angefahren</li>
-<li>Schlagloch oder harter Stoß gegen das Fahrwerk</li>
-<li>Fahrwerksteile erneuert</li>
-<li>Tieferlegung oder Fahrwerksumbau</li>
-<li>Verschleiß an Lenkung oder Achse</li>
-<li>Unfall oder Kontakt mit Hindernis</li>
-<li>Falsche Einstellung nach Reparaturarbeiten</li>
+<li>Präzise 3D-Spurvermessung</li>
+<li>Einstellung der Vorderachse</li>
+<li>Einstellung der Hinterachse (falls möglich)</li>
+<li>Sturzkorrektur nach Werksvorgaben</li>
+<li>Zentrierung des Lenkrades</li>
+<li>Kalibrierung des Lenkwinkelsensors</li>
+<li>Überprüfung der Spurstangen</li>
+<li>Ausdruck des Messprotokolls (Vorher/Nachher)</li>
 </ul>
+</div>
+
+</div>
 </section>
 
-<section>
-<h2>3D-Achsvermessung bei Boxenstopp Nordheim</h2>
+<section class="section">
+<div class="container">
+
+<h2>Die Auswirkung von verstellter Spur und falschem Sturz</h2>
+
 <p>
-Mit moderner 3D-Achsvermessung werden die relevanten Achswerte geprüft.
-Wenn die Werte außerhalb der Vorgabe liegen und technisch einstellbar sind,
-kann die Spur korrekt eingestellt werden.
+Man unterscheidet im Wesentlichen zwischen der **Spur** (ob die Räder von oben gesehen parallel, vorne zusammenlaufend oder vorne auseinanderlaufend stehen) und dem **Sturz** (der Neigung des Rades zur Senkrechten). Stimmen diese Werte nicht, leidet das gesamte Fahrverhalten.
 </p>
 
-<div class="grid">
+<p>
+Bei einer verstellten Vorspur nutzt sich meist die Außenkante des Reifens stark ab, während eine Nachspur die Innenkanten rasant herunterradiert. Ein falsch eingestellter Sturz vermindert zudem die maximale Auflagefläche des Reifens bei Kurvenfahrten, was die Haftung gefährlich reduziert. Wir korrigieren diese Werte mechanisch an den dafür vorgesehenen Einstellschrauben und Exzentern.
+</p>
+
+<div class="notice">
+Sicherheitshinweis für moderne Fahrzeuge: Spur- und Sturzwerte sind direkt mit Systemen wie dem Spurhalteassistenten oder der ESP-Stabilitätskontrolle verknüpft. Stimmt die mechanische Spur nicht, arbeiten diese Assistenten fehlerhaft.
+</div>
+
+</div>
+</section>
+
+<section class="section alt">
+<div class="container">
+
+<h2>Wann das Einstellen der Spur zwingend notwendig ist</h2>
+
+<div class="grid-3">
 <div class="card">
-<h3>1. Achswerte messen</h3>
-<p>Die Geometrie des Fahrzeugs wird präzise geprüft.</p>
+<h3>Nach Fahrwerksreparaturen</h3>
+<p>Sobald Bauteile wie Querlenker, Spurstangenköpfe, Axialgelenke oder Stoßdämpfer getauscht wurden, muss die Spur neu justiert werden.</p>
 </div>
-
 <div class="card">
-<h3>2. Werte bewerten</h3>
-<p>Wir sehen, ob Spur, Sturz oder weitere Werte auffällig sind.</p>
+<h3>Nach harten Stößen</h3>
+<p>Das Überfahren tiefer Schlaglöcher mit hoher Geschwindigkeit oder unsanftes Parken auf Bordsteinkanten verstellt die Geometrie massiv.</p>
 </div>
-
 <div class="card">
-<h3>3. Spur einstellen</h3>
-<p>Wenn möglich, werden die Werte passend eingestellt.</p>
+<h3>Bei Reifenverschleiß</h3>
+<p>Bemerken Sie beim saisonalen Reifenwechsel, dass ein Reifen einseitig abgelaufen ist, ist das Einstellen der Spur die einzige Rettung für die neuen Reifen.</p>
 </div>
+</div>
+
+<div class="tag-list">
+<span class="tag">Spur einstellen</span>
+<span class="tag">Sturz korrigieren</span>
+<span class="tag">Achsgeometrie</span>
+<span class="tag">Lenkrad schief</span>
+<span class="tag">Spurstangenkopf</span>
+<span class="tag">3D Achsvermessung</span>
+<span class="tag">Reifen einseitig abgefahren</span>
+<span class="tag">Geradeauslauf</span>
+<span class="tag">Nordheim</span>
+<span class="tag">Heilbronn</span>
+</div>
+
 </div>
 </section>
 
-<section>
-<h2>Preis für Spur einstellen</h2>
+<section class="section">
+<div class="container grid-2">
+
+<div>
+<h2>Unser präzises Vorgehen an den Einstellgeräten</h2>
+
 <p>
-Die Achsvermessung an der Vorderachse beginnt bei Boxenstopp Nordheim ab 79 € inklusive MwSt.
-Die Hinterachse kann je nach Fahrzeug und Aufwand zusätzlich berechnet werden.
-Bei SUV, Transportern, starkem Rost oder Sonderumbauten kann der Aufwand abweichen.
+Vor dem eigentlichen Einstellen führen wir grundsätzlich einen Fahrwerks-Check durch. Denn das Einstellen der Spur ist absolut wirkungslos, wenn die Spurstangenköpfe oder Querlenkerlager Spiel aufweisen – in diesem Fall würde sich die Spur beim Fahren sofort wieder verstellen.
 </p>
+
+<p>
+Sind alle mechanischen Gelenke spielfrei, montieren wir unsere High-Tech-Messaufnehmer an den Rädern. Die Reflektoren übertragen die Ist-Werte in Echtzeit an den Computer, welcher uns die Abweichungen im Minuten- und Gradbereich anzeigt. Anschließend lösen und justieren wir die Einstellmechanismen exakt so lange, bis alle Werte im optimalen, grünen Toleranzbereich des Herstellers liegen.
+</p>
+</div>
+
+<div class="box">
+<h3>Symptome für eine verstellte Achse</h3>
+<ul>
+<li>Das Auto zieht auf gerader Strecke spürbar nach rechts oder links.</li>
+<li>Bei Geradeausfahrt steht die Lenkradspeiche schräg.</li>
+<li>Die Reifen quietschen bereits bei geringem Tempo in engen Kurven.</li>
+<li>Das Fahrverhalten fühlt sich schwammig oder unpräzise an.</li>
+<li>Erhöhter Spritverbrauch durch permanenten, mikroskopischen Bremsfeileffekt.</li>
+</ul>
+</div>
+
+</div>
 </section>
 
-<section>
-<h2>Für Heilbronn, Nordheim und Umgebung</h2>
-<p>
-Boxenstopp Nordheim ist gut erreichbar aus Heilbronn, Nordheim, Leingarten,
-Schwaigern, Böckingen, Neckarsulm, Lauffen am Neckar, Brackenheim und Umgebung.
-</p>
-</section>
+<section class="section alt">
+<div class="container">
 
-<section>
-<h2>Häufige Fragen</h2>
+<h2>Der Ablauf beim Spur-Einstellen</h2>
 
-<h3>Wie merke ich, dass die Spur verstellt ist?</h3>
-<p>
-Typisch sind schiefes Lenkrad, Ziehen zur Seite, unruhiger Geradeauslauf oder einseitiger Reifenverschleiß.
-</p>
+<div class="steps">
+<div class="step">
+<h3>Eingangs-Check & Sichtprüfung</h3>
+<p>Kontrolle von Reifenluftdruck, Profilbild und Ausschluss von mechanischem Spiel an der gesamten Radaufhängung und Lenkung.</p>
+</div>
 
-<h3>Kann ich mit verstellter Spur weiterfahren?</h3>
-<p>
-Dauerhaft nicht empfehlenswert, weil Reifen schneller verschleißen und das Fahrverhalten schlechter werden kann.
-</p>
+<div class="step">
+<h3>3D-Datenerfassung</h3>
+<p>Montage der Messreflektoren, Durchführung der Felgenschlagkompensation durch leichtes Rollen des Fahrzeugs und exakte Erfassung der Ist-Werte.</p>
+</div>
 
-<h3>Kann man jede Achse einstellen?</h3>
-<p>
-Das hängt vom Fahrzeug ab. Manche Werte sind einstellbar, andere nur prüfbar oder abhängig vom Zustand der Fahrwerksteile.
-</p>
-</section>
+<div class="step">
+<h3>Präzisions-Einstellung</h3>
+<p>Fixierung des Lenkrades in exakter Waagerecht-Position. Anschließendes Lösen der Kontermuttern an den Spurstangen und feinfühliges Einstellen auf Soll-Wert.</p>
+</div>
 
-<div class="cta" id="kontakt">
-<h2>Spur einstellen lassen? Jetzt anfragen</h2>
-<p>
-Schicken Sie uns Fahrzeugschein und eine kurze Beschreibung.
-Wir melden uns mit der passenden Einschätzung.
-</p>
-
-<div class="buttons">
-<a class="btn btn-whatsapp" href="https://wa.me/">WhatsApp schreiben</a>
-<a class="btn btn-mail" href="mailto:info@boxenstopp-hn.de">E-Mail schreiben</a>
-<a class="btn btn-call" href="tel:">Anrufen</a>
+<div class="step">
+<h3>Abschluss & Protokollierung</h3>
+<p>Festziehen aller Verbindungen mit Drehmoment, Endmessung und Ausdruck des detaillierten Messprotokolls für Ihre Unterlagen.</p>
 </div>
 </div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+
+<h2>Nachhaltig sparen durch korrekt eingestellte Achsen</h2>
+
+<p>
+Das Einstellen der Spur amortisiert sich meist schon nach kurzer Zeit von selbst. Ein Reifen, der durch eine falsche Spur schräg abradiert wird, verliert bis zu 80 % seiner potenziellen Lebensdauer. Zudem sinkt durch den minimierten Rollwiderstand der Kraftstoffverbrauch spürbar.
+</p>
+
+<p>
+Vertrauen Sie auf die langjährige Erfahrung von Boxenstopp Nordheim. Wir sorgen dafür, dass Sie im Raum Heilbronn wieder absolut spurtreu und sicher unterwegs sind. Eine Übersicht über unser gesamtes Diagnose-Spektrum finden Sie auf `achsvermessung-heilbronn.html`.
+</p>
+
+<div class="notice">
+Gut zu wissen: Wir dokumentieren jeden Einstellschritt penibel. Auf Ihrem Vorher-Nachher-Protokoll sehen Sie schwarz auf weiß, wie stark Ihre Spur verstellt war und wie präzise sie korrigiert wurde.
+</div>
+
+</div>
+</section>
+
+<section class="section alt faq">
+<div class="container">
+
+<h2>FAQ zum Spur-Einstellen</h2>
+
+<details>
+<summary>Warum steht mein Lenkrad schief, obwohl das Auto geradeaus fährt?</summary>
+<p>Das passiert, wenn die Spurwerte der beiden Vorderräder ungleichmäßig verstellt sind (z. B. das linke Rad zeigt leicht nach außen, das rechte steht gerade). Um geradeaus zu fahren, lenken Sie unbewusst gegen – dadurch steht das Lenkrad schief.</p>
+</details>
+
+<details>
+<summary>Kann man die Spur einstellen, wenn ein Gelenk ausgeschlagen ist?</summary>
+<p>Nein, das ist technisch nicht sinnvoll. Ein ausgeschlagenes Lager hat bewegliches Spiel. Man könnte die Spur zwar im Stand korrekt einstellen, sobald sich das Fahrzeug jedoch bewegt, drückt die Fliehkraft das Rad wieder in die Fehlstellung. Defekte Teile müssen zuerst getauscht werden.</p>
+</details>
+
+<details>
+<summary>Was ist der Unterschied zwischen Spur und Sturz?</summary>
+<p>Die Spur beschreibt die Parallelität der Räder zueinander (Sicht von oben). Der Sturz beschreibt die Neigung des Rades im Verhältnis zur vertikalen Achse (Sicht von vorne). Steht das Rad oben nach außen, spricht man von positivem Sturz, neigt es sich nach innen, von negativem Sturz.</p>
+</details>
+
+<details>
+<summary>Muss nach dem Tieferlegen die Spur eingestellt werden?</summary>
+<p>Ja, zwingend. Durch jede Veränderung der Fahrwerkshöhe (egal ob durch Tieferlegungsfedern oder ein Sportfahrwerk) ändern sich die Winkel der Querlenker und Spurstangen radikal. Ohne anschließende Achsjustierung fahren sich die Reifen extrem schnell einseitig ab.</p>
+</details>
+
+<details>
+<summary>Reicht es, nur die Vorderachse zu vermessen?</summary>
+<p>Bei der modernen 3D-Achsvermessung wird immer das komplette Fahrzeug (alle 4 Räder) vermessen, da die Hinterachse die sogenannte Fahrachswinkel-Linie vorgibt. Die Hinterachse schiebt das Auto an – stimmt diese nicht, kann auch die Vorderachse nicht perfekt eingeregelt werden.</p>
+</details>
+
+</div>
+</section>
+
+<section class="section alt">
+<div class="container">
+
+<h2>Weitere Leistungen bei Boxenstopp Nordheim</h2>
+
+<p>
+Neben dem Einstellen der Spur bietet Boxenstopp weitere spezialisierte Leistungen rund um Fahrwerk, Diagnose, DPF-Reinigung und Getriebespülung im Raum Heilbronn an.
+</p>
+
+<div class="service-links">
+<a href="achsvermessung-heilbronn.html">Achsvermessung Heilbronn<span>Der Hauptbereich zur hochpräzisen 3D-Achsvermessung für alle Marken.</span></a>
+<a href="fahrwerksdiagnose-heilbronn.html">Fahrwerksdiagnose<span>Stoßdämpfer, Federn und Achskomponenten auf Verschleiß prüfen.</span></a>
+<a href="diagnose-fehlerspeicher-heilbronn.html">Diagnose & Fehlerauslesen<span>Fehlerspeicher auslesen, Warnleuchten prüfen und Ursachen eingrenzen.</span></a>
+<a href="elektronik-fehlerdiagnose-heilbronn.html">Elektronik-Fehlerdiagnose<span>Analyse komplexer Elektronikprobleme und CAN-Bus-Fehler.</span></a>
+<a href="klimaservice-heilbronn.html">Klimaservice Übersicht<span>Klimaanlage prüfen, warten und befüllen mit R134a oder R1234yf.</span></a>
+<a href="klimaanlagen-wartung-paket-heilbronn.html">Klimaservice Paket<span>Transparenter Service inklusive Kältemittelbefüllung zum Festpreis.</span></a>
+<a href="klimaanlage-desinfektion-heilbronn.html">Klimaanlage Desinfektion<span>Verdampferreinigung gegen Pilze, Bakterien und muffige Gerüche.</span></a>
+<a href="ozonbehandlung-heilbronn.html">Ozonbehandlung<span>Geruchsbehandlung für den gesamten Innenraum des Fahrzeugs.</span></a>
+<a href="getriebespuelung-heilbronn.html">Getriebespülung Übersicht<span>Getriebeservice für Automatik, DSG und Wandlergetriebe.</span></a>
+<a href="getriebespuelung-nach-hersteller-heilbronn.html">Spülung nach Herstellervorgabe<span>Strikte Getriebespülung nach offiziellen Hersteller-Richtlinien.</span></a>
+<a href="dpf-reinigung-heilbronn.html">DPF Reinigung Heilbronn<span>Dieselpartikelfilter reinigen statt teuer tauschen.</span></a>
+<a href="reifenservice-heilbronn.html">Reifenservice Heilbronn<span>Saisonaler Reifenwechsel, Reifenmontage und präzises Auswuchten.</span></a>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+
+<h2>Standort und Kontakt</h2>
+
+<p>
+Boxenstopp befindet sich in Nordheim bei Heilbronn. Für Preisanfragen zur Achsjustierung oder zur Terminvereinbarung bei schief stehendem Lenkrad kontaktieren Sie uns einfach flexibel via WhatsApp, E-Mail oder per Telefon.
+</p>
+
+<div class="box contact-list">
+<h3>Boxenstopp Nordheim</h3>
+<p>WhatsApp: <a href="https://wa.me/4971339220552">07133 9220552</a></p>
+<p>Telefon: <a href="tel:+4971339220552">07133 9220552</a></p>
+<p>E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a></p>
+</div>
+
+</div>
+</section>
+
+<section class="cta">
+<div class="container">
+<h2>Termin zum Spur-Einstellen vereinbaren</h2>
+
+<p>
+Schreiben Sie uns unkompliziert Ihren Wunschtermin. Teilen Sie uns gerne kurz mit, ob Sie ein konkretes Problem bemerkt haben (z. B. Bordsteinkontakt oder einseitig abgefahrene Reifen). Wir melden uns umgehend bei Ihnen.
+</p>
+
+<div class="btn-row" style="justify-content:center">
+<a class="btn btn-whatsapp" href="https://wa.me/4971339220552">Per WhatsApp anfragen</a>
+<a class="btn btn-mail" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
+<a class="btn btn-phone" href="tel:+4971339220552">Anrufen</a>
+</div>
+</div>
+</section>
 
 <footer>
-<p>© Boxenstopp Nordheim – Spur einstellen & 3D-Achsvermessung im Raum Heilbronn</p>
+<p><strong>Boxenstopp Nordheim</strong> · Achsgeometrie & Spur einstellen im Raum Heilbronn · Seit 2008</p>
+
 <p>
-<a href="index.html">Startseite</a> |
-<a href="achsvermessung-heilbronn.html">Achsvermessung</a> |
-<a href="reifenservice-heilbronn.html">Reifenservice</a>
+WhatsApp / Telefon: <a href="tel:+4971339220552">07133 9220552</a> ·
+E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
+</p>
+
+<p>
+<a href="index.html">Startseite</a> ·
+<a href="dpf-reinigung-heilbronn.html">DPF Reinigung</a> ·
+<a href="getriebespuelung-heilbronn.html">Getriebespülung</a> ·
+<a href="klimaservice-heilbronn.html">Klimaservice</a> ·
+<a href="achsvermessung-heilbronn.html">Achsvermessung</a> ·
+<a href="diagnose-fehlerspeicher-heilbronn.html">Diagnose</a>
+</p>
+<p>
+<a href="reifenservice-heilbronn.html">Reifenservice</a> ·
+<a href="inspektion-oelwechsel-heilbronn.html">Inspektion & Ölwechsel</a> ·
+<a href="ozonbehandlung-heilbronn.html">Ozonbehandlung</a>
+</p>
+<p>
+<a href="impressum.html">Impressum</a> ·
+<a href="datenschutz.html">Datenschutz</a>
 </p>
 </footer>
 
 </body>
 </html>
-```
