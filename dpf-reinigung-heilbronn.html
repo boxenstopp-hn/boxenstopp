@@ -226,14 +226,31 @@ Wichtig: Eine DPF Reinigung ersetzt keine saubere Fehlerdiagnose. Wenn die Ursac
 <form onsubmit="sendToWhatsApp(event)" id="dpfForm">
     
     <h3>1. Ihre Kontaktdaten</h3>
-    <div class="form-group">
-        <label for="name">Vollständiger Name *</label>
-        <input type="text" id="name" required placeholder="Vor- und Nachname">
+    <div class="form-row-2">
+        <div class="form-group">
+            <label for="vorname">Vorname *</label>
+            <input type="text" id="vorname" required placeholder="Vorname">
+        </div>
+        <div class="form-group">
+            <label for="nachname">Nachname *</label>
+            <input type="text" id="nachname" required placeholder="Nachname">
+        </div>
     </div>
     
     <div class="form-group">
-        <label for="address">Anschrift (Straße, PLZ, Ort) *</label>
-        <input type="text" id="address" required placeholder="Für die Angebotserstellung notwendig">
+        <label for="strasse">Straße und Hausnummer *</label>
+        <input type="text" id="strasse" required placeholder="Straße und Hausnummer">
+    </div>
+
+    <div class="form-row-2">
+        <div class="form-group">
+            <label for="plz">Postleitzahl *</label>
+            <input type="text" id="plz" required placeholder="PLZ">
+        </div>
+        <div class="form-group">
+            <label for="ort">Ort *</label>
+            <input type="text" id="ort" required placeholder="Ort">
+        </div>
     </div>
     
     <div class="form-row-2">
@@ -342,8 +359,11 @@ function fileSelected(input) {
 function sendToWhatsApp(event) {
     event.preventDefault();
     
-    var name = document.getElementById('name').value;
-    var address = document.getElementById('address').value;
+    var vorname = document.getElementById('vorname').value;
+    var nachname = document.getElementById('nachname').value;
+    var strasse = document.getElementById('strasse').value;
+    var plz = document.getElementById('plz').value;
+    var ort = document.getElementById('ort').value;
     var email = document.getElementById('email').value;
     var phone = document.getElementById('phone').value;
     var hsn_tsn = document.getElementById('hsn_tsn').value || 'Wird per Foto nachgereicht';
@@ -361,8 +381,10 @@ function sendToWhatsApp(event) {
     var text = hinweisFoto +
                "*Neue DPF-Reinigung Anfrage von der Website*\n\n" +
                "*1. KONTAKT-DATEN:*\n" +
-               "👤 Name: " + name + "\n" +
-               "📍 Anschrift: " + address + "\n" +
+               "👤 Name: " + vorname + " " + nachname + "\n" +
+               "🏠 Anschrift: " + strasse + "\n" +
+               "📍 PLZ: " + plz + "\n" +
+               "🏙️ Ort: " + ort + "\n" +
                "✉️ E-Mail: " + email + "\n" +
                "📞 Telefon: " + phone + "\n\n" +
                "*2. FAHRZEUG-DATEN:*\n" +
@@ -501,7 +523,7 @@ Brackenheim, Bad Rappenau und Umgebung.
 <h2>DPF Reinigung für viele Fahrzeugmarken und Motoren</h2>
 
 <p>
-Wir bearbeiten Anfragen zur DPF Reinigung für many gängige Diesel-Fahrzeuge. Wichtig sind nicht nur Marke und Modell,
+Wir bearbeiten Anfragen zur DPF Reinigung für viele gängige Diesel-Fahrzeuge. Wichtig sind nicht nur Marke und Modell,
 sondern auch Motor, Kilometerstand, Fehlercode und Zustand des Filters.
 </p>
 
