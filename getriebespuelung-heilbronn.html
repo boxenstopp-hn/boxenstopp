@@ -230,8 +230,19 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, repariert ab
 </div>
 
 <div class="form-group">
-    <label for="address">Anschrift (Straße, PLZ, Ort) *</label>
-    <input type="text" id="address" required placeholder="Für die Angebotserstellung notwendig">
+    <label for="strasse">Straße und Hausnummer *</label>
+    <input type="text" id="strasse" required placeholder="Straße und Hausnummer">
+</div>
+
+<div class="form-row-2">
+    <div class="form-group">
+        <label for="plz">Postleitzahl *</label>
+        <input type="text" id="plz" required placeholder="PLZ">
+    </div>
+    <div class="form-group">
+        <label for="ort">Ort *</label>
+        <input type="text" id="ort" required placeholder="Ort">
+    </div>
 </div>
 
 <div class="form-row-2">
@@ -347,7 +358,9 @@ function sendToWhatsApp(event) {
     event.preventDefault();
     
     var name = document.getElementById('name').value;
-    var address = document.getElementById('address').value;
+    var strasse = document.getElementById('strasse').value;
+    var plz = document.getElementById('plz').value;
+    var ort = document.getElementById('ort').value;
     var email = document.getElementById('email').value;
     var phone = document.getElementById('phone').value;
     var hsn_tsn = document.getElementById('hsn_tsn').value || 'Wird per Foto nachgereicht';
@@ -366,7 +379,9 @@ function sendToWhatsApp(event) {
                "*Neue Getriebe-Anfrage von der Website*\n\n" +
                "*1. KONTAKT-DATEN:*\n" +
                "👤 Name: " + name + "\n" +
-               "📍 Anschrift: " + address + "\n" +
+               "🏠 Anschrift: " + strasse + "\n" +
+               "📍 PLZ: " + plz + "\n" +
+               "🏙️ Ort: " + ort + "\n" +
                "✉️ E-Mail: " + email + "\n" +
                "📞 Telefon: " + phone + "\n\n" +
                "*2. FAHRZEUG-DATEN:*\n" +
