@@ -180,8 +180,19 @@ Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Nutzen Sie unser
 <input type="text" id="name" required placeholder="z. B. Max Mustermann">
 </div>
 <div class="form-group">
-<label>Wohnort / Anschrift <span class="required-star">*</span></label>
-<input type="text" id="address" required placeholder="z. B. Heilbronn">
+<label>Straße und Hausnummer <span class="required-star">*</span></label>
+<input type="text" id="strasse" required placeholder="Straße und Hausnummer">
+</div>
+</div>
+
+<div class="grid-2" style="gap:0 16px">
+<div class="form-group">
+<label>Postleitzahl <span class="required-star">*</span></label>
+<input type="text" id="plz" required placeholder="PLZ">
+</div>
+<div class="form-group">
+<label>Ort <span class="required-star">*</span></label>
+<input type="text" id="ort" required placeholder="Ort">
 </div>
 </div>
 
@@ -687,7 +698,9 @@ function sendToWhatsApp(event) {
     event.preventDefault();
 
     var name = document.getElementById('name').value.trim();
-    var address = document.getElementById('address').value.trim();
+    var strasse = document.getElementById('strasse').value.trim();
+    var plz = document.getElementById('plz').value.trim();
+    var ort = document.getElementById('ort').value.trim();
     var email = document.getElementById('email').value.trim();
     var phone = document.getElementById('phone').value.trim();
     var serviceType = document.getElementById('service_type').value;
@@ -724,7 +737,9 @@ function sendToWhatsApp(event) {
     text += "🔧 Gewünscht: " + serviceType + "\n";
     text += "📦 Zusatzoptionen: " + filterText + "\n\n";
     text += "👤 Name: " + name + "\n";
-    text += "📍 Wohnort: " + address + "\n";
+    text += "🏠 Anschrift: " + strasse + "\n";
+    text += "📍 PLZ: " + plz + "\n";
+    text += "🏙️ Ort: " + ort + "\n";
     text += "📧 E-Mail: " + email + "\n";
     text += "📞 Tel: " + phone + "\n\n";
     text += "🚗 HSN/TSN: " + (hsnTsn ? hsnTsn : "Siehe Foto/Anhang") + "\n";
