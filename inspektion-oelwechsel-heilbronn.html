@@ -300,7 +300,7 @@ Wichtig: Für ein genaues Angebot bitte Fahrzeugschein oder HSN/TSN, Kilometerst
 
 <div class="card">
 <h3>Ölwechsel</h3>
-<p>Der Ölwechsel gehört zu den wichtigsten Wartungen. Verwendet werden muss ein Motoröl, das zur Herstellervorgabe des Fahrzeugs passt.</p>
+<p>Der Ölwechsel gehört zu den wichtigsten Wartungen. Verwendet werden muss ein Motoröl, das zur Herstellervorgabe des Fahrzeugs passt. Denken Sie bei Automatikfahrzeugen auch an eine regelmäßige <a href="getriebespuelung-heilbronn.html">Getriebespülung in Heilbronn</a>, um Schaltprobleme zu vermeiden.</p>
 </div>
 
 <div class="card">
@@ -678,7 +678,7 @@ function handleFileChange() {
     if (fileInput.files.length > 0) {
         uploadText.style.display = 'none';
         successText.style.display = 'block';
-        
+                
         hsnInput.removeAttribute('required');
         finInput.removeAttribute('required');
         hsnStar.style.display = 'none';
@@ -686,7 +686,7 @@ function handleFileChange() {
     } else {
         uploadText.style.display = 'block';
         successText.style.display = 'none';
-        
+                
         hsnInput.setAttribute('required', '');
         finInput.setAttribute('required', '');
         hsnStar.style.display = 'inline';
@@ -725,7 +725,7 @@ function sendToWhatsApp(event) {
     if(document.getElementById('filter_g_kerzen').checked) filters.push("Glühkerzen (Diesel)");
     if(document.getElementById('filter_bremsfluessig').checked) filters.push("Bremsflüssigkeit");
     if(document.getElementById('filter_riemen').checked) filters.push("Zahnriemen/Steuerkette (Prüfung)");
-    
+        
     var filterText = filters.length > 0 ? filters.join(", ") : "Keine Zusatzoptionen gewählt";
 
     var text = "";
