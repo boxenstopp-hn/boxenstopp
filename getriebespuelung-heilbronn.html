@@ -329,7 +329,7 @@ function fileSelected(input) {
     var subtext = document.getElementById('uploadSubtext');
     var hsn = document.getElementById('hsn_tsn');
     var vin = document.getElementById('vin');
-    var stars = document.querySelectorAll('.req-star');
+    stars = document.querySelectorAll('.req-star');
 
     if (input.files && input.files[0]) {
         istDateiAusgewaehlt = true;
@@ -337,7 +337,7 @@ function fileSelected(input) {
         box.classList.add('has-file');
         text.innerText = "✓ Fahrzeugschein erfolgreich ausgewählt!";
         subtext.innerText = "Datei: " + dateiName;
-        
+                
         hsn.required = false;
         vin.required = false;
         stars.forEach(function(star) { star.style.display = 'none'; });
@@ -347,7 +347,7 @@ function fileSelected(input) {
         box.classList.remove('has-file');
         text.innerText = "📷 Foto / PDF vom Fahrzeugschein auswählen";
         subtext.innerText = "Am Smartphone einfach direkt Foto machen";
-        
+                
         hsn.required = true;
         vin.required = true;
         stars.forEach(function(star) { star.style.display = 'inline'; });
@@ -356,7 +356,7 @@ function fileSelected(input) {
 
 function sendToWhatsApp(event) {
     event.preventDefault();
-    
+        
     var name = document.getElementById('name').value;
     var strasse = document.getElementById('strasse').value;
     var plz = document.getElementById('plz').value;
@@ -370,7 +370,7 @@ function sendToWhatsApp(event) {
     var getriebeSelect = document.getElementById('getriebe');
     var getriebeText = getriebeSelect.options[getriebeSelect.selectedIndex].text;
     var problem = document.getElementById('problem').value || 'Keine Probleme beschrieben';
-    
+        
     var hinweisFoto = istDateiAusgewaehlt 
         ? "⚠️ *WICHTIG:* Bitte jetzt noch das ausgewählte Foto (" + dateiName + ") aus deiner Galerie hier im Chat anhängen!\n\n" 
         : "";
@@ -395,7 +395,7 @@ function sendToWhatsApp(event) {
                
     var encodedText = encodeURIComponent(text);
     var whatsappUrl = "https://wa.me/4971339220552?text=" + encodedText;
-    
+        
     window.open(whatsappUrl, '_blank');
 }
 </script>
@@ -424,7 +424,7 @@ function sendToWhatsApp(event) {
 
 <div class="card">
 <h3>Schaltstöße</h3>
-<p>Harte Schaltstöße können durch Ölzustand, Ölstand, Adaptionswerte oder Verschleiß beeinflusst werden.</p>
+<p>Harte Schaltstöße können durch Ölzustand, Ölstand, Adaptionswerte oder Verschleiß beeinflusst werden. Lassen Sie bei Vibrationen oder einseitiger Reifenabnutzung auch rechtzeitig eine <a href="achsvermessung-heilbronn.html">Achsvermessung in Heilbronn</a> durchführen.</p>
 </div>
 
 <div class="card">
@@ -821,17 +821,15 @@ E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
 <p>
 <a href="index.html">Startseite</a> ·
 <a href="dpf-reinigung-heilbronn.html">DPF Reinigung</a> ·
+<a href="getriebespuelung-heilbronn.html">Getriebespülung</a> ·
 <a href="klimaservice-heilbronn.html">Klimaservice</a> ·
 <a href="achsvermessung-heilbronn.html">Achsvermessung</a> ·
-<a href="diagnose-fehlerspeicher-heilbronn.html">Diagnose</a> ·
-<a href="reifenservice-heilbronn.html">Reifenservice</a>
+<a href="diagnose-fehlerspeicher-heilbronn.html">Diagnose</a>
 </p>
-
 <p>
-<a href="inspektion-oelwechsel-heilbronn.html">Inspektion & Ölwechsel</a> ·
+<a href="reifenservice-heilbronn.html">Reifenservice</a> ·
 <a href="ozonbehandlung-heilbronn.html">Ozonbehandlung</a>
 </p>
-
 <p>
 <a href="impressum.html">Impressum</a> ·
 <a href="datenschutz.html">Datenschutz</a>
