@@ -16,17 +16,28 @@
 *{box-sizing:border-box}
 body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#333;line-height:1.7}
 a{text-decoration:none}
+
+/* TEXT-LINKS IN ROT, FETT UND UNTERSTRICHEN */
+p a, .section a, .notice a {
+    color: #cc0000 !important;
+    text-decoration: underline !important;
+    font-weight: 700 !important;
+}
+p a:hover, .section a:hover, .notice a:hover {
+    color: #990000 !important;
+}
+
 header{background:#fff;padding:45px 20px 35px;text-align:center;border-bottom:5px solid #cc0000}
 .logo{font-size:52px;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-2px;color:#333}
 .logo span{color:#cc0000}
 header p{font-size:18px;font-weight:600;color:#444;margin:8px 0 0}
 .top-contact{margin-top:18px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.top-contact a{display:inline-block;padding:10px 16px;border-radius:8px;font-weight:900;color:#fff}
+.top-contact a{display:inline-block;padding:10px 16px;border-radius:8px;font-weight:900;color:#fff;text-decoration:none !important}
 .top-contact .whatsapp{background:#25d366}
 .top-contact .mail{background:#cc0000}
 .top-contact .phone{background:#333}
 .top-nav{margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.top-nav a{background:#f4f4f4;color:#333;padding:10px 16px;border-radius:8px;font-weight:800;border:1px solid #ddd}
+.top-nav a{background:#f4f4f4;color:#333;padding:10px 16px;border-radius:8px;font-weight:800;border:1px solid #ddd;text-decoration:none !important}
 .top-nav a:hover{background:#cc0000;color:#fff}
 .hero{padding:70px 20px;background:linear-gradient(135deg,#f7f7f7,#ffffff)}
 .container{max-width:1120px;margin:auto}
@@ -37,7 +48,7 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .highlight{color:#cc0000}
 .lead{font-size:20px;font-weight:600;color:#444;margin-bottom:24px}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
-.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center;border:none;cursor:pointer}
+.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center;border:none;cursor:pointer;text-decoration:none !important}
 .btn-whatsapp{background:#25d366;color:#fff}
 .btn-mail{background:#cc0000;color:#fff}
 .btn-phone{background:#333;color:#fff}
@@ -55,12 +66,12 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .step{position:relative;padding-left:58px;margin-bottom:24px}
 .step:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:40px;height:40px;background:#cc0000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
 .service-links{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-.service-links a{background:#fff;padding:22px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06);border-left:5px solid #cc0000;color:#333;font-weight:900}
+.service-links a{background:#fff;padding:22px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06);border-left:5px solid #cc0000;color:#333;font-weight:900;text-decoration:none !important}
 .service-links a span{display:block;font-weight:400;font-size:15px;color:#555;margin-top:6px}
 .service-links a:hover{background:#cc0000;color:#fff}
 .service-links a:hover span{color:#fff}
 .cluster-links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-.cluster-links a{background:#fff;padding:18px;border-radius:12px;box-shadow:0 5px 16px rgba(0,0,0,.06);border-left:5px solid #cc0000;color:#333;font-weight:900}
+.cluster-links a{background:#fff;padding:18px;border-radius:12px;box-shadow:0 5px 16px rgba(0,0,0,.06);border-left:5px solid #cc0000;color:#333;font-weight:900;text-decoration:none !important}
 .cluster-links a span{display:block;font-weight:400;font-size:15px;color:#555;margin-top:6px}
 .cluster-links a:hover{background:#cc0000;color:#fff}
 .cluster-links a:hover span{color:#fff}
@@ -76,7 +87,7 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .cta h2{color:#fff}
 .cta p{font-size:18px;max-width:760px;margin:0 auto 24px}
 footer{background:#111;color:#ccc;text-align:center;padding:30px 20px;font-size:14px}
-footer a{color:#fff}
+footer a{color:#fff;text-decoration:none !important}
 
 /* Formular-Styles */
 .form-group{margin-bottom:16px;text-align:left}
@@ -166,7 +177,7 @@ Boxenstopp Nordheim hilft bei der professionellen DPF Reinigung im Raum Heilbron
 
 <p>
 Ein zugesetzter Dieselpartikelfilter muss nicht immer sofort ersetzt werden. In vielen Fällen ist eine gründliche Reinigung
-des Partikelfilters eine wirtschaftliche Alternative zum teuren Austausch.
+des Partikelfilters eine wirtschaftliche Alternative zum <a href="dpf-wechsel-zu-teuer-heilbronn.html">teuren DPF Wechsel</a>.
 </p>
 
 <div class="btn-row">
@@ -180,7 +191,7 @@ des Partikelfilters eine wirtschaftliche Alternative zum teuren Austausch.
 <h3>Typische DPF-Probleme</h3>
 <ul>
 <li>DPF-Warnleuchte leuchtet</li>
-<li>Motorkontrollleuchte ist aktiv</li>
+<li>Motorkontrollleuchte ist active</li>
 <li>Fahrzeug geht in den Notlauf</li>
 <li>Leistungsverlust beim Beschleunigen</li>
 <li>Regeneration nicht möglich</li>
@@ -205,12 +216,12 @@ kann sich der Filter immer weiter zusetzen.
 </p>
 
 <p>
-Die Folge sind häufig Leistungsverlust, Notlauf, DPF-Warnleuchte, Motorkontrollleuchte, hoher Verbrauch oder Fehlercodes im Steuergerät.
-Eine professionelle DPF Reinigung kann helfen, den Durchfluss des Filters wieder zu verbessern.
+Die Folge sind häufig Leistungsverlust, Notlauf, DPF-Warnleuchte, die <a href="motorkontrollleuchte-heilbronn.html">Motorkontrollleuchte leuchtet</a>, hoher Verbrauch oder bestimmte Fehlercodes im Steuergerät.
+Eine professionelle DPF Reinigung kann helfen, den Durchfluss des Filters wieder zu verbessern, wenn der <a href="dpf-voll-heilbronn.html">DPF voll</a> ist.
 </p>
 
 <div class="notice">
-Wichtig: Eine DPF Reinigung ersetzt keine saubere Fehlerdiagnose. Wenn die Ursache nicht behoben wird, kann sich der Filter erneut zusetzen.
+Wichtig: Eine DPF Reinigung ersetzt keine saubere <a href="diagnose-fehlerspeicher-heilbronn.html">Diagnose & Fehlerauslesen</a>. Wenn die Ursache nicht behoben wird, kann die <a href="dpf-kontrollleuchte-geht-nicht-aus-heilbronn.html">DPF Kontrollleuchte</a> nach kurzer Zeit wieder angehen.
 </div>
 
 </div>
@@ -448,11 +459,11 @@ Regeneration, Abgasgegendruck oder Sensorwerten zusammen.
 </p>
 
 <div class="grid-3">
-<div class="card"><h3>P2002</h3><p>DPF-Wirkungsgrad zu gering. Häufig im Zusammenhang mit Dieselpartikelfilter, Differenzdruck, Regeneration oder Abgassystem.</p></div>
-<div class="card"><h3>P242F</h3><p>Starke Asche- oder Rußbeladung des Partikelfilters. Eine Reinigung kann je nach Zustand des Filters sinnvoll sein.</p></div>
-<div class="card"><h3>P2452 / P2453</h3><p>Fehler am Differenzdrucksensor oder unplausible DPF-Druckwerte. Sensor, Leitungen und Filterzustand sollten geprüft werden.</p></div>
-<div class="card"><h3>P2458</h3><p>Regenerationsdauer zu lang. Der Filter kann stark beladen sein oder die Regeneration wird nicht sauber abgeschlossen.</p></div>
-<div class="card"><h3>P2463</h3><p>Dieselpartikelfilter stark beladen. Häufig ein Hinweis auf zugesetzten DPF oder gestörte Regeneration.</p></div>
+<div class="card"><h3>P2002</h3><p>DPF-Wirkungsgrad zu gering. Häufig im Zusammenhang mit Dieselpartikelfilter, Differenzdruck, Regeneration oder Abgassystem. Mehr Infos auf <a href="fehlercode-p2002-heilbronn.html">Fehlercode P2002</a>.</p></div>
+<div class="card"><h3>P242F</h3><p>Starke Asche- oder Rußbeladung des Partikelfilters. Eine Reinigung kann je nach Zustand sinnvoll sein. Siehe <a href="p242f-fehlercode-heilbronn.html">Fehlercode P242F</a>.</p></div>
+<div class="card"><h3>P2452 / P2453</h3><p>Fehler am Differenzdrucksensor oder unplausible DPF-Druckwerte. Sensor, Leitungen und Filterzustand sollten geprüft werden. Eventuell ist der <a href="differenzdrucksensor-defekt-heilbronn.html">Differenzdrucksensor defekt</a>.</p></div>
+<div class="card"><h3>P2458</h3><p>Regenerationsdauer zu lang. Der Filter kann stark beladen sein oder die <a href="regeneration-faehrt-nicht-zu-ende-heilbronn.html">Regeneration fährt nicht zu Ende</a>.</p></div>
+<div class="card"><h3>P2463</h3><p>Dieselpartikelfilter stark beladen. Häufig ein Hinweis auf einen zugesetzten DPF oder wenn die <a href="dpf-regeneration-fehlgeschlagen-heilbronn.html">DPF Regeneration fehlgeschlagen</a> ist.</p></div>
 <div class="card"><h3>P244A / P244B</h3><p>Differenzdruck zu niedrig oder zu hoch. Möglich sind Sensorik, Leitungen, Filterzustand oder Abgasgegendruck.</p></div>
 </div>
 
@@ -469,12 +480,12 @@ Fehlercodes allein reichen nicht immer aus. Hilfreich sind Fahrzeugschein, Kilom
 <h2>Wann ist eine DPF Reinigung sinnvoll?</h2>
 
 <div class="grid-3">
-<div class="card"><h3>DPF-Warnleuchte</h3><p>Wenn die DPF-Leuchte oder Motorkontrollleuchte erscheint, ist der Partikelfilter oft stark beladen oder die Regeneration wurde nicht abgeschlossen.</p></div>
-<div class="card"><h3>Notlauf & Leistungsverlust</h3><p>Ein zugesetzter DPF kann den Abgasgegendruck erhöhen. Das Fahrzeug nimmt schlechter Gas an, verliert Leistung oder schaltet in den Notlauf.</p></div>
+<div class="card"><h3>DPF-Warnleuchte</h3><p>Wenn die DPF-Leuchte erscheint, ist der Partikelfilter oft stark beladen. Achtung, falls die <a href="dpf-warnleuchte-blinkt-heilbronn.html">DPF Warnleuchte blinkt</a>.</p></div>
+<div class="card"><h3>Notlauf & Leistungsverlust</h3><p>Ein zugesetzter DPF erhöht den Abgasgegendruck. Das Fahrzeug verliert Leistung oder schaltet in den Notlauf.</p></div>
 <div class="card"><h3>Regeneration bricht ab</h3><p>Wenn die Regeneration ständig startet, nicht fertig wird oder immer wieder abbricht, kann der Filter zu stark beladen sein.</p></div>
 <div class="card"><h3>Hoher Verbrauch</h3><p>Häufige Regenerationen oder Abgasprobleme können den Verbrauch erhöhen und das Fahrverhalten verschlechtern.</p></div>
-<div class="card"><h3>Schwarzer Rauch</h3><p>Rauch oder Geruch können auf Probleme im Abgassystem, bei der Verbrennung, beim AGR-System oder beim DPF hinweisen.</p></div>
-<div class="card"><h3>Neuer DPF wäre teuer</h3><p>Bevor ein neuer Dieselpartikelfilter verbaut wird, lohnt sich oft die Prüfung, ob eine Reinigung möglich ist.</p></div>
+<div class="card"><h3>Schwarzer Rauch</h3><p>Rauch oder Geruch können auf Probleme im Abgassystem oder bei der Verbrennung hinweisen.</p></div>
+<div class="card"><h3>Neuer DPF wäre teuer</h3><p>Bevor ein neuer Dieselpartikelfilter verbaut wird, lohnt sich oft die Prüfung der <a href="dpf-reinigen-kosten-heilbronn.html">DPF reinigen Kosten</a>.</p></div>
 </div>
 
 </div>
@@ -492,8 +503,7 @@ ob der vorhandene Filter gereinigt werden kann.
 </p>
 
 <p>
-Bei der DPF Reinigung wird der ausgebaute Filter außerhalb des Fahrzeugs gereinigt. Ziel ist es, Ruß- und Ascherückstände
-so weit wie möglich aus dem Filter zu entfernen und den Durchfluss wieder zu verbessern.
+Bei der DPF Reinigung wird der ausgebaute Filter außerhalb des Fahrzeugs gereinigt. Ziel ist es, Ruß- und <a href="dpf-aschebeladung-heilbronn.html">DPF Aschebeladung</a> so weit wie möglich aus dem Filter zu entfernen und den Durchfluss wieder zu verbessern.
 </p>
 
 <p>
@@ -582,7 +592,7 @@ Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand, Fehlerco
 <div class="step"><h3>Einschätzung & Angebot</h3><p>Wir prüfen, ob eine DPF Reinigung grundsätzlich sinnvoll ist und welcher Aufwand zu erwarten ist.</p></div>
 <div class="step"><h3>Ausbau oder angelieferter Filter</h3><p>Der Dieselpartikelfilter wird je nach Fall ausgebaut oder bereits ausgebaut angeliefert.</p></div>
 <div class="step"><h3>Reinigung des Partikelfilters</h3><p>Der Filter wird außerhalb des Fahrzeugs gereinigt, gespült und für den weiteren Einbau vorbereitet.</p></div>
-<div class="step"><h3>Kontrolle und Ursache beachten</h3><p>Nach der Reinigung sollte die Ursache des DPF-Problems geprüft werden, damit sich der Filter nicht erneut schnell zusetzt.</p></div>
+<div class="step"><h3>Kontrolle und Ursache beachten</h3><p>Nach der Reinigung sollte die Ursache des DPF-Problems geprüft werden, damit sich der Filter nicht erneut schnell zusetzen.</p></div>
 </div>
 
 </div>
@@ -595,11 +605,11 @@ Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand, Fehlerco
 
 <div class="grid-3">
 <div class="card"><h3>Kurzstreckenbetrieb</h3><p>Bei kurzen Fahrten erreicht das Fahrzeug oft nicht die nötige Temperatur für eine vollständige DPF-Regeneration.</p></div>
-<div class="card"><h3>Defekte Sensoren</h3><p>Differenzdrucksensor, Temperatursensoren oder andere Bauteile können falsche Werte liefern und die Regeneration verhindern.</p></div>
-<div class="card"><h3>AGR-Probleme</h3><p>Ein verschmutztes oder defektes AGR-System kann Rußbildung und DPF-Beladung beeinflussen.</p></div>
+<div class="card"><h3>Defekte Sensoren</h3><p>Differenzdrucksensor, <a href="abgastemperatursensor-defekt-heilbronn.html">Abgastemperatursensor defekt</a> oder andere Bauteile können falsche Werte liefern.</p></div>
+<div class="card"><h3>AGR-Probleme</h3><p>Ein verschmutztes System kann Rußbildung fördern. Eventuell hilft hier <a href="agr-ventil-reinigen-heilbronn.html">AGR Ventil reinigen</a>.</p></div>
 <div class="card"><h3>Ölverbrauch</h3><p>Erhöhter Ölverbrauch kann Aschebeladung fördern und den Dieselpartikelfilter langfristig belasten.</p></div>
 <div class="card"><h3>Einspritzprobleme</h3><p>Defekte Injektoren oder schlechte Verbrennung können zu mehr Ruß und schnellerer DPF-Beladung führen.</p></div>
-<div class="card"><h3>Abgebrochene Regeneration</h3><p>Wenn Regenerationen ständig unterbrochen werden, steigt die Beladung des Filters weiter an.</p></div>
+<div class="card"><h3>Abgebrochene Regeneration</h3><p>Wenn die <a href="agr-ventil-defekt-heilbronn.html">AGR Ventil defekt</a> ist oder andere Fehler vorliegen, bricht die Regeneration ab.</p></div>
 </div>
 
 </div>
@@ -617,8 +627,7 @@ Lauffen am Neckar, Brackenheim, Bad Rappenau, Eppingen und der Umgebung.
 </p>
 
 <p>
-Wenn Ihr Fahrzeug eine DPF-Fehlermeldung anzeigt, die Regeneration nicht mehr funktioniert oder bereits ein neuer
-Partikelfilter empfohlen wurde, fragen Sie zuerst eine Reinigung an.
+Wenn Ihr Fahrzeug eine DPF-Fehlermeldung anzeigt, die Regeneration nicht mehr funktioniert oder bereits ein Anzeichen für <a href="turbolader-defekt-symptome-heilbronn.html">Turbolader defekt Symptome</a> oder <a href="turbo-ohne-leistung-heilbronn.html">Turbo ohne Leistung</a> vorliegt, fragen Sie zuerst eine Reinigung an.
 </p>
 
 </div>
@@ -736,7 +745,7 @@ E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
 </p>
 
 <p>
-<a href="dpf-regeneration-fehlgeschlagen-heilbronn.html">DPF Regeneration fehlgeschlagen</a> ·
+<a href="dpf-regeneration-fehlgeschlagen-heilbronn.html">DPF Regeneration failed</a> ·
 <a href="differenzdrucksensor-defekt-heilbronn.html">Differenzdrucksensor</a> ·
 <a href="agr-ventil-defekt-heilbronn.html">AGR Ventil defekt</a> ·
 <a href="turbo-ohne-leistung-heilbronn.html">Turbo ohne Leistung</a>
