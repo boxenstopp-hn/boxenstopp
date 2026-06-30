@@ -19,17 +19,28 @@
 *{box-sizing:border-box}
 body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#333;line-height:1.7}
 a{text-decoration:none}
+
+/* EINHEITLICHER LINK-STIL FÜR TEXT-LINKS */
+p a, .section a {
+    color: #cc0000 !important;
+    text-decoration: underline !important;
+    font-weight: 700 !important;
+}
+p a:hover, .section a:hover {
+    color: #990000 !important;
+}
+
 header{background:#fff;padding:45px 20px 35px;text-align:center;border-bottom:5px solid #cc0000}
 .logo{font-size:52px;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-2px;color:#333}
 .logo span{color:#cc0000}
 header p{font-size:18px;font-weight:600;color:#444;margin:8px 0 0}
 .top-contact{margin-top:18px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.top-contact a{display:inline-block;padding:10px 16px;border-radius:8px;font-weight:900;color:#fff}
+.top-contact a{display:inline-block;padding:10px 16px;border-radius:8px;font-weight:900;color:#fff;text-decoration:none !important}
 .top-contact .whatsapp{background:#25d366}
 .top-contact .mail{background:#cc0000}
 .top-contact .phone{background:#333}
 .top-nav{margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.top-nav a{background:#f4f4f4;color:#333;padding:10px 16px;border-radius:8px;font-weight:800;border:1px solid #ddd}
+.top-nav a{background:#f4f4f4;color:#333;padding:10px 16px;border-radius:8px;font-weight:800;border:1px solid #ddd;text-decoration:none !important}
 .top-nav a:hover{background:#cc0000;color:#fff}
 .hero{padding:70px 20px;background:linear-gradient(135deg,#f7f7f7,#ffffff)}
 .container{max-width:1120px;margin:auto}
@@ -42,7 +53,7 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .highlight{color:#cc0000}
 .lead{font-size:20px;font-weight:600;color:#444;margin-bottom:24px}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
-.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center;border:none;cursor:pointer;width:100%}
+.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center;border:none;cursor:pointer;width:100%;text-decoration:none !important}
 .btn-whatsapp{background:#25d366;color:#fff}
 .btn-mail{background:#cc0000;color:#fff}
 .btn-phone{background:#333;color:#fff}
@@ -60,7 +71,7 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .step{position:relative;padding-left:58px;margin-bottom:24px}
 .step:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:40px;height:40px;background:#cc0000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
 .service-links{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-.service-links a{background:#fff;padding:22px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06);border-left:5px solid #cc0000;color:#333;font-weight:900}
+.service-links a{background:#fff;padding:22px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06);border-left:5px solid #cc0000;color:#333;font-weight:900;text-decoration:none !important}
 .service-links a span{display:block;font-weight:400;font-size:15px;color:#555;margin-top:6px}
 .service-links a:hover{background:#cc0000;color:#fff}
 .service-links a:hover span{color:#fff}
@@ -71,12 +82,13 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .map-box{background:#fff;border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.08);overflow:hidden;border-top:5px solid #cc0000}
 .map-box iframe{width:100%;height:360px;border:0;display:block}
 .contact-list p{margin:8px 0;font-weight:800}
-.contact-list a{color:#cc0000;font-weight:900}
+.contact-list a{color:#cc0000 !important;font-weight:900;text-decoration:none !important}
 .cta{background:#222;color:#fff;text-align:center;padding:70px 20px}
 .cta h2{color:#fff}
 .cta p{font-size:18px;max-width:760px;margin:0 auto 24px}
 footer{background:#111;color:#ccc;text-align:center;padding:30px 20px;font-size:14px}
-footer a{color:#fff}
+footer a{color:#fff;text-decoration:none !important}
+footer a:hover {text-decoration:underline !important}
 
 /* Formular-Styling */
 .form-group{margin-bottom:16px}
@@ -317,7 +329,7 @@ Leingarten, Schwaigern, Böckingen, Lauffen am Neckar, Brackenheim, Bad Rappenau
 </p>
 
 <div class="notice">
-Wichtig: Wenn Reifen einseitig abgefahren sind oder das Fahrzeug zur Seite zieht, sollte zusätzlich eine Achsvermessung geprüft werden.
+Wichtig: Wenn Reifen einseitig abgefahren sind oder das Fahrzeug zur Seite zieht, sollte zusätzlich eine <a href="achsvermessung-heilbronn.html">Achsvermessung</a> geprüft werden.
 </div>
 
 </div>
@@ -422,7 +434,7 @@ sportliche Fahrzeuge, SUV, Transporter und größere Rad-Reifen-Kombinationen.
 
 <div class="card">
 <h3>Einseitiger Verschleiß</h3>
-<p>Wenn Reifen innen oder außen stärker ablaufen, sollte die Achsgeometrie geprüft und eventuell die Spur eingestellt werden.</p>
+<p>Wenn Reifen innen oder außen stärker ablaufen, sollte die Achsgeometrie geprüft und eventuell die Spur eingestellt werden. Hier hilft eine <a href="achsvermessung-heilbronn.html">Achsvermessung</a>.</p>
 </div>
 
 <div class="card">
@@ -620,7 +632,7 @@ Fragen Sie einfach per WhatsApp, E-Mail oder Telefon an.
 
 <details>
 <summary>Warum fahren sich meine Reifen einseitig ab?</summary>
-<p>Einseitiger Reifenverschleiß kann durch falsche Spur, falschen Sturz, defekte Fahrwerksteile oder falschen Reifendruck entstehen. Dann ist eine Achsvermessung sinnvoll.</p>
+<p>Einseitiger Reifenverschleiß kann durch falsche Spur, falschen Sturz, defekte Fahrwerksteile oder falschen Reifendruck entstehen. Dann ist eine <a href="achsvermessung-heilbronn.html">Achsvermessung</a> sinnvoll.</p>
 </details>
 
 <details>
