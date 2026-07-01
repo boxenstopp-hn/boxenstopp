@@ -1,0 +1,15 @@
+name: Fix Google Maps
+on: [push]
+jobs:
+  update-maps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Replace Map Code
+        run: |
+          find . -name "*.html" -exec sed -i 's|<div class="map-box">.*<img.*</div>|<div class="map-box"><iframe src="https://www.google.com/maps?q=Boxenstopp%20Nordheim%20bei%20Heilbronn\&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>|g' {} +
+          git config user.name "Bot"
+          git config user.email "bot@example.com"
+          git add .
+          git commit -m "Automatische Karten-Korrektur auf allen Seiten"
+          git push
