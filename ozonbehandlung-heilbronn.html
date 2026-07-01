@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -89,6 +89,15 @@ h2{font-size:28px}
 .btn{width:100%}
 .top-contact a{width:100%}
 }
+
+.map-consent-placeholder{min-height:360px;padding:34px 24px;display:flex;align-items:center;justify-content:center;text-align:center;background:#f7f7f7;color:#333}
+.map-consent-inner{max-width:560px}
+.map-consent-inner h3{margin:0 0 12px;color:#222}
+.map-consent-inner p{margin:0 0 18px}
+.map-consent-button{border:0;background:#cc0000;color:#fff;padding:13px 20px;border-radius:9px;font-weight:900;cursor:pointer}
+.map-consent-note{display:block;margin-top:12px;font-size:13px;color:#666}
+.map-consent-note a{color:#cc0000;font-weight:900}
+.map-box iframe{width:100%;height:360px;border:0;display:block}
 </style>
 
 <script type="application/ld+json">
@@ -104,6 +113,16 @@ h2{font-size:28px}
 "serviceType":"Ozonbehandlung, Geruchsentfernung Auto, Innenraum auffrischen, Klimageruch reduzieren"
 }
 </script>
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#111111">
 </head>
 
 <body>
@@ -475,7 +494,14 @@ Boxenstopp befindet sich in Nordheim bei Heilbronn. Für eine schnelle Anfrage z
 </div>
 
 <div class="map-box">
-<iframe src="https://www.google.com/maps?q=Boxenstopp%20Nordheim%20bei%20Heilbronn&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="map-consent-placeholder" data-boxenstopp-google-map data-src="https://www.google.com/maps?q=Boxenstopp%20Nordheim%20bei%20Heilbronn&amp;output=embed">
+<div class="map-consent-inner">
+<h3>Google Maps anzeigen</h3>
+<p>Zum Schutz deiner Daten wird die Karte erst geladen, wenn du zustimmst. Dabei können Daten an Google übertragen werden.</p>
+<button class="map-consent-button" type="button" onclick="boxenstoppAcceptGoogleMaps()">Google Maps laden</button>
+<span class="map-consent-note">Mehr Informationen findest du in der <a href="datenschutz.html">Datenschutzerklärung</a>.</span>
+</div>
+</div>
 </div>
 
 </div>
