@@ -307,6 +307,14 @@ Bitte die Reifengröße direkt vom Reifen abschreiben. Im Fahrzeugschein kann ei
 <textarea id="message" rows="3" placeholder="z. B. ich brauche zusätzlich neue Ventile oder RDKS-Sensoren"></textarea>
 </div>
 
+<!-- DSGVO DATENSCHUTZ-CHECKBOX -->
+<div class="form-group" style="margin: 20px 0 15px;">
+<label class="checkbox-item" style="background:none; border:none; padding:0; cursor:pointer; display:flex; align-items:flex-start; gap:10px;">
+<input type="checkbox" id="privacy_check" required style="width:18px; height:18px; margin-top:3px; flex-shrink:0;">
+<span style="font-size:14px; font-weight:600; color:#444; line-height:1.4;">Ich stimme zu, dass meine Angaben zur Bearbeitung der Anfrage verarbeitet werden. Weitere Informationen finden Sie in der <a href="datenschutz.html" target="_blank" style="color:#cc0000; text-decoration:underline; font-weight:700;">Datenschutzerklärung</a>. <span class="required-star">*</span></span>
+</label>
+</div>
+
 <button type="submit" class="btn btn-whatsapp" style="margin-top:10px">Reifenangebot über WhatsApp anfragen</button>
 </form>
 </div>
@@ -765,22 +773,38 @@ function getRadioValue(name) {
 function sendReifenToWhatsApp(event) {
     event.preventDefault();
 
-    var name = document.getElementById('name').value;
-    var strasse = document.getElementById('strasse').value;
-    var plz = document.getElementById('plz').value;
-    var ort = document.getElementById('ort').value;
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
-    var hsnTsn = document.getElementById('hsn_tsn').value;
-    var baujahr = document.getElementById('baujahr').value;
-    var reifenGroesse = document.getElementById('reifen_groesse').value;
-    var index = document.getElementById('index').value;
+    // Datenschutz-Check abfragen
+    var privacyCheck = document.getElementById('privacy_check');
+    if (!privacyCheck || !privacyCheck.checked) {
+        alert('Bitte akzeptieren Sie die Datenschutzhinweise, um die Anfrage zu senden.');
+        return;
+    }
+
+    var name = document.getElementById('name').value.trim();
+    var strasse = document.getElementById('strasse').value.trim();
+    var plz = document.getElementById('plz').value.trim();
+    var ort = document.getElementById('ort').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var hsnTsn = document.getElementById('hsn_tsn').value.trim();
+    var baujahr = document.getElementById('baujahr').value.trim();
+    var reifenGroesse = document.getElementById('reifen_groesse').value.trim();
+    var index = document.getElementById('index').value.trim();
     var reifenart = getRadioValue('reifenart');
     var qualitaet = getRadioValue('qualitaet');
-    var marke = document.getElementById('marke').value;
+    var marke = document.getElementById('marke').value.trim();
     var stueckzahl = document.getElementById('stueckzahl').value;
-    var message = document.getElementById('message').value;
+    var message = document.getElementById('message').value.trim();
     var fileInput = document.getElementById('file_schein');
+
+    // Dynamische HSN/TSN Text-Ermittlung bei Dateiupload
+    var hsnTsnText = hsnTsn;
+    if (fileInput.files.length > 0 && !hsnTsn) {
+        hsnTsnText = 'Siehe Foto/Anhang';
+    } else if (!hsnTsn) {
+        alert('Bitte HSN/TSN eingeben oder ein Foto des Fahrzeugscheins hochladen.');
+        return;
+    }
 
     var text = '';
     if (fileInput.files.length > 0) {
@@ -795,7 +819,7 @@ function sendReifenToWhatsApp(event) {
     text += '🏙️ Ort: ' + ort + '\n';
     text += '📧 E-Mail: ' + email + '\n';
     text += '📞 Tel: ' + phone + '\n\n';
-    text += '🚗 HSN/TSN: ' + (hsnTsn ? hsnTsn : 'Siehe Foto/Anhang') + '\n';
+    text += '🚗 HSN/TSN: ' + hsnTsnText + '\n';
     text += '📅 Baujahr: ' + baujahr + '\n\n';
     text += '🛞 Reifengröße: ' + reifenGroesse + '\n';
     text += '🏷️ Traglast/Geschwindigkeit: ' + index + '\n';
