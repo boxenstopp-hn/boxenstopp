@@ -44,14 +44,15 @@ header p{font-size:18px;font-weight:600;color:#444;margin:8px 0 0}
 .top-nav a:hover{background:#cc0000;color:#fff}
 .hero{padding:70px 20px;background:linear-gradient(135deg,#f7f7f7,#ffffff)}
 .container{max-width:1120px;margin:auto}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px 36px;align-items:start}
+.hero-form-wide{grid-column:1/-1;max-width:980px;margin:0 auto;width:100%}
 h1{font-size:44px;line-height:1.15;margin:0 0 20px;color:#1f1f1f}
 h2{font-size:32px;line-height:1.25;margin:0 0 20px;color:#1f1f1f}
 h3{font-size:22px;margin:0 0 10px;color:#222}
 .highlight{color:#cc0000}
 .lead{font-size:20px;font-weight:600;color:#444;margin-bottom:24px}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
-.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center}
+.btn{display:inline-block;padding:14px 22px;border-radius:9px;font-weight:900;font-size:16px;text-align:center;border:none;cursor:pointer;width:100%}
 .btn-whatsapp{background:#25d366;color:#fff}
 .btn-mail{background:#cc0000;color:#fff}
 .btn-phone{background:#333;color:#fff}
@@ -86,8 +87,23 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .cta p{font-size:18px;max-width:760px;margin:0 auto 24px}
 footer{background:#111;color:#ccc;text-align:center;padding:30px 20px;font-size:14px}
 footer a{color:#fff}
+
+/* Formular-Styling */
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:700;margin-bottom:6px;font-size:14px}
+.form-group input[type="text"],.form-group input[type="tel"],.form-group input[type="email"],.form-group textarea,.form-group select{width:100%;padding:11px;border:1px solid #ccc;border-radius:6px;font-size:15px;font-family:inherit}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#cc0000;outline:none}
+.form-group .required-star{color:#cc0000}
+.checkbox-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:8px 0 15px}
+.checkbox-item{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;cursor:pointer;background:#f9f9f9;border:1px solid #e3e3e3;border-radius:8px;padding:10px 12px;user-select:none;-webkit-user-select:none}
+.checkbox-item input{width:18px;height:18px;cursor:pointer;flex-shrink:0}
+.file-upload-box{border:2px dashed #bbb;padding:14px;text-align:center;border-radius:8px;background:#f9f9f9;cursor:pointer;position:relative;margin-top:5px}
+.file-upload-box input[type="file"]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.file-upload-text{font-weight:700;color:#555;font-size:14px}
+.file-success-text{color:#25d366;font-weight:800;display:none;font-size:14px}
+
 @media(max-width:850px){
-.hero-grid,.grid-3,.grid-2,.service-links{grid-template-columns:1fr}
+.hero-grid,.grid-3,.grid-2,.service-links,.checkbox-list{grid-template-columns:1fr}
 h1{font-size:34px}
 h2{font-size:28px}
 .logo{font-size:42px}
@@ -125,7 +141,6 @@ h2{font-size:28px}
 ]
 }
 </script>
-
 </head>
 
 <body>
@@ -161,8 +176,7 @@ Boxenstopp Nordheim hilft bei Diagnose und Fehlerspeicher auslesen im Raum Heilb
 </p>
 
 <p>
-Moderne Fahrzeuge speichern viele Fehler im Steuergerät. Durch das Auslesen des Fehlerspeichers können Hinweise auf die Ursache gefunden werden.
-Wir prüfen Fehlercodes, Warnlampen und Symptome und grenzen das Problem sinnvoll ein.
+Moderne Fahrzeuge speichern viele Fehler im Steuergerät. Durch das Auslesen des Fehlerspeichers können Hinweise auf die Ursache gefunden werden. Wir prüfen Fehlercodes, Warnlampen und Symptome und grenzen das Problem sinnvoll ein.
 </p>
 
 <div class="notice" style="margin-top:24px">
@@ -170,10 +184,7 @@ Wir prüfen Fehlercodes, Warnlampen und Symptome und grenzen das Problem sinnvol
 </div>
 
 <div class="btn-row">
-<a class="btn btn-booking" href="https://cal.com/boxenstopp-info/fehlerdiagnose-bei-boxenstopp" target="_blank" rel="noopener">Online-Termin buchen</a>
-<a class="btn btn-whatsapp" href="https://wa.me/4971339220552">Per WhatsApp anfragen</a>
-<a class="btn btn-mail" href="mailto:info@boxenstopp-hn.de">Per E-Mail anfragen</a>
-<a class="btn btn-phone" href="tel:+4971339220552">Anrufen</a>
+<a class="btn btn-booking" href="https://cal.com/boxenstopp-info/fehlerdiagnose-bei-boxenstopp" target="_blank" rel="noopener">Direkt Online-Termin buchen</a>
 </div>
 </div>
 
@@ -193,6 +204,94 @@ Wir prüfen Fehlercodes, Warnlampen und Symptome und grenzen das Problem sinnvol
 </ul>
 </div>
 
+<!-- NEUES SMARTES DIAGNOSE-FORMULAR -->
+<div class="box hero-form-wide" style="border-top:5px solid #25d366; margin-top:20px;">
+<h3 style="margin-bottom:15px; color:#222">⚡ Schnellanfrage via WhatsApp</h3>
+<form id="diagnoseForm" onsubmit="sendToWhatsApp(event)">
+<div class="grid-2" style="gap:0 16px">
+<div class="form-group">
+<label>Name, Vorname <span class="required-star">*</span></label>
+<input type="text" id="name" required placeholder="z. B. Max Mustermann">
+</div>
+<div class="form-group">
+<label>Straße und Hausnummer <span class="required-star">*</span></label>
+<input type="text" id="strasse" required placeholder="Straße und Hausnummer">
+</div>
+</div>
+
+<div class="grid-2" style="gap:0 16px">
+<div class="form-group">
+<label>Postleitzahl <span class="required-star">*</span></label>
+<input type="text" id="plz" required placeholder="PLZ">
+</div>
+<div class="form-group">
+<label>Ort <span class="required-star">*</span></label>
+<input type="text" id="ort" required placeholder="Ort">
+</div>
+</div>
+
+<div class="grid-2" style="gap:0 16px">
+<div class="form-group">
+<label>E-Mail-Adresse <span class="required-star">*</span></label>
+<input type="email" id="email" required placeholder="name@beispiel.de">
+</div>
+<div class="form-group">
+<label>Telefonnummer / Mobil <span class="required-star">*</span></label>
+<input type="tel" id="phone" required placeholder="für eventuelle Rückfragen">
+</div>
+</div>
+
+<hr style="border:0; border-top:1px solid #eee; margin:10px 0 15px">
+
+<div class="form-group">
+<label>Welche Warnleuchten oder Symptome liegen vor? (Mehrfachauswahl möglich)</label>
+<div class="checkbox-list">
+<label class="checkbox-item"><input type="checkbox" id="sym_mkl" value="Motorkontrollleuchte (MKL)"> Motorkontrollleuchte (MKL)</label>
+<label class="checkbox-item"><input type="checkbox" id="sym_abs" value="ABS / ESP Leuchte"> ABS / ESP Leuchte</label>
+<label class="checkbox-item"><input type="checkbox" id="sym_airbag" value="Airbaglampe"> Airbaglampe</label>
+<label class="checkbox-item"><input type="checkbox" id="sym_adblue" value="AdBlue-Störung"> AdBlue-Störung</label>
+<label class="checkbox-item"><input type="checkbox" id="sym_glueh" value="Glühwendel blinkt"> Glühwendel blinkt (Diesel)</label>
+<label class="checkbox-item"><input type="checkbox" id="sym_notlauf" value="Notlauf / Leistungsverlust"> Notlauf / Leistungsverlust</label>
+<label class="checkbox-item"><input type="checkbox" id="sym_ruckeln" value="Motor ruckelt / startet schlecht"> Motor ruckelt / startet schlecht</label>
+<label class="checkbox-item"><input type="checkbox" id="sym_kuehl" value="Kühlmittelverlust / Undichtigkeit"> Kühlmittelverlust / Undichtigkeit</label>
+<label class="checkbox-item"><input type="checkbox" id="sym_geraeusch" value="Geräusche / Klackern unterm Fahrzeug"> Geräusche / Klackern unterm Fahrzeug</label>
+</div>
+</div>
+
+<div class="form-group">
+<label>Bekannte Fehlercodes / Kurze Beschreibung (Optional)</label>
+<input type="text" id="error_desc" placeholder="z. B. Fehlercode P0420 / Ruckelt ab 80 km/h">
+</div>
+
+<div class="grid-2" style="gap:0 16px">
+<div class="form-group">
+<label>HSN / TSN (Schlüsselnummer) <span class="required-star" id="hsn_star">*</span></label>
+<input type="text" id="hsn_tsn" required placeholder="z. B. 0588 / AHI">
+</div>
+<div class="form-group">
+<label>FIN (Fahrgestellnummer) <span class="required-star" id="fin_star">*</span></label>
+<input type="text" id="fin" required placeholder="17-stellig (WBA...)">
+</div>
+</div>
+
+<div class="form-group">
+<label>Aktueller Kilometerstand <span class="required-star">*</span></label>
+<input type="text" id="km" required placeholder="z. B. 142.000 km">
+</div>
+
+<div class="form-group">
+<label>Fahrzeugschein oder Tacho-Fehlerfoto hochladen (Empfohlen – spart Tipparbeit)</label>
+<div class="file-upload-box">
+<span class="file-upload-text" id="uploadText">📸 Foto / PDF vom Fahrzeugschein oder Fehlercode-Scan auswählen</span>
+<span class="file-success-text" id="successText">✅ Dokument/Foto ausgewählt! Bitte unten absenden.</span>
+<input type="file" id="file_schein" accept="image/*,application/pdf" onchange="handleFileChange()">
+</div>
+</div>
+
+<button type="submit" class="btn btn-whatsapp" style="margin-top:10px">Anfrage über WhatsApp senden</button>
+</form>
+</div>
+
 </div>
 </section>
 
@@ -202,14 +301,11 @@ Wir prüfen Fehlercodes, Warnlampen und Symptome und grenzen das Problem sinnvol
 <h2>Fehlerspeicher auslesen im Raum Heilbronn</h2>
 
 <p>
-Wenn eine Warnlampe im Fahrzeug leuchtet, ist der Fehlerspeicher oft der erste wichtige Schritt.
-Dort werden Fehlercodes gespeichert, die Hinweise auf Sensoren, Motorsteuerung, Abgassystem, Airbag, ABS, ESP,
-AdBlue, <a href="dpf-reinigung-heilbronn.html">DPF</a> oder andere Systeme geben können.
+Wenn eine Warnlampe im Fahrzeug leuchtet, ist der Fehlerspeicher oft der erste wichtige Schritt. Dort werden Fehlercodes gespeichert, die Hinweise auf Sensoren, Motorsteuerung, Abgassystem, Airbag, ABS, ESP, AdBlue, <a href="dpf-reinigung-heilbronn.html">DPF</a> oder andere Systeme geben können.
 </p>
 
 <p>
-Wichtig ist aber: Ein Fehlercode ist noch keine fertige Reparaturdiagnose. Er zeigt die Richtung, aber die Ursache muss je nach Fehler
-weiter eingegrenzt werden. Genau deshalb ist eine saubere Diagnose sinnvoller als nur blindes Teiletauschen.
+Wichtig ist aber: Ein Fehlercode ist noch keine fertige Reparaturdiagnose. Er zeigt die Richtung, aber die Ursache muss je nach Fehler weiter eingegrenzt werden. Genau deshalb ist eine saubere Diagnose sinnvoller als nur blindes Teiletauschen.
 </p>
 
 <div class="notice">
@@ -271,8 +367,7 @@ Wichtig: Fehlerspeicher löschen allein behebt keine Ursache. Wenn der Fehler wi
 <h2>Häufige Fehlercodes bei der Fahrzeugdiagnose</h2>
 
 <p>
-Viele Kunden suchen direkt nach einem bestimmten Fehlercode. Die folgenden Fehlercodes kommen häufig bei Diagnose,
-Motorkontrollleuchte, <a href="dpf-reinigung-heilbronn.html">DPF-Problemen</a>, AGR, Turbo, Lambdasonde, Katalysator oder Verbrennungsaussetzern vor.
+Viele Kunden suchen direkt nach einem bestimmten Fehlercode. Die folgenden Fehlercodes kommen häufig bei Diagnose, Motorkontrollleuchte, <a href="dpf-reinigung-heilbronn.html">DPF-Problemen</a>, AGR, Turbo, Lambdasonde, Katalysator oder Verbrennungsaussetzern vor.
 </p>
 
 <div class="grid-3">
@@ -338,13 +433,11 @@ Hinweis: Die Bedeutung eines Fehlercodes kann je nach Fahrzeughersteller, Motor 
 <h2>Diagnose statt blind Teile tauschen</h2>
 
 <p>
-Viele Fehler wirken auf den ersten Blick eindeutig, sind es aber nicht. Eine Motorkontrollleuchte kann zum Beispiel durch einen Sensor,
-eine Undichtigkeit, einen defekten Schlauch, ein AGR-Problem, eine Lambdasonde, den <a href="dpf-reinigung-heilbronn.html">DPF</a> oder ein Gemischproblem ausgelöst werden.
+Viele Fehler wirken auf den ersten Blick eindeutig, sind es aber nicht. Eine Motorkontrollleuchte kann zum Beispiel durch einen Sensor, eine Undichtigkeit, einen defekten Schlauch, ein AGR-Problem, eine Lambdasonde, den <a href="dpf-reinigung-heilbronn.html">DPF</a> oder ein Gemischproblem ausgelöst werden.
 </p>
 
 <p>
-Darum ist es sinnvoll, nicht nur den Fehlercode zu löschen oder direkt ein Bauteil zu ersetzen, sondern die Ursache zu prüfen.
-So lassen sich unnötige Kosten und falsche Reparaturen vermeiden.
+Darum ist es sinnvoll, nicht nur den Fehlercode zu löschen oder direkt ein Bauteil zu ersetzen, sondern die Ursache zu prüfen. So lassen sich unnötige Kosten und falsche Reparaturen vermeiden.
 </p>
 
 <p>
@@ -417,13 +510,11 @@ Boxenstopp Nordheim betreut Kunden aus Heilbronn, Nordheim, Leingarten, Schwaige
 <h2>Über Boxenstopp Nordheim</h2>
 
 <p>
-Boxenstopp ist seit 2008 für Sie im Einsatz und steht für klare, direkte und verständliche Kommunikation rund ums Fahrzeug.
-Bei Diagnose und Fehlerspeicher geht es darum, Fehlercodes nicht blind zu löschen, sondern Warnlampen, Symptome und Fahrzeugdaten sinnvoll einzuordnen.
+Boxenstopp ist seit 2008 für Sie im Einsatz und steht für klare, direkte und verständliche Kommunikation rund ums Fahrzeug. Bei Diagnose und Fehlerspeicher geht es darum, Fehlercodes nicht blind zu löschen, sondern Warnlampen, Symptome und Fahrzeugdaten sinnvoll einzuordnen.
 </p>
 
 <p>
-Kunden aus Heilbronn, Nordheim und Umgebung können einfach per WhatsApp, E-Mail oder Telefon anfragen.
-Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand, Foto der Warnlampe, bekannte Fehlercodes oder ein Diagnosebericht.
+Kunden aus Heilbronn, Nordheim und Umgebung können einfach per WhatsApp, E-Mail oder Telefon anfragen. Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand, Foto der Warnlampe, bekannte Fehlercodes oder ein Diagnosebericht.
 </p>
 </div>
 
@@ -481,8 +572,7 @@ Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand, Foto der
 <h2>Diagnose für viele Fahrzeugmarken</h2>
 
 <p>
-Wir bearbeiten Diagnose-Anfragen für viele gängige Fahrzeuge. Entscheidend sind Fahrzeugtyp, Motor, Baujahr,
-Steuergerät, Fehlercode und die genaue Symptom-Beschreibung.
+Wir bearbeiten Diagnose-Anfragen für viele gängige Fahrzeuge. Entscheidend sind Fahrzeugtyp, Motor, Baujahr, Steuergerät, Fehlercode und die genaue Symptom-Beschreibung.
 </p>
 
 <div class="tag-list">
@@ -517,14 +607,11 @@ Steuergerät, Fehlercode und die genaue Symptom-Beschreibung.
 <h2>Diagnose für Heilbronn, Nordheim und Umgebung</h2>
 
 <p>
-Boxenstopp Nordheim ist Ihr Ansprechpartner für Diagnose und Fehlerspeicher auslesen im Raum Heilbronn.
-Viele Kunden kommen aus Nordheim, Heilbronn, Böckingen, Leingarten, Schwaigern, Lauffen am Neckar,
-Brackenheim, Bad Rappenau und der Umgebung.
+Boxenstopp Nordheim ist Ihr Ansprechpartner für Diagnose und Fehlerspeicher auslesen im Raum Heilbronn. Viele Kunden kommen aus Nordheim, Heilbronn, Böckingen, Leingarten, Schwaigern, Lauffen am Neckar, Brackenheim, Bad Rappenau und der Umgebung.
 </p>
 
 <p>
-Wenn eine Warnlampe leuchtet, das Fahrzeug schlecht läuft oder ein Fehlercode angezeigt wird,
-fragen Sie einfach per WhatsApp, E-Mail oder Telefon an.
+Wenn eine Warnlampe leuchtet, das Fahrzeug schlecht läuft oder ein Fehlercode angezeigt wird, fragen Sie einfach per WhatsApp, E-Mail oder Telefon an.
 </p>
 
 </div>
@@ -613,7 +700,6 @@ Neben Diagnose und Fehlerspeicher auslesen bietet Boxenstopp weitere Leistungen 
 </p>
 
 <div class="service-links">
-
 <a href="dpf-reinigung-heilbronn.html">DPF Reinigung Heilbronn<span>Dieselpartikelfilter reinigen statt teuer tauschen.</span></a>
 <a href="getriebespuelung-heilbronn.html">Getriebespülung Heilbronn<span>Automatikgetriebe, DSG, Wandlergetriebe und Schaltverhalten verbessern.</span></a>
 <a href="klimaservice-heilbronn.html">Klimaservice Heilbronn<span>Klimaanlage prüfen, warten und befüllen mit R134a oder R1234yf.</span></a>
@@ -622,7 +708,6 @@ Neben Diagnose und Fehlerspeicher auslesen bietet Boxenstopp weitere Leistungen 
 <a href="inspektion-oelwechsel-heilbronn.html">Inspektion & Ölwechsel<span>Ölwechsel, Wartung und Service nach Fahrzeugdaten anfragen.</span></a>
 <a href="ozonbehandlung-heilbronn.html">Ozonbehandlung Heilbronn<span>Gerüche im Fahrzeug reduzieren und Innenraum auffrischen.</span></a>
 <a href="index.html">Alle Leistungen ansehen<span>Zur Startseite von Boxenstopp Nordheim.</span></a>
-
 </div>
 
 </div>
@@ -695,6 +780,91 @@ E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
 <a href="datenschutz.html">Datenschutz</a>
 </p>
 </footer>
+
+<script>
+function handleFileChange() {
+    var fileInput = document.getElementById('file_schein');
+    var uploadText = document.getElementById('uploadText');
+    var successText = document.getElementById('successText');
+    var hsnInput = document.getElementById('hsn_tsn');
+    var finInput = document.getElementById('fin');
+    var hsnStar = document.getElementById('hsn_star');
+    var finStar = document.getElementById('fin_star');
+
+    if (fileInput.files.length > 0) {
+        uploadText.style.display = 'none';
+        successText.style.display = 'block';
+                
+        hsnInput.removeAttribute('required');
+        finInput.removeAttribute('required');
+        hsnStar.style.display = 'none';
+        finStar.style.display = 'none';
+    } else {
+        uploadText.style.display = 'block';
+        successText.style.display = 'none';
+                
+        hsnInput.setAttribute('required', '');
+        finInput.setAttribute('required', '');
+        hsnStar.style.display = 'inline';
+        finStar.style.display = 'inline';
+    }
+}
+
+function sendToWhatsApp(event) {
+    event.preventDefault();
+
+    var name = document.getElementById('name').value.trim();
+    var strasse = document.getElementById('strasse').value.trim();
+    var plz = document.getElementById('plz').value.trim();
+    var ort = document.getElementById('ort').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var hsnTsn = document.getElementById('hsn_tsn').value.trim();
+    var fin = document.getElementById('fin').value.trim();
+    var km = document.getElementById('km').value.trim();
+    var errorDesc = document.getElementById('error_desc').value.trim();
+    var fileInput = document.getElementById('file_schein');
+
+    if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
+        alert('Bitte HSN/TSN und FIN eintragen oder ein Foto/PDF vom Fahrzeugschein bzw. Fehlerprotokoll auswählen.');
+        return;
+    }
+
+    var symptoms = [];
+    if(document.getElementById('sym_mkl').checked) symptoms.push("Motorkontrollleuchte (MKL)");
+    if(document.getElementById('sym_abs').checked) symptoms.push("ABS / ESP Leuchte");
+    if(document.getElementById('sym_airbag').checked) symptoms.push("Airbaglampe");
+    if(document.getElementById('sym_adblue').checked) symptoms.push("AdBlue-Störung");
+    if(document.getElementById('sym_glueh').checked) symptoms.push("Glühwendel blinkt");
+    if(document.getElementById('sym_notlauf').checked) symptoms.push("Notlauf / Leistungsverlust");
+    if(document.getElementById('sym_ruckeln').checked) symptoms.push("Motor ruckelt / startet schlecht");
+    if(document.getElementById('sym_kuehl').checked) symptoms.push("Kühlmittelverlust / Undichtigkeit");
+    if(document.getElementById('sym_geraeusch').checked) symptoms.push("Geräusche / Klackern");
+        
+    var symptomText = symptoms.length > 0 ? symptoms.join(", ") : "Keine spezifische Leuchte ausgewählt";
+
+    var text = "";
+    if (fileInput.files.length > 0) {
+        text += "⚠️ HINWEIS: Bitte hänge jetzt noch das FOTO des Fahrzeugscheins/Fehlerscans hier an den Chat an!\n\n";
+    }
+
+    text += "Hallo Boxenstopp Nordheim,\nich benötige eine Fehlerdiagnose für mein Fahrzeug:\n\n";
+    text += "🚨 Symptome/Leuchten: " + symptomText + "\n";
+    text += "📝 Beschreibung/Codes: " + (errorDesc ? errorDesc : "Keine zusätzliche Angabe") + "\n\n";
+    text += "👤 Name: " + name + "\n";
+    text += "🏠 Anschrift: " + strasse + "\n";
+    text += "📍 PLZ: " + plz + "\n";
+    text += "🏙️ Ort: " + ort + "\n";
+    text += "📧 E-Mail: " + email + "\n";
+    text += "📞 Tel: " + phone + "\n\n";
+    text += "🚗 HSN/TSN: " + (hsnTsn ? hsnTsn : "Siehe Foto/Anhang") + "\n";
+    text += "🆔 FIN: " + (fin ? fin : "Siehe Foto/Anhang") + "\n";
+    text += "📈 KM-Stand: " + km + "\n";
+
+    var url = "https://wa.me/4971339220552?text=" + encodeURIComponent(text);
+    window.location.href = url;
+}
+</script>
 
 </body>
 </html>
