@@ -6,7 +6,7 @@
 
 <title>Inspektion & Ölwechsel Heilbronn | Service & Wartung | Boxenstopp Nordheim</title>
 
-<meta name="description" content="Inspektion und Ölwechsel im Raum Heilbronn, Nordheim und Umgebung. Ölwechsel, Filterwechsel, Wartung, Serviceanzeige zurücksetzen und digitales Serviceheft bei vielen Fahrzeugen.">
+<meta name="description" content="Inspektion & Ölwechsel im Raum Heilbronn & Nordheim. Wartung, Filterwechsel, Serviceanzeige zurücksetzen & digitales Serviceheft für viele Marken.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.boxenstopp-hn.de/inspektion-oelwechsel-heilbronn.html">
 
@@ -83,7 +83,7 @@ footer a{color:#fff}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#cc0000;outline:none}
 .form-group .required-star{color:#cc0000}
 .checkbox-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:8px 0 15px}
-.checkbox-item{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;cursor:pointer;background:#f9f9f9;border:1px solid #e3e3e3;border-radius:8px;padding:10px 12px}
+.checkbox-item{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;cursor:pointer;background:#f9f9f9;border:1px solid #e3e3e3;border-radius:8px;padding:10px 12px;user-select:none;-webkit-user-select:none}
 .checkbox-item input{width:18px;height:18px;cursor:pointer;flex-shrink:0}
 .file-upload-box{border:2px dashed #bbb;padding:14px;text-align:center;border-radius:8px;background:#f9f9f9;cursor:pointer;position:relative;margin-top:5px}
 .file-upload-box input[type="file"]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer}
@@ -146,14 +146,13 @@ h2{font-size:28px}
 <h1>Inspektion & Ölwechsel in <span class="highlight">Heilbronn</span> – Wartung für Ihr Fahrzeug</h1>
 
 <p class="lead">
-Ölwechsel fällig, Serviceanzeige active oder Wartung nach Herstellervorgaben?
+Ölwechsel fällig, Serviceanzeige aktiv oder Wartung nach Herstellervorgaben?
 Boxenstopp Nordheim bietet Inspektion, Ölwechsel und Filterwechsel im Raum Heilbronn, Nordheim und Umgebung.
 </p>
 
 <p>
 Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Nutzen Sie unser Formular für eine schnelle und unverbindliche WhatsApp-Anfrage.
 </p>
-
 
 </div>
 
@@ -458,7 +457,7 @@ Für eine schnelle Einschätzung helfen Fahrzeugschein, Kilometerstand, Servicea
 
 <div class="step">
 <h3>Durchführung der Wartung</h3>
-<p>Ölwechsel, Filterwechsel und vereinbarte Servicepunkte werden durchgeführt.</p>
+<p>Ölwechsel, Filterwechsel and vereinbarte Servicepunkte werden durchgeführt.</p>
 </div>
 
 <div class="step">
@@ -715,7 +714,6 @@ function sendToWhatsApp(event) {
         return;
     }
 
-    // Checkboxen für Filter und Zusatzoptionen auswerten
     var filters = [];
     if(document.getElementById('filter_luft').checked) filters.push("Luftfilter");
     if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter");
@@ -748,7 +746,7 @@ function sendToWhatsApp(event) {
     text += "🖥️ Serviceanzeige: " + (serviceMsg ? serviceMsg : "Keine Angabe") + "\n";
 
     var url = "https://wa.me/4971339220552?text=" + encodeURIComponent(text);
-    window.open(url, '_blank', 'noopener');
+    window.location.href = url;
 }
 </script>
 
