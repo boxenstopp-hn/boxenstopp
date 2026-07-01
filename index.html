@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -116,6 +116,16 @@ h2{font-size:28px}
 "description":"Kfz-Service in Nordheim bei Heilbronn: DPF Reinigung, Getriebespülung, Klimaservice, Achsvermessung, Diagnose, Reifenservice, Inspektion, Ölwechsel und Ozonbehandlung."
 }
 </script>
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#111111">
 </head>
 
 <body>
@@ -451,7 +461,7 @@ E-Mail oder Telefon.
 </div>
 
 <div class="map-box">
-<div id="google-map-container" class="map-placeholder">
+<div id="google-map-container" class="map-placeholder" data-boxenstopp-index-map data-src="https://www.google.com/maps?q=Boxenstopp%20Nordheim%20bei%20Heilbronn&amp;output=embed">
 <div class="map-placeholder-inner">
 <h3>Google Maps anzeigen</h3>
 <p>
@@ -596,11 +606,20 @@ Weitere Informationen finden Sie in der <a href="datenschutz.html">Datenschutzer
 function loadGoogleMap(){
 var mapContainer=document.getElementById("google-map-container");
 if(!mapContainer){return;}
-mapContainer.innerHTML='<iframe src="https://www.google.com/maps?q=Boxenstopp%20Nordheim%20bei%20Heilbronn&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+var src=mapContainer.getAttribute("data-src");
+if(!src){return;}
+mapContainer.innerHTML="";
+var iframe=document.createElement("iframe");
+iframe.src=src;
+iframe.loading="lazy";
+iframe.referrerPolicy="no-referrer-when-downgrade";
+iframe.setAttribute("allowfullscreen","");
+mapContainer.appendChild(iframe);
 }
 
 function acceptCookies(){
 localStorage.setItem("boxenstopp_cookie_choice","accepted");
+localStorage.setItem("boxenstopp_google_maps_consent","accepted");
 var banner=document.getElementById("cookie-banner");
 if(banner){banner.style.display="none";}
 loadGoogleMap();
@@ -618,9 +637,10 @@ acceptCookies();
 
 window.addEventListener("load",function(){
 var choice=localStorage.getItem("boxenstopp_cookie_choice");
+var mapsChoice=localStorage.getItem("boxenstopp_google_maps_consent");
 var banner=document.getElementById("cookie-banner");
 
-if(choice==="accepted"){
+if(choice==="accepted" || mapsChoice==="accepted"){
 if(banner){banner.style.display="none";}
 loadGoogleMap();
 return;
