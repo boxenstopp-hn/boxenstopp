@@ -146,6 +146,84 @@ footer .brand-logo{color:#fff}
 @media(max-width:800px){.location-grid{grid-template-columns:1fr}.service-actions{grid-template-columns:1fr}.brand-logo{font-size:28px}.brand-logo small{font-size:9px;letter-spacing:1.5px}}
 .logo-mark{display:none!important}.logo-text{display:none!important}
 .preview-price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.preview-price-card{background:#fff;border:1px solid #e5e7eb;border-top:4px solid var(--red);border-radius:14px;padding:24px;box-shadow:var(--shadow)}.preview-price-card h3{font-size:1.05rem;margin-bottom:8px}.preview-price-card strong{display:block;font:900 1.55rem 'Montserrat',sans-serif;color:var(--red);margin-bottom:6px}.preview-price-note{margin-top:20px;background:#fff4f4;border-left:5px solid var(--red);padding:16px 18px;border-radius:10px;color:#4b5563}.region-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.region-tags span{background:#fff;border:1px solid #e5e7eb;border-left:4px solid var(--red);padding:9px 13px;border-radius:999px;font-weight:700;font-size:.9rem}.cookie-preview{position:fixed;left:0;right:0;bottom:0;background:#111;color:#fff;padding:16px 22px;z-index:99999;box-shadow:0 -8px 26px rgba(0,0,0,.28)}.cookie-preview-inner{max-width:1200px;margin:auto;display:flex;gap:18px;align-items:center;justify-content:space-between}.cookie-preview p{font-size:.88rem;line-height:1.45}.cookie-preview a{text-decoration:underline}.cookie-preview-actions{display:flex;gap:9px}.cookie-preview button{border:0;border-radius:8px;padding:10px 14px;font-weight:800}.cookie-preview .accept{background:#25d366;color:#fff}.cookie-preview .decline{background:#444;color:#fff}@media(max-width:760px){.preview-price-grid{grid-template-columns:1fr}.cookie-preview-inner{display:block}.cookie-preview-actions{margin-top:12px}.cookie-preview button{flex:1}.cookie-preview-actions{display:flex}}
+
+/* Mobile Hauptleistungen: nur auf Smartphones sichtbar */
+.mobile-service-nav{display:none}
+@media (max-width: 767px){
+  .mobile-service-nav{
+    display:block;
+    padding:14px 0 18px;
+    background:#f5f5f5;
+    border-bottom:1px solid #e4e4e4;
+  }
+  .mobile-service-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+  .mobile-service-tile{
+    display:flex;
+    min-height:154px;
+    padding:16px 10px 14px;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    background:linear-gradient(145deg,#df1118 0%,#bd0007 100%);
+    border:1px solid rgba(130,0,0,.25);
+    border-radius:13px;
+    box-shadow:0 5px 12px rgba(0,0,0,.18);
+    -webkit-tap-highlight-color:transparent;
+    transition:transform .16s ease,box-shadow .16s ease,filter .16s ease;
+  }
+  .mobile-service-tile:active{
+    transform:scale(.975);
+    box-shadow:0 2px 7px rgba(0,0,0,.2);
+    filter:brightness(.94);
+  }
+  .mobile-service-icon{
+    width:52px;
+    height:52px;
+    margin-bottom:9px;
+    color:#fff;
+  }
+  .mobile-service-icon svg{
+    display:block;
+    width:100%;
+    height:100%;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.9;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  .mobile-service-title{
+    display:block;
+    font-size:15px;
+    line-height:1.15;
+    font-weight:800;
+    letter-spacing:.1px;
+    text-transform:uppercase;
+  }
+  .mobile-service-text{
+    display:block;
+    margin-top:7px;
+    font-size:12px;
+    line-height:1.35;
+    font-weight:500;
+    color:rgba(255,255,255,.95);
+  }
+}
+@media (max-width: 370px){
+  .mobile-service-grid{gap:8px}
+  .mobile-service-tile{min-height:145px;padding:14px 7px 12px}
+  .mobile-service-title{font-size:13px}
+  .mobile-service-text{font-size:11px}
+  .mobile-service-icon{width:46px;height:46px}
+}
+
 </style>
 <link href="https://boxenstopp-hn.de/" rel="canonical"/><meta content="Boxenstopp Nordheim | Getriebeölservice, Achsvermessung, Klima &amp; DPF" property="og:title"/><meta content="Boxenstopp Nordheim bei Heilbronn: Getriebeölservice und Getriebeölspülung, 3D-Achsvermessung, Klimaservice und DPF-Reinigung. Preise und direkte Anfragewege." property="og:description"/><meta content="website" property="og:type"/><meta content="https://boxenstopp-hn.de/" property="og:url"/><meta content="index, follow" name="robots"/><link href="/favicon.ico" rel="icon" type="image/x-icon"/><link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/><link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/><link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/><link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"/><link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="/site.webmanifest" rel="manifest"/><script type="application/ld+json">
 {
@@ -186,6 +264,40 @@ footer .brand-logo{color:#fff}
 <a class="action-btn mail" href="mailto:info@boxenstopp-hn.de"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path></svg><div class="action-copy"><strong>E-Mail senden</strong><small>info@boxenstopp-hn.de</small></div></a>
 <a class="action-btn phone" href="tel:+4971339220552"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M6.62 10.79a15.47 15.47 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg><div class="action-copy"><strong>07133 9220552</strong><small>Persönlich beraten lassen</small></div></a>
 </div>
+</section>
+<section class="mobile-service-nav" aria-label="Hauptleistungen">
+  <div class="container">
+    <div class="mobile-service-grid">
+      <a class="mobile-service-tile" href="https://boxenstopp-hn.de/getriebespuelung-heilbronn.html" aria-label="Getriebeölservice öffnen">
+        <span class="mobile-service-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><path d="M25 13l3-6h8l3 6 7-2 5 6-4 6 5 5-3 7-7-1-2 7h-8l-2-7-7 1-3-7 5-5-4-6 5-6z"/><circle cx="32" cy="24" r="9"/><path d="M46 35c0 8-8 13-8 19a8 8 0 0 0 16 0c0-6-8-11-8-19z"/></svg>
+        </span>
+        <span class="mobile-service-title">Getriebeölservice</span>
+        <span class="mobile-service-text">Ölwechsel und Spülung passend zum Getriebe</span>
+      </a>
+      <a class="mobile-service-tile" href="https://boxenstopp-hn.de/achsvermessung-heilbronn.html" aria-label="3D-Achsvermessung öffnen">
+        <span class="mobile-service-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><rect x="7" y="8" width="13" height="19" rx="3"/><rect x="44" y="8" width="13" height="19" rx="3"/><rect x="7" y="37" width="13" height="19" rx="3"/><rect x="44" y="37" width="13" height="19" rx="3"/><path d="M20 18h9m6 0h9M20 46h9m6 0h9M29 14h6v40h-6z"/><path d="M24 30h16v4H24z"/></svg>
+        </span>
+        <span class="mobile-service-title">3D-Achsvermessung</span>
+        <span class="mobile-service-text">Präzise Vermessung für sicheres Fahrverhalten</span>
+      </a>
+      <a class="mobile-service-tile" href="https://boxenstopp-hn.de/klimaservice-heilbronn.html" aria-label="Klimaservice öffnen">
+        <span class="mobile-service-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><path d="M32 5v54M8.6 18.5l46.8 27M8.6 45.5l46.8-27"/><path d="M26 11l6 6 6-6M26 53l6-6 6 6M14 16l2 8-8 2M50 48l-2-8 8-2M14 48l8-2-2 8M50 16l-8 2 2-8"/></svg>
+        </span>
+        <span class="mobile-service-title">Klimaservice</span>
+        <span class="mobile-service-text">Wartung und Befüllung der Klimaanlage</span>
+      </a>
+      <a class="mobile-service-tile" href="https://boxenstopp-hn.de/dpf-reinigung-heilbronn.html" aria-label="DPF-Reinigung öffnen">
+        <span class="mobile-service-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><path d="M6 25h10m-10 7h10m-10 7h10M48 25h10m-10 7h10m-10 7h10"/><rect x="16" y="17" width="32" height="30" rx="3"/><path d="M22 23h20v18H22z"/><circle cx="26" cy="27" r="1.5" fill="currentColor" stroke="none"/><circle cx="32" cy="27" r="1.5" fill="currentColor" stroke="none"/><circle cx="38" cy="27" r="1.5" fill="currentColor" stroke="none"/><circle cx="29" cy="32" r="1.5" fill="currentColor" stroke="none"/><circle cx="35" cy="32" r="1.5" fill="currentColor" stroke="none"/><circle cx="26" cy="37" r="1.5" fill="currentColor" stroke="none"/><circle cx="32" cy="37" r="1.5" fill="currentColor" stroke="none"/><circle cx="38" cy="37" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="mobile-service-title">DPF-Reinigung</span>
+        <span class="mobile-service-text">Professionelle Reinigung des Dieselpartikelfilters</span>
+      </a>
+    </div>
+  </div>
 </section>
 <section class="hero" id="start"><div class="container hero-inner"><div class="hero-content"><div class="eyebrow">Kfz-Service in Nordheim bei Heilbronn</div><h1>Getriebeölservice, <span>Achsvermessung, Klima &amp; DPF</span></h1><p>Unsere vier Schwerpunkte sind Getriebeölservice und Getriebeölspülung, 3D-Achsvermessung, Klimaservice sowie DPF-Reinigung. Ergänzend bieten wir Diagnose, Inspektion und Ölwechsel, Reifenservice und Ozonbehandlung.</p><div class="hero-btns"><a class="btn btn-red" href="https://boxenstopp-hn.de/getriebespuelung-heilbronn.html#anfrage">Getriebeölservice anfragen</a><a class="btn btn-ghost" href="#hauptleistungen">Alle Leistungen ansehen</a></div></div><aside aria-label="Boxenstopp Schwerpunkte" class="hero-focus-box"><strong>Seit 2008 für Sie da</strong><span>Persönlicher Kfz-Service mit vier klaren Schwerpunkten:</span><div class="focus-list"><em>Getriebeölservice</em><em>3D-Achsvermessung</em><em>Klimaservice</em><em>DPF-Reinigung</em></div></aside></div></section>
 <section class="trust"><div class="container trust-grid"><div class="trust-item"><div class="trust-icon">✓</div><div><h3>Klare Preise vor Arbeitsbeginn</h3><p>Keine überraschenden Zusatzkosten.</p></div></div><div class="trust-item"><div class="trust-icon">⚙</div><div><h3>Passend zum Getriebetyp</h3><p>Ölwechsel oder Spülung nach Bedarf.</p></div></div><div class="trust-item"><div class="trust-icon">🤝</div><div><h3>Erfahrung seit 2008</h3><p>Persönliche und verständliche Beratung.</p></div></div></div></section>
