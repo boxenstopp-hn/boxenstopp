@@ -262,6 +262,7 @@ Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Nutzen Sie unser
 </div>
 </div>
 <div class="form-group privacy-consent-fix" style="margin-top:15px;"><label><input required="" type="checkbox"/><span>Ich stimme zu, dass meine Daten zur Bearbeitung meiner Anfrage verarbeitet werden. Weitere Informationen finden Sie in der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>. *</span></label></div><button class="btn btn-whatsapp" style="margin-top:10px" type="submit">Anfrage über WhatsApp senden</button>
+<button class="btn btn-mail" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;" type="button" onclick="sendServiceToEmail()">Anfrage per E-Mail senden</button>
 </form>
 </div>
 </div>
@@ -662,6 +663,47 @@ function sendToWhatsApp(event) {
     var url = "https://wa.me/4971339220552?text=" + encodeURIComponent(text);
     window.open(url, '_blank', 'noopener');
 }
+
+function sendServiceToEmail() {
+    var form = document.getElementById('serviceForm');
+    if (!form.reportValidity()) return;
+
+    var name = document.getElementById('name').value.trim();
+    var strasse = document.getElementById('strasse').value.trim();
+    var plz = document.getElementById('plz').value.trim();
+    var ort = document.getElementById('ort').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var serviceType = document.getElementById('service_type').value;
+    var hsnTsn = document.getElementById('hsn_tsn').value.trim();
+    var fin = document.getElementById('fin').value.trim();
+    var km = document.getElementById('km').value.trim();
+    var serviceMsg = document.getElementById('service_msg').value.trim();
+    var fileInput = document.getElementById('file_schein');
+    if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
+        alert('Bitte HSN/TSN und FIN eintragen oder ein Foto/PDF vom Fahrzeugschein auswählen.');
+        return;
+    }
+    var filters = [];
+    if(document.getElementById('filter_luft').checked) filters.push("Luftfilter");
+    if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter");
+    if(document.getElementById('filter_klima').checked) filters.push("Klimaservice");
+    if(document.getElementById('filter_kraftstoff').checked) filters.push("Kraftstofffilter");
+    if(document.getElementById('filter_z_kerzen').checked) filters.push("Zündkerzen");
+    if(document.getElementById('filter_g_kerzen').checked) filters.push("Glühkerzen");
+    if(document.getElementById('filter_bremsfluessig').checked) filters.push("Bremsflüssigkeit");
+    if(document.getElementById('filter_riemen').checked) filters.push("Zahnriemen/Steuerkette (Prüfung)");
+    var filterText = filters.length ? filters.join(", ") : "Keine Zusatzoptionen gewählt";
+    var text = (fileInput.files.length > 0 ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein als E-Mail-Anhang hinzufügen.\n\n" : "") +
+               "Hallo Boxenstopp Nordheim,\nich interessiere mich für einen Service-Termin:\n\nGewünscht: " + serviceType +
+               "\nZusatzoptionen: " + filterText + "\n\nName: " + name + "\nAnschrift: " + strasse + "\nPLZ: " + plz + "\nOrt: " + ort +
+               "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Siehe Foto/Anhang") +
+               "\nFIN: " + (fin || "Siehe Foto/Anhang") + "\nKM-Stand: " + km + "\nServiceanzeige: " + (serviceMsg || "Keine Angabe");
+
+    var subject = "Service-Anfrage von der Website";
+    window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
+}
+
 </script>
 </body>
 </html>
