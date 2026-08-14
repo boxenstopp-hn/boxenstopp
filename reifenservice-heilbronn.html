@@ -319,6 +319,7 @@ Bitte die Reifengröße direkt vom Reifen abschreiben. Im Fahrzeugschein kann ei
 </label>
 </div>
 <button class="btn btn-whatsapp" style="margin-top:10px" type="submit">Reifenangebot über WhatsApp anfragen</button>
+<button class="btn btn-mail" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;" type="button" onclick="sendReifenToEmail()">Reifenangebot per E-Mail anfragen</button>
 </form>
 </div>
 </div>
@@ -756,6 +757,38 @@ function sendReifenToWhatsApp(event) {
     var url = 'https://wa.me/4971339220552?text=' + encodeURIComponent(text);
     window.open(url, '_blank');
 }
+
+function sendReifenToEmail() {
+    var form = document.getElementById('reifenForm');
+    if (!form.reportValidity()) return;
+
+    var name = document.getElementById('name').value;
+    var strasse = document.getElementById('strasse').value;
+    var plz = document.getElementById('plz').value;
+    var ort = document.getElementById('ort').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var hsnTsn = document.getElementById('hsn_tsn').value;
+    var baujahr = document.getElementById('baujahr').value;
+    var reifenGroesse = document.getElementById('reifen_groesse').value;
+    var index = document.getElementById('index').value;
+    var reifenart = getRadioValue('reifenart');
+    var qualitaet = getRadioValue('qualitaet');
+    var marke = document.getElementById('marke').value;
+    var stueckzahl = document.getElementById('stueckzahl').value;
+    var message = document.getElementById('message').value;
+    var fileInput = document.getElementById('file_schein');
+    var text = (fileInput.files.length > 0 ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein als E-Mail-Anhang hinzufügen.\n\n" : "") +
+               "Hallo Boxenstopp Nordheim,\nich interessiere mich für ein Reifenangebot.\n\nName: " + name + "\nAnschrift: " + strasse +
+               "\nPLZ: " + plz + "\nOrt: " + ort + "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Siehe Foto/Anhang") +
+               "\nBaujahr: " + baujahr + "\n\nReifengröße: " + reifenGroesse + "\nTraglast/Geschwindigkeit: " + index +
+               "\nReifenart: " + reifenart + "\nStückzahl: " + stueckzahl + "\nQualität: " + qualitaet +
+               "\nWunschmarke: " + (marke || "Keine feste Wunschmarke") + "\nNachricht: " + (message || "Keine weitere Angabe");
+
+    var subject = "Reifenangebot-Anfrage von der Website";
+    window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
+}
+
 </script>
 </body>
 </html>
