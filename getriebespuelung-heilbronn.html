@@ -297,6 +297,7 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, wenn Ölzust
 </label>
 </div>
 <button class="btn btn-whatsapp" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;" type="submit">Anfrage über WhatsApp senden</button>
+<button class="btn btn-mail" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;" type="button" onclick="sendGetriebeToEmail()">Anfrage per E-Mail senden</button>
 </form>
 </div>
 </div>
@@ -380,6 +381,34 @@ function sendToWhatsApp(event) {
         
     window.open(whatsappUrl, '_blank');
 }
+
+function sendGetriebeToEmail() {
+    var form = document.getElementById('getriebeForm');
+    if (!form.reportValidity()) return;
+
+    var name = document.getElementById('name').value;
+    var strasse = document.getElementById('strasse').value;
+    var plz = document.getElementById('plz').value;
+    var ort = document.getElementById('ort').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var hsn_tsn = document.getElementById('hsn_tsn').value || 'Siehe Foto/Anhang';
+    var vin = document.getElementById('vin').value || 'Siehe Foto/Anhang';
+    var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+    var km = document.getElementById('km').value;
+    var getriebeSelect = document.getElementById('getriebe');
+    var getriebeText = getriebeSelect.options[getriebeSelect.selectedIndex].text;
+    var problem = document.getElementById('problem').value || 'Keine Probleme beschrieben';
+    var text = (istDateiAusgewaehlt ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein (" + dateiName + ") als E-Mail-Anhang hinzufügen.\n\n" : "") +
+               "Neue Getriebe-Anfrage von der Website\n\nKONTAKT-DATEN:\nName: " + name + "\nAnschrift: " + strasse + "\nPLZ: " + plz +
+               "\nOrt: " + ort + "\nE-Mail: " + email + "\nTelefon: " + phone + "\n\nFAHRZEUG-DATEN:\nHSN/TSN: " + hsn_tsn +
+               "\nFIN: " + vin + "\nBaujahr/EZ: " + baujahr + "\nKM-Stand: " + km + "\nGetriebe: " + getriebeText +
+               "\n\nPROBLEM / BESCHREIBUNG:\n" + problem;
+
+    var subject = "Getriebe-Anfrage von der Website";
+    window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
+}
+
 </script>
 <section class="section">
 <div class="container">
