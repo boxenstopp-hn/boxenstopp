@@ -241,7 +241,9 @@ footer .brand-logo{color:#fff}
   "areaServed":["Nordheim","Heilbronn","Leingarten","Schwaigern","Böckingen","Lauffen am Neckar","Brackenheim","Bad Rappenau","Eppingen"],
   "description":"Kfz-Service in Nordheim bei Heilbronn mit Schwerpunkt auf Getriebeölservice und Getriebeölspülung, 3D-Achsvermessung, Klimaservice und DPF-Reinigung."
 }
-</script></head>
+</script><link rel="stylesheet" href="consent.css">
+<script src="consent.js" defer></script>
+</head>
 <body>
 <div class="topbar">
 <div class="container">
@@ -374,60 +376,5 @@ footer .brand-logo{color:#fff}
 </div>
 </div>
 </section><footer><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="logo" href="https://boxenstopp-hn.de/"><div class="brand-logo">BOXEN<span>STOPP</span><small>KFZ-SERVICE NORDHEIM</small></div></a><p>Ihr Ansprechpartner für Automatikgetriebe-Ölservice, Achsvermessung, DPF-Reinigung und Klimaservice in Nordheim bei Heilbronn.</p></div><div><h3 class="footer-title">Leistungen</h3><ul class="footer-links"><li><a href="https://boxenstopp-hn.de/getriebespuelung-heilbronn.html">Getriebeölservice</a></li><li><a href="https://boxenstopp-hn.de/achsvermessung-heilbronn.html">Achsvermessung</a></li><li><a href="https://boxenstopp-hn.de/dpf-reinigung-heilbronn.html">DPF-Reinigung</a></li><li><a href="https://boxenstopp-hn.de/klimaservice-heilbronn.html">Klimaservice</a></li></ul></div><div><h3 class="footer-title">Kontakt</h3><div class="footer-info"><div>Schafhohle 2, 74226 Nordheim</div><div><a href="tel:+4971339220552">07133 9220552</a></div><div><a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a></div><div>Mo–Fr: 10:00–16:00 Uhr</div></div></div></div><div class="footer-bottom"><div>© 2026 Boxenstopp – Geschäftsinhaber: Ercan Küçükçetin</div><div class="legal"><a href="https://boxenstopp-hn.de/impressum.html">Impressum</a><a href="https://boxenstopp-hn.de/datenschutz.html">Datenschutzerklärung</a><a href="mailto:info@boxenstopp-hn.de">Kontakt</a></div></div></div></footer>
-<div aria-label="Datenschutzeinstellungen" class="cookie-preview" id="cookie-banner" role="dialog" style="display:none"><div class="cookie-preview-inner"><p><strong>Datenschutzhinweis:</strong> Notwendige Funktionen werden verwendet. Externe Inhalte wie Google Maps werden erst nach Ihrer Zustimmung geladen. Mehr dazu in der <a href="https://boxenstopp-hn.de/datenschutz.html">Datenschutzerklärung</a>.</p><div class="cookie-preview-actions"><button class="accept" id="cookie-accept" type="button">Akzeptieren</button><button class="decline" id="cookie-decline" type="button">Ablehnen</button></div></div></div><script>
-(function(){
-  const COOKIE_KEY='boxenstopp_cookie_choice';
-  const MAP_KEY='boxenstopp_google_maps_consent';
-
-  function loadGoogleMap(){
-    const box=document.getElementById('mapConsent');
-    if(!box || box.querySelector('iframe')) return;
-    const iframe=document.createElement('iframe');
-    iframe.src='https://www.google.com/maps?q=Boxenstopp%20Schafhohle%202%2074226%20Nordheim&output=embed';
-    iframe.title='Google Maps – Boxenstopp Nordheim';
-    iframe.loading='lazy';
-    iframe.referrerPolicy='no-referrer-when-downgrade';
-    iframe.setAttribute('allowfullscreen','');
-    box.innerHTML='';
-    box.appendChild(iframe);
-  }
-
-  function hideBanner(){
-    const banner=document.getElementById('cookie-banner');
-    if(banner) banner.style.display='none';
-  }
-
-  function acceptCookies(){
-    localStorage.setItem(COOKIE_KEY,'accepted');
-    localStorage.setItem(MAP_KEY,'accepted');
-    hideBanner();
-    loadGoogleMap();
-  }
-
-  function declineCookies(){
-    localStorage.setItem(COOKIE_KEY,'declined');
-    localStorage.removeItem(MAP_KEY);
-    hideBanner();
-  }
-
-  document.addEventListener('DOMContentLoaded',function(){
-    const banner=document.getElementById('cookie-banner');
-    const accept=document.getElementById('cookie-accept');
-    const decline=document.getElementById('cookie-decline');
-    const mapButton=document.getElementById('loadMapBtn');
-
-    if(accept) accept.addEventListener('click',acceptCookies);
-    if(decline) decline.addEventListener('click',declineCookies);
-    if(mapButton) mapButton.addEventListener('click',function(){
-      localStorage.setItem(MAP_KEY,'accepted');
-      loadGoogleMap();
-    });
-
-    const choice=localStorage.getItem(COOKIE_KEY);
-    const mapChoice=localStorage.getItem(MAP_KEY);
-    if(choice==='accepted' || mapChoice==='accepted') loadGoogleMap();
-    if(banner && !choice) banner.style.display='block';
-  });
-})();
-</script></body>
+</body>
 </html>
