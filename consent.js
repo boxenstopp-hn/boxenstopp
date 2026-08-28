@@ -132,6 +132,45 @@
     if(needsReload) window.location.reload();
   }
 
+
+  function trackContactEvent(eventName){
+    const consent = readConsent();
+    if(!consent || !consent.analytics || typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, {
+      contact_method: eventName.replace('click_',''),
+      page_path: window.location.pathname,
+      page_title: document.title
+    });
+  }
+
+  function bindContactTracking(){
+    document.addEventListener('click', function(ev){
+      const link = ev.target.closest('a[href]');
+      if(!link) return;
+
+      const rawHref = (link.getAttribute('href') || '').trim();
+      let eventName = null;
+
+      if(/^mailto:/i.test(rawHref)){
+        eventName = 'click_email';
+      }else if(/^tel:/i.test(rawHref)){
+        eventName = 'click_phone';
+      }else{
+        try{
+          const url = new URL(link.href, window.location.href);
+          const host = url.hostname.toLowerCase().replace(/^www\./,'');
+          if(host === 'wa.me' || host === 'whatsapp.com' || host.endsWith('.whatsapp.com')){
+            eventName = 'click_whatsapp';
+          }else if(host === 'cal.com' || host.endsWith('.cal.com')){
+            eventName = 'click_cal';
+          }
+        }catch(e){}
+      }
+
+      if(eventName) trackContactEvent(eventName);
+    }, true);
+  }
+
   function bindUi(){
     document.addEventListener('click',function(ev){
       const btn = ev.target.closest('[data-bs-consent]');
@@ -168,6 +207,7 @@
   document.addEventListener('DOMContentLoaded',function(){
     createUi();
     bindUi();
+    bindContactTracking();
     const consent = readConsent();
     if(consent){ applyConsent(consent); }
     else{ showBanner(); }
