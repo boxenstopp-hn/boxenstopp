@@ -162,6 +162,47 @@ h2{font-size:28px}
 <meta name="theme-color" content="#111111">
 <link rel="stylesheet" href="consent.css">
 <script src="consent.js" defer></script>
+
+<style>
+/* Anfragebuttons erst nach Datenschutz-Zustimmung aktiv */
+.form-submit-locked:disabled{
+  opacity:.45 !important;
+  cursor:not-allowed !important;
+  filter:grayscale(.35);
+  pointer-events:none;
+}
+</style>
+
+
+<style>
+/* Footer-Datenschutzlink wie auf den übrigen Hauptseiten */
+footer .bs-privacy-settings-wrap{
+  background:#111 !important;
+  color:#c4c8d0 !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:10px 0 6px !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+}
+footer .bs-privacy-settings{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  color:inherit !important;
+  text-decoration:underline !important;
+  font:inherit !important;
+  cursor:pointer !important;
+  padding:4px 6px !important;
+  appearance:none !important;
+  -webkit-appearance:none !important;
+}
+footer .bs-privacy-settings:hover,
+footer .bs-privacy-settings:focus-visible{
+  color:#fff !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -363,8 +404,8 @@ Für Aus- und Einbau des DPF erstellen wir Ihnen gerne ein individuelles Angebot
 <span>Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert und verarbeitet werden. <strong>*</strong></span>
 </label>
 </div>
-<button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;">Anfrage über WhatsApp senden</button>
-<button class="btn btn-mail" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;" type="button" onclick="sendDpfToEmail()">Anfrage per E-Mail senden</button>
+<button id="privacyWhatsappBtn" type="submit" class="btn btn-whatsapp form-submit-locked" disabled aria-disabled="true" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;">Anfrage über WhatsApp senden</button>
+<button id="privacyEmailBtn" class="btn btn-mail form-submit-locked" disabled aria-disabled="true" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;" type="button" onclick="sendDpfToEmail()">Anfrage per E-Mail senden</button>
 </form>
 </div>
 
@@ -408,6 +449,7 @@ function fileSelected(input) {
 
 function sendToWhatsApp(event) {
     event.preventDefault();
+    if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
     
     var vorname = document.getElementById('vorname').value;
     var nachname = document.getElementById('nachname').value;
@@ -453,6 +495,7 @@ function sendToWhatsApp(event) {
 }
 
 function sendDpfToEmail() {
+    if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
     var form = document.getElementById('dpfForm');
     if (!form.reportValidity()) return;
 
@@ -831,7 +874,66 @@ E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
 <a href="impressum.html">Impressum</a> ·
 <a href="datenschutz.html">Datenschutz</a>
 </p>
+<div class="bs-privacy-settings-wrap">
+<button class="bs-privacy-settings" type="button" data-bs-consent="settings">Datenschutz-Einstellungen</button>
+</div>
 </footer>
+
+
+<script>
+(function(){
+  function initPrivacyGate(){
+    var privacy = document.getElementById('privacy');
+    var wa = document.getElementById('privacyWhatsappBtn');
+    var mail = document.getElementById('privacyEmailBtn');
+    if(!privacy || !wa || !mail) return;
+
+    function sync(){
+      var enabled = privacy.checked;
+      wa.disabled = !enabled;
+      mail.disabled = !enabled;
+      wa.setAttribute('aria-disabled', String(!enabled));
+      mail.setAttribute('aria-disabled', String(!enabled));
+    }
+
+    privacy.addEventListener('change', sync);
+    sync();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initPrivacyGate);
+  } else {
+    initPrivacyGate();
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  function keepOnePrivacySettingsLink(){
+    var footer = document.querySelector('footer');
+    if(!footer) return;
+    var items = footer.querySelectorAll('.bs-privacy-settings-wrap');
+    for(var i=1;i<items.length;i++) items[i].remove();
+  }
+
+  function initFooterPrivacyGuard(){
+    keepOnePrivacySettingsLink();
+    var footer = document.querySelector('footer');
+    if(!footer) return;
+    var observer = new MutationObserver(keepOnePrivacySettingsLink);
+    observer.observe(footer,{childList:true});
+    setTimeout(function(){ observer.disconnect(); keepOnePrivacySettingsLink(); },3000);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initFooterPrivacyGuard);
+  } else {
+    initFooterPrivacyGuard();
+  }
+})();
+</script>
 
 </body>
 </html>

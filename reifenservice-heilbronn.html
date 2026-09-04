@@ -155,6 +155,47 @@ h2{font-size:28px}
 <meta content="#111111" name="theme-color"/>
 <style>.privacy-consent-fix label{display:flex!important;align-items:flex-start!important;gap:12px!important;cursor:pointer;font-size:17px!important;line-height:1.6!important}.privacy-consent-fix input[type="checkbox"]{width:24px!important;height:24px!important;min-width:24px!important;margin-top:2px!important}@media(max-width:850px){.privacy-consent-fix label{font-size:18px!important}.privacy-consent-fix input[type="checkbox"]{width:28px!important;height:28px!important;min-width:28px!important}}</style><link rel="stylesheet" href="consent.css">
 <script src="consent.js" defer></script>
+
+<style>
+/* Anfragebuttons erst nach Datenschutz-Zustimmung aktiv */
+.form-submit-locked:disabled{
+  opacity:.45 !important;
+  cursor:not-allowed !important;
+  filter:grayscale(.35);
+  pointer-events:none;
+}
+</style>
+
+
+<style>
+/* Footer-Datenschutzlink wie auf den übrigen Hauptseiten */
+footer .bs-privacy-settings-wrap{
+  background:#111 !important;
+  color:#c4c8d0 !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:10px 0 6px !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+}
+footer .bs-privacy-settings{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  color:inherit !important;
+  text-decoration:underline !important;
+  font:inherit !important;
+  cursor:pointer !important;
+  padding:4px 6px !important;
+  appearance:none !important;
+  -webkit-appearance:none !important;
+}
+footer .bs-privacy-settings:hover,
+footer .bs-privacy-settings:focus-visible{
+  color:#fff !important;
+}
+</style>
+
 </head>
 <body>
 <header>
@@ -316,12 +357,12 @@ Bitte die Reifengröße direkt vom Reifen abschreiben. Im Fahrzeugschein kann ei
 </div>
 <div class="form-group privacy-consent-fix" style="margin-top: 15px;">
 <label style="font-weight: normal; display: flex; gap: 8px; align-items: flex-start; cursor: pointer;">
-<input required="" style="width: auto; margin-top: 4px;" type="checkbox"/>
+<input id="privacy" required="" style="width: auto; margin-top: 4px;" type="checkbox"/>
 <span>Ich stimme zu, dass meine Daten zur Bearbeitung meiner Anfrage verarbeitet werden. Weitere Informationen finden Sie in der <a href="datenschutz.html" style="color: #cc0000; text-decoration: underline; font-weight: 700;" target="_blank">Datenschutzerklärung</a>. *</span>
 </label>
 </div>
-<button class="btn btn-whatsapp" style="margin-top:10px" type="submit">Reifenangebot über WhatsApp anfragen</button>
-<button class="btn btn-mail" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;" type="button" onclick="sendReifenToEmail()">Reifenangebot per E-Mail anfragen</button>
+<button id="privacyWhatsappBtn" class="btn btn-whatsapp form-submit-locked" disabled aria-disabled="true" style="margin-top:10px" type="submit">Reifenangebot über WhatsApp anfragen</button>
+<button id="privacyEmailBtn" class="btn btn-mail form-submit-locked" disabled aria-disabled="true" style="width: 100%; margin-top: 10px; font-size: 18px; padding: 16px; border: none; font-weight: 900;" type="button" onclick="sendReifenToEmail()">Reifenangebot per E-Mail anfragen</button>
 </form>
 </div>
 </div>
@@ -685,6 +726,9 @@ E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
 <a href="impressum.html">Impressum</a> ·
 <a href="datenschutz.html">Datenschutz</a>
 </p>
+<div class="bs-privacy-settings-wrap">
+<button class="bs-privacy-settings" type="button" data-bs-consent="settings">Datenschutz-Einstellungen</button>
+</div>
 </footer>
 <script>
 function handleReifenFileChange() {
@@ -761,6 +805,7 @@ function sendReifenToWhatsApp(event) {
 }
 
 function sendReifenToEmail() {
+    if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
     var form = document.getElementById('reifenForm');
     if (!form.reportValidity()) return;
 
@@ -792,5 +837,61 @@ function sendReifenToEmail() {
 }
 
 </script>
+
+<script>
+(function(){
+  function initPrivacyGate(){
+    var privacy = document.getElementById('privacy');
+    var wa = document.getElementById('privacyWhatsappBtn');
+    var mail = document.getElementById('privacyEmailBtn');
+    if(!privacy || !wa || !mail) return;
+
+    function sync(){
+      var enabled = privacy.checked;
+      wa.disabled = !enabled;
+      mail.disabled = !enabled;
+      wa.setAttribute('aria-disabled', String(!enabled));
+      mail.setAttribute('aria-disabled', String(!enabled));
+    }
+
+    privacy.addEventListener('change', sync);
+    sync();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initPrivacyGate);
+  } else {
+    initPrivacyGate();
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  function keepOnePrivacySettingsLink(){
+    var footer = document.querySelector('footer');
+    if(!footer) return;
+    var items = footer.querySelectorAll('.bs-privacy-settings-wrap');
+    for(var i=1;i<items.length;i++) items[i].remove();
+  }
+
+  function initFooterPrivacyGuard(){
+    keepOnePrivacySettingsLink();
+    var footer = document.querySelector('footer');
+    if(!footer) return;
+    var observer = new MutationObserver(keepOnePrivacySettingsLink);
+    observer.observe(footer,{childList:true});
+    setTimeout(function(){ observer.disconnect(); keepOnePrivacySettingsLink(); },3000);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initFooterPrivacyGuard);
+  } else {
+    initFooterPrivacyGuard();
+  }
+})();
+</script>
+
 </body>
 </html>
