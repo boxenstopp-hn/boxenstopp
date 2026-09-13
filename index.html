@@ -327,6 +327,288 @@ footer .bs-privacy-settings:hover{color:var(--red)}
 body > .bs-privacy-settings-wrap{
   display:none !important;
 }
+
+
+
+/* =========================================================
+   MOBILE-OPTIMIERUNG – NUR HANDY
+   Desktop bleibt unverändert.
+   ========================================================= */
+@media (max-width:760px){
+
+  html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  .wrap{
+    width:calc(100% - 32px);
+    max-width:100%;
+  }
+
+  /* Kopfbereich kompakter */
+  .nav{
+    min-height:68px;
+    gap:12px;
+  }
+
+  .brand{
+    font-size:26px;
+    letter-spacing:-1.1px;
+  }
+
+  .brand small{
+    font-size:8px;
+    letter-spacing:1.8px;
+  }
+
+  .contact{
+    padding:11px 12px;
+    font-size:14px;
+  }
+
+  /* Hauptbild / H1: kein Überlaufen mehr */
+  .hero{
+    min-height:auto;
+  }
+
+  .hero .wrap{
+    padding-top:54px;
+    padding-bottom:54px;
+  }
+
+  .hero-copy{
+    width:100%;
+    max-width:100%;
+  }
+
+  h1{
+    font-size:clamp(29px,8.2vw,36px);
+    line-height:1.02;
+    letter-spacing:-1.25px;
+    max-width:100%;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    hyphens:auto;
+    margin-bottom:20px;
+  }
+
+  h1 strong{
+    display:inline;
+  }
+
+  .hero .lead{
+    font-size:17px;
+    line-height:1.35;
+    margin-bottom:10px;
+  }
+
+  .hero .sub{
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  .btns{
+    margin-top:22px;
+    gap:10px;
+  }
+
+  .btn{
+    width:100%;
+    min-height:46px;
+    padding:0 14px;
+    font-size:15px;
+  }
+
+  /* Bereiche insgesamt etwas kompakter */
+  section{
+    padding:48px 0;
+  }
+
+  .section-head{
+    margin-bottom:24px;
+  }
+
+  h2{
+    font-size:29px;
+    line-height:1.08;
+    letter-spacing:-.8px;
+  }
+
+  .section-head p{
+    margin-top:12px;
+    font-size:14px;
+  }
+
+  /* Vertrauensleiste */
+  .trust-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .trust-item{
+    padding:14px 10px;
+    gap:9px;
+    min-width:0;
+  }
+
+  .trust-icon{
+    font-size:22px;
+  }
+
+  .trust-item strong{
+    font-size:13px;
+    line-height:1.2;
+  }
+
+  .trust-item small{
+    font-size:11px;
+    line-height:1.25;
+  }
+
+  /* Hauptleistungen */
+  .service-grid{
+    grid-template-columns:1fr !important;
+    gap:14px;
+  }
+
+  .service-photo{
+    height:175px;
+  }
+
+  .service-body{
+    padding:15px;
+  }
+
+  .service-card h3{
+    font-size:18px;
+    margin-bottom:7px;
+  }
+
+  .service-card p{
+    font-size:14px;
+    line-height:1.45;
+    margin-bottom:14px;
+  }
+
+  .action{
+    padding:10px 9px;
+    font-size:14px;
+  }
+
+  /* Weitere Leistungen */
+  .more-grid{
+    grid-template-columns:1fr !important;
+    gap:12px;
+  }
+
+  .more-card{
+    min-height:0;
+    padding:18px;
+  }
+
+  .more-card p{
+    max-width:88%;
+  }
+
+  .exact-service-icon{
+    width:50px !important;
+    height:44px !important;
+  }
+
+  /* Preise: auf Handy 2 pro Reihe, damit es kompakter bleibt */
+  .price-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+
+  .price{
+    padding:17px 7px;
+  }
+
+  .price h3{
+    font-size:13px;
+    min-height:37px;
+    line-height:1.2;
+    overflow-wrap:anywhere;
+  }
+
+  .price b{
+    font-size:29px;
+    margin:7px 0;
+  }
+
+  .price small{
+    font-size:11px;
+  }
+
+  /* Orte kompakter */
+  .region-tags{
+    gap:7px;
+  }
+
+  .region-tags span{
+    padding:7px 10px;
+    font-size:12px;
+  }
+
+  /* Google-Bewertung */
+  .review-box{
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:20px;
+  }
+
+  .review-box h2{
+    font-size:24px;
+  }
+
+  .review-btn,
+  .route-btn{
+    width:100%;
+  }
+
+  /* Kontaktstreifen */
+  .contact-strip-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-strip a{
+    border-right:0;
+    border-bottom:1px solid #333a41;
+    padding:15px;
+  }
+
+  .contact-strip a:last-child{
+    border-bottom:0;
+  }
+
+  /* Footer */
+  .footer-grid-v2{
+    gap:24px;
+  }
+
+  .footer-bottom-v2{
+    gap:12px;
+  }
+}
+
+/* Extra kleine Smartphones */
+@media (max-width:420px){
+  h1{
+    font-size:clamp(27px,7.8vw,33px);
+    letter-spacing:-1px;
+  }
+
+  .hero .wrap{
+    padding-top:46px;
+    padding-bottom:46px;
+  }
+
+  .price-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
 </style>
 <meta content="Autowerkstatt in Nordheim bei Heilbronn: Getriebeölservice, spezialisierte Instandsetzung ausgewählter Getriebesteuergeräte und Mechatronik-Steuergeräte, 3D-Achsvermessung, Klimaservice, DPF-Reinigung und weitere Kfz-Leistungen bei Boxenstopp." name="description"/><link href="https://boxenstopp-hn.de/" rel="canonical"/><meta content="#080b0e" name="theme-color"/><meta content="Boxenstopp Nordheim | Getriebeölservice, Achsvermessung, Klima &amp; DPF" property="og:title"/><meta content="Boxenstopp Nordheim bei Heilbronn: Getriebeölservice und Getriebeölspülung, 3D-Achsvermessung, Klimaservice und DPF-Reinigung. Preise und direkte Anfragewege." property="og:description"/><meta content="website" property="og:type"/><meta content="https://boxenstopp-hn.de/" property="og:url"/><link href="/favicon.ico" rel="icon" type="image/x-icon"/><link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/><link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/><link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/><link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"/><link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="/site.webmanifest" rel="manifest"/><script type="application/ld+json">{
   "@context": "https://schema.org",
