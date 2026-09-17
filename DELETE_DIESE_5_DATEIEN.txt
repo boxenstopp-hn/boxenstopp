@@ -1,0 +1,14 @@
+RÜCKBAU GETRIEBESTEUERGERÄT / MECHATRONIK
+
+1. Alle Dateien aus diesem Patch (außer dieser TXT) in GitHub hochladen und bestehende Dateien ersetzen.
+2. Danach diese 5 alten Seiten in GitHub vollständig löschen:
+
+- mechatronik-reparatur-heilbronn.html
+- p1735-dq381-dq500-heilbronn.html
+- p1736-dq381-dq500-heilbronn.html
+- p07b700-9g-tronic-heilbronn.html
+- p073e00-9g-tronic-heilbronn.html
+
+3. Alle anderen Dateien bleiben unverändert.
+
+Die sitemap.xml im Patch ist bereits bereinigt.

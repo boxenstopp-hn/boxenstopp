@@ -19,12 +19,12 @@ a{text-decoration:none}
 
 /* EINHEITLICHER LINK-STIL FÜR TEXT-LINKS */
 p a, .section a {
-    color: #cc0000 !important;
-    text-decoration: underline !important;
-    font-weight: 700 !important;
+  color: #cc0000 !important;
+  text-decoration: underline !important;
+  font-weight: 700 !important;
 }
 p a:hover, .section a:hover {
-    color: #990000 !important;
+  color: #990000 !important;
 }
 
 header{background:#fff;padding:45px 20px 35px;text-align:center;border-bottom:5px solid #cc0000}
@@ -127,8 +127,8 @@ h2{font-size:28px}
 .section a.btn.btn-mail:visited,
 .section a.btn.btn-mail:hover,
 .section a.btn.btn-mail:active {
-    color: #ffffff !important;
-    text-decoration: none !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
 }
 
 </style>
@@ -159,10 +159,10 @@ h2{font-size:28px}
 <style>
 /* Anfragebuttons erst nach Datenschutz-Zustimmung aktiv */
 .form-submit-locked:disabled{
-  opacity:.45 !important;
-  cursor:not-allowed !important;
-  filter:grayscale(.35);
-  pointer-events:none;
+ opacity:.45 !important;
+ cursor:not-allowed !important;
+ filter:grayscale(.35);
+ pointer-events:none;
 }
 </style>
 
@@ -170,29 +170,29 @@ h2{font-size:28px}
 <style>
 /* Footer-Datenschutzlink wie auf den übrigen Hauptseiten */
 footer .bs-privacy-settings-wrap{
-  background:#111 !important;
-  color:#c4c8d0 !important;
-  width:100% !important;
-  margin:0 !important;
-  padding:10px 0 6px !important;
-  text-align:center !important;
-  box-sizing:border-box !important;
+ background:#111 !important;
+ color:#c4c8d0 !important;
+ width:100% !important;
+ margin:0 !important;
+ padding:10px 0 6px !important;
+ text-align:center !important;
+ box-sizing:border-box !important;
 }
 footer .bs-privacy-settings{
-  background:transparent !important;
-  border:0 !important;
-  box-shadow:none !important;
-  color:inherit !important;
-  text-decoration:underline !important;
-  font:inherit !important;
-  cursor:pointer !important;
-  padding:4px 6px !important;
-  appearance:none !important;
-  -webkit-appearance:none !important;
+ background:transparent !important;
+ border:0 !important;
+ box-shadow:none !important;
+ color:inherit !important;
+ text-decoration:underline !important;
+ font:inherit !important;
+ cursor:pointer !important;
+ padding:4px 6px !important;
+ appearance:none !important;
+ -webkit-appearance:none !important;
 }
 footer .bs-privacy-settings:hover,
 footer .bs-privacy-settings:focus-visible{
-  color:#fff !important;
+ color:#fff !important;
 }
 </style>
 
@@ -732,164 +732,164 @@ E-Mail: <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a>
 </footer>
 <script>
 function handleReifenFileChange() {
-    var fileInput = document.getElementById('file_schein');
-    var uploadText = document.getElementById('uploadText');
-    var successText = document.getElementById('successText');
-    var hsnInput = document.getElementById('hsn_tsn');
-    var hsnStar = document.getElementById('hsn_star');
+  var fileInput = document.getElementById('file_schein');
+  var uploadText = document.getElementById('uploadText');
+  var successText = document.getElementById('successText');
+  var hsnInput = document.getElementById('hsn_tsn');
+  var hsnStar = document.getElementById('hsn_star');
 
-    if (fileInput.files.length > 0) {
-        uploadText.style.display = 'none';
-        successText.style.display = 'block';
-        hsnInput.removeAttribute('required');
-        hsnStar.style.display = 'none';
-    } else {
-        uploadText.style.display = 'block';
-        successText.style.display = 'none';
-        hsnInput.setAttribute('required', '');
-        hsnStar.style.display = 'inline';
-    }
+  if (fileInput.files.length > 0) {
+    uploadText.style.display = 'none';
+    successText.style.display = 'block';
+    hsnInput.removeAttribute('required');
+    hsnStar.style.display = 'none';
+  } else {
+    uploadText.style.display = 'block';
+    successText.style.display = 'none';
+    hsnInput.setAttribute('required', '');
+    hsnStar.style.display = 'inline';
+  }
 }
 
 function getRadioValue(name) {
-    var selected = document.querySelector('input[name="' + name + '"]:checked');
-    return selected ? selected.value : '';
+  var selected = document.querySelector('input[name="' + name + '"]:checked');
+  return selected ? selected.value : '';
 }
 
 function sendReifenToWhatsApp(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    var name = document.getElementById('name').value;
-    var strasse = document.getElementById('strasse').value;
-    var plz = document.getElementById('plz').value;
-    var ort = document.getElementById('ort').value;
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
-    var hsnTsn = document.getElementById('hsn_tsn').value;
-    var baujahr = document.getElementById('baujahr').value;
-    var reifenGroesse = document.getElementById('reifen_groesse').value;
-    var index = document.getElementById('index').value;
-    var reifenart = getRadioValue('reifenart');
-    var qualitaet = getRadioValue('qualitaet');
-    var marke = document.getElementById('marke').value;
-    var stueckzahl = document.getElementById('stueckzahl').value;
-    var message = document.getElementById('message').value;
-    var fileInput = document.getElementById('file_schein');
+  var name = document.getElementById('name').value;
+  var strasse = document.getElementById('strasse').value;
+  var plz = document.getElementById('plz').value;
+  var ort = document.getElementById('ort').value;
+  var email = document.getElementById('email').value;
+  var phone = document.getElementById('phone').value;
+  var hsnTsn = document.getElementById('hsn_tsn').value;
+  var baujahr = document.getElementById('baujahr').value;
+  var reifenGroesse = document.getElementById('reifen_groesse').value;
+  var index = document.getElementById('index').value;
+  var reifenart = getRadioValue('reifenart');
+  var qualitaet = getRadioValue('qualitaet');
+  var marke = document.getElementById('marke').value;
+  var stueckzahl = document.getElementById('stueckzahl').value;
+  var message = document.getElementById('message').value;
+  var fileInput = document.getElementById('file_schein');
 
-    var text = '';
-    if (fileInput.files.length > 0) {
-        text += '⚠️ HINWEIS: Bitte hänge jetzt noch das FOTO des Fahrzeugscheins hier an den Chat an!\n\n';
-    }
+  var text = '';
+  if (fileInput.files.length > 0) {
+    text += '⚠️ HINWEIS: Bitte hänge jetzt noch das FOTO des Fahrzeugscheins hier an den Chat an!\n\n';
+  }
 
-    text += 'Hallo Boxenstopp Nordheim,\n';
-    text += 'ich interessiere mich für ein Reifenangebot.\n\n';
-    text += '👤 Name: ' + name + '\n';
-    text += '🏠 Anschrift: ' + strasse + '\n';
-    text += '📍 PLZ: ' + plz + '\n';
-    text += '🏙️ Ort: ' + ort + '\n';
-    text += '📧 E-Mail: ' + email + '\n';
-    text += '📞 Tel: ' + phone + '\n\n';
-    text += '🚗 HSN/TSN: ' + (hsnTsn ? hsnTsn : 'Siehe Foto/Anhang') + '\n';
-    text += '📅 Baujahr: ' + baujahr + '\n\n';
-    text += '🛞 Reifengröße: ' + reifenGroesse + '\n';
-    text += '🏷️ Traglast/Geschwindigkeit: ' + index + '\n';
-    text += '🌦️ Reifenart: ' + reifenart + '\n';
-    text += '📦 Stückzahl: ' + stueckzahl + '\n';
-    text += '⭐ Qualität: ' + qualitaet + '\n';
-    text += '🏁 Wunschmarke: ' + (marke ? marke : 'Keine feste Wunschmarke') + '\n';
-    text += '📝 Nachricht: ' + (message ? message : 'Keine weitere Angabe') + '\n\n';
-    text += 'Hinweis: Die Reifengröße wurde direkt vom Reifen abgelesen.';
+  text += 'Hallo Boxenstopp Nordheim,\n';
+  text += 'ich interessiere mich für ein Reifenangebot.\n\n';
+  text += '👤 Name: ' + name + '\n';
+  text += '🏠 Anschrift: ' + strasse + '\n';
+  text += '📍 PLZ: ' + plz + '\n';
+  text += '🏙️ Ort: ' + ort + '\n';
+  text += '📧 E-Mail: ' + email + '\n';
+  text += '📞 Tel: ' + phone + '\n\n';
+  text += '🚗 HSN/TSN: ' + (hsnTsn ? hsnTsn : 'Siehe Foto/Anhang') + '\n';
+  text += '📅 Baujahr: ' + baujahr + '\n\n';
+  text += '🛞 Reifengröße: ' + reifenGroesse + '\n';
+  text += '🏷️ Traglast/Geschwindigkeit: ' + index + '\n';
+  text += '🌦️ Reifenart: ' + reifenart + '\n';
+  text += '📦 Stückzahl: ' + stueckzahl + '\n';
+  text += '⭐ Qualität: ' + qualitaet + '\n';
+  text += '🏁 Wunschmarke: ' + (marke ? marke : 'Keine feste Wunschmarke') + '\n';
+  text += '📝 Nachricht: ' + (message ? message : 'Keine weitere Angabe') + '\n\n';
+  text += 'Hinweis: Die Reifengröße wurde direkt vom Reifen abgelesen.';
 
-    var url = 'https://wa.me/4971339220552?text=' + encodeURIComponent(text);
-    window.open(url, '_blank');
+  var url = 'https://wa.me/4971339220552?text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
 }
 
 function sendReifenToEmail() {
-    if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
-    var form = document.getElementById('reifenForm');
-    if (!form.reportValidity()) return;
+  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  var form = document.getElementById('reifenForm');
+  if (!form.reportValidity()) return;
 
-    var name = document.getElementById('name').value;
-    var strasse = document.getElementById('strasse').value;
-    var plz = document.getElementById('plz').value;
-    var ort = document.getElementById('ort').value;
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
-    var hsnTsn = document.getElementById('hsn_tsn').value;
-    var baujahr = document.getElementById('baujahr').value;
-    var reifenGroesse = document.getElementById('reifen_groesse').value;
-    var index = document.getElementById('index').value;
-    var reifenart = getRadioValue('reifenart');
-    var qualitaet = getRadioValue('qualitaet');
-    var marke = document.getElementById('marke').value;
-    var stueckzahl = document.getElementById('stueckzahl').value;
-    var message = document.getElementById('message').value;
-    var fileInput = document.getElementById('file_schein');
-    var text = (fileInput.files.length > 0 ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein als E-Mail-Anhang hinzufügen.\n\n" : "") +
-               "Hallo Boxenstopp Nordheim,\nich interessiere mich für ein Reifenangebot.\n\nName: " + name + "\nAnschrift: " + strasse +
-               "\nPLZ: " + plz + "\nOrt: " + ort + "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Siehe Foto/Anhang") +
-               "\nBaujahr: " + baujahr + "\n\nReifengröße: " + reifenGroesse + "\nTraglast/Geschwindigkeit: " + index +
-               "\nReifenart: " + reifenart + "\nStückzahl: " + stueckzahl + "\nQualität: " + qualitaet +
-               "\nWunschmarke: " + (marke || "Keine feste Wunschmarke") + "\nNachricht: " + (message || "Keine weitere Angabe");
+  var name = document.getElementById('name').value;
+  var strasse = document.getElementById('strasse').value;
+  var plz = document.getElementById('plz').value;
+  var ort = document.getElementById('ort').value;
+  var email = document.getElementById('email').value;
+  var phone = document.getElementById('phone').value;
+  var hsnTsn = document.getElementById('hsn_tsn').value;
+  var baujahr = document.getElementById('baujahr').value;
+  var reifenGroesse = document.getElementById('reifen_groesse').value;
+  var index = document.getElementById('index').value;
+  var reifenart = getRadioValue('reifenart');
+  var qualitaet = getRadioValue('qualitaet');
+  var marke = document.getElementById('marke').value;
+  var stueckzahl = document.getElementById('stueckzahl').value;
+  var message = document.getElementById('message').value;
+  var fileInput = document.getElementById('file_schein');
+  var text = (fileInput.files.length > 0 ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein als E-Mail-Anhang hinzufügen.\n\n" : "") +
+        "Hallo Boxenstopp Nordheim,\nich interessiere mich für ein Reifenangebot.\n\nName: " + name + "\nAnschrift: " + strasse +
+        "\nPLZ: " + plz + "\nOrt: " + ort + "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Siehe Foto/Anhang") +
+        "\nBaujahr: " + baujahr + "\n\nReifengröße: " + reifenGroesse + "\nTraglast/Geschwindigkeit: " + index +
+        "\nReifenart: " + reifenart + "\nStückzahl: " + stueckzahl + "\nQualität: " + qualitaet +
+        "\nWunschmarke: " + (marke || "Keine feste Wunschmarke") + "\nNachricht: " + (message || "Keine weitere Angabe");
 
-    var subject = "Reifenangebot-Anfrage von der Website";
-    window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
+  var subject = "Reifenangebot-Anfrage von der Website";
+  window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
 }
 
 </script>
 
 <script>
 (function(){
-  function initPrivacyGate(){
-    var privacy = document.getElementById('privacy');
-    var wa = document.getElementById('privacyWhatsappBtn');
-    var mail = document.getElementById('privacyEmailBtn');
-    if(!privacy || !wa || !mail) return;
+ function initPrivacyGate(){
+  var privacy = document.getElementById('privacy');
+  var wa = document.getElementById('privacyWhatsappBtn');
+  var mail = document.getElementById('privacyEmailBtn');
+  if(!privacy || !wa || !mail) return;
 
-    function sync(){
-      var enabled = privacy.checked;
-      wa.disabled = !enabled;
-      mail.disabled = !enabled;
-      wa.setAttribute('aria-disabled', String(!enabled));
-      mail.setAttribute('aria-disabled', String(!enabled));
-    }
-
-    privacy.addEventListener('change', sync);
-    sync();
+  function sync(){
+   var enabled = privacy.checked;
+   wa.disabled = !enabled;
+   mail.disabled = !enabled;
+   wa.setAttribute('aria-disabled', String(!enabled));
+   mail.setAttribute('aria-disabled', String(!enabled));
   }
 
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initPrivacyGate);
-  } else {
-    initPrivacyGate();
-  }
+  privacy.addEventListener('change', sync);
+  sync();
+ }
+
+ if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initPrivacyGate);
+ } else {
+  initPrivacyGate();
+ }
 })();
 </script>
 
 
 <script>
 (function(){
-  function keepOnePrivacySettingsLink(){
-    var footer = document.querySelector('footer');
-    if(!footer) return;
-    var items = footer.querySelectorAll('.bs-privacy-settings-wrap');
-    for(var i=1;i<items.length;i++) items[i].remove();
-  }
+ function keepOnePrivacySettingsLink(){
+  var footer = document.querySelector('footer');
+  if(!footer) return;
+  var items = footer.querySelectorAll('.bs-privacy-settings-wrap');
+  for(var i=1;i<items.length;i++) items[i].remove();
+ }
 
-  function initFooterPrivacyGuard(){
-    keepOnePrivacySettingsLink();
-    var footer = document.querySelector('footer');
-    if(!footer) return;
-    var observer = new MutationObserver(keepOnePrivacySettingsLink);
-    observer.observe(footer,{childList:true});
-    setTimeout(function(){ observer.disconnect(); keepOnePrivacySettingsLink(); },3000);
-  }
+ function initFooterPrivacyGuard(){
+  keepOnePrivacySettingsLink();
+  var footer = document.querySelector('footer');
+  if(!footer) return;
+  var observer = new MutationObserver(keepOnePrivacySettingsLink);
+  observer.observe(footer,{childList:true});
+  setTimeout(function(){ observer.disconnect(); keepOnePrivacySettingsLink(); },3000);
+ }
 
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initFooterPrivacyGuard);
-  } else {
-    initFooterPrivacyGuard();
-  }
+ if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initFooterPrivacyGuard);
+ } else {
+  initFooterPrivacyGuard();
+ }
 })();
 </script>
 
