@@ -1,0 +1,7 @@
+# Nur die Cloudflare-Testadressen von Boxenstopp vor Indexierung schützen
+# Die bestehende Domain boxenstopp-hn.de bleibt unbeeinflusst.
+https://boxenstopp.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:version.boxenstopp.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
