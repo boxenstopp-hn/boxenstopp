@@ -68,7 +68,7 @@
     const box = document.getElementById('mapConsent');
     if(!box || box.querySelector('iframe')) return;
     const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.google.com/maps?q=Boxenstopp%20Schafhohle%202%2074226%20Nordheim&output=embed';
+    iframe.src = 'https://www.google.com/maps?q=Schafhohle%202%2C%2074226%20Nordheim&output=embed';
     iframe.title = 'Google Maps – Boxenstopp Nordheim';
     iframe.loading = 'lazy';
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
