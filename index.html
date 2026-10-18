@@ -8,7 +8,7 @@
 <meta content="index, follow" name="robots"/>
 <style>
 :root{--red:#ef1724;--red2:#ff2b34;--bg:#080b0e;--panel:#101419;--panel2:#151a20;--line:#333b43;--text:#fff;--muted:#c5cbd1;--max:1520px}
-*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+*{box-sizing:border-box} html{scroll-behavior:auto} body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
 a{color:inherit;text-decoration:none} .wrap{width:min(var(--max),calc(100% - 54px));margin:auto}
 header{background:#080b0e;border-bottom:1px solid #252a30;position:sticky;top:0;z-index:20}
 .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px} .brand{font-weight:900;font-size:30px;letter-spacing:-1.5px} .brand span{color:var(--red)} .brand small{display:block;font-size:9px;letter-spacing:2.3px;color:#d6d8da;margin-top:2px}
@@ -617,27 +617,28 @@ body > .bs-privacy-settings-wrap{
  display:none !important;
 }
 
-/* Kleiner Kfz-Gutachter-Hinweis – einziger neuer Startseitenbereich */
+/* Gutachter-Hinweis: kompakt und gut lesbar – auch auf Smartphones */
 #bs-gutachter-hinweis{padding:18px 0 !important;background:#0b0f13;border-bottom:1px solid #2c343b}
 #bs-gutachter-hinweis .bs-gutachter-link{display:flex;align-items:center;gap:17px;min-height:90px;padding:15px 22px;background:#151b21;border:1px solid #343d46;border-left:4px solid #e11a2b;border-radius:8px;color:#fff;text-decoration:none;transition:border-color .18s,background .18s}
 #bs-gutachter-hinweis .bs-gutachter-link:hover{background:#1b232b;border-color:#e11a2b}
-#bs-gutachter-hinweis .bs-gutachter-symbol{width:104px;height:78px;flex:0 0 104px;display:flex;justify-content:center;align-items:center;background:transparent;border:0;color:#ff1733}
-#bs-gutachter-hinweis .bs-gutachter-crash{display:block;width:100%;max-height:76px;object-fit:contain}
+#bs-gutachter-hinweis .bs-gutachter-symbol{width:60px;height:60px;flex:0 0 60px;display:flex;align-items:center;justify-content:center;background:#29181e;border:1px solid #6e2530;border-radius:12px;color:#ff1733}
+#bs-gutachter-hinweis .bs-gutachter-alert{display:block;width:43px;height:43px}
 #bs-gutachter-hinweis .bs-gutachter-copy{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
-#bs-gutachter-hinweis .bs-gutachter-eyebrow{color:#ff1733;font-weight:900;font-size:12px;letter-spacing:1.2px;text-transform:uppercase}
-#bs-gutachter-hinweis .bs-gutachter-title{font-weight:900;font-size:20px;letter-spacing:-.3px;line-height:1.2}
-#bs-gutachter-hinweis .bs-gutachter-desc{font-size:14px;line-height:1.35;color:#c5cbd1}
+#bs-gutachter-hinweis .bs-gutachter-eyebrow{color:#ff1733;font-weight:900;font-size:12px;letter-spacing:1.1px;text-transform:uppercase}
+#bs-gutachter-hinweis .bs-gutachter-title{font-weight:900;font-size:21px;letter-spacing:-.3px;line-height:1.2}
+#bs-gutachter-hinweis .bs-gutachter-desc{font-size:14px;line-height:1.45;color:#e0e3e6}
 #bs-gutachter-hinweis .bs-gutachter-cta{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;color:#fff;border:1px solid #e11a2b;background:#bb1021;border-radius:6px;padding:10px 14px;font-weight:800;font-size:13px}
-@media(max-width:680px){
+@media(max-width:760px){
  #bs-gutachter-hinweis{padding:12px 0 !important}
- #bs-gutachter-hinweis .bs-gutachter-link{min-height:0;gap:10px;padding:13px 12px;flex-wrap:wrap;border-radius:7px}
- #bs-gutachter-hinweis .bs-gutachter-symbol{width:72px;height:58px;flex-basis:72px;border:0;border-radius:0}
- #bs-gutachter-hinweis .bs-gutachter-title{font-size:17px}
- #bs-gutachter-hinweis .bs-gutachter-desc{font-size:12px}
- #bs-gutachter-hinweis .bs-gutachter-eyebrow{font-size:11px;letter-spacing:.7px}
- #bs-gutachter-hinweis .bs-gutachter-cta{margin-left:82px;font-size:12px;padding:7px 10px}
+ #bs-gutachter-hinweis .bs-gutachter-link{display:grid;grid-template-columns:48px minmax(0,1fr);column-gap:12px;row-gap:6px;min-height:0;padding:14px 13px;border-radius:7px;align-items:start}
+ #bs-gutachter-hinweis .bs-gutachter-symbol{grid-column:1;grid-row:1;width:48px;height:48px;min-width:0;flex:none;border-radius:10px}
+ #bs-gutachter-hinweis .bs-gutachter-alert{width:36px;height:36px}
+ #bs-gutachter-hinweis .bs-gutachter-copy{grid-column:2;grid-row:1;min-width:0;gap:4px}
+ #bs-gutachter-hinweis .bs-gutachter-eyebrow{font-size:11px;letter-spacing:.3px;overflow-wrap:normal}
+ #bs-gutachter-hinweis .bs-gutachter-title{font-size:20px;line-height:1.18}
+ #bs-gutachter-hinweis .bs-gutachter-desc{font-size:13.5px;line-height:1.45;overflow-wrap:normal}
+ #bs-gutachter-hinweis .bs-gutachter-cta{grid-column:2;grid-row:2;justify-self:start;margin:2px 0 0 0;font-size:12px;padding:8px 12px}
 }
-
 
 /* Sichtbarer, aber dezenter Gutachter-Link im Desktop-Menü */
 .menu a.bs-gutachter-nav{color:#ff1733}
@@ -737,7 +738,7 @@ body > .bs-privacy-settings-wrap{
 <section id="bs-gutachter-hinweis" aria-label="Kfz-Unfallgutachten bei Gutachter Boxenstopp">
  <div class="wrap">
   <a class="bs-gutachter-link" href="https://gutachter-boxenstopp.de/" aria-label="Unfall gehabt? Mehr über Kfz-Unfallgutachten von Gutachter Boxenstopp erfahren">
-   <span class="bs-gutachter-symbol" aria-hidden="true"><img class="bs-gutachter-crash" src="data:image/webp;base64,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" alt="" width="100" height="70" decoding="async"/></span>
+   <span class="bs-gutachter-symbol" aria-hidden="true"><svg class="bs-gutachter-alert" viewBox="0 0 64 64" focusable="false" aria-hidden="true"><path d="M32 7 59 54a4 4 0 0 1-3.5 6h-47A4 4 0 0 1 5 54L28.5 7a4 4 0 0 1 7 0Z" fill="#ff1733" stroke="#ff6a78" stroke-width="1.5"/><path d="M32 24v17" stroke="#fff" stroke-width="7" stroke-linecap="round"/><circle cx="32" cy="49" r="3.8" fill="#fff"/></svg></span>
    <span class="bs-gutachter-copy">
     <span class="bs-gutachter-eyebrow">Kfz-Gutachter Boxenstopp</span>
     <span class="bs-gutachter-title">Unfall gehabt?</span>
