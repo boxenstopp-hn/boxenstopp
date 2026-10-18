@@ -637,6 +637,34 @@ body > .bs-privacy-settings-wrap{
  #bs-gutachter-hinweis .bs-gutachter-cta{margin-left:46px;font-size:12px;padding:7px 10px}
 }
 
+
+/* Sichtbarer, aber dezenter Gutachter-Link im Desktop-Menü */
+.menu a.bs-gutachter-nav{color:#ff6c78}
+.menu a.bs-gutachter-nav:hover{color:#fff}
+/* Zusätzlicher Gutachter-Hinweis unter Weitere Leistungen */
+.bs-gutachter-more{margin-top:22px;padding:14px 18px;border:1px solid #343d46;border-left:3px solid #db2030;background:#151b21;border-radius:6px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:14px}
+.bs-gutachter-more>span{color:#bdc5cc}
+.bs-gutachter-more a{color:#fff;font-weight:800;text-decoration:none}
+.bs-gutachter-more a:hover{color:#ff6c78}
+/* Handydarstellung: beide Leistungsbereiche in zwei Spalten */
+@media(max-width:760px){
+ #hauptleistungen .service-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+ #hauptleistungen .service-card{min-width:0}
+ #hauptleistungen .service-photo{height:clamp(98px,28vw,155px)}
+ #hauptleistungen .service-body{padding:11px 10px}
+ #hauptleistungen .service-card h3{font-size:clamp(14px,3.7vw,17px);line-height:1.2;min-height:2.4em;overflow-wrap:anywhere;margin-bottom:7px}
+ #hauptleistungen .service-card p{font-size:12px;line-height:1.42;margin-bottom:12px}
+ #hauptleistungen .service-card .actions{margin-top:auto;gap:7px}
+ #hauptleistungen .service-card .action{min-height:34px;padding:8px 4px;font-size:11.5px;line-height:1.2;display:flex;align-items:center;justify-content:center;overflow-wrap:anywhere}
+ #weitere .more-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+ #weitere .more-card{padding:14px 11px 45px;min-width:0}
+ #weitere .more-card h3{font-size:15px;line-height:1.22;overflow-wrap:anywhere}
+ #weitere .more-card p{font-size:12px;line-height:1.42;max-width:100%}
+ #weitere .more-card .exact-service-icon{width:38px !important;height:38px !important}
+ #weitere .more-card .circle-arrow{right:11px;bottom:10px;width:27px;height:27px;font-size:19px}
+ .bs-gutachter-more{margin-top:16px;padding:12px 13px;font-size:12px;gap:4px 10px}
+}
+
 </style>
 <meta content="Autowerkstatt in Nordheim bei Heilbronn: Getriebeölservice und Getriebespülung, 3D-Achsvermessung, Klimaservice, DPF-Reinigung und weitere Kfz-Leistungen bei Boxenstopp." name="description"/><link href="https://boxenstopp-hn.de/" rel="canonical"/><meta content="#080b0e" name="theme-color"/><meta content="Boxenstopp Nordheim | Getriebeölservice, Achsvermessung, Klima &amp; DPF" property="og:title"/><meta content="Boxenstopp Nordheim bei Heilbronn: Getriebeölservice und Getriebeölspülung, 3D-Achsvermessung, Klimaservice und DPF-Reinigung. Preise und direkte Anfragewege." property="og:description"/><meta content="website" property="og:type"/><meta content="https://boxenstopp-hn.de/" property="og:url"/><link href="/favicon.ico" rel="icon" type="image/x-icon"/><link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/><link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/><link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/><link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"/><link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="/site.webmanifest" rel="manifest"/><script type="application/ld+json">{
  "@context": "https://schema.org",
@@ -682,6 +710,7 @@ body > .bs-privacy-settings-wrap{
 <a href="https://boxenstopp-hn.de/klimaservice-heilbronn.html">Klima</a>
 <a href="https://boxenstopp-hn.de/dpf-reinigung-heilbronn.html">DPF-Reinigung</a>
 <a href="#weitere">Weitere Leistungen</a>
+<a class="bs-gutachter-nav" href="https://gutachter-boxenstopp.de/">Unfallgutachten</a>
 <a href="#kontakt">Kontakt</a>
 </nav></div></header>
 <div class="contactbar"><div class="wrap contacts">
@@ -737,7 +766,9 @@ body > .bs-privacy-settings-wrap{
 <a class="more-card" href="https://boxenstopp-hn.de/inspektion-oelwechsel-heilbronn.html"><img alt="" aria-hidden="true" class="exact-service-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABACAYAAACNx/A2AAADFklEQVR4nO2Zv2sVQRDHv9EkGpYohBBW0ggWW1hbaKNioRb+QBsbERsLCytBMJpoRBSxNDaCiGATUARBU0gQCxX/AGFLuxVFVFgMKonF24P13t7dzt3tezyZT5N9y/zK7Mzu3h3AMAzDMAzDMAzDMAzDMAzDMMwAMNQrR1aq9wB2RIj+BjACYF4YPZc2quaQE2ilWstNvRJG762hV4kwumcLXJd1LdjYUyc5/wukFbZSzQG4UiJihNFbIm09BXAk+z0I1RZimCg/7Y3vAPgKYNabk1k1ViVEGH20X5VrpboK4AKADV48tRaQWoHPARzMO7RSLQHYn5evCspPYOoKtFI9AHCqROSZMPow1S51D5wOTQqjDwijh/JJsFLdpAbUJlaqBSvVmluosuQBwCEr1TuqD2oFfgIwBZRXTILWvC6MvhQjaKVaAHC2riNqJ1ArcCobWKlmiLpNmLFS3SoT8CotJnmLWce4hC0C9bYRagV2VVagbR8COEkNxGMVBQsb8LUC7yAI8AJuzy6y0ZQ6F+lg0FlgsW1O8PcGwE5v6guAyRKVe8LoM55+0oOqtsHAP9ZFWwFH7KmvhdG7K/SWhdH72ojHp40K+YXOs2sXba54zPZRJh8h+1YYvYsaV+NHOWH0qAtuORDY+ab2PT9DAObROZG7rkw5v5TkPXLD0m4qgvokUkjWHlaqzyjfo5r4qHw74y77vk5VF2xuElMbLxPy3M0GwujbCexX4Z+6NyLkJ7KBleoy1VmKBAb3w16Qa90PwuiLEWp+656j+kyRwG0JbFYS2Pe2R+gs5aYmrVT3KX5TJHA8gc1SrFQ//N+E07/rBQiA0xTfKRL4M4HNQqxUj/Hvos0WyQZ4EphbpfhPkcDvCWyWccwbfxRGX4tVFEYfB2Byc+spzlu7xvSDwL63lWoj9g16EUkT6O6EL52fEQAbAWxCp/JH0XmmHnd/xwAIXx3ANwB/3Pyw01txuhOebN8+CaRI4Jg3ngRwoqadcUQeSP38npLEcS+/dQzqxyiGYRiGYRiGYRiGYRiGYRiGYZhB4i/UagC8gUL3+wAAAABJRU5ErkJggg=="/><h3>Inspektion &amp; Ölwechsel</h3><p>Herstellerkonform und zuverlässig – für eine lange Lebensdauer.</p><span class="circle-arrow">›</span></a>
 <a class="more-card" href="https://boxenstopp-hn.de/reifenservice-heilbronn.html"><img alt="" aria-hidden="true" class="exact-service-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABACAYAAACNx/A2AAAFnElEQVR4nO2abYhWRRTH/1sZxHxRI5nMl6Jwwmp7EZEioraClIgghfJLltmH3jAiyjWxN1qQoKLoQ5kmtBQVoVhmFGa1UEEmxWbM1gYli5OEGTKEWbt9uGee5zz3mXufe+8+c6WY35c7c+bMyz3MnZlz5gKRSCQSiUQikUgkEolEIiXoOR6dWqn+AjCly80+JIze0OU2O1KrAa1UPwE4K2AX+4XRcwK230ZtBrRSTfC8MLrHUz4MYAjAPGH01Xn1AQwIo/utVG8BWJrXdkhq6Sj18mMAzgDwuTD6Mir/FcAMYXSPleozAJcDTUNYqX4EcDbVf0cYfZOnjy8ALHL5uowYvBMr1Q4Aiyn7ijD6DmbQEQB/AFgIYBeALwGsyWluVBh9Tk5fzwO4h7LPCqPvn9TgC3BC6A7QNB6QGAoAXqDnPCY7BDIezZ6BdEN5xqPye5HMcABYXW245QhqQM+61WulGqQXbUAGW8rSEEb3p+o+XqRPYfQs1v/rpQddkjpmIADsYWvScivVWiSbxWYA1lfBs+msL9HfB/S8uexAyxJsDbRSbQSwEmjZDNYAeIpUDgujp3lmaRus/jo0Z2LukcW1G3ozCTkDV6YFwugBAEcoOzVVvF0Y3UMv/BuTj7M0/4xnW6k+7DQIK9VXxYZbjeCfsGcGHHQJK9XXTO8Glj6NpU8kXTdT32dtXpPT9cv0XFBh2IUJYkAr1WMe2ZOUdOe5AQDTKf1e0baF0UtYfVipvs/Qu7Nom5Mh1Axc7JGtZbNoP+2ycwFAGH09V7RSvUrJMcr/QnqN2cx26XM7DYY2rSCcFKjdhTxDi79jXBg9x0q1KaWzAcCDqXZeo+fsjH7GkT8J/gRwCoBLOo64IqHXwFF6SidwaxqA25yMZmbaeBBGP8yyI572t1L9dZ4yIPFsAHINQxDUgM5zEEbfzeV0xOEMA3ikw5Fjh6d95xNfkVHnB3rO6DzaaoT6hH18i8QT2QpgCS8QRl/AskPwzJgOfu2lGfIDJcdYmuCunJVqPQAIoy8E8DaAXiTB1H2ktjdVrcV4BTcAkTWE4qOtRh2u3KNWqn8AQBi9DE2DuZfbCSSbSIZXIj2yQtQRoQ5twEOuHyvV70DLuuV21plWqgPwbCJE5WUm5PHFEXoTOZVtDFMpXgck7pybWbcif5aN55R1Itjm4aglGsOM6IKde1IqPzM/+GiqrMg6Npohn1lwiJWpK5zFIyoTaLpwruxMlv07VfUg1duUksNKNUjJTzO6nVtlrGWozYDEMXr2MplJ6bTsqMLopym5CO1cRzq3Z/R3UcnxlSaUAY8CgJXqGS4URp/s0e0YkiLme2TTPTKOu3s+kqs1CUIZ0EVXVjuBlWqjleolj+75TKclBJ+hX4XdXWqnjSAGTF87WqneRRJgXcXEm+l5Mel8gvYQvNN/IN0HOzNuKzCkoQI6lQgZ0m8Jqfsu1n0H57S+p/6LAPpAYaws/5ki0QvydLpB3bvwRynxdpbe63tRK5XbRLbQ8y40Y4Bv5HQZNBLtCGnANwGA31sIo6/lCqkwfiNm5/xnoo/KV6AZngISg99SYBxbOqtUJ+iNlecz/BjAlVS8Txh9Hvs0jwF4Asm61xJALfsJ8qXhv3wrBwCHgUZUZgJN4wF0LGEvOAXJrdsu5pWA6g+iGlkeStcI7QtPS4m2IQlpAQCsVN946qzwNLW8aJ+p2Zf7K0g3qGMTaXgawugbhdHL2OzqJblv8/gule94AZ/SydtgukYd98KnuzT9ptaC83H5cYUMMZ9k/Uw304ieY1KRDWbS1PV/4HMA7qPsmDB6Ft3ntpzl+M1cxg+YnGEkkZo2H/l/94Ml0HDLVuWouCtIzggSQ/Wh/VcQL3UaDzgOP5kXWcsqslsYfVWgtiORSCQSiUQikUgkEolEusO/bQ78y/Y3AIEAAAAASUVORK5CYII="/><h3>Reifenservice</h3><p>Montage, Wuchten und Räderservice – alles rund um Ihre Reifen.</p><span class="circle-arrow">›</span></a>
 <a class="more-card" href="https://boxenstopp-hn.de/ozonbehandlung-heilbronn.html"><img alt="" aria-hidden="true" class="exact-service-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABACAYAAACNx/A2AAADe0lEQVR4nO2aO2gVQRSGf8WgMghWMoJoOSB2PitJI8bKShTExkriAxVB0WhifBCLSPBZiE2KKGIhKqIQCFaKGix8wDQ2EhhBEMQp1CIW7oa5e2f3zs7O7N7A+SAwz3PO/pnZeewFCIIgCIIgCIIgCIIgCGLesKDpAIrQXHwCsNZSNcGU3Ft3PDa6TkDNxS8ArESXUabkiVjxdKJrBNRcfACwzrc/U7KRZ+kKATUXszlV00zJDZb2PwAst7SvfTQ2LqBNPNfRpLl4BmBHpniSKbktRGwuNCqgRby3TMlNAezcYkoe9I/MnYV1OLFheeghH/EA64jt94uqPI0IqLk4kykaY0qer2IzK2LBezUojUzh7MOFXEEztgeYkpdC2bbR2BROibD9eGCkhwPbbqO2Eai5eANgY7Y8xv7NHIWx94fRR6DmYjZ5oDbxIvLC8H87pqOoAjq8yP/G8MuU7DOya2L4SFkU07iFc0zJCzX77IlpPJqAmotxM1/nWVVzMWhkP8f0FXMK70sTDRz0e430Ec3F2ViOogioufgZw24Jlmbyw8li9iW0o6AjI2/RaOKqSXPxDcAKW13IeIIYSt45Q3n1Td3VpVS58elEKAGzAT5kSu6qYO85gO2WqjGm5DFPm/cA7DGKgnwWqCxg6HOtyyWAr4/sPybEKAy6iNQhXtLuj4/9zAY7yCmlkoCai9dG9ndFW20j2fwDYN6q9Ggu3nm6mjTSBzxtzFF1BG5OE0zJJb5GNBeXzbxtJDMlBzLl6z3dPfHsZ6Xx66yEo2nC4TUwnSY0F0/LOmJKXivbp4huETC78S1iwkhvDR1IWbpFQGeYkleN7LKy/TUXj4zsTNV4qgo4d/tb8RvEd9eGmosRM+vha6eRvuvRv4VKAjIld5t5zcVNT1NzL3bNxVSHtieN9McyTiwr/WBeW1dCTGFzGvRrLh6XNcCU3G9ke/PaZS8DmJJbXH1YZsgd175FxDrKAcAVpuQpo81FAH34//uXxQC+MiVXG/XXARwy+ium5Mqkbgrtwt5gSh7uENc4jGs1gxbfVYj1OdEJy7fcEbRO0TxafgOjuXgJ9xV5him5yj3KYmq5zsojb89XZMfWR3NxHMCog8uOo7Yswc/CyQO+6tB0rGjDnNSdzhS/z+uTbG0GCvzdT2ILKh5BEARBEARBEARBEARBzDP+Ac8TNDUvPa5LAAAAAElFTkSuQmCC"/><h3>Ozonbehandlung</h3><p>Geruchsneutralisierung und hygienische Behandlung des Innenraums.</p><span class="circle-arrow">›</span></a>
-</div></div></section>
+</div>
+<div class="bs-gutachter-more"><span>Auch im Schadenfall:</span> <a href="https://gutachter-boxenstopp.de/">Kfz-Unfallgutachten bei Gutachter Boxenstopp <span aria-hidden="true">→</span></a></div>
+</div></section>
 <section class="prices" id="preise"><div class="wrap">
 <div class="section-head"><div><div class="eyebrow">Transparent. Fair. Planbar.</div><h2>Klare Einstiegspreise für häufige Leistungen</h2></div><p>Unsere Preise sind transparente Richtwerte. Der finale Preis hängt je nach Fahrzeugmodell und Aufwand ab.</p></div>
 <div class="price-grid">
