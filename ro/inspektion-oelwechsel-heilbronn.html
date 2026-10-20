@@ -234,31 +234,31 @@ Trebuie schimbat uleiul, martorul service este activ sau se apropie revizia? Box
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Nume și prenume <span class="required-star">*</span></label>
-<input id="name" placeholder="z. B. Max Mustermann" required="" type="text"/>
+<input id="name" placeholder="de ex. Ion Popescu" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Stradă și număr <span class="required-star">*</span></label>
-<input id="strasse" placeholder="Straße und Hausnummer" required="" type="text"/>
+<input id="strasse" placeholder="Stradă și număr" required="" type="text"/>
 </div>
 </div>
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Cod poștal <span class="required-star">*</span></label>
-<input id="plz" placeholder="PLZ" required="" type="text"/>
+<input id="plz" placeholder="Cod poștal" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Localitate <span class="required-star">*</span></label>
-<input id="ort" placeholder="Ort" required="" type="text"/>
+<input id="ort" placeholder="Localitate" required="" type="text"/>
 </div>
 </div>
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Adresă e-mail <span class="required-star">*</span></label>
-<input id="email" placeholder="name@beispiel.de" required="" type="email"/>
+<input id="email" placeholder="nume@exemplu.com" required="" type="email"/>
 </div>
 <div class="form-group">
 <label>Telefon / mobil <span class="required-star">*</span></label>
-<input id="phone" placeholder="für eventuelle Rückfragen" required="" type="tel"/>
+<input id="phone" placeholder="Pentru eventuale întrebări" required="" type="tel"/>
 </div>
 </div>
 <hr style="border:0; border-top:1px solid #eee; margin:10px 0 15px"/>
@@ -285,21 +285,21 @@ Trebuie schimbat uleiul, martorul service este activ sau se apropie revizia? Box
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Coduri HSN / TSN <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" placeholder="z. B. 0588 / AHI" required="" type="text"/>
+<input id="hsn_tsn" placeholder="de ex. 0588 / AHI" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Serie de șasiu (VIN) <span class="required-star" id="fin_star">*</span></label>
-<input id="fin" placeholder="17-stellig (WBA...)" required="" type="text"/>
+<input id="fin" placeholder="17 caractere (WBA...)" required="" type="text"/>
 </div>
 </div>
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Kilometraj actual <span class="required-star">*</span></label>
-<input id="km" placeholder="z. B. 125.000 km" required="" type="text"/>
+<input id="km" placeholder="de ex. 125.000 km" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Mesaj service pe bord</label>
-<input id="service_msg" placeholder="z. B. Service A fällig / Ölwechsel jetzt" type="text"/>
+<input id="service_msg" placeholder="de ex. service A necesar / schimb ulei" type="text"/>
 </div>
 </div>
 <div class="form-group">
@@ -647,7 +647,7 @@ function handleFileChange() {
 
 function sendToWhatsApp(event) {
   event.preventDefault();
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Te rugăm să accepți mai întâi politica de confidențialitate.'); return; }
 
   var name = document.getElementById('name').value.trim();
   var strasse = document.getElementById('strasse').value.trim();
@@ -663,7 +663,7 @@ function sendToWhatsApp(event) {
   var fileInput = document.getElementById('file_schein');
 
   if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
-    alert('Bitte HSN/TSN und FIN eintragen oder ein Foto/PDF vom Fahrzeugschein auswählen.');
+    alert('Introdu codurile HSN/TSN și seria VIN sau selectează o fotografie/PDF cu certificatul de înmatriculare.');
     return;
   }
 
@@ -704,7 +704,7 @@ function sendToWhatsApp(event) {
 }
 
 function sendServiceToEmail() {
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Te rugăm să accepți mai întâi politica de confidențialitate.'); return; }
   var form = document.getElementById('serviceForm');
   if (!form.reportValidity()) return;
 
@@ -721,7 +721,7 @@ function sendServiceToEmail() {
   var serviceMsg = document.getElementById('service_msg').value.trim();
   var fileInput = document.getElementById('file_schein');
   if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
-    alert('Bitte HSN/TSN und FIN eintragen oder ein Foto/PDF vom Fahrzeugschein auswählen.');
+    alert('Introdu codurile HSN/TSN și seria VIN sau selectează o fotografie/PDF cu certificatul de înmatriculare.');
     return;
   }
   var filters = [];

@@ -314,38 +314,38 @@ For DPF removal and refitting, we provide an individual quotation.
   <div class="form-row-2">
     <div class="form-group">
       <label for="vorname">First name *</label>
-      <input type="text" id="vorname" required placeholder="Vorname">
+      <input type="text" id="vorname" required placeholder="First name">
     </div>
     <div class="form-group">
       <label for="nachname">Last name *</label>
-      <input type="text" id="nachname" required placeholder="Nachname">
+      <input type="text" id="nachname" required placeholder="Last name">
     </div>
   </div>
   
   <div class="form-group">
     <label for="strasse">Street and house number *</label>
-    <input type="text" id="strasse" required placeholder="Straße und Hausnummer">
+    <input type="text" id="strasse" required placeholder="Street and house number">
   </div>
 
   <div class="form-row-2">
     <div class="form-group">
       <label for="plz">Postcode *</label>
-      <input type="text" id="plz" required placeholder="PLZ">
+      <input type="text" id="plz" required placeholder="Postal code">
     </div>
     <div class="form-group">
       <label for="ort">Town/city *</label>
-      <input type="text" id="ort" required placeholder="Ort">
+      <input type="text" id="ort" required placeholder="Town/city">
     </div>
   </div>
   
   <div class="form-row-2">
     <div class="form-group">
       <label for="email">Email address *</label>
-      <input type="email" id="email" required placeholder="ihre@mail.de">
+      <input type="email" id="email" required placeholder="your@email.com">
     </div>
     <div class="form-group">
       <label for="phone">Phone number *</label>
-      <input type="tel" id="phone" required placeholder="Für eventuelle Rückfragen">
+      <input type="tel" id="phone" required placeholder="For questions about your request">
     </div>
   </div>
 
@@ -366,22 +366,22 @@ For DPF removal and refitting, we provide an individual quotation.
     <div class="form-row-2">
       <div class="form-group">
         <label for="hsn_tsn">German type codes (HSN/TSN) <span class="req-star">*</span></label>
-        <input type="text" id="hsn_tsn" required placeholder="z.B. 0588 / AHM">
+        <input type="text" id="hsn_tsn" required placeholder="e.g. 0588 / AHM">
       </div>
       <div class="form-group">
         <label for="vin">Vehicle identification number (VIN) <span class="req-star">*</span></label>
-        <input type="text" id="vin" required placeholder="17-stellig (Wichtig für Zuordnung!)">
+        <input type="text" id="vin" required placeholder="17 characters (for vehicle identification)">
       </div>
     </div>
 
     <div class="form-row-2">
       <div class="form-group">
         <label for="baujahr">First registration / model year</label>
-        <input type="text" id="baujahr" placeholder="z.B. 06/2015">
+        <input type="text" id="baujahr" placeholder="e.g. 06/2015">
       </div>
       <div class="form-group">
         <label for="km">Current mileage *</label>
-        <input type="text" id="km" required placeholder="z.B. 182.000 km">
+        <input type="text" id="km" required placeholder="e.g. 182,000 km">
       </div>
     </div>
   </div>
@@ -396,7 +396,7 @@ For DPF removal and refitting, we provide an individual quotation.
 
   <div class="form-group">
     <label for="problem">Fault codes / problem description</label>
-    <textarea id="problem" rows="3" placeholder="z.B. DPF-Leuchte brennt, Fehlercode P2002 gespeichert, Auto im Notlauf, etc."></textarea>
+    <textarea id="problem" rows="3" placeholder="e.g. DPF light on, fault P2002, car in limp mode"></textarea>
   </div>
 
   
@@ -451,7 +451,7 @@ function fileSelected(input) {
 
 function sendToWhatsApp(event) {
   event.preventDefault();
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Please accept the privacy notice first.'); return; }
   
   var vorname = document.getElementById('vorname').value;
   var nachname = document.getElementById('nachname').value;
@@ -497,7 +497,7 @@ function sendToWhatsApp(event) {
 }
 
 function sendDpfToEmail() {
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Please accept the privacy notice first.'); return; }
   var form = document.getElementById('dpfForm');
   if (!form.reportValidity()) return;
 

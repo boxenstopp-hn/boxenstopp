@@ -267,31 +267,31 @@ Montăm anvelope de 13–24 inci pe jante din oțel și aliaj, echilibrăm roți
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Nume și prenume <span class="required-star">*</span></label>
-<input id="name" placeholder="z. B. Max Mustermann" required="" type="text"/>
+<input id="name" placeholder="de ex. Ion Popescu" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Stradă și număr <span class="required-star">*</span></label>
-<input id="strasse" placeholder="Straße und Hausnummer" required="" type="text"/>
+<input id="strasse" placeholder="Stradă și număr" required="" type="text"/>
 </div>
 </div>
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Cod poștal <span class="required-star">*</span></label>
-<input id="plz" placeholder="PLZ" required="" type="text"/>
+<input id="plz" placeholder="Cod poștal" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Localitate <span class="required-star">*</span></label>
-<input id="ort" placeholder="Ort" required="" type="text"/>
+<input id="ort" placeholder="Localitate" required="" type="text"/>
 </div>
 </div>
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Adresă e-mail <span class="required-star">*</span></label>
-<input id="email" placeholder="name@beispiel.de" required="" type="email"/>
+<input id="email" placeholder="nume@exemplu.com" required="" type="email"/>
 </div>
 <div class="form-group">
 <label>Număr de telefon / mobil <span class="required-star">*</span></label>
-<input id="phone" placeholder="für Rückfragen zum Angebot" required="" type="tel"/>
+<input id="phone" placeholder="Pentru întrebări despre ofertă" required="" type="tel"/>
 </div>
 </div>
 <hr style="border:0; border-top:1px solid #eee; margin:10px 0 15px"/>
@@ -306,11 +306,11 @@ Montăm anvelope de 13–24 inci pe jante din oțel și aliaj, echilibrăm roți
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>HSN / TSN (coduri vehicul) <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" placeholder="z. B. 0588 / AHI" required="" type="text"/>
+<input id="hsn_tsn" placeholder="de ex. 0588 / AHI" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>An fabricație <span class="required-star">*</span></label>
-<input id="baujahr" placeholder="z. B. 2018" required="" type="text"/>
+<input id="baujahr" placeholder="de ex. 2018" required="" type="text"/>
 </div>
 </div>
 <div class="form-hint">
@@ -319,11 +319,11 @@ Citește dimensiunea direct de pe anvelopa montată. În certificatul de înmatr
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Dimensiune anvelope <span class="required-star">*</span></label>
-<input id="reifen_groesse" placeholder="z. B. 205/55 R16" required="" type="text"/>
+<input id="reifen_groesse" placeholder="de ex. 205/55 R16" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Indice sarcină / viteză <span class="required-star">*</span></label>
-<input id="index" placeholder="z. B. 91V" required="" type="text"/>
+<input id="index" placeholder="de ex. 91V" required="" type="text"/>
 </div>
 </div>
 <div class="form-group">
@@ -345,7 +345,7 @@ Citește dimensiunea direct de pe anvelopa montată. În certificatul de înmatr
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Marca preferată (opțional)</label>
-<input id="marke" placeholder="z. B. Michelin, Continental, Hankook" type="text"/>
+<input id="marke" placeholder="de ex. Michelin, Continental, Hankook" type="text"/>
 </div>
 <div class="form-group">
 <label>Număr de anvelope <span class="required-star">*</span></label>
@@ -358,7 +358,7 @@ Citește dimensiunea direct de pe anvelopa montată. În certificatul de înmatr
 </div>
 <div class="form-group">
 <label>Mesaj suplimentar (opțional)</label>
-<textarea id="message" placeholder="z. B. ich brauche zusätzlich neue Ventile oder RDKS-Sensoren" rows="3"></textarea>
+<textarea id="message" placeholder="de ex. mai am nevoie de valve noi sau senzori TPMS" rows="3"></textarea>
 </div>
 <div class="form-group privacy-consent-fix" style="margin-top: 15px;">
 <label style="font-weight: normal; display: flex; gap: 8px; align-items: flex-start; cursor: pointer;">
@@ -797,7 +797,7 @@ function sendReifenToWhatsApp(event) {
 }
 
 function sendReifenToEmail() {
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Te rugăm să accepți mai întâi politica de confidențialitate.'); return; }
   var form = document.getElementById('reifenForm');
   if (!form.reportValidity()) return;
 

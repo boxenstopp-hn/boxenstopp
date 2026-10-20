@@ -267,31 +267,31 @@ Yazlık, kışlık veya dört mevsim lastik, tekerlek değişimi, balans ya da l
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Ad soyad <span class="required-star">*</span></label>
-<input id="name" placeholder="z. B. Max Mustermann" required="" type="text"/>
+<input id="name" placeholder="ör. Ahmet Yılmaz" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Sokak ve kapı numarası <span class="required-star">*</span></label>
-<input id="strasse" placeholder="Straße und Hausnummer" required="" type="text"/>
+<input id="strasse" placeholder="Sokak ve kapı numarası" required="" type="text"/>
 </div>
 </div>
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Posta kodu <span class="required-star">*</span></label>
-<input id="plz" placeholder="PLZ" required="" type="text"/>
+<input id="plz" placeholder="Posta kodu" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Şehir / ilçe <span class="required-star">*</span></label>
-<input id="ort" placeholder="Ort" required="" type="text"/>
+<input id="ort" placeholder="İl / ilçe" required="" type="text"/>
 </div>
 </div>
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>E-posta adresi <span class="required-star">*</span></label>
-<input id="email" placeholder="name@beispiel.de" required="" type="email"/>
+<input id="email" placeholder="isim@ornek.com" required="" type="email"/>
 </div>
 <div class="form-group">
 <label>Telefon / cep telefonu <span class="required-star">*</span></label>
-<input id="phone" placeholder="für Rückfragen zum Angebot" required="" type="tel"/>
+<input id="phone" placeholder="Teklif hakkında sorular için" required="" type="tel"/>
 </div>
 </div>
 <hr style="border:0; border-top:1px solid #eee; margin:10px 0 15px"/>
@@ -306,11 +306,11 @@ Yazlık, kışlık veya dört mevsim lastik, tekerlek değişimi, balans ya da l
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>HSN / TSN (araç kodları) <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" placeholder="z. B. 0588 / AHI" required="" type="text"/>
+<input id="hsn_tsn" placeholder="ör. 0588 / AHI" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Model yılı <span class="required-star">*</span></label>
-<input id="baujahr" placeholder="z. B. 2018" required="" type="text"/>
+<input id="baujahr" placeholder="ör. 2018" required="" type="text"/>
 </div>
 </div>
 <div class="form-hint">
@@ -319,11 +319,11 @@ Lütfen lastik ölçüsünü doğrudan lastiğin üzerinden okuyun. Ruhsatta yaz
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Lastik ölçüsü <span class="required-star">*</span></label>
-<input id="reifen_groesse" placeholder="z. B. 205/55 R16" required="" type="text"/>
+<input id="reifen_groesse" placeholder="ör. 205/55 R16" required="" type="text"/>
 </div>
 <div class="form-group">
 <label>Yük / hız endeksi <span class="required-star">*</span></label>
-<input id="index" placeholder="z. B. 91V" required="" type="text"/>
+<input id="index" placeholder="ör. 91V" required="" type="text"/>
 </div>
 </div>
 <div class="form-group">
@@ -345,7 +345,7 @@ Lütfen lastik ölçüsünü doğrudan lastiğin üzerinden okuyun. Ruhsatta yaz
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Tercih edilen marka (isteğe bağlı)</label>
-<input id="marke" placeholder="z. B. Michelin, Continental, Hankook" type="text"/>
+<input id="marke" placeholder="ör. Michelin, Continental, Hankook" type="text"/>
 </div>
 <div class="form-group">
 <label>Adet <span class="required-star">*</span></label>
@@ -358,7 +358,7 @@ Lütfen lastik ölçüsünü doğrudan lastiğin üzerinden okuyun. Ruhsatta yaz
 </div>
 <div class="form-group">
 <label>Ek mesaj (isteğe bağlı)</label>
-<textarea id="message" placeholder="z. B. ich brauche zusätzlich neue Ventile oder RDKS-Sensoren" rows="3"></textarea>
+<textarea id="message" placeholder="ör. yeni supaplar veya RDKS sensörleri de gerekiyor" rows="3"></textarea>
 </div>
 <div class="form-group privacy-consent-fix" style="margin-top: 15px;">
 <label style="font-weight: normal; display: flex; gap: 8px; align-items: flex-start; cursor: pointer;">
@@ -797,7 +797,7 @@ function sendReifenToWhatsApp(event) {
 }
 
 function sendReifenToEmail() {
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Lütfen önce gizlilik politikasını onaylayın.'); return; }
   var form = document.getElementById('reifenForm');
   if (!form.reportValidity()) return;
 

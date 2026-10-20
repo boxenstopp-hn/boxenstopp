@@ -314,38 +314,38 @@ DPF sökme ve takma işlemi için araca özel teklif hazırlıyoruz.
   <div class="form-row-2">
     <div class="form-group">
       <label for="vorname">Ad *</label>
-      <input type="text" id="vorname" required placeholder="Vorname">
+      <input type="text" id="vorname" required placeholder="Ad">
     </div>
     <div class="form-group">
       <label for="nachname">Soyad *</label>
-      <input type="text" id="nachname" required placeholder="Nachname">
+      <input type="text" id="nachname" required placeholder="Soyad">
     </div>
   </div>
   
   <div class="form-group">
     <label for="strasse">Sokak ve kapı numarası *</label>
-    <input type="text" id="strasse" required placeholder="Straße und Hausnummer">
+    <input type="text" id="strasse" required placeholder="Sokak ve kapı numarası">
   </div>
 
   <div class="form-row-2">
     <div class="form-group">
       <label for="plz">Posta kodu *</label>
-      <input type="text" id="plz" required placeholder="PLZ">
+      <input type="text" id="plz" required placeholder="Posta kodu">
     </div>
     <div class="form-group">
       <label for="ort">Şehir / ilçe *</label>
-      <input type="text" id="ort" required placeholder="Ort">
+      <input type="text" id="ort" required placeholder="İl / ilçe">
     </div>
   </div>
   
   <div class="form-row-2">
     <div class="form-group">
       <label for="email">E-posta adresi *</label>
-      <input type="email" id="email" required placeholder="ihre@mail.de">
+      <input type="email" id="email" required placeholder="eposta@ornek.com">
     </div>
     <div class="form-group">
       <label for="phone">Telefon numarası *</label>
-      <input type="tel" id="phone" required placeholder="Für eventuelle Rückfragen">
+      <input type="tel" id="phone" required placeholder="Gerektiğinde size ulaşabilmemiz için">
     </div>
   </div>
 
@@ -366,22 +366,22 @@ DPF sökme ve takma işlemi için araca özel teklif hazırlıyoruz.
     <div class="form-row-2">
       <div class="form-group">
         <label for="hsn_tsn">Araç kodları (HSN/TSN) <span class="req-star">*</span></label>
-        <input type="text" id="hsn_tsn" required placeholder="z.B. 0588 / AHM">
+        <input type="text" id="hsn_tsn" required placeholder="ör. 0588 / AHM">
       </div>
       <div class="form-group">
         <label for="vin">Şasi numarası (VIN) <span class="req-star">*</span></label>
-        <input type="text" id="vin" required placeholder="17-stellig (Wichtig für Zuordnung!)">
+        <input type="text" id="vin" required placeholder="17 karakter (araç eşleştirmesi için)">
       </div>
     </div>
 
     <div class="form-row-2">
       <div class="form-group">
         <label for="baujahr">İlk tescil / model yılı</label>
-        <input type="text" id="baujahr" placeholder="z.B. 06/2015">
+        <input type="text" id="baujahr" placeholder="ör. 06/2015">
       </div>
       <div class="form-group">
         <label for="km">Güncel kilometre *</label>
-        <input type="text" id="km" required placeholder="z.B. 182.000 km">
+        <input type="text" id="km" required placeholder="ör. 182.000 km">
       </div>
     </div>
   </div>
@@ -396,7 +396,7 @@ DPF sökme ve takma işlemi için araca özel teklif hazırlıyoruz.
 
   <div class="form-group">
     <label for="problem">Hata kodları / sorun açıklaması</label>
-    <textarea id="problem" rows="3" placeholder="z.B. DPF-Leuchte brennt, Fehlercode P2002 gespeichert, Auto im Notlauf, etc."></textarea>
+    <textarea id="problem" rows="3" placeholder="ör. DPF lambası yanıyor, P2002 kodu, araç koruma modunda"></textarea>
   </div>
 
   
@@ -451,7 +451,7 @@ function fileSelected(input) {
 
 function sendToWhatsApp(event) {
   event.preventDefault();
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Lütfen önce gizlilik politikasını onaylayın.'); return; }
   
   var vorname = document.getElementById('vorname').value;
   var nachname = document.getElementById('nachname').value;
@@ -497,7 +497,7 @@ function sendToWhatsApp(event) {
 }
 
 function sendDpfToEmail() {
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Lütfen önce gizlilik politikasını onaylayın.'); return; }
   var form = document.getElementById('dpfForm');
   if (!form.reportValidity()) return;
 

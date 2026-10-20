@@ -314,38 +314,38 @@ Pentru demontarea și remontarea DPF pregătim o ofertă individuală.
   <div class="form-row-2">
     <div class="form-group">
       <label for="vorname">Prenume *</label>
-      <input type="text" id="vorname" required placeholder="Vorname">
+      <input type="text" id="vorname" required placeholder="Prenume">
     </div>
     <div class="form-group">
       <label for="nachname">Nume de familie *</label>
-      <input type="text" id="nachname" required placeholder="Nachname">
+      <input type="text" id="nachname" required placeholder="Nume de familie">
     </div>
   </div>
   
   <div class="form-group">
     <label for="strasse">Stradă și număr *</label>
-    <input type="text" id="strasse" required placeholder="Straße und Hausnummer">
+    <input type="text" id="strasse" required placeholder="Stradă și număr">
   </div>
 
   <div class="form-row-2">
     <div class="form-group">
       <label for="plz">Cod poștal *</label>
-      <input type="text" id="plz" required placeholder="PLZ">
+      <input type="text" id="plz" required placeholder="Cod poștal">
     </div>
     <div class="form-group">
       <label for="ort">Localitate *</label>
-      <input type="text" id="ort" required placeholder="Ort">
+      <input type="text" id="ort" required placeholder="Localitate">
     </div>
   </div>
   
   <div class="form-row-2">
     <div class="form-group">
       <label for="email">Adresă e-mail *</label>
-      <input type="email" id="email" required placeholder="ihre@mail.de">
+      <input type="email" id="email" required placeholder="email@exemplu.com">
     </div>
     <div class="form-group">
       <label for="phone">Număr de telefon *</label>
-      <input type="tel" id="phone" required placeholder="Für eventuelle Rückfragen">
+      <input type="tel" id="phone" required placeholder="Pentru eventuale întrebări">
     </div>
   </div>
 
@@ -366,22 +366,22 @@ Pentru demontarea și remontarea DPF pregătim o ofertă individuală.
     <div class="form-row-2">
       <div class="form-group">
         <label for="hsn_tsn">Coduri HSN/TSN <span class="req-star">*</span></label>
-        <input type="text" id="hsn_tsn" required placeholder="z.B. 0588 / AHM">
+        <input type="text" id="hsn_tsn" required placeholder="de ex. 0588 / AHM">
       </div>
       <div class="form-group">
         <label for="vin">Serie de șasiu (VIN) <span class="req-star">*</span></label>
-        <input type="text" id="vin" required placeholder="17-stellig (Wichtig für Zuordnung!)">
+        <input type="text" id="vin" required placeholder="17 caractere (pentru identificare)">
       </div>
     </div>
 
     <div class="form-row-2">
       <div class="form-group">
         <label for="baujahr">Prima înmatriculare / anul</label>
-        <input type="text" id="baujahr" placeholder="z.B. 06/2015">
+        <input type="text" id="baujahr" placeholder="de ex. 06/2015">
       </div>
       <div class="form-group">
         <label for="km">Kilometraj actual *</label>
-        <input type="text" id="km" required placeholder="z.B. 182.000 km">
+        <input type="text" id="km" required placeholder="de ex. 182.000 km">
       </div>
     </div>
   </div>
@@ -396,7 +396,7 @@ Pentru demontarea și remontarea DPF pregătim o ofertă individuală.
 
   <div class="form-group">
     <label for="problem">Coduri de eroare / descrierea problemei</label>
-    <textarea id="problem" rows="3" placeholder="z.B. DPF-Leuchte brennt, Fehlercode P2002 gespeichert, Auto im Notlauf, etc."></textarea>
+    <textarea id="problem" rows="3" placeholder="de ex. martor DPF aprins, cod P2002, mașina în regim de avarie"></textarea>
   </div>
 
   
@@ -451,7 +451,7 @@ function fileSelected(input) {
 
 function sendToWhatsApp(event) {
   event.preventDefault();
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Te rugăm să accepți mai întâi politica de confidențialitate.'); return; }
   
   var vorname = document.getElementById('vorname').value;
   var nachname = document.getElementById('nachname').value;
@@ -497,7 +497,7 @@ function sendToWhatsApp(event) {
 }
 
 function sendDpfToEmail() {
-  if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
+  if (!document.getElementById('privacy').checked) { alert('Te rugăm să accepți mai întâi politica de confidențialitate.'); return; }
   var form = document.getElementById('dpfForm');
   if (!form.reportValidity()) return;
 
