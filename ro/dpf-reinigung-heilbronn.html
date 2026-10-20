@@ -460,34 +460,34 @@ function sendToWhatsApp(event) {
   var ort = document.getElementById('ort').value;
   var email = document.getElementById('email').value;
   var phone = document.getElementById('phone').value;
-  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Wird per Foto nachgereicht';
-  var vin = document.getElementById('vin').value || 'Wird per Foto nachgereicht';
-  var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Fotografia va fi trimisă separat';
+  var vin = document.getElementById('vin').value || 'Fotografia va fi trimisă separat';
+  var baujahr = document.getElementById('baujahr').value || 'Nespecificat';
   var km = document.getElementById('km').value;
   var statusSelect = document.getElementById('filter_status');
   var statusText = statusSelect.options[statusSelect.selectedIndex].text;
-  var problem = document.getElementById('problem').value || 'Keine Angaben gemacht';
+  var problem = document.getElementById('problem').value || 'Nu au fost oferite detalii';
   
   var hinweisFoto = istDateiAusgewaehlt 
-    ? "⚠️ *WICHTIG:* Bitte jetzt noch das ausgewählte Foto (" + dateiName + ") aus deiner Galerie hier im Chat anhängen!\n\n" 
+    ? "⚠️ *IMPORTANT:* Te rugăm să atașezi fotografia talonului (" + dateiName + ") din galerie în această conversație!\n\n" 
     : "";
 
   var text = hinweisFoto +
-        "*Neue DPF-Reinigung Anfrage von der Website*\n\n" +
-        "*1. KONTAKT-DATEN:*\n" +
+        "*Cerere nouă pentru curățare DPF de pe site*\n\n" +
+        "*1. DATE DE CONTACT:*\n" +
         "👤 Name: " + vorname + " " + nachname + "\n" +
-        "🏠 Anschrift: " + strasse + "\n" +
-        "📍 PLZ: " + plz + "\n" +
-        "🏙️ Ort: " + ort + "\n" +
+        "🏠 Adresă: " + strasse + "\n" +
+        "📍 Cod poștal: " + plz + "\n" +
+        "🏙️ Localitate: " + ort + "\n" +
         "✉️ E-Mail: " + email + "\n" +
         "📞 Telefon: " + phone + "\n\n" +
-        "*2. FAHRZEUG-DATEN:*\n" +
+        "*2. DATELE VEHICULULUI:*\n" +
         "🔢 HSN/TSN: " + hsn_tsn + "\n" +
         "🆔 FIN (Fahrgestellnr.): " + vin + "\n" +
-        "📅 Baujahr/EZ: " + baujahr + "\n" +
-        "🚗 KM-Stand: " + km + "\n" +
-        "⚙️ Filter-Zustand: " + statusText + "\n\n" +
-        "*3. FEHLER / BESCHREIBUNG:*\n" +
+        "📅 An fabricație/prima înmatriculare: " + baujahr + "\n" +
+        "🚗 Kilometraj: " + km + "\n" +
+        "⚙️ Stare DPF: " + statusText + "\n\n" +
+        "*3. DEFECT / DESCRIERE:*\n" +
         "💬 " + problem;
         
   var encodedText = encodeURIComponent(text);
@@ -508,20 +508,20 @@ function sendDpfToEmail() {
   var ort = document.getElementById('ort').value;
   var email = document.getElementById('email').value;
   var phone = document.getElementById('phone').value;
-  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Siehe Foto/Anhang';
-  var vin = document.getElementById('vin').value || 'Siehe Foto/Anhang';
-  var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Vezi fotografia/atașamentul';
+  var vin = document.getElementById('vin').value || 'Vezi fotografia/atașamentul';
+  var baujahr = document.getElementById('baujahr').value || 'Nespecificat';
   var km = document.getElementById('km').value;
   var statusSelect = document.getElementById('filter_status');
   var statusText = statusSelect.options[statusSelect.selectedIndex].text;
-  var problem = document.getElementById('problem').value || 'Keine Angaben gemacht';
-  var text = (istDateiAusgewaehlt ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein (" + dateiName + ") als E-Mail-Anhang hinzufügen.\n\n" : "") +
-        "Neue DPF-Reinigung Anfrage von der Website\n\n" +
-        "KONTAKT-DATEN:\nName: " + vorname + " " + nachname + "\nAnschrift: " + strasse + "\nPLZ: " + plz + "\nOrt: " + ort +
-        "\nE-Mail: " + email + "\nTelefon: " + phone + "\n\nFAHRZEUG-DATEN:\nHSN/TSN: " + hsn_tsn + "\nFIN: " + vin +
-        "\nBaujahr/EZ: " + baujahr + "\nKM-Stand: " + km + "\nFilter-Zustand: " + statusText + "\n\nFEHLER / BESCHREIBUNG:\n" + problem;
+  var problem = document.getElementById('problem').value || 'Nu au fost oferite detalii';
+  var text = (istDateiAusgewaehlt ? "NOTĂ: Atașează talonul selectat (" + dateiName + ") la e-mail.\n\n" : "") +
+        "Cerere nouă pentru curățare DPF de pe site\n\n" +
+        "DATE DE CONTACT:\nName: " + vorname + " " + nachname + "\nAdresă: " + strasse + "\nCod poștal: " + plz + "\nLocalitate: " + ort +
+        "\nE-Mail: " + email + "\nTelefon: " + phone + "\n\nDATELE VEHICULULUI:\nHSN/TSN: " + hsn_tsn + "\nFIN: " + vin +
+        "\nAn fabricație/prima înmatriculare: " + baujahr + "\nKilometraj: " + km + "\nStare DPF: " + statusText + "\n\nDEFECT / DESCRIERE:\n" + problem;
 
-  var subject = "DPF-Reinigung Anfrage von der Website";
+  var subject = "Cerere curățare DPF de pe site";
   window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
 }
 

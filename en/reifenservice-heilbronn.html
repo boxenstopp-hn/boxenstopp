@@ -770,27 +770,27 @@ function sendReifenToWhatsApp(event) {
 
   var text = '';
   if (fileInput.files.length > 0) {
-    text += '⚠️ HINWEIS: Bitte hänge jetzt noch das FOTO des Fahrzeugscheins hier an den Chat an!\n\n';
+    text += '⚠️ Please attach the vehicle registration photo to this chat now!\n\n';
   }
 
-  text += 'Hallo Boxenstopp Nordheim,\n';
-  text += 'ich interessiere mich für ein Reifenangebot.\n\n';
+  text += 'Hello Boxenstopp Nordheim,\n';
+  text += 'I would like a tyre quotation.\n\n';
   text += '👤 Name: ' + name + '\n';
-  text += '🏠 Anschrift: ' + strasse + '\n';
-  text += '📍 PLZ: ' + plz + '\n';
-  text += '🏙️ Ort: ' + ort + '\n';
+  text += '🏠 Address: ' + strasse + '\n';
+  text += '📍 Postcode: ' + plz + '\n';
+  text += '🏙️ Town: ' + ort + '\n';
   text += '📧 E-Mail: ' + email + '\n';
   text += '📞 Tel: ' + phone + '\n\n';
-  text += '🚗 HSN/TSN: ' + (hsnTsn ? hsnTsn : 'Siehe Foto/Anhang') + '\n';
-  text += '📅 Baujahr: ' + baujahr + '\n\n';
-  text += '🛞 Reifengröße: ' + reifenGroesse + '\n';
-  text += '🏷️ Traglast/Geschwindigkeit: ' + index + '\n';
-  text += '🌦️ Reifenart: ' + reifenart + '\n';
-  text += '📦 Stückzahl: ' + stueckzahl + '\n';
-  text += '⭐ Qualität: ' + qualitaet + '\n';
-  text += '🏁 Wunschmarke: ' + (marke ? marke : 'Keine feste Wunschmarke') + '\n';
-  text += '📝 Nachricht: ' + (message ? message : 'Keine weitere Angabe') + '\n\n';
-  text += 'Hinweis: Die Reifengröße wurde direkt vom Reifen abgelesen.';
+  text += '🚗 HSN/TSN: ' + (hsnTsn ? hsnTsn : 'See photo/attachment') + '\n';
+  text += '📅 Model year: ' + baujahr + '\n\n';
+  text += '🛞 Tyre size: ' + reifenGroesse + '\n';
+  text += '🏷️ Load/speed rating: ' + index + '\n';
+  text += '🌦️ Tyre type: ' + reifenart + '\n';
+  text += '📦 Quantity: ' + stueckzahl + '\n';
+  text += '⭐ Quality: ' + qualitaet + '\n';
+  text += '🏁 Preferred brand: ' + (marke ? marke : 'No preferred brand') + '\n';
+  text += '📝 Message: ' + (message ? message : 'No further details') + '\n\n';
+  text += 'Note: Tyre size was read directly from the tyre.';
 
   var url = 'https://wa.me/4971339220552?text=' + encodeURIComponent(text);
   window.open(url, '_blank');
@@ -817,14 +817,14 @@ function sendReifenToEmail() {
   var stueckzahl = document.getElementById('stueckzahl').value;
   var message = document.getElementById('message').value;
   var fileInput = document.getElementById('file_schein');
-  var text = (fileInput.files.length > 0 ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein als E-Mail-Anhang hinzufügen.\n\n" : "") +
-        "Hallo Boxenstopp Nordheim,\nich interessiere mich für ein Reifenangebot.\n\nName: " + name + "\nAnschrift: " + strasse +
-        "\nPLZ: " + plz + "\nOrt: " + ort + "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Siehe Foto/Anhang") +
-        "\nBaujahr: " + baujahr + "\n\nReifengröße: " + reifenGroesse + "\nTraglast/Geschwindigkeit: " + index +
-        "\nReifenart: " + reifenart + "\nStückzahl: " + stueckzahl + "\nQualität: " + qualitaet +
-        "\nWunschmarke: " + (marke || "Keine feste Wunschmarke") + "\nNachricht: " + (message || "Keine weitere Angabe");
+  var text = (fileInput.files.length > 0 ? "NOTE: Please attach the selected registration document to your email.\n\n" : "") +
+        "Hello Boxenstopp Nordheim,\nI would like a tyre quotation.\n\nName: " + name + "\nAddress: " + strasse +
+        "\nPostcode: " + plz + "\nTown: " + ort + "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "See photo/attachment") +
+        "\nModel year: " + baujahr + "\n\nTyre size: " + reifenGroesse + "\nLoad/speed rating: " + index +
+        "\nTyre type: " + reifenart + "\nQuantity: " + stueckzahl + "\nQuality: " + qualitaet +
+        "\nPreferred brand: " + (marke || "No preferred brand") + "\nMessage: " + (message || "No further details");
 
-  var subject = "Reifenangebot-Anfrage von der Website";
+  var subject = "Tyre quotation request from website";
   window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
 }
 

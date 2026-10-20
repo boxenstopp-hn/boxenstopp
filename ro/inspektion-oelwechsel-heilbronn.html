@@ -669,35 +669,35 @@ function sendToWhatsApp(event) {
 
   // Checkboxen für Filter und Zusatzoptionen auswerten
   var filters = [];
-  if(document.getElementById('filter_luft').checked) filters.push("Luftfilter");
-  if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter");
-  if(document.getElementById('filter_klima').checked) filters.push("Klimaservice (empfohlen zusammen mit Innenraumfilter)");
-  if(document.getElementById('filter_kraftstoff').checked) filters.push("Kraftstofffilter");
-  if(document.getElementById('filter_z_kerzen').checked) filters.push("Zündkerzen (Benziner)");
-  if(document.getElementById('filter_g_kerzen').checked) filters.push("Glühkerzen (Diesel)");
-  if(document.getElementById('filter_bremsfluessig').checked) filters.push("Bremsflüssigkeit");
-  if(document.getElementById('filter_riemen').checked) filters.push("Zahnriemen/Steuerkette (Prüfung)");
+  if(document.getElementById('filter_luft').checked) filters.push("Filtru de aer");
+  if(document.getElementById('filter_innen').checked) filters.push("Filtru de habitaclu");
+  if(document.getElementById('filter_klima').checked) filters.push("Service climatizare (empfohlen zusammen mit Filtru de habitaclu)");
+  if(document.getElementById('filter_kraftstoff').checked) filters.push("Filtru de combustibil");
+  if(document.getElementById('filter_z_kerzen').checked) filters.push("Bujii (benzină)");
+  if(document.getElementById('filter_g_kerzen').checked) filters.push("Bujii incandescente (diesel)");
+  if(document.getElementById('filter_bremsfluessig').checked) filters.push("Lichid de frână");
+  if(document.getElementById('filter_riemen').checked) filters.push("Curea/lanț distribuție (verificare)");
     
-  var filterText = filters.length > 0 ? filters.join(", ") : "Keine Zusatzoptionen gewählt";
+  var filterText = filters.length > 0 ? filters.join(", ") : "Nu au fost selectate opțiuni suplimentare";
 
   var text = "";
   if (fileInput.files.length > 0) {
-    text += "⚠️ HINWEIS: Bitte hänge jetzt noch das FOTO des Fahrzeugscheins hier an den Chat an!\n\n";
+    text += "⚠️ Atașează acum fotografia talonului în această conversație!\n\n";
   }
 
-  text += "Hallo Boxenstopp Nordheim,\nich interessiere mich für einen Service-Termin:\n\n";
-  text += "🔧 Gewünscht: " + serviceType + "\n";
-  text += "📦 Zusatzoptionen: " + filterText + "\n\n";
+  text += "Bună ziua, Boxenstopp Nordheim,\nAș dori o programare pentru revizie:\n\n";
+  text += "🔧 Serviciul solicitat: " + serviceType + "\n";
+  text += "📦 Opțiuni suplimentare: " + filterText + "\n\n";
   text += "👤 Name: " + name + "\n";
-  text += "🏠 Anschrift: " + strasse + "\n";
-  text += "📍 PLZ: " + plz + "\n";
-  text += "🏙️ Ort: " + ort + "\n";
+  text += "🏠 Adresă: " + strasse + "\n";
+  text += "📍 Cod poștal: " + plz + "\n";
+  text += "🏙️ Localitate: " + ort + "\n";
   text += "📧 E-Mail: " + email + "\n";
   text += "📞 Tel: " + phone + "\n\n";
-  text += "🚗 HSN/TSN: " + (hsnTsn ? hsnTsn : "Siehe Foto/Anhang") + "\n";
-  text += "🆔 FIN: " + (fin ? fin : "Siehe Foto/Anhang") + "\n";
-  text += "📈 KM-Stand: " + km + "\n";
-  text += "🖥️ Serviceanzeige: " + (serviceMsg ? serviceMsg : "Keine Angabe") + "\n";
+  text += "🚗 HSN/TSN: " + (hsnTsn ? hsnTsn : "Vezi fotografia/atașamentul") + "\n";
+  text += "🆔 FIN: " + (fin ? fin : "Vezi fotografia/atașamentul") + "\n";
+  text += "📈 Kilometraj: " + km + "\n";
+  text += "🖥️ Indicator de revizie: " + (serviceMsg ? serviceMsg : "Nespecificat") + "\n";
 
   var url = "https://wa.me/4971339220552?text=" + encodeURIComponent(text);
   window.open(url, '_blank', 'noopener');
@@ -725,22 +725,22 @@ function sendServiceToEmail() {
     return;
   }
   var filters = [];
-  if(document.getElementById('filter_luft').checked) filters.push("Luftfilter");
-  if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter");
-  if(document.getElementById('filter_klima').checked) filters.push("Klimaservice");
-  if(document.getElementById('filter_kraftstoff').checked) filters.push("Kraftstofffilter");
-  if(document.getElementById('filter_z_kerzen').checked) filters.push("Zündkerzen");
-  if(document.getElementById('filter_g_kerzen').checked) filters.push("Glühkerzen");
-  if(document.getElementById('filter_bremsfluessig').checked) filters.push("Bremsflüssigkeit");
-  if(document.getElementById('filter_riemen').checked) filters.push("Zahnriemen/Steuerkette (Prüfung)");
-  var filterText = filters.length ? filters.join(", ") : "Keine Zusatzoptionen gewählt";
-  var text = (fileInput.files.length > 0 ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein als E-Mail-Anhang hinzufügen.\n\n" : "") +
-        "Hallo Boxenstopp Nordheim,\nich interessiere mich für einen Service-Termin:\n\nGewünscht: " + serviceType +
-        "\nZusatzoptionen: " + filterText + "\n\nName: " + name + "\nAnschrift: " + strasse + "\nPLZ: " + plz + "\nOrt: " + ort +
-        "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Siehe Foto/Anhang") +
-        "\nFIN: " + (fin || "Siehe Foto/Anhang") + "\nKM-Stand: " + km + "\nServiceanzeige: " + (serviceMsg || "Keine Angabe");
+  if(document.getElementById('filter_luft').checked) filters.push("Filtru de aer");
+  if(document.getElementById('filter_innen').checked) filters.push("Filtru de habitaclu");
+  if(document.getElementById('filter_klima').checked) filters.push("Service climatizare");
+  if(document.getElementById('filter_kraftstoff').checked) filters.push("Filtru de combustibil");
+  if(document.getElementById('filter_z_kerzen').checked) filters.push("Bujii");
+  if(document.getElementById('filter_g_kerzen').checked) filters.push("Bujii incandescente");
+  if(document.getElementById('filter_bremsfluessig').checked) filters.push("Lichid de frână");
+  if(document.getElementById('filter_riemen').checked) filters.push("Curea/lanț distribuție (verificare)");
+  var filterText = filters.length ? filters.join(", ") : "Nu au fost selectate opțiuni suplimentare";
+  var text = (fileInput.files.length > 0 ? "NOTĂ: Atașează talonul selectat la e-mail.\n\n" : "") +
+        "Bună ziua, Boxenstopp Nordheim,\nAș dori o programare pentru revizie:\n\nServiciul solicitat: " + serviceType +
+        "\nOpțiuni suplimentare: " + filterText + "\n\nName: " + name + "\nAdresă: " + strasse + "\nCod poștal: " + plz + "\nLocalitate: " + ort +
+        "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Vezi fotografia/atașamentul") +
+        "\nFIN: " + (fin || "Vezi fotografia/atașamentul") + "\nKilometraj: " + km + "\nIndicator de revizie: " + (serviceMsg || "Nespecificat");
 
-  var subject = "Service-Anfrage von der Website";
+  var subject = "Cerere de service de pe site";
   window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
 }
 

@@ -770,27 +770,27 @@ function sendReifenToWhatsApp(event) {
 
   var text = '';
   if (fileInput.files.length > 0) {
-    text += '⚠️ HINWEIS: Bitte hänge jetzt noch das FOTO des Fahrzeugscheins hier an den Chat an!\n\n';
+    text += '⚠️ Atașează acum fotografia talonului în această conversație!\n\n';
   }
 
-  text += 'Hallo Boxenstopp Nordheim,\n';
-  text += 'ich interessiere mich für ein Reifenangebot.\n\n';
+  text += 'Bună ziua, Boxenstopp Nordheim,\n';
+  text += 'Aș dori o ofertă pentru anvelope.\n\n';
   text += '👤 Name: ' + name + '\n';
-  text += '🏠 Anschrift: ' + strasse + '\n';
-  text += '📍 PLZ: ' + plz + '\n';
-  text += '🏙️ Ort: ' + ort + '\n';
+  text += '🏠 Adresă: ' + strasse + '\n';
+  text += '📍 Cod poștal: ' + plz + '\n';
+  text += '🏙️ Localitate: ' + ort + '\n';
   text += '📧 E-Mail: ' + email + '\n';
   text += '📞 Tel: ' + phone + '\n\n';
-  text += '🚗 HSN/TSN: ' + (hsnTsn ? hsnTsn : 'Siehe Foto/Anhang') + '\n';
-  text += '📅 Baujahr: ' + baujahr + '\n\n';
-  text += '🛞 Reifengröße: ' + reifenGroesse + '\n';
-  text += '🏷️ Traglast/Geschwindigkeit: ' + index + '\n';
-  text += '🌦️ Reifenart: ' + reifenart + '\n';
-  text += '📦 Stückzahl: ' + stueckzahl + '\n';
-  text += '⭐ Qualität: ' + qualitaet + '\n';
-  text += '🏁 Wunschmarke: ' + (marke ? marke : 'Keine feste Wunschmarke') + '\n';
-  text += '📝 Nachricht: ' + (message ? message : 'Keine weitere Angabe') + '\n\n';
-  text += 'Hinweis: Die Reifengröße wurde direkt vom Reifen abgelesen.';
+  text += '🚗 HSN/TSN: ' + (hsnTsn ? hsnTsn : 'Vezi fotografia/atașamentul') + '\n';
+  text += '📅 An fabricație: ' + baujahr + '\n\n';
+  text += '🛞 Dimensiune anvelope: ' + reifenGroesse + '\n';
+  text += '🏷️ Indice sarcină/viteză: ' + index + '\n';
+  text += '🌦️ Tip anvelope: ' + reifenart + '\n';
+  text += '📦 Cantitate: ' + stueckzahl + '\n';
+  text += '⭐ Calitate: ' + qualitaet + '\n';
+  text += '🏁 Marcă preferată: ' + (marke ? marke : 'Fără marcă preferată') + '\n';
+  text += '📝 Mesaj: ' + (message ? message : 'Fără alte detalii') + '\n\n';
+  text += 'Notă: Dimensiunea a fost citită direct de pe anvelopă.';
 
   var url = 'https://wa.me/4971339220552?text=' + encodeURIComponent(text);
   window.open(url, '_blank');
@@ -817,14 +817,14 @@ function sendReifenToEmail() {
   var stueckzahl = document.getElementById('stueckzahl').value;
   var message = document.getElementById('message').value;
   var fileInput = document.getElementById('file_schein');
-  var text = (fileInput.files.length > 0 ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein als E-Mail-Anhang hinzufügen.\n\n" : "") +
-        "Hallo Boxenstopp Nordheim,\nich interessiere mich für ein Reifenangebot.\n\nName: " + name + "\nAnschrift: " + strasse +
-        "\nPLZ: " + plz + "\nOrt: " + ort + "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Siehe Foto/Anhang") +
-        "\nBaujahr: " + baujahr + "\n\nReifengröße: " + reifenGroesse + "\nTraglast/Geschwindigkeit: " + index +
-        "\nReifenart: " + reifenart + "\nStückzahl: " + stueckzahl + "\nQualität: " + qualitaet +
-        "\nWunschmarke: " + (marke || "Keine feste Wunschmarke") + "\nNachricht: " + (message || "Keine weitere Angabe");
+  var text = (fileInput.files.length > 0 ? "NOTĂ: Atașează talonul selectat la e-mail.\n\n" : "") +
+        "Bună ziua, Boxenstopp Nordheim,\nAș dori o ofertă pentru anvelope.\n\nName: " + name + "\nAdresă: " + strasse +
+        "\nCod poștal: " + plz + "\nLocalitate: " + ort + "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Vezi fotografia/atașamentul") +
+        "\nAn fabricație: " + baujahr + "\n\nDimensiune anvelope: " + reifenGroesse + "\nIndice sarcină/viteză: " + index +
+        "\nTip anvelope: " + reifenart + "\nCantitate: " + stueckzahl + "\nCalitate: " + qualitaet +
+        "\nMarcă preferată: " + (marke || "Fără marcă preferată") + "\nMesaj: " + (message || "Fără alte detalii");
 
-  var subject = "Reifenangebot-Anfrage von der Website";
+  var subject = "Cerere ofertă anvelope de pe site";
   window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
 }
 

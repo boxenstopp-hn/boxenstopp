@@ -770,27 +770,27 @@ function sendReifenToWhatsApp(event) {
 
   var text = '';
   if (fileInput.files.length > 0) {
-    text += '⚠️ HINWEIS: Bitte hänge jetzt noch das FOTO des Fahrzeugscheins hier an den Chat an!\n\n';
+    text += '⚠️ Lütfen ruhsat fotoğrafını şimdi bu sohbete ekleyin!\n\n';
   }
 
-  text += 'Hallo Boxenstopp Nordheim,\n';
-  text += 'ich interessiere mich für ein Reifenangebot.\n\n';
+  text += 'Merhaba Boxenstopp Nordheim,\n';
+  text += 'Lastik fiyat teklifi almak istiyorum.\n\n';
   text += '👤 Name: ' + name + '\n';
-  text += '🏠 Anschrift: ' + strasse + '\n';
-  text += '📍 PLZ: ' + plz + '\n';
-  text += '🏙️ Ort: ' + ort + '\n';
+  text += '🏠 Adres: ' + strasse + '\n';
+  text += '📍 Posta kodu: ' + plz + '\n';
+  text += '🏙️ Şehir: ' + ort + '\n';
   text += '📧 E-Mail: ' + email + '\n';
   text += '📞 Tel: ' + phone + '\n\n';
-  text += '🚗 HSN/TSN: ' + (hsnTsn ? hsnTsn : 'Siehe Foto/Anhang') + '\n';
-  text += '📅 Baujahr: ' + baujahr + '\n\n';
-  text += '🛞 Reifengröße: ' + reifenGroesse + '\n';
-  text += '🏷️ Traglast/Geschwindigkeit: ' + index + '\n';
-  text += '🌦️ Reifenart: ' + reifenart + '\n';
-  text += '📦 Stückzahl: ' + stueckzahl + '\n';
-  text += '⭐ Qualität: ' + qualitaet + '\n';
-  text += '🏁 Wunschmarke: ' + (marke ? marke : 'Keine feste Wunschmarke') + '\n';
-  text += '📝 Nachricht: ' + (message ? message : 'Keine weitere Angabe') + '\n\n';
-  text += 'Hinweis: Die Reifengröße wurde direkt vom Reifen abgelesen.';
+  text += '🚗 HSN/TSN: ' + (hsnTsn ? hsnTsn : 'Fotoğraf/ek dosyaya bakınız') + '\n';
+  text += '📅 Model yılı: ' + baujahr + '\n\n';
+  text += '🛞 Lastik ölçüsü: ' + reifenGroesse + '\n';
+  text += '🏷️ Yük/hız endeksi: ' + index + '\n';
+  text += '🌦️ Lastik türü: ' + reifenart + '\n';
+  text += '📦 Adet: ' + stueckzahl + '\n';
+  text += '⭐ Kalite: ' + qualitaet + '\n';
+  text += '🏁 Tercih edilen marka: ' + (marke ? marke : 'Marka tercihi yok') + '\n';
+  text += '📝 Mesaj: ' + (message ? message : 'Başka bilgi yok') + '\n\n';
+  text += 'Not: Lastik ölçüsü doğrudan lastiğin üzerinden okunmuştur.';
 
   var url = 'https://wa.me/4971339220552?text=' + encodeURIComponent(text);
   window.open(url, '_blank');
@@ -817,14 +817,14 @@ function sendReifenToEmail() {
   var stueckzahl = document.getElementById('stueckzahl').value;
   var message = document.getElementById('message').value;
   var fileInput = document.getElementById('file_schein');
-  var text = (fileInput.files.length > 0 ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein als E-Mail-Anhang hinzufügen.\n\n" : "") +
-        "Hallo Boxenstopp Nordheim,\nich interessiere mich für ein Reifenangebot.\n\nName: " + name + "\nAnschrift: " + strasse +
-        "\nPLZ: " + plz + "\nOrt: " + ort + "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Siehe Foto/Anhang") +
-        "\nBaujahr: " + baujahr + "\n\nReifengröße: " + reifenGroesse + "\nTraglast/Geschwindigkeit: " + index +
-        "\nReifenart: " + reifenart + "\nStückzahl: " + stueckzahl + "\nQualität: " + qualitaet +
-        "\nWunschmarke: " + (marke || "Keine feste Wunschmarke") + "\nNachricht: " + (message || "Keine weitere Angabe");
+  var text = (fileInput.files.length > 0 ? "NOT: Lütfen seçtiğiniz ruhsatı e-postaya ekleyin.\n\n" : "") +
+        "Merhaba Boxenstopp Nordheim,\nLastik fiyat teklifi almak istiyorum.\n\nName: " + name + "\nAdres: " + strasse +
+        "\nPosta kodu: " + plz + "\nŞehir: " + ort + "\nE-Mail: " + email + "\nTel: " + phone + "\n\nHSN/TSN: " + (hsnTsn || "Fotoğraf/ek dosyaya bakınız") +
+        "\nModel yılı: " + baujahr + "\n\nLastik ölçüsü: " + reifenGroesse + "\nYük/hız endeksi: " + index +
+        "\nLastik türü: " + reifenart + "\nAdet: " + stueckzahl + "\nKalite: " + qualitaet +
+        "\nTercih edilen marka: " + (marke || "Marka tercihi yok") + "\nMesaj: " + (message || "Başka bilgi yok");
 
-  var subject = "Reifenangebot-Anfrage von der Website";
+  var subject = "Web sitesinden lastik fiyat teklifi talebi";
   window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
 }
 

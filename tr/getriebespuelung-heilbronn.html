@@ -471,34 +471,34 @@ function sendToWhatsApp(event) {
   var ort = document.getElementById('ort').value;
   var email = document.getElementById('email').value;
   var phone = document.getElementById('phone').value;
-  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Wird per Foto nachgereicht';
-  var vin = document.getElementById('vin').value || 'Wird per Foto nachgereicht';
-  var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Fotoğraf ayrıca gönderilecek';
+  var vin = document.getElementById('vin').value || 'Fotoğraf ayrıca gönderilecek';
+  var baujahr = document.getElementById('baujahr').value || 'Belirtilmedi';
   var km = document.getElementById('km').value;
   var getriebeSelect = document.getElementById('getriebe');
   var getriebeText = getriebeSelect.options[getriebeSelect.selectedIndex].text;
-  var problem = document.getElementById('problem').value || 'Keine Probleme beschrieben';
+  var problem = document.getElementById('problem').value || 'Sorun belirtilmedi';
     
   var hinweisFoto = istDateiAusgewaehlt 
-    ? "⚠️ *WICHTIG:* Bitte jetzt noch das ausgewählte Foto (" + dateiName + ") aus deiner Galerie hier im Chat anhängen!\n\n" 
+    ? "⚠️ *ÖNEMLİ:* Lütfen seçtiğiniz ruhsat fotoğrafını (" + dateiName + ") şimdi galerinizden bu sohbete ekleyin!\n\n" 
     : "";
 
   var text = hinweisFoto +
-        "*Neue Getriebe-Anfrage von der Website*\n\n" +
-        "*1. KONTAKT-DATEN:*\n" +
+        "*Web sitesinden yeni şanzıman servisi talebi*\n\n" +
+        "*1. İLETİŞİM BİLGİLERİ:*\n" +
         "👤 Name: " + name + "\n" +
-        "🏠 Anschrift: " + strasse + "\n" +
-        "📍 PLZ: " + plz + "\n" +
-        "🏙️ Ort: " + ort + "\n" +
+        "🏠 Adres: " + strasse + "\n" +
+        "📍 Posta kodu: " + plz + "\n" +
+        "🏙️ Şehir: " + ort + "\n" +
         "✉️ E-Mail: " + email + "\n" +
         "📞 Telefon: " + phone + "\n\n" +
-        "*2. FAHRZEUG-DATEN:*\n" +
+        "*2. ARAÇ BİLGİLERİ:*\n" +
         "🔢 HSN/TSN: " + hsn_tsn + "\n" +
         "🆔 FIN (Fahrgestellnr.): " + vin + "\n" +
-        "📅 Baujahr/EZ: " + baujahr + "\n" +
-        "🚗 KM-Stand: " + km + "\n" +
-        "⚙️ Getriebe: " + getriebeText + "\n\n" +
-        "*3. PROBLEM / BESCHREIBUNG:*\n" +
+        "📅 Model yılı/ilk tescil: " + baujahr + "\n" +
+        "🚗 Kilometre: " + km + "\n" +
+        "⚙️ Şanzıman: " + getriebeText + "\n\n" +
+        "*3. SORUN / AÇIKLAMA:*\n" +
         "💬 " + problem;
         
   var encodedText = encodeURIComponent(text);
@@ -518,20 +518,20 @@ function sendGetriebeToEmail() {
   var ort = document.getElementById('ort').value;
   var email = document.getElementById('email').value;
   var phone = document.getElementById('phone').value;
-  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Siehe Foto/Anhang';
-  var vin = document.getElementById('vin').value || 'Siehe Foto/Anhang';
-  var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Fotoğraf/ek dosyaya bakınız';
+  var vin = document.getElementById('vin').value || 'Fotoğraf/ek dosyaya bakınız';
+  var baujahr = document.getElementById('baujahr').value || 'Belirtilmedi';
   var km = document.getElementById('km').value;
   var getriebeSelect = document.getElementById('getriebe');
   var getriebeText = getriebeSelect.options[getriebeSelect.selectedIndex].text;
-  var problem = document.getElementById('problem').value || 'Keine Probleme beschrieben';
-  var text = (istDateiAusgewaehlt ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein (" + dateiName + ") als E-Mail-Anhang hinzufügen.\n\n" : "") +
-        "Neue Getriebe-Anfrage von der Website\n\nKONTAKT-DATEN:\nName: " + name + "\nAnschrift: " + strasse + "\nPLZ: " + plz +
-        "\nOrt: " + ort + "\nE-Mail: " + email + "\nTelefon: " + phone + "\n\nFAHRZEUG-DATEN:\nHSN/TSN: " + hsn_tsn +
-        "\nFIN: " + vin + "\nBaujahr/EZ: " + baujahr + "\nKM-Stand: " + km + "\nGetriebe: " + getriebeText +
-        "\n\nPROBLEM / BESCHREIBUNG:\n" + problem;
+  var problem = document.getElementById('problem').value || 'Sorun belirtilmedi';
+  var text = (istDateiAusgewaehlt ? "NOT: Lütfen seçtiğiniz ruhsatı (" + dateiName + ") e-postaya ekleyin.\n\n" : "") +
+        "Web sitesinden yeni şanzıman servisi talebi\n\nİLETİŞİM BİLGİLERİ:\nName: " + name + "\nAdres: " + strasse + "\nPosta kodu: " + plz +
+        "\nŞehir: " + ort + "\nE-Mail: " + email + "\nTelefon: " + phone + "\n\nARAÇ BİLGİLERİ:\nHSN/TSN: " + hsn_tsn +
+        "\nFIN: " + vin + "\nModel yılı/ilk tescil: " + baujahr + "\nKilometre: " + km + "\nŞanzıman: " + getriebeText +
+        "\n\nSORUN / AÇIKLAMA:\n" + problem;
 
-  var subject = "Getriebe-Anfrage von der Website";
+  var subject = "Web sitesinden şanzıman servisi talebi";
   window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
 }
 

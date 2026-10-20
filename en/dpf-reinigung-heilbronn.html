@@ -460,34 +460,34 @@ function sendToWhatsApp(event) {
   var ort = document.getElementById('ort').value;
   var email = document.getElementById('email').value;
   var phone = document.getElementById('phone').value;
-  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Wird per Foto nachgereicht';
-  var vin = document.getElementById('vin').value || 'Wird per Foto nachgereicht';
-  var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Photo will be sent separately';
+  var vin = document.getElementById('vin').value || 'Photo will be sent separately';
+  var baujahr = document.getElementById('baujahr').value || 'Not provided';
   var km = document.getElementById('km').value;
   var statusSelect = document.getElementById('filter_status');
   var statusText = statusSelect.options[statusSelect.selectedIndex].text;
-  var problem = document.getElementById('problem').value || 'Keine Angaben gemacht';
+  var problem = document.getElementById('problem').value || 'No details provided';
   
   var hinweisFoto = istDateiAusgewaehlt 
-    ? "⚠️ *WICHTIG:* Bitte jetzt noch das ausgewählte Foto (" + dateiName + ") aus deiner Galerie hier im Chat anhängen!\n\n" 
+    ? "⚠️ *IMPORTANT:* Please attach the selected registration photo (" + dateiName + ") from your gallery to this chat now!\n\n" 
     : "";
 
   var text = hinweisFoto +
-        "*Neue DPF-Reinigung Anfrage von der Website*\n\n" +
-        "*1. KONTAKT-DATEN:*\n" +
+        "*New DPF cleaning enquiry from website*\n\n" +
+        "*1. CONTACT DETAILS:*\n" +
         "👤 Name: " + vorname + " " + nachname + "\n" +
-        "🏠 Anschrift: " + strasse + "\n" +
-        "📍 PLZ: " + plz + "\n" +
-        "🏙️ Ort: " + ort + "\n" +
+        "🏠 Address: " + strasse + "\n" +
+        "📍 Postcode: " + plz + "\n" +
+        "🏙️ Town: " + ort + "\n" +
         "✉️ E-Mail: " + email + "\n" +
-        "📞 Telefon: " + phone + "\n\n" +
-        "*2. FAHRZEUG-DATEN:*\n" +
+        "📞 Phone: " + phone + "\n\n" +
+        "*2. VEHICLE DETAILS:*\n" +
         "🔢 HSN/TSN: " + hsn_tsn + "\n" +
         "🆔 FIN (Fahrgestellnr.): " + vin + "\n" +
-        "📅 Baujahr/EZ: " + baujahr + "\n" +
-        "🚗 KM-Stand: " + km + "\n" +
-        "⚙️ Filter-Zustand: " + statusText + "\n\n" +
-        "*3. FEHLER / BESCHREIBUNG:*\n" +
+        "📅 Year/first registration: " + baujahr + "\n" +
+        "🚗 Mileage: " + km + "\n" +
+        "⚙️ DPF condition: " + statusText + "\n\n" +
+        "*3. FAULT / DESCRIPTION:*\n" +
         "💬 " + problem;
         
   var encodedText = encodeURIComponent(text);
@@ -508,20 +508,20 @@ function sendDpfToEmail() {
   var ort = document.getElementById('ort').value;
   var email = document.getElementById('email').value;
   var phone = document.getElementById('phone').value;
-  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Siehe Foto/Anhang';
-  var vin = document.getElementById('vin').value || 'Siehe Foto/Anhang';
-  var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+  var hsn_tsn = document.getElementById('hsn_tsn').value || 'See photo/attachment';
+  var vin = document.getElementById('vin').value || 'See photo/attachment';
+  var baujahr = document.getElementById('baujahr').value || 'Not provided';
   var km = document.getElementById('km').value;
   var statusSelect = document.getElementById('filter_status');
   var statusText = statusSelect.options[statusSelect.selectedIndex].text;
-  var problem = document.getElementById('problem').value || 'Keine Angaben gemacht';
-  var text = (istDateiAusgewaehlt ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein (" + dateiName + ") als E-Mail-Anhang hinzufügen.\n\n" : "") +
-        "Neue DPF-Reinigung Anfrage von der Website\n\n" +
-        "KONTAKT-DATEN:\nName: " + vorname + " " + nachname + "\nAnschrift: " + strasse + "\nPLZ: " + plz + "\nOrt: " + ort +
-        "\nE-Mail: " + email + "\nTelefon: " + phone + "\n\nFAHRZEUG-DATEN:\nHSN/TSN: " + hsn_tsn + "\nFIN: " + vin +
-        "\nBaujahr/EZ: " + baujahr + "\nKM-Stand: " + km + "\nFilter-Zustand: " + statusText + "\n\nFEHLER / BESCHREIBUNG:\n" + problem;
+  var problem = document.getElementById('problem').value || 'No details provided';
+  var text = (istDateiAusgewaehlt ? "NOTE: Please attach the selected registration document (" + dateiName + ") to your email.\n\n" : "") +
+        "New DPF cleaning enquiry from website\n\n" +
+        "CONTACT DETAILS:\nName: " + vorname + " " + nachname + "\nAddress: " + strasse + "\nPostcode: " + plz + "\nTown: " + ort +
+        "\nE-Mail: " + email + "\nPhone: " + phone + "\n\nVEHICLE DETAILS:\nHSN/TSN: " + hsn_tsn + "\nFIN: " + vin +
+        "\nYear/first registration: " + baujahr + "\nMileage: " + km + "\nDPF condition: " + statusText + "\n\nFAULT / DESCRIPTION:\n" + problem;
 
-  var subject = "DPF-Reinigung Anfrage von der Website";
+  var subject = "DPF cleaning enquiry from website";
   window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
 }
 

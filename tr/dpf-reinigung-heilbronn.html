@@ -460,34 +460,34 @@ function sendToWhatsApp(event) {
   var ort = document.getElementById('ort').value;
   var email = document.getElementById('email').value;
   var phone = document.getElementById('phone').value;
-  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Wird per Foto nachgereicht';
-  var vin = document.getElementById('vin').value || 'Wird per Foto nachgereicht';
-  var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Fotoğraf ayrıca gönderilecek';
+  var vin = document.getElementById('vin').value || 'Fotoğraf ayrıca gönderilecek';
+  var baujahr = document.getElementById('baujahr').value || 'Belirtilmedi';
   var km = document.getElementById('km').value;
   var statusSelect = document.getElementById('filter_status');
   var statusText = statusSelect.options[statusSelect.selectedIndex].text;
-  var problem = document.getElementById('problem').value || 'Keine Angaben gemacht';
+  var problem = document.getElementById('problem').value || 'Açıklama girilmedi';
   
   var hinweisFoto = istDateiAusgewaehlt 
-    ? "⚠️ *WICHTIG:* Bitte jetzt noch das ausgewählte Foto (" + dateiName + ") aus deiner Galerie hier im Chat anhängen!\n\n" 
+    ? "⚠️ *ÖNEMLİ:* Lütfen seçtiğiniz ruhsat fotoğrafını (" + dateiName + ") şimdi galerinizden bu sohbete ekleyin!\n\n" 
     : "";
 
   var text = hinweisFoto +
-        "*Neue DPF-Reinigung Anfrage von der Website*\n\n" +
-        "*1. KONTAKT-DATEN:*\n" +
+        "*Web sitesinden yeni DPF temizliği talebi*\n\n" +
+        "*1. İLETİŞİM BİLGİLERİ:*\n" +
         "👤 Name: " + vorname + " " + nachname + "\n" +
-        "🏠 Anschrift: " + strasse + "\n" +
-        "📍 PLZ: " + plz + "\n" +
-        "🏙️ Ort: " + ort + "\n" +
+        "🏠 Adres: " + strasse + "\n" +
+        "📍 Posta kodu: " + plz + "\n" +
+        "🏙️ Şehir: " + ort + "\n" +
         "✉️ E-Mail: " + email + "\n" +
         "📞 Telefon: " + phone + "\n\n" +
-        "*2. FAHRZEUG-DATEN:*\n" +
+        "*2. ARAÇ BİLGİLERİ:*\n" +
         "🔢 HSN/TSN: " + hsn_tsn + "\n" +
         "🆔 FIN (Fahrgestellnr.): " + vin + "\n" +
-        "📅 Baujahr/EZ: " + baujahr + "\n" +
-        "🚗 KM-Stand: " + km + "\n" +
-        "⚙️ Filter-Zustand: " + statusText + "\n\n" +
-        "*3. FEHLER / BESCHREIBUNG:*\n" +
+        "📅 Model yılı/ilk tescil: " + baujahr + "\n" +
+        "🚗 Kilometre: " + km + "\n" +
+        "⚙️ DPF durumu: " + statusText + "\n\n" +
+        "*3. ARIZA / AÇIKLAMA:*\n" +
         "💬 " + problem;
         
   var encodedText = encodeURIComponent(text);
@@ -508,20 +508,20 @@ function sendDpfToEmail() {
   var ort = document.getElementById('ort').value;
   var email = document.getElementById('email').value;
   var phone = document.getElementById('phone').value;
-  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Siehe Foto/Anhang';
-  var vin = document.getElementById('vin').value || 'Siehe Foto/Anhang';
-  var baujahr = document.getElementById('baujahr').value || 'Nicht angegeben';
+  var hsn_tsn = document.getElementById('hsn_tsn').value || 'Fotoğraf/ek dosyaya bakınız';
+  var vin = document.getElementById('vin').value || 'Fotoğraf/ek dosyaya bakınız';
+  var baujahr = document.getElementById('baujahr').value || 'Belirtilmedi';
   var km = document.getElementById('km').value;
   var statusSelect = document.getElementById('filter_status');
   var statusText = statusSelect.options[statusSelect.selectedIndex].text;
-  var problem = document.getElementById('problem').value || 'Keine Angaben gemacht';
-  var text = (istDateiAusgewaehlt ? "HINWEIS: Bitte den ausgewählten Fahrzeugschein (" + dateiName + ") als E-Mail-Anhang hinzufügen.\n\n" : "") +
-        "Neue DPF-Reinigung Anfrage von der Website\n\n" +
-        "KONTAKT-DATEN:\nName: " + vorname + " " + nachname + "\nAnschrift: " + strasse + "\nPLZ: " + plz + "\nOrt: " + ort +
-        "\nE-Mail: " + email + "\nTelefon: " + phone + "\n\nFAHRZEUG-DATEN:\nHSN/TSN: " + hsn_tsn + "\nFIN: " + vin +
-        "\nBaujahr/EZ: " + baujahr + "\nKM-Stand: " + km + "\nFilter-Zustand: " + statusText + "\n\nFEHLER / BESCHREIBUNG:\n" + problem;
+  var problem = document.getElementById('problem').value || 'Açıklama girilmedi';
+  var text = (istDateiAusgewaehlt ? "NOT: Lütfen seçtiğiniz ruhsatı (" + dateiName + ") e-postaya ekleyin.\n\n" : "") +
+        "Web sitesinden yeni DPF temizliği talebi\n\n" +
+        "İLETİŞİM BİLGİLERİ:\nName: " + vorname + " " + nachname + "\nAdres: " + strasse + "\nPosta kodu: " + plz + "\nŞehir: " + ort +
+        "\nE-Mail: " + email + "\nTelefon: " + phone + "\n\nARAÇ BİLGİLERİ:\nHSN/TSN: " + hsn_tsn + "\nFIN: " + vin +
+        "\nModel yılı/ilk tescil: " + baujahr + "\nKilometre: " + km + "\nDPF durumu: " + statusText + "\n\nARIZA / AÇIKLAMA:\n" + problem;
 
-  var subject = "DPF-Reinigung Anfrage von der Website";
+  var subject = "Web sitesinden DPF temizliği talebi";
   window.location.href = "mailto:info@boxenstopp-hn.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
 }
 
