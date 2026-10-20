@@ -24,3 +24,9 @@
  .bs-lang-host{order:2;margin-left:auto}
  .legal-topnav{order:3;width:100%;justify-content:center;padding:2px 0 5px}
 }
+/* Werkstatt: Sprachwahl passend für die jeweiligen Seitentypen */
+header .top-nav + .bs-lang-host{justify-content:center;margin:18px auto 0}
+header .top-nav + .bs-lang-host .bs-lang-desktop a{color:#fff}
+header .wrap.nav .bs-lang-host{margin-left:auto;flex-shrink:0}
+@media(max-width:1200px){header .wrap.nav{flex-wrap:wrap;gap:12px 20px;padding:12px 0}header .wrap.nav .menu{order:3;width:100%;justify-content:center;gap:14px}}
+@media(max-width:760px){header .wrap.nav{flex-wrap:nowrap}header .wrap.nav .menu{display:none}header .wrap.nav .bs-lang-host{order:2;margin-left:auto}header .wrap.nav .brand{font-size:25px}}
