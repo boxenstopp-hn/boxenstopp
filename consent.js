@@ -123,6 +123,23 @@
     }
   }
 
+
+  /* Sprachspezifische Beschriftungen ohne Änderung der bestehenden Consent-Logik */
+  function localizeConsentUi(){
+    const l=(document.documentElement.getAttribute('lang')||'de').toLowerCase();
+    const t={"en":["Privacy settings","We use essential local storage to remember your privacy choice. Optional analytics and external content are enabled only with your consent.","Learn more","Reject all","Settings","Accept all","Choose which optional services may be enabled. Essential functions remain active.","Essential","Stores your privacy choice and provides technically necessary functions only.","Always active","Statistics / Analytics","Google Analytics shows us which pages are used. It is loaded only with your consent.","External content","Allows embedded external content, currently Google Maps on the home page.","Save selection","Open privacy policy"],"tr":["Gizlilik ayarları","Gizlilik seçiminizi saklamak için gerekli yerel depolamayı kullanırız. İsteğe bağlı analiz ve dış içerikler yalnızca izninizle açılır.","Daha fazla bilgi","Tümünü reddet","Ayarlar","Tümünü kabul et","İsteğe bağlı hizmetlerden hangilerine izin vereceğinizi seçin. Gerekli işlevler her zaman açıktır.","Gerekli","Yalnızca gizlilik seçiminizi saklar ve teknik olarak gerekli işlevleri sağlar.","Her zaman açık","İstatistik / Analiz","Google Analytics hangi sayfaların kullanıldığını anlamamıza yardımcı olur. Yalnızca izninizle yüklenir.","Dış içerikler","Gömülü dış içeriklerin yüklenmesine izin verir; şu anda ana sayfada Google Maps.","Seçimi kaydet","Gizlilik politikasını aç"],"ro":["Setări de confidențialitate","Folosim stocarea locală necesară pentru a memora alegerea ta. Analiza opțională și conținutul extern se activează doar cu acordul tău.","Mai multe detalii","Respinge toate","Setări","Acceptă toate","Alege serviciile opționale pe care le permiți. Funcțiile necesare rămân mereu active.","Necesare","Memorează doar alegerea și asigură funcțiile tehnice necesare.","Mereu active","Statistici / Analiză","Google Analytics ne ajută să vedem ce pagini sunt utilizate. Se încarcă doar cu acordul tău.","Conținut extern","Permite încărcarea conținutului extern integrat, în prezent Google Maps pe pagina principală.","Salvează alegerea","Deschide politica de confidențialitate"]}[l];
+    if(!t) return; // Deutsch bleibt komplett unverändert.
+    const b=document.getElementById('bs-consent-banner');
+    const m=document.getElementById('bs-consent-modal');
+    if(!b||!m)return;
+    const e=x=>String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    const privacy='/'+l+'/datenschutz';
+    b.setAttribute('aria-label',t[0]);
+    b.innerHTML='<div class="bs-consent-banner-inner"><div class="bs-consent-copy"><strong>'+e(t[0])+'</strong>'+e(t[1])+' <a href="'+privacy+'">'+e(t[2])+'</a>.</div><div class="bs-consent-actions"><button class="bs-consent-btn bs-consent-btn-primary" type="button" data-bs-consent="necessary">'+e(t[3])+'</button><button class="bs-consent-btn" type="button" data-bs-consent="settings">'+e(t[4])+'</button><button class="bs-consent-btn bs-consent-btn-primary" type="button" data-bs-consent="all">'+e(t[5])+'</button></div></div>';
+    m.innerHTML='<div class="bs-consent-panel"><h2 id="bs-consent-title">'+e(t[0])+'</h2><p class="bs-consent-panel-intro">'+e(t[6])+'</p><div class="bs-consent-row"><div><h3>'+e(t[7])+'</h3><p>'+e(t[8])+'</p></div><span class="bs-consent-status">'+e(t[9])+'</span></div><div class="bs-consent-row"><div><h3>'+e(t[10])+'</h3><p>'+e(t[11])+'</p></div><label class="bs-consent-switch" aria-label="'+e(t[10])+'"><input id="bs-consent-analytics" type="checkbox"><span class="bs-consent-slider"></span></label></div><div class="bs-consent-row"><div><h3>'+e(t[12])+'</h3><p>'+e(t[13])+'</p></div><label class="bs-consent-switch" aria-label="'+e(t[12])+'"><input id="bs-consent-external" type="checkbox"><span class="bs-consent-slider"></span></label></div><div class="bs-consent-panel-actions"><button class="bs-consent-btn bs-consent-btn-primary" type="button" data-bs-consent="necessary">'+e(t[3])+'</button><button class="bs-consent-btn" type="button" data-bs-consent="save">'+e(t[14])+'</button><button class="bs-consent-btn bs-consent-btn-primary" type="button" data-bs-consent="all">'+e(t[5])+'</button></div><a class="bs-consent-panel-link" href="'+privacy+'">'+e(t[15])+'</a></div>';
+    document.querySelectorAll('button.bs-privacy-settings').forEach(x=>{x.textContent=t[0]});
+  }
+
   function applyChoiceAndClose(next){
     const current = readConsent();
     const needsReload = !!(current && ((current.analytics && !next.analytics) || (current.external && !next.external)));
@@ -206,6 +223,7 @@
 
   document.addEventListener('DOMContentLoaded',function(){
     createUi();
+    localizeConsentUi();
     bindUi();
     bindContactTracking();
     const consent = readConsent();
