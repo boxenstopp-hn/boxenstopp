@@ -411,22 +411,22 @@ Pentru demontarea și remontarea DPF pregătim o ofertă individuală.
     <div class="form-row-2">
       <div class="form-group">
         <label for="hsn_tsn">Coduri HSN/TSN <span class="req-star">*</span></label>
-        <input type="text" id="hsn_tsn" required placeholder="de ex. 0588 / AHM">
+        <input id="hsn_tsn" type="hidden"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM">
       </div>
       <div class="form-group">
         <label for="vin">Serie de șasiu (VIN) <span class="req-star">*</span></label>
-        <input type="text" id="vin" required placeholder="17 caractere (pentru identificare)">
+        <input type="text" id="vin" placeholder="17 caractere (pentru identificare)">
       </div>
     </div>
 
     <div class="form-row-2">
       <div class="form-group">
         <label for="baujahr">Prima înmatriculare / anul</label>
-        <input type="text" id="baujahr" placeholder="de ex. 06/2015">
+        <input type="text" id="baujahr" placeholder="de ex. 06/2015" required>
       </div>
       <div class="form-group">
         <label for="km">Kilometraj actual *</label>
-        <input type="text" id="km" required placeholder="de ex. 182.000 km">
+        <input type="text" id="km" placeholder="de ex. 182.000 km">
       </div>
     </div>
   </div>
@@ -478,9 +478,9 @@ function fileSelected(input) {
     text.innerText = "✓ Talonul a fost selectat!";
     subtext.innerText = "Fișier: " + dateiName;
     
-    hsn.required = false;
-    vin.required = false;
-    stars.forEach(function(star) { star.style.display = 'none'; });
+    
+    
+    
   } else {
     istDateiAusgewaehlt = false;
     dateiName = "";
@@ -488,9 +488,9 @@ function fileSelected(input) {
     text.innerText = "📷 Alege fotografia / PDF-ul talonului";
     subtext.innerText = "Poți face o fotografie direct cu telefonul";
     
-    hsn.required = true;
-    vin.required = true;
-    stars.forEach(function(star) { star.style.display = 'inline'; });
+    
+    
+    
   }
 }
 
@@ -970,5 +970,5 @@ WhatsApp / Telefon: <a href="tel:+4971339220552">07133 9220552</a> · E-mail: <a
 })();
 </script>
 
-</body>
+<script>(function(){var h=document.getElementById('hsn_code'),t=document.getElementById('tsn_code'),c=document.getElementById('hsn_tsn');function sync(){c.value=h.value.trim()+' / '+t.value.trim()}h.addEventListener('input',sync);t.addEventListener('input',sync);document.querySelectorAll('form').forEach(function(f){f.addEventListener('submit',function(e){sync();if(!f.reportValidity()){e.preventDefault();e.stopImmediatePropagation()}},true)});document.querySelectorAll('button[onclick]').forEach(function(b){b.addEventListener('click',function(e){sync();if(!h.value.trim()||!t.value.trim()){e.preventDefault();e.stopImmediatePropagation();(h.value.trim()?t:h).reportValidity()}},true)})})();</script></body>
 </html>
