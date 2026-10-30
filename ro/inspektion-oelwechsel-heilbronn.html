@@ -295,17 +295,17 @@ Trebuie schimbat uleiul, martorul service este activ sau se apropie revizia? Box
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Coduri HSN / TSN <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" placeholder="de ex. 0588 / AHI" required="" type="text"/>
+<div class="form-group"><label for="baujahr">Baujahr / Erstzulassung *</label><input id="baujahr" type="text" required placeholder="2018"></div><input id="hsn_tsn" type="hidden"/><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"/><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"/>
 </div>
 <div class="form-group">
 <label>Serie de șasiu (VIN) <span class="required-star" id="fin_star">*</span></label>
-<input id="fin" placeholder="17 caractere (WBA...)" required="" type="text"/>
+<input id="fin" placeholder="17 caractere (WBA...)" type="text"/>
 </div>
 </div>
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>Kilometraj actual <span class="required-star">*</span></label>
-<input id="km" placeholder="de ex. 125.000 km" required="" type="text"/>
+<input id="km" placeholder="de ex. 125.000 km" type="text"/>
 </div>
 <div class="form-group">
 <label>Mesaj service pe bord</label>
@@ -642,16 +642,16 @@ function handleFileChange() {
         
     hsnInput.removeAttribute('required');
     finInput.removeAttribute('required');
-    hsnStar.style.display = 'none';
+    hsnStar.style.display = 'inline';
     finStar.style.display = 'none';
   } else {
     uploadText.style.display = 'block';
     successText.style.display = 'none';
         
-    hsnInput.setAttribute('required', '');
-    finInput.setAttribute('required', '');
+    hsnInput.removeAttribute('required');
+    finInput.removeAttribute('required');
     hsnStar.style.display = 'inline';
-    finStar.style.display = 'inline';
+    finStar.style.display = 'none';
   }
 }
 
@@ -811,5 +811,5 @@ function sendServiceToEmail() {
 })();
 </script>
 
-</body>
+<script>(function(){var h=document.getElementById('hsn_code'),t=document.getElementById('tsn_code'),c=document.getElementById('hsn_tsn');function sync(){c.value=h.value.trim()+' / '+t.value.trim()}h.addEventListener('input',sync);t.addEventListener('input',sync);document.querySelectorAll('form').forEach(function(f){f.addEventListener('submit',function(e){sync();if(!f.reportValidity()){e.preventDefault();e.stopImmediatePropagation()}},true)});document.querySelectorAll('button[onclick]').forEach(function(b){b.addEventListener('click',function(e){sync();if(!h.value.trim()||!t.value.trim()){e.preventDefault();e.stopImmediatePropagation();(h.value.trim()?t:h).reportValidity()}},true)})})();</script></body>
 </html>
