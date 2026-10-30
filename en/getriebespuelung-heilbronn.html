@@ -401,26 +401,7 @@ Important: Flushing may help if oil condition, oil level or deposits contribute 
 </div>
 <div id="manualVehicleData">
 <p id="orLabel" style="text-align: center; font-weight: bold; margin: 15px 0; color: #666;">– OR enter manually –</p>
-<div class="form-row-2">
-<div class="form-group">
-<label for="hsn_tsn">German type codes (HSN/TSN) <span class="req-star">*</span></label>
-<input id="hsn_tsn" type="hidden"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM">
-</div>
-<div class="form-group">
-<label for="vin">Vehicle identification number (VIN) <span class="req-star">*</span></label>
-<input id="vin" placeholder="17 characters (important for automatics)" type="text"/>
-</div>
-</div>
-<div class="form-row-2">
-<div class="form-group">
-<label for="baujahr">Date of first registration / year</label>
-<input id="baujahr" placeholder="e.g. 06/2017" type="text" required/>
-</div>
-<div class="form-group">
-<label for="km">Current mileage *</label>
-<input id="km" placeholder="e.g. 145,000 km" type="text"/>
-</div>
-</div>
+<input type="hidden" id="hsn_tsn"><div class="form-row-2"><div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"></div><div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"></div></div><div class="form-row-2"><div class="form-group"><label for="baujahr">First registration / year *</label><input id="baujahr" placeholder="e.g. 06/2017" type="text" required/></div><div class="form-group"><label for="vin">VIN (optional)</label><input id="vin" placeholder="17 characters (important for automatics)" type="text"/></div></div><div class="form-row-2"><div class="form-group"><label for="km">Mileage (optional)</label><input id="km" placeholder="e.g. 145,000 km" type="text"/></div></div>>
 </div>
 <div class="form-group" style="margin-top: 15px;">
 <label for="getriebe">Installed gearbox (if known)</label>
