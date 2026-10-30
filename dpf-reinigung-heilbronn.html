@@ -371,22 +371,22 @@ Für Aus- und Einbau des DPF erstellen wir Ihnen gerne ein individuelles Angebot
     <div class="form-row-2">
       <div class="form-group">
         <label for="hsn_tsn">Schlüsselnummer (HSN/TSN) <span class="req-star">*</span></label>
-        <input type="text" id="hsn_tsn" required placeholder="z.B. 0588 / AHM">
+        <input type="hidden" id="hsn_tsn"><div class="form-row-2" style="display:flex;gap:12px;flex-wrap:wrap"><div style="flex:1;min-width:110px"><label for="hsn_code">HSN (Herstellerschlüssel) *</label><input id="hsn_code" type="text" required maxlength="4" placeholder="z. B. 0588" style="width:100%"></div><div style="flex:1;min-width:110px"><label for="tsn_code">TSN (Typschlüssel) *</label><input id="tsn_code" type="text" required placeholder="z. B. AHM" style="width:100%"></div></div>
       </div>
       <div class="form-group">
-        <label for="vin">Fahrgestellnummer (FIN) <span class="req-star">*</span></label>
-        <input type="text" id="vin" required placeholder="17-stellig (Wichtig für Zuordnung!)">
+        <label for="vin">Fahrgestellnummer (FIN) </label>
+        <input type="text" id="vin" placeholder="17-stellig (Wichtig für Zuordnung!)">
       </div>
     </div>
 
     <div class="form-row-2">
       <div class="form-group">
-        <label for="baujahr">Erstzulassung / Baujahr</label>
-        <input type="text" id="baujahr" placeholder="z.B. 06/2015">
+        <label for="baujahr">Erstzulassung / Baujahr *</label>
+        <input type="text" id="baujahr" placeholder="z.B. 06/2015" required>
       </div>
       <div class="form-group">
-        <label for="km">Aktueller Kilometerstand *</label>
-        <input type="text" id="km" required placeholder="z.B. 182.000 km">
+        <label for="km">Aktueller Kilometerstand</label>
+        <input type="text" id="km" placeholder="z.B. 182.000 km">
       </div>
     </div>
   </div>
@@ -448,8 +448,8 @@ function fileSelected(input) {
     text.innerText = "📷 Foto / PDF vom Fahrzeugschein auswählen";
     subtext.innerText = "Am Smartphone einfach direkt Foto machen";
     
-    hsn.required = true;
-    vin.required = true;
+    hsn.required = false;
+    vin.required = false;
     stars.forEach(function(star) { star.style.display = 'inline'; });
   }
 }
@@ -942,5 +942,18 @@ E-Mail: <a href="#angebot-anfordern">info@boxenstopp-hn.de</a>
 })();
 </script>
 
+
+<script>
+/* Fahrzeug-Schlüsselnummern: Pflicht unabhängig vom optionalen Fahrzeugschein. */
+(function(){
+ var h=document.getElementById('hsn_code'),t=document.getElementById('tsn_code'),combined=document.getElementById('hsn_tsn');
+ if(!h||!t||!combined)return;
+ function sync(){combined.value=h.value.trim()+' / '+t.value.trim();}
+ function validate(){sync();if(!h.value.trim()){h.setCustomValidity('HSN erforderlich');h.reportValidity();return false;}h.setCustomValidity('');if(!t.value.trim()){t.setCustomValidity('TSN erforderlich');t.reportValidity();return false;}t.setCustomValidity('');return true;}
+ h.addEventListener('input',function(){h.setCustomValidity('');sync()});t.addEventListener('input',function(){t.setCustomValidity('');sync()});
+ var form=h.closest('form');if(form){form.addEventListener('submit',function(e){if(!validate()){e.preventDefault();e.stopImmediatePropagation()}},true);}
+ document.querySelectorAll('button[onclick*="Email"],button[onclick*="email"]').forEach(function(b){b.addEventListener('click',function(e){if(!validate()){e.preventDefault();e.stopImmediatePropagation()}},true)});
+})();
+</script>
 </body>
 </html>
