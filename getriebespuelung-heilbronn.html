@@ -126,6 +126,14 @@ h2{font-size:28px}
  #getriebeForm>.form-group{max-width:none}
 }
 @media(max-width:850px){#angebot-anfordern .box{padding:20px}}
+
+/* Kompakte Formularspalten: kurze Angaben benötigen keine volle Zeilenbreite */
+.form-row-name{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.form-row-address{display:grid;grid-template-columns:minmax(0,2fr) minmax(110px,.7fr) minmax(0,1.3fr);gap:16px}
+.form-row-contact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.form-row-vehicle{display:grid;grid-template-columns:minmax(110px,.7fr) minmax(150px,1fr) minmax(180px,1.3fr);gap:16px}
+.form-row-vehicle-extra{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px}
+@media(max-width:850px){.form-row-name,.form-row-address,.form-row-contact,.form-row-vehicle,.form-row-vehicle-extra{grid-template-columns:minmax(0,1fr);gap:0}}
 </style>
 <script type="application/ld+json">
 {
@@ -269,33 +277,17 @@ kann helfen, das Getriebeöl gründlicher zu erneuern als ein einfacher Ölwechs
 <div class="box">
 <form id="getriebeForm" onsubmit="sendToWhatsApp(event)">
 <h3>1. Ihre Kontaktdaten</h3>
-<div class="form-group">
-<label for="name">Vollständiger Name *</label>
-<input id="name" placeholder="Vor- und Nachname" required="" type="text"/>
+<div class="form-row-name">
+  <div class="form-group"><label for="name">Vollständiger Name *</label><input id="name" placeholder="Vor- und Nachname" required="" type="text"/></div>
 </div>
-<div class="form-group">
-<label for="strasse">Straße und Hausnummer *</label>
-<input id="strasse" placeholder="Straße und Hausnummer" required="" type="text"/>
+<div class="form-row-address">
+  <div class="form-group"><label for="strasse">Straße und Hausnummer *</label><input id="strasse" placeholder="Straße und Hausnummer" required="" type="text"/></div>
+  <div class="form-group"><label for="plz">Postleitzahl *</label><input id="plz" placeholder="PLZ" required="" type="text"/></div>
+  <div class="form-group"><label for="ort">Ort *</label><input id="ort" placeholder="Ort" required="" type="text"/></div>
 </div>
-<div class="form-row-2">
-<div class="form-group">
-<label for="plz">Postleitzahl *</label>
-<input id="plz" placeholder="PLZ" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="ort">Ort *</label>
-<input id="ort" placeholder="Ort" required="" type="text"/>
-</div>
-</div>
-<div class="form-row-2">
-<div class="form-group">
-<label for="email">E-Mail-Adresse *</label>
-<input id="email" placeholder="ihre@mail.de" required="" type="email"/>
-</div>
-<div class="form-group">
-<label for="phone">Telefonnummer *</label>
-<input id="phone" placeholder="Für eventuelle Rückfragen" required="" type="tel"/>
-</div>
+<div class="form-row-contact">
+  <div class="form-group"><label for="email">E-Mail-Adresse *</label><input id="email" placeholder="ihre@mail.de" required="" type="email"/></div>
+  <div class="form-group"><label for="phone">Telefonnummer *</label><input id="phone" placeholder="Für eventuelle Rückfragen" required="" type="tel"/></div>
 </div>
 <h3 style="margin-top: 24px;">2. Fahrzeugdaten</h3>
 <div class="form-group">
@@ -309,15 +301,13 @@ kann helfen, das Getriebeöl gründlicher zu erneuern als ein einfacher Ölwechs
 <div id="manualVehicleData">
 <p id="orLabel" style="text-align: center; font-weight: bold; margin: 15px 0; color: #666;">- Fahrzeugdaten bitte zusätzlich eintragen -</p>
 <input id="hsn_tsn" type="hidden">
-<div class="form-row-2">
+<div class="form-row-vehicle">
   <div class="form-group"><label for="hsn_code">HSN <span class="req-star">*</span></label><input id="hsn_code" type="text" required maxlength="4" pattern="[0-9]{4}" placeholder="z. B. 0588"></div>
   <div class="form-group"><label for="tsn_code">TSN <span class="req-star">*</span></label><input id="tsn_code" type="text" required placeholder="z. B. AHM"></div>
-</div>
-<div class="form-row-2">
   <div class="form-group"><label for="baujahr">Erstzulassung / Baujahr <span class="req-star">*</span></label><input id="baujahr" type="text" required placeholder="z. B. 06/2017"></div>
-  <div class="form-group"><label for="vin">Fahrgestellnummer (FIN) – optional</label><input id="vin" type="text" placeholder="17-stellig"></div>
 </div>
-<div class="form-row-2">
+<div class="form-row-vehicle-extra">
+  <div class="form-group"><label for="vin">Fahrgestellnummer (FIN) – optional</label><input id="vin" type="text" placeholder="17-stellig"></div>
   <div class="form-group"><label for="km">Aktueller Kilometerstand – optional</label><input id="km" type="text" placeholder="z. B. 145.000 km"></div>
 </div>
 </div>
