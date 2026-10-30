@@ -404,7 +404,7 @@ Important: Flushing may help if oil condition, oil level or deposits contribute 
 <div class="form-row-2">
 <div class="form-group">
 <label for="hsn_tsn">German type codes (HSN/TSN) <span class="req-star">*</span></label>
-<input id="hsn_tsn" placeholder="e.g. 0588 / AHM" required="" type="text"/>
+<input id="hsn_tsn" type="hidden"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM">
 </div>
 <div class="form-group">
 <label for="vin">Vehicle identification number (VIN) <span class="req-star">*</span></label>
@@ -414,7 +414,7 @@ Important: Flushing may help if oil condition, oil level or deposits contribute 
 <div class="form-row-2">
 <div class="form-group">
 <label for="baujahr">Date of first registration / year</label>
-<input id="baujahr" placeholder="e.g. 06/2017" type="text"/>
+<input id="baujahr" placeholder="e.g. 06/2017" type="text"/ required>
 </div>
 <div class="form-group">
 <label for="km">Current mileage *</label>
@@ -490,9 +490,9 @@ function fileSelected(input) {
     text.innerText = "✓ Vehicle registration document selected!";
     subtext.innerText = "File: " + dateiName;
         
-    hsn.required = false;
-    vin.required = false;
-    stars.forEach(function(star) { star.style.display = 'none'; });
+    
+    
+    
   } else {
     istDateiAusgewaehlt = false;
     dateiName = "";
@@ -500,9 +500,9 @@ function fileSelected(input) {
     text.innerText = "📷 Choose a registration document photo / PDF";
     subtext.innerText = "Take a photo directly on your phone";
         
-    hsn.required = true;
-    vin.required = true;
-    stars.forEach(function(star) { star.style.display = 'inline'; });
+    
+    
+    
   }
 }
 
@@ -907,5 +907,5 @@ WhatsApp / Phone: <a href="tel:+4971339220552">07133 9220552</a> · Email: <a hr
 </p>
 <div class="bs-privacy-settings-wrap"><button class="bs-privacy-settings" data-bs-consent="settings" type="button">Privacy settings</button></div>
 </footer>
-</body>
+<script>(function(){var h=document.getElementById('hsn_code'),t=document.getElementById('tsn_code'),c=document.getElementById('hsn_tsn');function sync(){c.value=h.value.trim()+' / '+t.value.trim()}h.addEventListener('input',sync);t.addEventListener('input',sync);document.querySelectorAll('form').forEach(function(f){f.addEventListener('submit',function(e){sync();if(!f.reportValidity()){e.preventDefault();e.stopImmediatePropagation()}},true)});document.querySelectorAll('button[onclick]').forEach(function(b){b.addEventListener('click',function(e){sync();if(!h.value.trim()||!t.value.trim()){e.preventDefault();e.stopImmediatePropagation();(h.value.trim()?t:h).reportValidity()}},true)})})();</script></body>
 </html>
