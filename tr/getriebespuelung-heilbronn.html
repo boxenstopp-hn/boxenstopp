@@ -401,26 +401,7 @@ Eski yağ, aşınma parçacıkları ve tortular vites geçişlerini etkileyebili
 </div>
 <div id="manualVehicleData">
 <p id="orLabel" style="text-align: center; font-weight: bold; margin: 15px 0; color: #666;">– VEYA elle girin –</p>
-<div class="form-row-2">
-<div class="form-group">
-<label for="hsn_tsn">Araç kodları (HSN/TSN) <span class="req-star">*</span></label>
-<input id="hsn_tsn" type="hidden"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM">
-</div>
-<div class="form-group">
-<label for="vin">Şasi numarası (VIN) <span class="req-star">*</span></label>
-<input id="vin" placeholder="17 karakter (otomatik şanzımanda önemlidir)" type="text"/>
-</div>
-</div>
-<div class="form-row-2">
-<div class="form-group">
-<label for="baujahr">İlk tescil / model yılı</label>
-<input id="baujahr" placeholder="ör. 06/2017" type="text" required/>
-</div>
-<div class="form-group">
-<label for="km">Güncel kilometre *</label>
-<input id="km" placeholder="ör. 145.000 km" type="text"/>
-</div>
-</div>
+<input type="hidden" id="hsn_tsn"><div class="form-row-2"><div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"></div><div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"></div></div><div class="form-row-2"><div class="form-group"><label for="baujahr">İlk tescil / model yılı *</label><input id="baujahr" placeholder="ör. 06/2017" type="text" required/></div><div class="form-group"><label for="vin">Şasi numarası (isteğe bağlı)</label><input id="vin" placeholder="17 karakter (otomatik şanzımanda önemlidir)" type="text"/></div></div><div class="form-row-2"><div class="form-group"><label for="km">Kilometre (isteğe bağlı)</label><input id="km" placeholder="ör. 145.000 km" type="text"/></div></div>>
 </div>
 <div class="form-group" style="margin-top: 15px;">
 <label for="getriebe">Takılı şanzıman (biliniyorsa)</label>
