@@ -313,17 +313,7 @@ Montăm anvelope de 13–24 inci pe jante din oțel și aliaj, echilibrăm roți
 <input accept="image/*,application/pdf" id="file_schein" onchange="handleReifenFileChange()" type="file"/>
 </div>
 </div>
-<div class="grid-2" style="gap:0 16px">
-<div class="form-group">
-<label>HSN / TSN (coduri vehicul) <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" type="hidden"/><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"/><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"/>
-</div>
-<div class="form-group">
-<label>An fabricație <span class="required-star">*</span></label>
-<input id="baujahr" placeholder="de ex. 2018" required="" type="text"/>
-</div>
-</div>
-<div class="form-hint">
+<input id="hsn_tsn" type="hidden"/><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"/></div><div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"/></div></div><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="baujahr">An fabricație *</label><input id="baujahr" placeholder="de ex. 2018" required="" type="text"/></div></div><div class="form-hint">
 Citește dimensiunea direct de pe anvelopa montată. În certificatul de înmatriculare poate figura o altă dimensiune. Sunt importante și indicii de sarcină și viteză, de exemplu 91V.
 </div>
 <div class="grid-2" style="gap:0 16px">
