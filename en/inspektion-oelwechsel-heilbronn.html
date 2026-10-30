@@ -672,10 +672,7 @@ function sendToWhatsApp(event) {
   var serviceMsg = document.getElementById('service_msg').value.trim();
   var fileInput = document.getElementById('file_schein');
 
-  if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
-    alert('Please enter HSN/TSN and VIN, or select a photo/PDF of the registration document.');
-    return;
-  }
+  
 
   // Checkboxen für Filter und Zusatzoptionen auswerten
   var filters = [];
@@ -730,10 +727,7 @@ function sendServiceToEmail() {
   var km = document.getElementById('km').value.trim();
   var serviceMsg = document.getElementById('service_msg').value.trim();
   var fileInput = document.getElementById('file_schein');
-  if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
-    alert('Please enter HSN/TSN and VIN, or select a photo/PDF of the registration document.');
-    return;
-  }
+  
   var filters = [];
   if(document.getElementById('filter_luft').checked) filters.push("Air filter");
   if(document.getElementById('filter_innen').checked) filters.push("Cabin filter");
