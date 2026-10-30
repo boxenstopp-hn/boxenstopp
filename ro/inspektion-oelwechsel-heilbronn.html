@@ -292,27 +292,7 @@ Trebuie schimbat uleiul, martorul service este activ sau se apropie revizia? Box
 <label class="checkbox-item"><input id="filter_riemen" type="checkbox" value="Zahnriemen / Steuerkette prüfen"/> Curea distribuție / lanț (verificare / ofertă)</label>
 </div>
 </div>
-<div class="grid-2" style="gap:0 16px">
-<div class="form-group">
-<label>Coduri HSN / TSN <span class="required-star" id="hsn_star">*</span></label>
-<div class="form-group"><label for="baujahr">Baujahr / Erstzulassung *</label><input id="baujahr" type="text" required placeholder="2018"></div><input id="hsn_tsn" type="hidden"/><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"/><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"/>
-</div>
-<div class="form-group">
-<label>Serie de șasiu (VIN) <span class="required-star" id="fin_star">*</span></label>
-<input id="fin" placeholder="17 caractere (WBA...)" type="text"/>
-</div>
-</div>
-<div class="grid-2" style="gap:0 16px">
-<div class="form-group">
-<label>Kilometraj actual <span class="required-star">*</span></label>
-<input id="km" placeholder="de ex. 125.000 km" type="text"/>
-</div>
-<div class="form-group">
-<label>Mesaj service pe bord</label>
-<input id="service_msg" placeholder="de ex. service A necesar / schimb ulei" type="text"/>
-</div>
-</div>
-<div class="form-group">
+<input id="hsn_tsn" type="hidden"/><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"/></div><div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"/></div></div><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="baujahr">An / prima înmatriculare *</label><input id="baujahr" type="text" required placeholder="2018"></div><div class="form-group"><label for="fin">VIN (opțional)</label><input id="fin" placeholder="17 caractere (WBA...)" type="text"/></div></div><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="km">Kilometraj (opțional)</label><input id="km" placeholder="de ex. 125.000 km" type="text"/></div><div class="form-group"><label for="service_msg">Mesaj service</label><input id="service_msg" placeholder="de ex. service A necesar / schimb ulei" type="text"/></div></div><div class="form-group">
 <label>Încarcă certificatul (recomandat, economisește timp)</label>
 <div class="file-upload-box">
 <span class="file-upload-text" id="uploadText">📸 Alege fotografia / PDF cu certificatul</span>
