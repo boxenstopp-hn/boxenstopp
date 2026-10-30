@@ -292,27 +292,7 @@ Düzenli bakım motoru ve aracın değerini korumaya yardımcı olur. Hızlı Wh
 <label class="checkbox-item"><input id="filter_riemen" type="checkbox" value="Zahnriemen / Steuerkette prüfen"/> Triger kayışı / zinciri (kontrol / teklif)</label>
 </div>
 </div>
-<div class="grid-2" style="gap:0 16px">
-<div class="form-group">
-<label>Araç kodları (HSN/TSN) <span class="required-star" id="hsn_star">*</span></label>
-<div class="form-group"><label for="baujahr">Baujahr / Erstzulassung *</label><input id="baujahr" type="text" required placeholder="2018"></div><input id="hsn_tsn" type="hidden"/><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"/><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"/>
-</div>
-<div class="form-group">
-<label>Şasi numarası (VIN) <span class="required-star" id="fin_star">*</span></label>
-<input id="fin" placeholder="17 karakter (WBA...)" type="text"/>
-</div>
-</div>
-<div class="grid-2" style="gap:0 16px">
-<div class="form-group">
-<label>Güncel kilometre <span class="required-star">*</span></label>
-<input id="km" placeholder="ör. 125.000 km" type="text"/>
-</div>
-<div class="form-group">
-<label>Gösterge panelindeki servis mesajı</label>
-<input id="service_msg" placeholder="ör. Servis A zamanı geldi / motor yağı değişimi" type="text"/>
-</div>
-</div>
-<div class="form-group">
+<input id="hsn_tsn" type="hidden"/><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"/></div><div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"/></div></div><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="baujahr">Model yılı / ilk tescil *</label><input id="baujahr" type="text" required placeholder="2018"></div><div class="form-group"><label for="fin">Şasi numarası (isteğe bağlı)</label><input id="fin" placeholder="17 karakter (WBA...)" type="text"/></div></div><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="km">Kilometre (isteğe bağlı)</label><input id="km" placeholder="ör. 125.000 km" type="text"/></div><div class="form-group"><label for="service_msg">Servis uyarısı</label><input id="service_msg" placeholder="ör. Servis A zamanı geldi / motor yağı değişimi" type="text"/></div></div><div class="form-group">
 <label>Ruhsat yükle (tavsiye edilir, yazmayı azaltır)</label>
 <div class="file-upload-box">
 <span class="file-upload-text" id="uploadText">📸 Ruhsat fotoğrafı / PDF seçin</span>
