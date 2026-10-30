@@ -316,7 +316,7 @@ We fit tyres from 13 to 24 inches on alloy or steel wheels, balance wheels and a
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>German vehicle codes HSN/TSN <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" placeholder="e.g. 0588 / AHI" required="" type="text"/>
+<input id="hsn_tsn" type="hidden"/><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"/><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM"/>
 </div>
 <div class="form-group">
 <label>Model year <span class="required-star">*</span></label>
@@ -744,11 +744,11 @@ function handleReifenFileChange() {
     uploadText.style.display = 'none';
     successText.style.display = 'block';
     hsnInput.removeAttribute('required');
-    hsnStar.style.display = 'none';
+    hsnStar.style.display = 'inline';
   } else {
     uploadText.style.display = 'block';
     successText.style.display = 'none';
-    hsnInput.setAttribute('required', '');
+    hsnInput.removeAttribute('required');
     hsnStar.style.display = 'inline';
   }
 }
@@ -895,5 +895,5 @@ function sendReifenToEmail() {
 })();
 </script>
 
-</body>
+<script>(function(){var h=document.getElementById('hsn_code'),t=document.getElementById('tsn_code'),c=document.getElementById('hsn_tsn');function sync(){c.value=h.value.trim()+' / '+t.value.trim()}h.addEventListener('input',sync);t.addEventListener('input',sync);document.querySelectorAll('form').forEach(function(f){f.addEventListener('submit',function(e){sync();if(!f.reportValidity()){e.preventDefault();e.stopImmediatePropagation()}},true)});document.querySelectorAll('button[onclick]').forEach(function(b){b.addEventListener('click',function(e){sync();if(!h.value.trim()||!t.value.trim()){e.preventDefault();e.stopImmediatePropagation();(h.value.trim()?t:h).reportValidity()}},true)})})();</script></body>
 </html>
