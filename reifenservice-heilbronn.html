@@ -305,17 +305,7 @@ Ob Saisonwechsel, neue Reifen oder Vibrationen am Lenkrad – wir helfen schnell
 <input accept="image/*,application/pdf" id="file_schein" onchange="handleReifenFileChange()" type="file"/>
 </div>
 </div>
-<div class="grid-2" style="gap:0 16px">
-<div class="form-group">
-<label>HSN / TSN (Schlüsselnummer) <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" type="hidden"/><label for="hsn_code">HSN *</label><input id="hsn_code" type="text" required placeholder="0588"/><label for="tsn_code">TSN *</label><input id="tsn_code" type="text" required placeholder="AHI"/>
-</div>
-<div class="form-group">
-<label>Baujahr <span class="required-star">*</span></label>
-<input id="baujahr" placeholder="z. B. 2018" required="" type="text"/>
-</div>
-</div>
-<div class="form-hint">
+<input id="hsn_tsn" type="hidden"/><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" type="text" required placeholder="0588"/></div><div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" type="text" required placeholder="AHI"/></div></div><div class="grid-2" style="gap:0 16px"><div class="form-group"><label for="baujahr">Baujahr *</label><input id="baujahr" placeholder="z. B. 2018" required="" type="text"/></div></div><div class="form-hint">
 Bitte die Reifengröße direkt vom Reifen abschreiben. Im Fahrzeugschein kann eine andere Größe stehen als aktuell auf dem Fahrzeug montiert ist. Wichtig ist auch der Traglast- und Geschwindigkeitsindex, z. B. 91V.
 </div>
 <div class="grid-2" style="gap:0 16px">
