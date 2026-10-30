@@ -620,8 +620,8 @@ function handleFileChange() {
   var successText = document.getElementById('successText');
   var hsnInput = document.getElementById('hsn_tsn');
   var finInput = document.getElementById('fin');
-  var hsnStar = document.getElementById('hsn_star');
-  var finStar = document.getElementById('fin_star');
+  
+  
 
   if (fileInput.files.length > 0) {
     uploadText.style.display = 'none';
@@ -661,10 +661,7 @@ function sendToWhatsApp(event) {
   var serviceMsg = document.getElementById('service_msg').value.trim();
   var fileInput = document.getElementById('file_schein');
 
-  if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
-    alert('Bitte HSN/TSN und FIN eintragen oder ein Foto/PDF vom Fahrzeugschein auswählen.');
-    return;
-  }
+
 
   // Checkboxen für Filter und Zusatzoptionen auswerten
   var filters = [];
@@ -704,6 +701,7 @@ function sendToWhatsApp(event) {
 
 function sendServiceToEmail() {
  syncVehicleCodes();
+ syncVehicleCodes();
   if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
   var form = document.getElementById('serviceForm');
   if (!form.reportValidity()) return;
@@ -720,10 +718,7 @@ function sendServiceToEmail() {
   var km = document.getElementById('km').value.trim();
   var serviceMsg = document.getElementById('service_msg').value.trim();
   var fileInput = document.getElementById('file_schein');
-  if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
-    alert('Bitte HSN/TSN und FIN eintragen oder ein Foto/PDF vom Fahrzeugschein auswählen.');
-    return;
-  }
+
   var filters = [];
   if(document.getElementById('filter_luft').checked) filters.push("Luftfilter");
   if(document.getElementById('filter_innen').checked) filters.push("Innenraumfilter");
