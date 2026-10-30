@@ -131,6 +131,8 @@ h2{font-size:28px}
   text-decoration: none !important;
 }
 
+
+.form-row-vehicle{display:grid;grid-template-columns:minmax(110px,.7fr) minmax(150px,1fr) minmax(180px,1.3fr);gap:16px}.form-row-vehicle-extra{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}@media(max-width:850px){.form-row-vehicle,.form-row-vehicle-extra{grid-template-columns:1fr;gap:0}}
 </style>
 <script type="application/ld+json">
 {
@@ -305,17 +307,7 @@ Ob Saisonwechsel, neue Reifen oder Vibrationen am Lenkrad – wir helfen schnell
 <input accept="image/*,application/pdf" id="file_schein" onchange="handleReifenFileChange()" type="file"/>
 </div>
 </div>
-<div class="grid-2" style="gap:0 16px">
-<div class="form-group">
-<label>HSN / TSN (Schlüsselnummer) <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" placeholder="z. B. 0588 / AHI" required="" type="text"/>
-</div>
-<div class="form-group">
-<label>Baujahr <span class="required-star">*</span></label>
-<input id="baujahr" placeholder="z. B. 2018" required="" type="text"/>
-</div>
-</div>
-<div class="form-hint">
+<input id="hsn_tsn" type="hidden"/><div class="form-row-vehicle"><div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" type="text" required maxlength="4" pattern="[0-9]{4}" placeholder="0588"/></div><div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" type="text" required placeholder="AHI"/></div><div class="form-group"><label for="baujahr">Baujahr / Erstzulassung *</label><input id="baujahr" type="text" required placeholder="2018"/></div></div><div class="form-hint">
 Bitte die Reifengröße direkt vom Reifen abschreiben. Im Fahrzeugschein kann eine andere Größe stehen als aktuell auf dem Fahrzeug montiert ist. Wichtig ist auch der Traglast- und Geschwindigkeitsindex, z. B. 91V.
 </div>
 <div class="grid-2" style="gap:0 16px">
@@ -748,13 +740,13 @@ function handleReifenFileChange() {
   if (fileInput.files.length > 0) {
     uploadText.style.display = 'none';
     successText.style.display = 'block';
-    hsnInput.removeAttribute('required');
-    hsnStar.style.display = 'none';
+    
+    
   } else {
     uploadText.style.display = 'block';
     successText.style.display = 'none';
-    hsnInput.setAttribute('required', '');
-    hsnStar.style.display = 'inline';
+    
+    
   }
 }
 
@@ -763,8 +755,10 @@ function getRadioValue(name) {
   return selected ? selected.value : '';
 }
 
+function syncVehicleCodes(){document.getElementById('hsn_tsn').value=document.getElementById('hsn_code').value.trim()+' / '+document.getElementById('tsn_code').value.trim();}
 function sendReifenToWhatsApp(event) {
   event.preventDefault();
+ syncVehicleCodes();if(!document.getElementById('reifenForm').reportValidity())return;
 
   var name = document.getElementById('name').value;
   var strasse = document.getElementById('strasse').value;
@@ -812,6 +806,7 @@ function sendReifenToWhatsApp(event) {
 }
 
 function sendReifenToEmail() {
+ syncVehicleCodes();
   if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
   var form = document.getElementById('reifenForm');
   if (!form.reportValidity()) return;
