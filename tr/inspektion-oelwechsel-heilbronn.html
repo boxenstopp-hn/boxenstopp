@@ -672,10 +672,7 @@ function sendToWhatsApp(event) {
   var serviceMsg = document.getElementById('service_msg').value.trim();
   var fileInput = document.getElementById('file_schein');
 
-  if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
-    alert('Lütfen HSN/TSN ve şasi numarasını girin veya ruhsat fotoğrafı/PDF seçin.');
-    return;
-  }
+  
 
   // Checkboxen für Filter und Zusatzoptionen auswerten
   var filters = [];
@@ -730,10 +727,7 @@ function sendServiceToEmail() {
   var km = document.getElementById('km').value.trim();
   var serviceMsg = document.getElementById('service_msg').value.trim();
   var fileInput = document.getElementById('file_schein');
-  if (fileInput.files.length === 0 && (!hsnTsn || !fin)) {
-    alert('Lütfen HSN/TSN ve şasi numarasını girin veya ruhsat fotoğrafı/PDF seçin.');
-    return;
-  }
+  
   var filters = [];
   if(document.getElementById('filter_luft').checked) filters.push("Hava filtresi");
   if(document.getElementById('filter_innen').checked) filters.push("Polen filtresi");
