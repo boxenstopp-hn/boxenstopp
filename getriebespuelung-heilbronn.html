@@ -351,7 +351,7 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, wenn Ölzust
 </div>
 <h3 style="margin-top: 24px;">2. Fahrzeugdaten</h3>
 <div class="form-group">
-<label>Fahrzeugschein hochladen (Schnellster Weg)</label>
+<label>Fahrzeugschein auswählen (optional)</label>
 <div class="file-upload-box" id="uploadBox" onclick="document.getElementById('fahrzeugschein').click()">
 <input accept="image/*,.pdf" id="fahrzeugschein" onchange="fileSelected(this)" type="file"/>
 <span id="uploadText">📷 Foto / PDF vom Fahrzeugschein auswählen</span>
@@ -359,26 +359,18 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, wenn Ölzust
 </div>
 </div>
 <div id="manualVehicleData">
-<p id="orLabel" style="text-align: center; font-weight: bold; margin: 15px 0; color: #666;">- ODER manuell eintragen -</p>
+<p id="orLabel" style="text-align: center; font-weight: bold; margin: 15px 0; color: #666;">- Fahrzeugdaten bitte zusätzlich eintragen -</p>
+<input id="hsn_tsn" type="hidden">
 <div class="form-row-2">
-<div class="form-group">
-<label for="hsn_tsn">Schlüsselnummer (HSN/TSN) <span class="req-star">*</span></label>
-<input id="hsn_tsn" placeholder="z.B. 0588 / AHM" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="vin">Fahrgestellnummer (FIN) <span class="req-star">*</span></label>
-<input id="vin" placeholder="17-stellig (Wichtig bei Automaten!)" required="" type="text"/>
-</div>
+  <div class="form-group"><label for="hsn_code">HSN <span class="req-star">*</span></label><input id="hsn_code" type="text" required maxlength="4" pattern="[0-9]{4}" placeholder="z. B. 0588"></div>
+  <div class="form-group"><label for="tsn_code">TSN <span class="req-star">*</span></label><input id="tsn_code" type="text" required placeholder="z. B. AHM"></div>
 </div>
 <div class="form-row-2">
-<div class="form-group">
-<label for="baujahr">Erstzulassung / Baujahr</label>
-<input id="baujahr" placeholder="z.B. 06/2017" type="text"/>
+  <div class="form-group"><label for="baujahr">Erstzulassung / Baujahr <span class="req-star">*</span></label><input id="baujahr" type="text" required placeholder="z. B. 06/2017"></div>
+  <div class="form-group"><label for="vin">Fahrgestellnummer (FIN) – optional</label><input id="vin" type="text" placeholder="17-stellig"></div>
 </div>
-<div class="form-group">
-<label for="km">Aktueller Kilometerstand *</label>
-<input id="km" placeholder="z.B. 145.000 km" required="" type="text"/>
-</div>
+<div class="form-row-2">
+  <div class="form-group"><label for="km">Aktueller Kilometerstand – optional</label><input id="km" type="text" placeholder="z. B. 145.000 km"></div>
 </div>
 </div>
 <div class="form-group" style="margin-top: 15px;">
@@ -438,36 +430,23 @@ function fileSelected(input) {
   var box = document.getElementById('uploadBox');
   var text = document.getElementById('uploadText');
   var subtext = document.getElementById('uploadSubtext');
-  var hsn = document.getElementById('hsn_tsn');
-  var vin = document.getElementById('vin');
-  var stars = document.querySelectorAll('.req-star');
-
-  if (input.files && input.files[0]) {
-    istDateiAusgewaehlt = true;
-    dateiName = input.files[0].name;
-    box.classList.add('has-file');
-    text.innerText = "✓ Fahrzeugschein erfolgreich ausgewählt!";
-    subtext.innerText = "Datei: " + dateiName;
-        
-    hsn.required = false;
-    vin.required = false;
-    stars.forEach(function(star) { star.style.display = 'none'; });
-  } else {
-    istDateiAusgewaehlt = false;
-    dateiName = "";
-    box.classList.remove('has-file');
-    text.innerText = "📷 Foto / PDF vom Fahrzeugschein auswählen";
-    subtext.innerText = "Am Smartphone einfach direkt Foto machen";
-        
-    hsn.required = true;
-    vin.required = true;
-    stars.forEach(function(star) { star.style.display = 'inline'; });
-  }
+  istDateiAusgewaehlt = !!(input.files && input.files[0]);
+  dateiName = istDateiAusgewaehlt ? input.files[0].name : '';
+  box.classList.toggle('has-file', istDateiAusgewaehlt);
+  text.innerText = istDateiAusgewaehlt ? '✓ Fahrzeugschein ausgewählt!' : '📷 Foto / PDF vom Fahrzeugschein auswählen';
+  subtext.innerText = istDateiAusgewaehlt ? 'Datei: ' + dateiName : 'Am Smartphone einfach direkt Foto machen';
+}
+function syncVehicleCodes() {
+  var h = document.getElementById('hsn_code');
+  var t = document.getElementById('tsn_code');
+  document.getElementById('hsn_tsn').value = h.value.trim() + ' / ' + t.value.trim();
 }
 
 function sendToWhatsApp(event) {
   event.preventDefault();
   if (!hasPrivacyConsent()) { syncConsentButtons(); return; }
+  syncVehicleCodes();
+  if (!document.getElementById('getriebeForm').reportValidity()) return;
     
   var name = document.getElementById('name').value;
   var strasse = document.getElementById('strasse').value;
@@ -514,6 +493,7 @@ function sendToWhatsApp(event) {
 function sendGetriebeToEmail() {
   if (!hasPrivacyConsent()) { syncConsentButtons(); return; }
   var form = document.getElementById('getriebeForm');
+  syncVehicleCodes();
   if (!form.reportValidity()) return;
 
   var name = document.getElementById('name').value;
