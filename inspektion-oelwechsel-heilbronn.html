@@ -106,6 +106,8 @@ h2{font-size:28px}
 .map-consent-note{display:block;margin-top:12px;font-size:13px;color:#666}
 .map-consent-note a{color:#cc0000;font-weight:900}
 .map-box iframe{width:100%;height:360px;border:0;display:block}
+
+.form-row-vehicle{display:grid;grid-template-columns:minmax(110px,.7fr) minmax(150px,1fr) minmax(180px,1.3fr);gap:16px}.form-row-vehicle-extra{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}@media(max-width:850px){.form-row-vehicle,.form-row-vehicle-extra{grid-template-columns:1fr;gap:0}}
 </style>
 <script type="application/ld+json">
 {
@@ -283,27 +285,7 @@ Regelmäßige Wartung schützt Motor, Technik und Fahrzeugwert. Nutzen Sie unser
 <label class="checkbox-item"><input id="filter_riemen" type="checkbox" value="Zahnriemen / Steuerkette prüfen"/> Zahnriemen / Steuerkette (Prüfung/Anfrage)</label>
 </div>
 </div>
-<div class="grid-2" style="gap:0 16px">
-<div class="form-group">
-<label>HSN / TSN (Schlüsselnummer) <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" placeholder="z. B. 0588 / AHI" required="" type="text"/>
-</div>
-<div class="form-group">
-<label>FIN (Fahrgestellnummer) <span class="required-star" id="fin_star">*</span></label>
-<input id="fin" placeholder="17-stellig (WBA...)" required="" type="text"/>
-</div>
-</div>
-<div class="grid-2" style="gap:0 16px">
-<div class="form-group">
-<label>Aktueller Kilometerstand <span class="required-star">*</span></label>
-<input id="km" placeholder="z. B. 125.000 km" required="" type="text"/>
-</div>
-<div class="form-group">
-<label>Serviceanzeige / Meldung im Cockpit</label>
-<input id="service_msg" placeholder="z. B. Service A fällig / Ölwechsel jetzt" type="text"/>
-</div>
-</div>
-<div class="form-group">
+<input id="hsn_tsn" type="hidden"/><div class="form-row-vehicle"><div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" type="text" required maxlength="4" pattern="[0-9]{4}" placeholder="0588"/></div><div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" type="text" required placeholder="AHI"/></div><div class="form-group"><label for="baujahr">Baujahr / Erstzulassung *</label><input id="baujahr" type="text" required placeholder="2018"/></div></div><div class="form-row-vehicle-extra"><div class="form-group"><label for="fin">FIN (optional)</label><input id="fin" type="text" placeholder="17-stellig"/></div><div class="form-group"><label for="km">Kilometerstand (optional)</label><input id="km" type="text" placeholder="125.000 km"/></div></div><div class="form-group"><label for="service_msg">Serviceanzeige / Meldung im Cockpit</label><input id="service_msg" type="text" placeholder="Service fällig"/></div><div class="form-group">
 <label>Fahrzeugschein hochladen (Empfohlen – spart Tipparbeit)</label>
 <div class="file-upload-box">
 <span class="file-upload-text" id="uploadText">📸 Foto / PDF vom Fahrzeugschein auswählen</span>
@@ -645,23 +627,25 @@ function handleFileChange() {
     uploadText.style.display = 'none';
     successText.style.display = 'block';
         
-    hsnInput.removeAttribute('required');
-    finInput.removeAttribute('required');
-    hsnStar.style.display = 'none';
-    finStar.style.display = 'none';
+    
+    
+    
+    
   } else {
     uploadText.style.display = 'block';
     successText.style.display = 'none';
         
-    hsnInput.setAttribute('required', '');
-    finInput.setAttribute('required', '');
-    hsnStar.style.display = 'inline';
-    finStar.style.display = 'inline';
+    
+    
+    
+    
   }
 }
 
+function syncVehicleCodes(){document.getElementById('hsn_tsn').value=document.getElementById('hsn_code').value.trim()+' / '+document.getElementById('tsn_code').value.trim();}
 function sendToWhatsApp(event) {
   event.preventDefault();
+ syncVehicleCodes();if(!document.getElementById('serviceForm').reportValidity())return;
   if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
 
   var name = document.getElementById('name').value.trim();
@@ -719,6 +703,7 @@ function sendToWhatsApp(event) {
 }
 
 function sendServiceToEmail() {
+ syncVehicleCodes();
   if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
   var form = document.getElementById('serviceForm');
   if (!form.reportValidity()) return;
