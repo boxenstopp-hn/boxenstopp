@@ -14,9 +14,9 @@
 <meta content="https://boxenstopp-hn.de/getriebespuelung-heilbronn" property="og:url"/>
 <style>
 *{box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#333;line-height:1.7}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#e9edf1;color:#252b32;line-height:1.7}
 a{text-decoration:none}
-header{background:#fff;padding:45px 20px 35px;text-align:center;border-bottom:5px solid #cc0000}
+header{background:#e9edf1;padding:45px 20px 35px;text-align:center;border-bottom:5px solid #cc0000}
 .logo{font-size:52px;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-2px;color:#333}
 .logo span{color:#cc0000}
 header p{font-size:18px;font-weight:600;color:#444;margin:8px 0 0}
@@ -28,8 +28,8 @@ header p{font-size:18px;font-weight:600;color:#444;margin:8px 0 0}
 .top-nav{margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 .top-nav a{background:#f4f4f4;color:#333;padding:10px 16px;border-radius:8px;font-weight:800;border:1px solid #ddd}
 .top-nav a:hover{background:#cc0000;color:#fff}
-.hero{padding:70px 20px;background:linear-gradient(135deg,#f7f7f7,#ffffff)}
-.container{max-width:1280px;margin:auto}
+.hero{padding:70px 20px;background:linear-gradient(135deg,#e1e6eb,#eef1f4)}
+.container{max-width:1440px;margin:auto}
 .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center}
 h1{font-size:44px;line-height:1.15;margin:0 0 20px;color:#1f1f1f}
 h2{font-size:32px;line-height:1.25;margin:0 0 20px;color:#1f1f1f}
@@ -45,7 +45,7 @@ h3{font-size:22px;margin:0 0 10px;color:#222}
 .box {background:#fff;padding:28px;border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.08);border-top:5px solid #cc0000}
 .box ul{margin:0;padding-left:20px}
 .section{padding:64px 20px}
-.section.alt{background:#f7f7f7}
+.section.alt{background:#dfe5eb}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .card{background:#fff;padding:26px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06);border-left:5px solid #cc0000}
@@ -118,6 +118,14 @@ h2{font-size:28px}
 .system-card span{display:block;font-weight:500;font-size:14px;margin-top:10px}
 .system-card.blue{background:linear-gradient(135deg,#1d6ac9,#1553a4);color:#fff}.system-card.dark{background:linear-gradient(135deg,#303743,#242a33);color:#fff}.system-card.red{background:linear-gradient(135deg,#e42d2d,#c91d1d);color:#fff}.system-card.purple{background:linear-gradient(135deg,#6050cb,#4734a8);color:#fff}.system-card.blue2{background:linear-gradient(135deg,#2479c8,#1260a7);color:#fff}
 @media(max-width:850px){.getriebe-choice-grid,.system-grid{grid-template-columns:1fr}.system-title{font-size:32px}.getriebe-choice{min-height:auto}}
+
+/* Breites Desktop-Layout mit ruhigen hellgrauen Flächen und klaren weißen Kacheln */
+@media(min-width:1100px){
+ #angebot-anfordern .box{padding:36px 44px}
+ #getriebeForm>.form-row-2{gap:20px}
+ #getriebeForm>.form-group{max-width:none}
+}
+@media(max-width:850px){#angebot-anfordern .box{padding:20px}}
 </style>
 <script type="application/ld+json">
 {
@@ -315,7 +323,7 @@ Wichtig: Eine Getriebespülung kann das Schaltverhalten verbessern, wenn Ölzust
 </div>
 </section>
 <section class="section alt" id="angebot-anfordern">
-<div class="container" style="max-width: 1100px;">
+<div class="container" style="max-width: 1280px;">
 <h2>Unverbindliches Angebot anfordern</h2>
 <p style="margin-bottom: 24px;">Füllen Sie einfach Ihre Daten aus. Sie erhalten zeitnah Ihr individuelles Angebot für Ihre Getriebespülung per E-Mail.</p>
 <div class="box">
