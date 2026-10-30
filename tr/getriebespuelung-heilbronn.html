@@ -404,7 +404,7 @@ Eski yağ, aşınma parçacıkları ve tortular vites geçişlerini etkileyebili
 <div class="form-row-2">
 <div class="form-group">
 <label for="hsn_tsn">Araç kodları (HSN/TSN) <span class="req-star">*</span></label>
-<input id="hsn_tsn" placeholder="ör. 0588 / AHM" required="" type="text"/>
+<input id="hsn_tsn" type="hidden"><label for="hsn_code">HSN *</label><input id="hsn_code" required type="text" placeholder="0588"><label for="tsn_code">TSN *</label><input id="tsn_code" required type="text" placeholder="AHM">
 </div>
 <div class="form-group">
 <label for="vin">Şasi numarası (VIN) <span class="req-star">*</span></label>
@@ -414,7 +414,7 @@ Eski yağ, aşınma parçacıkları ve tortular vites geçişlerini etkileyebili
 <div class="form-row-2">
 <div class="form-group">
 <label for="baujahr">İlk tescil / model yılı</label>
-<input id="baujahr" placeholder="ör. 06/2017" type="text"/>
+<input id="baujahr" placeholder="ör. 06/2017" type="text"/ required>
 </div>
 <div class="form-group">
 <label for="km">Güncel kilometre *</label>
@@ -490,9 +490,9 @@ function fileSelected(input) {
     text.innerText = "✓ Ruhsat başarıyla seçildi!";
     subtext.innerText = "Dosya: " + dateiName;
         
-    hsn.required = false;
-    vin.required = false;
-    stars.forEach(function(star) { star.style.display = 'none'; });
+    
+    
+    
   } else {
     istDateiAusgewaehlt = false;
     dateiName = "";
@@ -500,9 +500,9 @@ function fileSelected(input) {
     text.innerText = "📷 Ruhsat fotoğrafı / PDF seçin";
     subtext.innerText = "Telefonunuzdan doğrudan fotoğraf çekebilirsiniz";
         
-    hsn.required = true;
-    vin.required = true;
-    stars.forEach(function(star) { star.style.display = 'inline'; });
+    
+    
+    
   }
 }
 
@@ -907,5 +907,5 @@ WhatsApp / Telefon: <a href="tel:+4971339220552">07133 9220552</a> · E-posta: <
 </p>
 <div class="bs-privacy-settings-wrap"><button class="bs-privacy-settings" data-bs-consent="settings" type="button">Gizlilik ayarları</button></div>
 </footer>
-</body>
+<script>(function(){var h=document.getElementById('hsn_code'),t=document.getElementById('tsn_code'),c=document.getElementById('hsn_tsn');function sync(){c.value=h.value.trim()+' / '+t.value.trim()}h.addEventListener('input',sync);t.addEventListener('input',sync);document.querySelectorAll('form').forEach(function(f){f.addEventListener('submit',function(e){sync();if(!f.reportValidity()){e.preventDefault();e.stopImmediatePropagation()}},true)});document.querySelectorAll('button[onclick]').forEach(function(b){b.addEventListener('click',function(e){sync();if(!h.value.trim()||!t.value.trim()){e.preventDefault();e.stopImmediatePropagation();(h.value.trim()?t:h).reportValidity()}},true)})})();</script></body>
 </html>
