@@ -121,6 +121,11 @@ h2{font-size:28px}
 .map-consent-note{display:block;margin-top:12px;font-size:13px;color:#666}
 .map-consent-note a{color:#cc0000;font-weight:900}
 .map-box iframe{width:100%;height:360px;border:0;display:block}
+
+.form-row-address{display:grid;grid-template-columns:minmax(0,2fr) minmax(110px,.7fr) minmax(0,1.3fr);gap:16px}
+.form-row-vehicle{display:grid;grid-template-columns:minmax(110px,.7fr) minmax(150px,1fr) minmax(180px,1.3fr);gap:16px}
+.form-row-vehicle-extra{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px}
+@media(max-width:850px){.form-row-address,.form-row-vehicle,.form-row-vehicle-extra{grid-template-columns:minmax(0,1fr);gap:0}}
 </style>
 
 <script type="application/ld+json">
@@ -316,48 +321,13 @@ Für Aus- und Einbau des DPF erstellen wir Ihnen gerne ein individuelles Angebot
 <form onsubmit="sendToWhatsApp(event)" id="dpfForm">
   
   <h3>1. Ihre Kontaktdaten</h3>
-  <div class="form-row-2">
-    <div class="form-group">
-      <label for="vorname">Vorname *</label>
-      <input type="text" id="vorname" required placeholder="Vorname">
-    </div>
-    <div class="form-group">
-      <label for="nachname">Nachname *</label>
-      <input type="text" id="nachname" required placeholder="Nachname">
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="strasse">Straße und Hausnummer *</label>
-    <input type="text" id="strasse" required placeholder="Straße und Hausnummer">
-  </div>
-
-  <div class="form-row-2">
-    <div class="form-group">
-      <label for="plz">Postleitzahl *</label>
-      <input type="text" id="plz" required placeholder="PLZ">
-    </div>
-    <div class="form-group">
-      <label for="ort">Ort *</label>
-      <input type="text" id="ort" required placeholder="Ort">
-    </div>
-  </div>
-  
-  <div class="form-row-2">
-    <div class="form-group">
-      <label for="email">E-Mail-Adresse *</label>
-      <input type="email" id="email" required placeholder="ihre@mail.de">
-    </div>
-    <div class="form-group">
-      <label for="phone">Telefonnummer *</label>
-      <input type="tel" id="phone" required placeholder="Für eventuelle Rückfragen">
-    </div>
-  </div>
-
+<div class="form-row-2"><div class="form-group"><label for="vorname">Vorname *</label><input type="text" id="vorname" required placeholder="Vorname"></div><div class="form-group"><label for="nachname">Nachname *</label><input type="text" id="nachname" required placeholder="Nachname"></div></div>
+<div class="form-row-address"><div class="form-group"><label for="strasse">Straße und Hausnummer *</label><input type="text" id="strasse" required placeholder="Straße und Hausnummer"></div><div class="form-group"><label for="plz">Postleitzahl *</label><input type="text" id="plz" required placeholder="PLZ"></div><div class="form-group"><label for="ort">Ort *</label><input type="text" id="ort" required placeholder="Ort"></div></div>
+<div class="form-row-2"><div class="form-group"><label for="email">E-Mail-Adresse *</label><input type="email" id="email" required placeholder="ihre@mail.de"></div><div class="form-group"><label for="phone">Telefonnummer *</label><input type="tel" id="phone" required placeholder="Für eventuelle Rückfragen"></div></div>
   <h3 style="margin-top: 24px;">2. Fahrzeugdaten</h3>
   
   <div class="form-group">
-    <label>Fahrzeugschein hochladen (Schnellster Weg)</label>
+    <label>Fahrzeugschein auswählen (optional)</label>
     <div class="file-upload-box" id="uploadBox" onclick="document.getElementById('fahrzeugschein').click()">
       <input type="file" id="fahrzeugschein" accept="image/*,.pdf" onchange="fileSelected(this)">
       <span id="uploadText">📷 Foto / PDF vom Fahrzeugschein auswählen</span>
@@ -365,32 +335,10 @@ Für Aus- und Einbau des DPF erstellen wir Ihnen gerne ein individuelles Angebot
     </div>
   </div>
   
-  <div id="manualVehicleData">
-    <p style="text-align: center; font-weight: bold; margin: 15px 0; color: #666;" id="orLabel">- ODER manuell eintragen -</p>
-
-    <div class="form-row-2">
-      <div class="form-group">
-        <label for="hsn_tsn">Schlüsselnummer (HSN/TSN) <span class="req-star">*</span></label>
-        <input type="text" id="hsn_tsn" required placeholder="z.B. 0588 / AHM">
-      </div>
-      <div class="form-group">
-        <label for="vin">Fahrgestellnummer (FIN) <span class="req-star">*</span></label>
-        <input type="text" id="vin" required placeholder="17-stellig (Wichtig für Zuordnung!)">
-      </div>
-    </div>
-
-    <div class="form-row-2">
-      <div class="form-group">
-        <label for="baujahr">Erstzulassung / Baujahr</label>
-        <input type="text" id="baujahr" placeholder="z.B. 06/2015">
-      </div>
-      <div class="form-group">
-        <label for="km">Aktueller Kilometerstand *</label>
-        <input type="text" id="km" required placeholder="z.B. 182.000 km">
-      </div>
-    </div>
-  </div>
-
+<div id="manualVehicleData"><p style="text-align:center;font-weight:bold;margin:15px 0;color:#666" id="orLabel">- Fahrzeugdaten bitte zusätzlich eintragen -</p>
+<input type="hidden" id="hsn_tsn">
+<div class="form-row-vehicle"><div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" type="text" required maxlength="4" pattern="[0-9]{4}" placeholder="z. B. 0588"></div><div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" type="text" required placeholder="z. B. AHM"></div><div class="form-group"><label for="baujahr">Erstzulassung / Baujahr *</label><input id="baujahr" type="text" required placeholder="z. B. 06/2015"></div></div>
+<div class="form-row-vehicle-extra"><div class="form-group"><label for="vin">Fahrgestellnummer (FIN) – optional</label><input id="vin" type="text" placeholder="17-stellig"></div><div class="form-group"><label for="km">Aktueller Kilometerstand – optional</label><input id="km" type="text" placeholder="z. B. 182.000 km"></div></div></div>
   <div class="form-group" style="margin-top: 15px;">
     <label for="filter_status">Zustand des Filters / Anlieferung</label>
     <select id="filter_status">
@@ -424,40 +372,19 @@ var istDateiAusgewaehlt = false;
 var dateiName = "";
 
 function fileSelected(input) {
-  var box = document.getElementById('uploadBox');
-  var text = document.getElementById('uploadText');
-  var subtext = document.getElementById('uploadSubtext');
-  var hsn = document.getElementById('hsn_tsn');
-  var vin = document.getElementById('vin');
-  var stars = document.querySelectorAll('.req-star');
-
-  if (input.files && input.files[0]) {
-    istDateiAusgewaehlt = true;
-    dateiName = input.files[0].name;
-    box.classList.add('has-file');
-    text.innerText = "✓ Fahrzeugschein erfolgreich ausgewählt!";
-    subtext.innerText = "Datei: " + dateiName;
-    
-    hsn.required = false;
-    vin.required = false;
-    stars.forEach(function(star) { star.style.display = 'none'; });
-  } else {
-    istDateiAusgewaehlt = false;
-    dateiName = "";
-    box.classList.remove('has-file');
-    text.innerText = "📷 Foto / PDF vom Fahrzeugschein auswählen";
-    subtext.innerText = "Am Smartphone einfach direkt Foto machen";
-    
-    hsn.required = true;
-    vin.required = true;
-    stars.forEach(function(star) { star.style.display = 'inline'; });
-  }
+ var box=document.getElementById('uploadBox'),text=document.getElementById('uploadText'),subtext=document.getElementById('uploadSubtext');
+ istDateiAusgewaehlt=!!(input.files&&input.files[0]);dateiName=istDateiAusgewaehlt?input.files[0].name:'';
+ box.classList.toggle('has-file',istDateiAusgewaehlt);
+ text.innerText=istDateiAusgewaehlt?'✓ Fahrzeugschein ausgewählt!':'📷 Foto / PDF vom Fahrzeugschein auswählen';
+ subtext.innerText=istDateiAusgewaehlt?'Datei: '+dateiName:'Am Smartphone einfach direkt Foto machen';
 }
-
+function syncVehicleCodes(){document.getElementById('hsn_tsn').value=document.getElementById('hsn_code').value.trim()+' / '+document.getElementById('tsn_code').value.trim();}
 function sendToWhatsApp(event) {
   event.preventDefault();
   if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
   
+  syncVehicleCodes();
+  if (!document.getElementById('dpfForm').reportValidity()) return;
   var vorname = document.getElementById('vorname').value;
   var nachname = document.getElementById('nachname').value;
   var strasse = document.getElementById('strasse').value;
@@ -504,6 +431,7 @@ function sendToWhatsApp(event) {
 function sendDpfToEmail() {
   if (!document.getElementById('privacy').checked) { alert('Bitte zuerst der Datenschutzerklärung zustimmen.'); return; }
   var form = document.getElementById('dpfForm');
+  syncVehicleCodes();
   if (!form.reportValidity()) return;
 
   var vorname = document.getElementById('vorname').value;
