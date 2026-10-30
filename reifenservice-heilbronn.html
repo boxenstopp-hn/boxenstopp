@@ -308,7 +308,7 @@ Ob Saisonwechsel, neue Reifen oder Vibrationen am Lenkrad – wir helfen schnell
 <div class="grid-2" style="gap:0 16px">
 <div class="form-group">
 <label>HSN / TSN (Schlüsselnummer) <span class="required-star" id="hsn_star">*</span></label>
-<input id="hsn_tsn" placeholder="z. B. 0588 / AHI" required="" type="text"/>
+<input id="hsn_tsn" type="hidden"/><label for="hsn_code">HSN *</label><input id="hsn_code" type="text" required placeholder="0588"/><label for="tsn_code">TSN *</label><input id="tsn_code" type="text" required placeholder="AHI"/>
 </div>
 <div class="form-group">
 <label>Baujahr <span class="required-star">*</span></label>
@@ -749,7 +749,7 @@ function handleReifenFileChange() {
     uploadText.style.display = 'none';
     successText.style.display = 'block';
     hsnInput.removeAttribute('required');
-    hsnStar.style.display = 'none';
+    hsnStar.style.display = 'inline';
   } else {
     uploadText.style.display = 'block';
     successText.style.display = 'none';
@@ -900,5 +900,5 @@ function sendReifenToEmail() {
 })();
 </script>
 
-</body>
+<script>(function(){var h=document.getElementById('hsn_code'),t=document.getElementById('tsn_code'),c=document.getElementById('hsn_tsn');function sync(){c.value=h.value.trim()+' / '+t.value.trim()}h.addEventListener('input',sync);t.addEventListener('input',sync);document.querySelectorAll('form').forEach(function(f){f.addEventListener('submit',function(e){sync();if(!f.reportValidity()){e.preventDefault();e.stopImmediatePropagation()}},true)});document.querySelectorAll('button[onclick]').forEach(function(b){b.addEventListener('click',function(e){sync();if(!h.value.trim()||!t.value.trim()){e.preventDefault();e.stopImmediatePropagation();(h.value.trim()?t:h).reportValidity()}},true)})})();</script></body>
 </html>
