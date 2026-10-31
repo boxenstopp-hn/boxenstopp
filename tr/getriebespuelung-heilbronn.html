@@ -400,26 +400,16 @@ Eski yağ, aşınma parçacıkları ve tortular vites geçişlerini etkileyebili
 </div>
 </div>
 <div id="manualVehicleData">
-<p id="orLabel" style="text-align: center; font-weight: bold; margin: 15px 0; color: #666;">– VEYA elle girin –</p>
-<div class="form-row-2">
-<div class="form-group">
-<label for="hsn_tsn">Araç kodları (HSN/TSN) <span class="req-star">*</span></label>
-<input id="hsn_tsn" placeholder="ör. 0588 / AHM" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="vin">Şasi numarası (VIN) <span class="req-star">*</span></label>
-<input id="vin" placeholder="17 karakter (otomatik şanzımanda önemlidir)" required="" type="text"/>
-</div>
+<p id="orLabel" style="text-align:center;font-weight:600;margin:15px 0;color:#666">Ruhsat seçseniz bile HSN, TSN ve ilk tescil yılını girin (zorunlu).</p>
+<input id="hsn_tsn" type="hidden"/>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px">
+<div class="form-group"><label for="hsn_code">HSN *</label><input id="hsn_code" type="text" pattern="[0-9]{4}" maxlength="4" required placeholder="ör. 0588"/></div>
+<div class="form-group"><label for="tsn_code">TSN *</label><input id="tsn_code" type="text" required placeholder="ör. AHM"/></div>
+<div class="form-group"><label for="baujahr">İlk tescil / model yılı *</label><input id="baujahr" type="text" required placeholder="ör. 06/2017"/></div>
 </div>
 <div class="form-row-2">
-<div class="form-group">
-<label for="baujahr">İlk tescil / model yılı</label>
-<input id="baujahr" placeholder="ör. 06/2017" type="text"/>
-</div>
-<div class="form-group">
-<label for="km">Güncel kilometre *</label>
-<input id="km" placeholder="ör. 145.000 km" required="" type="text"/>
-</div>
+<div class="form-group"><label for="vin">Şasi numarası (VIN) (isteğe bağlı)</label><input id="vin" type="text" placeholder="17 karakter (isteğe bağlı)"/></div>
+<div class="form-group"><label for="km">Güncel kilometre (isteğe bağlı)</label><input id="km" type="text" placeholder="ör. 145.000 km (isteğe bağlı)"/></div>
 </div>
 </div>
 <div class="form-group" style="margin-top: 15px;">
@@ -479,9 +469,6 @@ function fileSelected(input) {
   var box = document.getElementById('uploadBox');
   var text = document.getElementById('uploadText');
   var subtext = document.getElementById('uploadSubtext');
-  var hsn = document.getElementById('hsn_tsn');
-  var vin = document.getElementById('vin');
-  var stars = document.querySelectorAll('.req-star');
 
   if (input.files && input.files[0]) {
     istDateiAusgewaehlt = true;
@@ -490,9 +477,6 @@ function fileSelected(input) {
     text.innerText = "✓ Ruhsat başarıyla seçildi!";
     subtext.innerText = "Dosya: " + dateiName;
         
-    hsn.required = false;
-    vin.required = false;
-    stars.forEach(function(star) { star.style.display = 'none'; });
   } else {
     istDateiAusgewaehlt = false;
     dateiName = "";
@@ -500,15 +484,20 @@ function fileSelected(input) {
     text.innerText = "📷 Ruhsat fotoğrafı / PDF seçin";
     subtext.innerText = "Telefonunuzdan doğrudan fotoğraf çekebilirsiniz";
         
-    hsn.required = true;
-    vin.required = true;
-    stars.forEach(function(star) { star.style.display = 'inline'; });
   }
+}
+
+function syncVehicleCodes() {
+  var h = document.getElementById('hsn_code');
+  var t = document.getElementById('tsn_code');
+  document.getElementById('hsn_tsn').value = h.value.trim() + ' / ' + t.value.trim();
 }
 
 function sendToWhatsApp(event) {
   event.preventDefault();
   if (!hasPrivacyConsent()) { syncConsentButtons(); return; }
+  syncVehicleCodes();
+  if (!document.getElementById('getriebeForm').reportValidity()) return;
     
   var name = document.getElementById('name').value;
   var strasse = document.getElementById('strasse').value;
@@ -555,6 +544,7 @@ function sendToWhatsApp(event) {
 function sendGetriebeToEmail() {
   if (!hasPrivacyConsent()) { syncConsentButtons(); return; }
   var form = document.getElementById('getriebeForm');
+  syncVehicleCodes();
   if (!form.reportValidity()) return;
 
   var name = document.getElementById('name').value;
