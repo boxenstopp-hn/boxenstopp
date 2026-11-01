@@ -15,20 +15,68 @@
 
 <style>
 *{box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#333;line-height:1.7}
-header{background:#fff;padding:45px 20px;text-align:center;border-bottom:5px solid #cc0000}
-.logo{font-size:52px;font-weight:900;font-style:italic;color:#333}
-.logo span{color:#cc0000}
-.hero{padding:70px 20px;background:#f7f7f7}
-.container{max-width:1100px;margin:auto}
-h1{font-size:44px}
-h2{font-size:32px}
-h3{font-size:22px}
-a{color:#b30000}
-@media(max-width:700px){h1{font-size:32px}h2{font-size:25px}h3{font-size:20px}.grid-3{grid-template-columns:1fr}.hero{padding:40px 20px}header{padding:24px 16px}.logo{font-size:42px}}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{background:#fff;padding:25px;border-left:5px solid #cc0000;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
-.notice{background:#fff4f4;border-left:6px solid #cc0000;padding:20px;border-radius:10px}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#262d33;line-height:1.65}
+a{color:#b30000;text-underline-offset:3px}
+.container{max-width:1100px;margin:auto;padding-left:20px;padding-right:20px}
+.site-header{background:#fff;border-bottom:1px solid #e2e5e8;position:relative;z-index:10}
+.site-header .site-top{max-width:1140px;margin:0 auto;padding:19px 20px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.site-brand{display:inline-block;text-decoration:none;color:#222a32;font-size:31px;font-weight:900;font-style:italic;letter-spacing:-1.4px;white-space:nowrap}
+.site-brand span{color:#c90000}
+.site-nav{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px}
+.site-nav a{color:#27323a;font-size:14px;font-weight:700;text-decoration:none;padding:7px 0}
+.site-nav a:hover,.site-nav a:focus-visible{color:#be0000;text-decoration:underline}
+.site-contact{background:#111820;color:#f5f6f7}
+.site-contact .container{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding-top:11px;padding-bottom:11px}
+.site-contact p{margin:0;font-size:14px}
+.site-contact a{color:#fff;font-weight:700;text-decoration:none}
+.site-contact a:hover{text-decoration:underline}
+.mobile-menu{display:none}
+.hero{padding:62px 0;background:#f6f7f8;border-bottom:1px solid #e8e8e8}
+.eyebrow{display:inline-block;font-weight:800;font-size:13px;color:#b30000;text-transform:uppercase;letter-spacing:.06em;margin:0 0 16px}
+h1{font-size:clamp(31px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin:0 0 20px;color:#20262d}
+h2{font-size:clamp(25px,3vw,32px);line-height:1.25;margin:0 0 22px;color:#222a31}
+h3{font-size:20px;line-height:1.3}
+.lead{font-size:19px;max-width:760px;margin:0 0 24px}
+.notice{background:#fff;border-left:5px solid #cc0000;padding:19px 22px;border-radius:8px;max-width:800px}
+.section-pad{padding:58px 0}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:#fff;padding:24px;border-left:4px solid #cc0000;border-radius:10px;box-shadow:0 5px 22px rgba(0,0,0,.07)}
+.card h3{margin:0 0 8px}
+.card p{margin:0}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+.btn{border-radius:8px;display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;font-weight:800;text-decoration:none;line-height:1.25;min-height:46px}
+.btn-red{background:#c90000;color:#fff}.btn-red:hover{background:#a90000;color:#fff}
+.btn-dark{background:#202830;color:#fff}.btn-dark:hover{background:#111820;color:#fff}
+.btn-white{background:#fff;border:1px solid #d2d5d8;color:#1f292f}
+.btn-white:hover{background:#f0f1f3}
+.article-text{padding:58px 0;background:#f6f7f8}
+.article-text p{max-width:850px;margin:0 0 20px}
+.article-text h2:not(:first-child){margin-top:38px}
+.site-footer{background:#141a20;color:#f0f2f4;padding:35px 0 23px}
+.site-footer .footer-inner{display:flex;gap:22px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}
+.site-footer p{margin:6px 0;font-size:14px}
+.site-footer a{color:#fff}
+.site-footer .footer-links{display:flex;gap:12px 18px;flex-wrap:wrap}
+.site-footer .footer-links a{font-size:14px}
+@media(max-width:850px){
+.site-header .site-top{padding:14px 18px}
+.site-nav{display:none}
+.mobile-menu{display:block;margin-left:auto;position:relative}
+.mobile-menu summary{cursor:pointer;font-weight:800;border:1px solid #cfd2d7;padding:8px 13px;border-radius:7px;list-style:none}
+.mobile-menu summary::-webkit-details-marker{display:none}
+.mobile-menu[open] .mobile-nav{position:absolute;right:0;top:calc(100% + 9px);width:min(300px,86vw);background:#fff;border:1px solid #ddd;border-radius:9px;box-shadow:0 9px 22px rgba(0,0,0,.14);padding:12px;display:flex;flex-direction:column}
+.mobile-nav a{padding:9px 10px;text-decoration:none;font-weight:700;color:#222;border-radius:5px}
+.mobile-nav a:hover{background:#f2f2f2}
+.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:580px){
+.site-brand{font-size:28px}
+.grid-3{grid-template-columns:1fr}
+.hero{padding:40px 0}
+.section-pad,.article-text{padding:40px 0}
+.btn-row{flex-direction:column}.btn{width:100%}
+.site-contact .container{gap:7px}
+}
 </style>
 
 
@@ -47,23 +95,41 @@ a{color:#b30000}
 
 <body>
 
-<header>
-
-<div class="logo">Boxen<span>stopp</span></div>
-
-<p>
-DPF Regeneration häufig · Heilbronn & Umgebung
-</p>
-
+<header class="site-header">
+  <div class="site-top">
+    <a class="site-brand" href="/" aria-label="Boxenstopp Startseite">Boxen<span>stopp</span></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a href="/">Startseite</a>
+      <a href="/getriebespuelung-heilbronn">Getriebeöl-Service</a>
+      <a href="/achsvermessung-heilbronn">Achsvermessung</a>
+      <a href="/dpf-reinigung-heilbronn">DPF-Reinigung</a>
+      <a href="/klimaservice-heilbronn">Klimaservice</a>
+      <a href="/diagnose-fehlerspeicher-heilbronn">Diagnose</a>
+      <a href="https://gutachter-boxenstopp.de/">Unfallgutachten</a>
+    </nav>
+    <details class="mobile-menu">
+      <summary>☰ Menü</summary>
+      <nav class="mobile-nav" aria-label="Mobile Hauptnavigation">
+        <a href="/">Startseite</a>
+        <a href="/getriebespuelung-heilbronn">Getriebeöl-Service</a>
+        <a href="/achsvermessung-heilbronn">Achsvermessung</a>
+        <a href="/dpf-reinigung-heilbronn">DPF-Reinigung</a>
+        <a href="/klimaservice-heilbronn">Klimaservice</a>
+        <a href="/diagnose-fehlerspeicher-heilbronn">Diagnose</a>
+        <a href="https://gutachter-boxenstopp.de/">Unfallgutachten</a>
+      </nav>
+    </details>
+  </div>
 </header>
+<div class="site-contact">
+  <div class="container">
+    <p>Boxenstopp · Schafhohle 2 · 74226 Nordheim</p>
+    <div><a href="https://wa.me/4971339220552">WhatsApp</a> &nbsp;·&nbsp; <a href="tel:+4971339220552">07133 9220552</a></div>
+  </div>
+</div>
 
-<section class="hero">
-
-<div class="container">
-
-<h1>DPF Regeneration läuft häufig?</h1>
-
-<p>
+<section class="hero"><div class="container"><p class="eyebrow">DPF-Regeneration · Nordheim bei Heilbronn</p><h1>DPF Regeneration läuft häufig?</h1>
+<p class="lead">
 Läuft der Lüfter oft nach, steigt der Verbrauch oder riecht das Fahrzeug auffällig?
 Boxenstopp Nordheim hilft bei der Diagnose im Raum Heilbronn.
 </p>
@@ -71,16 +137,15 @@ Boxenstopp Nordheim hilft bei der Diagnose im Raum Heilbronn.
 <div class="notice">
 Häufige Regenerationen bedeuten nicht automatisch einen defekten Dieselpartikelfilter. Oft sind Sensoren oder eine hohe Rußbeladung die Ursache.
 </div>
-
+<div class="btn-row">
+  <a class="btn btn-red" href="/dpf-reinigung-heilbronn">DPF-Reinigung &amp; Anfrage</a>
+  <a class="btn btn-dark" href="/diagnose-fehlerspeicher-heilbronn">Diagnose ansehen</a>
+  <a class="btn btn-white" href="https://wa.me/4971339220552">Per WhatsApp anfragen</a>
 </div>
-
+</div>
 </section>
 
-<section>
-
-<div class="container">
-
-<h2>Häufige Ursachen</h2>
+<section class="section-pad"><div class="container"><h2>Häufige Ursachen</h2>
 
 <div class="grid-3">
 
@@ -121,8 +186,7 @@ Häufige Regenerationen bedeuten nicht automatisch einen defekten Dieselpartikel
 </section>
 
 
-<section aria-labelledby="dpf-haeufig-warum" style="padding:54px 20px;background:#f7f7f7">
-  <div class="container">
+<section class="article-text" aria-labelledby="dpf-haeufig-warum"><div class="container">
     <h2 id="dpf-haeufig-warum">Warum regeneriert mein Dieselpartikelfilter so oft?</h2>
     <p>Bei der Regeneration versucht das Fahrzeug, angesammelten Ruß im Dieselpartikelfilter abzubauen. Wie häufig das nötig ist, hängt unter anderem von Fahrprofil, Motorzustand und Filterbeladung ab. Wer überwiegend kurze Strecken fährt, erlebt mitunter häufiger unterbrochene Regenerationen.</p>
     <p>Wenn sich die Regeneration ungewöhnlich oft wiederholt, der Verbrauch ansteigt oder Warnleuchten erscheinen, sollte zuerst die Ursache geklärt werden. Ein zugesetzter DPF ist nur eine Möglichkeit: Auch unplausible Messwerte, Probleme mit der Abgastemperatur oder andere Motorfehler können eine Rolle spielen.</p>
@@ -135,8 +199,23 @@ Häufige Regenerationen bedeuten nicht automatisch einen defekten Dieselpartikel
 </section>
 
 
-<footer class="bs-legal-links-footer" aria-label="Rechtliches" style="background:#11161b;color:#dbe0e4;text-align:center;padding:18px 16px;font:14px/1.6 Arial,Helvetica,sans-serif">
-<a href="/impressum" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Impressum</a><span aria-hidden="true" style="padding:0 14px">·</span><a href="/datenschutz" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Datenschutz</a>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <strong>BOXENSTOPP · Nordheim</strong>
+      <p>Schafhohle 2, 74226 Nordheim · Mo–Fr 10–16 Uhr</p>
+      <p><a href="tel:+4971339220552">07133 9220552</a> · <a href="mailto:info@boxenstopp-hn.de">info@boxenstopp-hn.de</a></p>
+    </div>
+    <nav class="footer-links" aria-label="Weitere Leistungen und Rechtliches">
+      <a href="/">Startseite</a>
+      <a href="/dpf-reinigung-heilbronn">DPF-Reinigung</a>
+      <a href="/getriebespuelung-heilbronn">Getriebespülung</a>
+      <a href="/achsvermessung-heilbronn">Achsvermessung</a>
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
+      <button type="button" data-bs-consent="settings">Datenschutzeinstellungen</button>
+    </nav>
+  </div>
 </footer>
 </body>
 
