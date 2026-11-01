@@ -1,0 +1,39 @@
+/* Gemeinsame Navigation für ältere Boxenstopp-Ratgeberseiten. */
+.bs-mini-header{background:#fff!important;border-bottom:1px solid #e3e5e8!important;padding:14px 20px!important}
+.bs-mini-shell{max-width:1160px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.bs-mini-brand{color:#232a31!important;font:italic 900 31px/1.1 Arial,Helvetica,sans-serif!important;letter-spacing:-1.1px;text-decoration:none!important;white-space:nowrap}
+.bs-mini-brand span{color:#c70000!important}
+.bs-mini-nav{display:flex;gap:8px 18px;flex-wrap:wrap;align-items:center}
+.bs-mini-nav a{font:700 14px/1.3 Arial,Helvetica,sans-serif!important;color:#283139!important;text-decoration:none!important;padding:8px 0}
+.bs-mini-nav a:hover,.bs-mini-nav a:focus-visible{color:#b50000!important;text-decoration:underline!important}
+.bs-mini-mobile{display:none}
+.bs-mini-bar{background:#161d24;color:#fff;font:14px/1.5 Arial,Helvetica,sans-serif}
+.bs-mini-bar-inner{max-width:1140px;margin:auto;padding:10px 20px;display:flex;flex-wrap:wrap;gap:7px 22px;align-items:center;justify-content:space-between}
+.bs-mini-bar a{color:#fff!important;font-weight:700;text-decoration:none}
+.bs-mini-bar a:hover{text-decoration:underline}
+.bs-mini-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:25px}
+.bs-mini-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:12px 18px;border-radius:8px;font:800 15px/1.3 Arial,Helvetica,sans-serif!important;text-decoration:none!important;background:#c90000;color:#fff!important}
+.bs-mini-actions a:nth-child(2){background:#222b34}
+.bs-mini-actions a:nth-child(3){background:#fff;color:#222b34!important;border:1px solid #cbd0d5}
+.bs-mini-actions a:hover{filter:brightness(.94)}
+.bs-mini-bottom-nav{display:flex;gap:12px 20px;flex-wrap:wrap;align-items:center;justify-content:center;margin:5px auto 12px;max-width:1120px}
+.bs-mini-bottom-nav a{color:inherit!important;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:860px){
+.bs-mini-nav{display:none}
+.bs-mini-mobile{display:block;position:relative;margin-left:auto}
+.bs-mini-mobile summary{font:800 15px Arial,Helvetica,sans-serif;cursor:pointer;padding:10px 14px;border:1px solid #d0d4d8;border-radius:7px;list-style:none}
+.bs-mini-mobile summary::-webkit-details-marker{display:none}
+.bs-mini-mobile[open] nav{position:absolute;right:0;top:calc(100% + 8px);z-index:40;display:flex;flex-direction:column;width:min(300px,85vw);background:#fff;border:1px solid #ddd;box-shadow:0 8px 30px rgba(0,0,0,.18);padding:12px;border-radius:8px}
+.bs-mini-mobile nav a{display:block;padding:9px 10px;font:700 15px Arial,Helvetica,sans-serif;color:#252b31;text-decoration:none;text-align:left}
+.bs-mini-mobile nav a:hover{background:#f5f5f5}
+}
+@media(max-width:620px){
+.bs-mini-header{padding:12px 15px!important}
+.bs-mini-brand{font-size:27px!important}
+.bs-mini-actions{flex-direction:column;align-items:stretch}
+.bs-mini-actions a{width:100%;text-align:center}
+.grid-3{grid-template-columns:1fr!important}
+.hero{padding:38px 0!important}
+h1{font-size:clamp(29px,8vw,37px)!important;line-height:1.2!important}
+h2{font-size:clamp(23px,6vw,29px)!important}
+}
