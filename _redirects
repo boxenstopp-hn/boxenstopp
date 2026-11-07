@@ -1,3 +1,8 @@
+# Google Search Console 2026-11-07: explizite Weiterleitungen fuer alte www + .html URLs
+/inspektion-oelwechsel-heilbronn.html https://boxenstopp-hn.de/inspektion-oelwechsel-heilbronn 301
+/diagnose-fehlerspeicher-heilbronn.html https://boxenstopp-hn.de/diagnose-fehlerspeicher-heilbronn 301
+/getriebespuelung-heilbronn.html https://boxenstopp-hn.de/getriebespuelung-heilbronn 301
+
 # Konsolidierung inhaltlich fast identischer DPF-Seiten
 /dpf-regeneration-zu-haeufig-heilbronn /dpf-regeneration-haeufig-heilbronn 301
 /dpf-regeneration-zu-haeufig-heilbronn.html /dpf-regeneration-haeufig-heilbronn 301
