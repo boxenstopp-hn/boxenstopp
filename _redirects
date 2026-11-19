@@ -21,3 +21,7 @@
 /dpf-regeneration-unterbrochen-heilbronn.html /dpf-regeneration-fehlgeschlagen-heilbronn 301
 /dpf-regeneration-bricht-ab-heilbronn /dpf-regeneration-fehlgeschlagen-heilbronn 301
 /dpf-regeneration-bricht-ab-heilbronn.html /dpf-regeneration-fehlgeschlagen-heilbronn 301
+
+# Zwei von Google am 15.11.2026 gemeldete alte 404-Adressen auf vorhandene Leistungsseiten leiten
+/inspektion-heilbronn /inspektion-oelwechsel-heilbronn 301
+/fehlerdiagnose-heilbronn /diagnose-fehlerspeicher-heilbronn 301
