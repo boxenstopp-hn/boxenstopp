@@ -1,0 +1,20 @@
+name: SEO URL consistency
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate sitemap, canonicals, indexing and internal links
+        run: python3 scripts/seo_audit.py
+      - name: Check live redirects and 404 status
+        run: python3 scripts/live_url_probe.py
