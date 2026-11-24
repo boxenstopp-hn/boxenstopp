@@ -25,3 +25,9 @@
 # Zwei von Google am 15.11.2026 gemeldete alte 404-Adressen auf vorhandene Leistungsseiten leiten
 /inspektion-heilbronn /inspektion-oelwechsel-heilbronn 301
 /fehlerdiagnose-heilbronn /diagnose-fehlerspeicher-heilbronn 301
+
+# Historische Leistungsadressen aus GSC vom 24.11.2026
+/oelwechsel-heilbronn /inspektion-oelwechsel-heilbronn 301
+/oelwechsel-heilbronn.html /inspektion-oelwechsel-heilbronn 301
+/spureinstellung-heilbronn /achsvermessung-heilbronn 301
+/spureinstellung-heilbronn.html /achsvermessung-heilbronn 301
